@@ -1,0 +1,11 @@
+<!-- Stylesheets -->
+<link rel="stylesheet" href="landing/css/vendor/owl.carousel.css">
+<link rel="stylesheet" href="landing/css/vendor/owl.theme.css">
+<link rel="stylesheet" href="landing/css/vendor/venobox.css">
+<link rel="stylesheet" href="landing/css/vendor/elegant-icons.css">
+<link rel="stylesheet" href="landing/css/vendor/pe-icon-7-stroke.min.css">
+<link rel="stylesheet" href="landing/css/vendor/font-awesome.css">
+<link rel="stylesheet" href="landing/css/vendor/animate.css">
+<link rel="stylesheet" href="landing/css/vendor/bootstrap.min.css">
+<link rel="stylesheet" href="landing/css/base.css">
+<link rel="stylesheet" href="landing/css/clean.scrollbar.css">

@@ -1,8 +1,0 @@
-#surefire
-#Sun Nov 27 13:54:06 CET 2016
-maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
-user.dir=C\:\\Users\\.local\\Documents\\projects\\smouq\\backend
-file.encoding=UTF-8
-localRepository=C\:\\Users\\.local\\.m2\\repository
-netbeans.deploy=true
-basedir=C\:\\Users\\.local\\Documents\\projects\\smouq\\backend
