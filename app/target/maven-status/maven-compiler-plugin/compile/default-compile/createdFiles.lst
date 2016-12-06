@@ -1,7 +1,0 @@
-smouq\singleton\RedisHandler.class
-smouq\compress\HtmlCompressor.class
-smouq\api\ApplicationConfig.class
-smouq\api\PlatformService.class
-smouq\compress\CharResponseWrapper.class
-smouq\filter\CompressResponseFilter.class
-smouq\filter\LogFilter.class

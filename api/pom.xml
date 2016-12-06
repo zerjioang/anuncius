@@ -16,6 +16,12 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.24</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -31,6 +37,15 @@
             <scope>compile</scope>
         </dependency>
         
+        <!-- source from: https://jersey.java.net/documentation/latest/security.html -->
+        <!-- dependency for oauth support -->
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.security/oauth2-client -->
+        <dependency>
+            <groupId>org.glassfish.jersey.security</groupId>
+            <artifactId>oauth2-client</artifactId>
+            <version>2.24.1</version>
+        </dependency>
+
         
     </dependencies>
 

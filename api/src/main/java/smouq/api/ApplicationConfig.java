@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author .local
  */
-@javax.ws.rs.ApplicationPath("api")
+@javax.ws.rs.ApplicationPath("v1")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -29,6 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(smouq.api.OAuthResource.class);
         resources.add(smouq.api.PublicResource.class);
     }
     

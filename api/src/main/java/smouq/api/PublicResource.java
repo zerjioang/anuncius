@@ -5,6 +5,7 @@
  */
 package smouq.api;
 
+import javafx.util.Pair;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -12,7 +13,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import org.omg.CORBA.NameValuePair;
 
 /**
  * REST Web Service
@@ -30,14 +33,43 @@ public class PublicResource {
      */
     public PublicResource() {
     }
-
-    /**
-     * Retrieves representation of an instance of smouq.api.PublicResource
-     * @return an instance of java.lang.String
-     */
+    
     @GET
+    @Path("demo")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
+    public String demo() {
+        return "{}";
+    }
+    
+    @GET
+    @Path("{token: [a-zA-Z0-9]{64}}/demo")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String secureDemo(@PathParam("token") String token) {
+        boolean tokenIsValid = true;
+        if(tokenIsValid){
+            return "{'token':'"+token+"', 'code':200}";
+        }
+        return "{'message':'authentication error', 'code':400}";
+    }
+    
+    @GET
+    @Path("message/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getMessageId(@PathParam("id") int id) {
+        return "{}";
+    }
+    
+    @GET
+    @Path("messages/get/{id : \\d+}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getMessage(@PathParam("id") int id) {
+        return "{}";
+    }
+    
+    @GET
+    @Path("quit")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String closeUserSession() {
         return "{}";
     }
 

@@ -1,10 +1,122 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>smouq api</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #eee;
+        }
+
+        .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+        }
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+        margin-bottom: 10px;
+        }
+        .form-signin .checkbox {
+        font-weight: normal;
+        }
+        .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+        z-index: 2;
+        }
+        .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        }
+        .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+        
+        <div style="text-align:center;">
+            <h1>Welcome to Smouq API</h1>
+            <br></br>
+        </div>
+
+      <form class="form-signin">
+          <div style="text-align:center;">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <br></br>
+          </div>
+        <label for="inputEmail" class="sr-only">Smouq ID</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Smouq id" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script>
+        /*!
+        * IE10 viewport hack for Surface/desktop Windows 8 bug
+        * Copyright 2014-2015 The Bootstrap Authors
+        * Copyright 2014-2015 Twitter, Inc.
+        * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+        */
+
+       // See the Getting Started docs for more information:
+       // https://getbootstrap.com/getting-started/#support-ie10-width
+
+       (function () {
+         'use strict';
+
+         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+           var msViewportStyle = document.createElement('style')
+           msViewportStyle.appendChild(
+             document.createTextNode(
+               '@-ms-viewport{width:auto!important}'
+             )
+           )
+           document.head.appendChild(msViewportStyle)
+         }
+
+       })();
+    </script>
+  </body>
 </html>
