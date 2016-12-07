@@ -1,0 +1,58 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:latest
+    hostname: "mongodb"
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - './volumes/mongo:/usr/local/mongo'
+    restart: always
+  cache:
+    image: redis:latest
+    ports:
+      - "6379"
+    restart: always
+  jenkins:
+    image: jenkins:latest
+    container_name: jenkins
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ./volumes/jenkins:/usr/local/jenkins
+  tomcat:
+    build: ./Dockerfile
+    ports:
+      - '8010:8010'
+    links:
+      - mongodb
+      - cache
+    restart: always
+    volumes:
+      - './volumes/tomcat/apps/smouq.war:/usr/local/tomcat/webapps/smouq.war'
+      - './volumes/tomcat/conf/tomcat-users.xml:/usr/local/tomcat/conf/demo.xml'
+  elastic:
+    image: "elasticsearch:2"
+    command: "elasticsearch -Des.cluster.name='graylog'"
+    volumes:
+      - './volumes/graylog/data/elasticsearch:/usr/local/elastic'
+    links:
+      - mongodb
+  graylog:
+    image: graylog2/server:2.1.1-1
+    environment:
+      GRAYLOG_PASSWORD_SECRET: somepasswordpepper
+      GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      GRAYLOG_WEB_ENDPOINT_URI: http://127.0.0.1:9000/api
+    volumes:
+      - './volumes/graylog/data/journal:/usr/local/graylog/data/journal'
+      - './volumes/graylog/config:/usr/local/graylog/data/config'
+    links:
+      - mongodb:mongo
+      - elastic:elasticsearch
+    ports:
+      - "9000:9000"
+      - "12201/udp:12201/udp"
+      - "1514/udp:1514/udp"
