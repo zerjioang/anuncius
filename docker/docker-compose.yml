@@ -3,6 +3,7 @@ services:
   mongodb:
     image: mongo:latest
     hostname: "mongodb"
+    container_name: mongodb
     restart: always
     ports:
       - "27017:27017"
@@ -11,6 +12,7 @@ services:
     restart: always
   cache:
     image: redis:latest
+    container_name: redis
     ports:
       - "6379"
     restart: always
@@ -24,6 +26,7 @@ services:
       - ./volumes/jenkins:/usr/local/jenkins
   tomcat:
     build: ./Dockerfile
+    container_name: tomcat
     ports:
       - '8010:8010'
     links:
@@ -36,12 +39,14 @@ services:
   elastic:
     image: "elasticsearch:2"
     command: "elasticsearch -Des.cluster.name='graylog'"
+    container_name: elastic
     volumes:
       - './volumes/graylog/data/elasticsearch:/usr/local/elastic'
     links:
       - mongodb
   graylog:
     image: graylog2/server:2.1.1-1
+    container_name: graylog
     environment:
       GRAYLOG_PASSWORD_SECRET: somepasswordpepper
       GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
