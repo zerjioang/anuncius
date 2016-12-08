@@ -1,6 +1,6 @@
-# smouq
+# musutruq
 
-Smart Messaging Platform
+Social & Collaborative Donationware Shop
 
 ## Requirements
 
@@ -14,13 +14,23 @@ Smart Messaging Platform
 reset; docker-compose down; docker-compose up --build
 ```
 
-### Microservices
+### Microservices (development)
 
 * Mongo DB node
 * Elasticsearch node
 * Tomcat node
+* Jenkins node
 * Redis node
 * Graylog server node
+
+
+### Microservices (production example)
+* 1x NGINX load balancer
+* 1x Mongo DB node
+* 1x Elasticsearch node
+* 2x Tomcat node
+* 2x Redis node
+* 1x Graylog server node
 
 #### Graylog management
 
@@ -49,8 +59,9 @@ full name: Administrator
 #### Elastic management
 
 Address is bound to port 9200, but IP might change since its assigned by docker. A example is given:
-
+```
 http://172.18.0.4:9200/
+```
 
 ```
 {
