@@ -49,11 +49,12 @@ http://172.18.0.5:8010/ and login with admin:admin
 ```
 http://172.18.0.5:8080/
 ```
-
+```
 master pass: 77f5be825ad74b62a6947890793455a3
 username: admin
 password: aZhXM5C2ff42zZ8kZfg67ZjF
 full name: Administrator
+```
 
 
 #### Elastic management
