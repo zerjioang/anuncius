@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Smouq installation script on Amazon AMI"
+echo "Musutruq installation script on Amazon AMI"
 sudo yum update -y
 echo "Installing Docker..."
 sudo yum install -y docker
