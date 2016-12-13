@@ -2,7 +2,7 @@
 <div class="gl-side-menu-overlay"></div>
 <!-- PAGE OVERLAY WHEN MENU ACTIVE END -->
 
-<div class="gl-side-menu-wrap">
+<div class="gl-side-menu-wrap" style="height: auto;">
     <div class="gl-side-menu">
         <div class="gl-side-menu-widget-wrap">
             <div class="gl-login-form-wrapper">

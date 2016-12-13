@@ -2,35 +2,37 @@
     <div class="container">
       <div class="row">
         <!-- COPYRIGHT INFO -->
-        <div class="gl-copyright-info-wrapper">
-          <p>Copyright &copy; 2016 Musutruq. Todos los derechos reservados</p>
+        <div class="gl-copyright-info-wrapper" data-remodal-target="copyright-modal">
+          <p>
+              <a data-remodal-target="copyright-modal">Copyright &copy; 2016 Musutruq. Todos los derechos reservados</a>
+          </p>
         </div>
         <!-- COPYRIGHT INFO -->
 
         <div class="gl-social-info-wrapper">
           <ul>
             <li>
-                <a href="index.html#">
+                <a href="https://www.facebook.com" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
             </li>
             <li>
-                <a href="index.html#">
+                <a href="https://www.twitter.com" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
             </li>
             <li>
-                <a href="index.html#">
+                <a href="https://www.behance.com" target="_blank">
                   <i class="fa fa-behance"></i>
                 </a>
             </li>
             <li>
-                <a href="index.html#">
+                <a href="https://www.dribbble.com" target="_blank">
                   <i class="fa fa-dribbble"></i>
                 </a>
             </li>
             <li>
-                <a href="index.html#">
+                <a href="https://www.vimeo.com" target="_blank">
                   <i class="fa fa-vimeo"></i>
                 </a>
             </li>

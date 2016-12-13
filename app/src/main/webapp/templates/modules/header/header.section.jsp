@@ -28,8 +28,8 @@
 
         <!-- OTHER BTNS -->
         <div class="gl-extra-btns-wrapper">
-          <a href="#login" class="gl-add-post-btn" style="background-color: #bababa">Iniciar sesión</a>
-          <a href="#my-publish" class="gl-add-post-btn">+ Publicar mi anuncio</a>
+          <a href="#login" class="gl-add-post-btn" id="gl-side-menu-btn" style="background-color: #bababa">Mi cuenta</a>
+          <a href="#my-publish" class="gl-add-post-btn">+ Publicar</a>
 
           <!-- COMPARE BTN -->
           <div class="gl-compare-icon">

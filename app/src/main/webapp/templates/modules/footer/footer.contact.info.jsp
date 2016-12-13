@@ -1,4 +1,4 @@
-<div class="gl-footer-widget gl-contact-info">
+<div class="gl-footer-widget gl-contact-info" >
     <h3 class="gl-footer-widget-title">Información de contacto</h3>
 
     <div class="gl-footer-widget-content">

@@ -5,8 +5,8 @@
         <p>Suscríbete al newsletter y hazte eco</p>
 
         <form action="#subscribe">
-            <input type="email" name="gl-subscription" id="gl-subscription" placeholder="Tu email" required>
-            <button type="submit" class="gl-btn">Suscribirse</button>
+            <input type="email" name="gl-subscription" id="subscription-form-email" placeholder="Tu email" required>
+            <button type="submit" class="gl-btn" id="btn-suscribe-form">Suscribirse</button>
         </form>
     </div>
 </div>

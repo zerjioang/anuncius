@@ -4,7 +4,7 @@
     <!-- http log request filter -->
     <filter>
         <filter-name>LogFilter</filter-name>
-        <filter-class>musutruq.LogFilter</filter-class>
+        <filter-class>musutruq.filter.LogFilter</filter-class>
         <init-param>
             <param-name>test-param</param-name>
             <param-value>LogFilter started</param-value>

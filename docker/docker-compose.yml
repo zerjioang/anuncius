@@ -14,7 +14,7 @@ services:
     image: redis:latest
     container_name: redis
     ports:
-      - "6379"
+      - "6379:6379"
     restart: always
   jenkins:
     image: jenkins:latest
@@ -28,7 +28,7 @@ services:
     build: ./Dockerfile
     container_name: tomcat
     ports:
-      - '8010:8010'
+      - '8081:8081'
     links:
       - mongodb
       - cache
@@ -44,6 +44,8 @@ services:
       - './volumes/graylog/data/elasticsearch:/usr/local/elastic'
     links:
       - mongodb
+    ports:
+      - '8082:8082'
   graylog:
     image: graylog2/server:2.1.1-1
     container_name: graylog
@@ -58,6 +60,6 @@ services:
       - mongodb:mongo
       - elastic:elasticsearch
     ports:
-      - "9000:9000"
+      - "8083:8083"
       - "12201/udp:12201/udp"
       - "1514/udp:1514/udp"
