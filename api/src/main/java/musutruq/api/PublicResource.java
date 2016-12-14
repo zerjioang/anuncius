@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author .local
  */
-@Path("public")
+@Path("/public")
 public class PublicResource {
 
     @Context
@@ -33,14 +33,14 @@ public class PublicResource {
     }
     
     @GET
-    @Path("demo")
+    @Path("/demo")
     @Produces(MediaType.APPLICATION_JSON)
     public String demo() {
         return "{}";
     }
     
     @GET
-    @Path("{token: [a-zA-Z0-9]{64}}/demo")
+    @Path("/{token: [a-zA-Z0-9]{64}}/demo")
     @Produces(MediaType.APPLICATION_JSON)
     public String secureDemo(@PathParam("token") String token) {
         boolean tokenIsValid = true;
@@ -51,32 +51,23 @@ public class PublicResource {
     }
     
     @GET
-    @Path("message/{id}")
+    @Path("/message/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getMessageId(@PathParam("id") int id) {
         return "{}";
     }
     
     @GET
-    @Path("messages/get/{id : \\d+}")
+    @Path("/messages/get/{id : \\d+}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getMessage(@PathParam("id") int id) {
         return "{}";
     }
     
     @GET
-    @Path("quit")
+    @Path("/quit")
     @Produces(MediaType.APPLICATION_JSON)
     public String closeUserSession() {
         return "{}";
-    }
-
-    /**
-     * PUT method for updating or creating an instance of PublicResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
     }
 }

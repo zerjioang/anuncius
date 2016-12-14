@@ -6,15 +6,17 @@
 package musutruq.api;
 
 import java.util.Set;
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 /**
  *
  * @author .local
  */
-@javax.ws.rs.ApplicationPath("v1")
+@ApplicationPath("api/v1")
 public class ApplicationConfig extends Application {
 
+    
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();

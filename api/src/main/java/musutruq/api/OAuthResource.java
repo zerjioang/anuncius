@@ -5,6 +5,7 @@
  */
 package musutruq.api;
 
+import musutruq.api.auth.OAuthApiSecurity;
 import java.net.URI;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -28,7 +29,7 @@ import musutruq.securelayer.SecureLayerException;
  *
  * @author .local
  */
-@Path("oauth")
+@Path("/oauth")
 public class OAuthResource {
 
     @Context

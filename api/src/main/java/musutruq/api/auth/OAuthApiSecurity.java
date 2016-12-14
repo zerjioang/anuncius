@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package musutruq.api;
+package musutruq.api.auth;
 
+import musutruq.securelayer.SecureLayer;
 import musutruq.securelayer.SecureLayerCriteria;
 import musutruq.securelayer.SecureLayerException;
-import musutruq.securelayer.SecureLayer;
 /**
  *
  * @author .local
  */
-class OAuthApiSecurity {
+public class OAuthApiSecurity {
 
     public static boolean hasValidInput(String consumerKey, String consumerSecret) throws SecureLayerException {
         return 
