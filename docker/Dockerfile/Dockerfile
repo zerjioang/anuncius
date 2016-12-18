@@ -1,3 +1,5 @@
+
+
 FROM tomcat:8-jre8
 
 COPY ./target/smouq.war /usr/local/tomcat/webapps/
