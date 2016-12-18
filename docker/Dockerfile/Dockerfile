@@ -2,9 +2,10 @@
 
 FROM tomcat:8-jre8
 
-COPY ./target/smouq.war /usr/local/tomcat/webapps/
-# COPY ../volumes/tomcat/conf/tomca-users.xml /usr/local/tomcat/conf/
+COPY ./apps/app-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/app.war
+COPY ./tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY ./server.xml /usr/local/tomcat/conf/server.xml
 
-EXPOSE 9010
+EXPOSE 80
 
 CMD ["catalina.sh", "run"]
