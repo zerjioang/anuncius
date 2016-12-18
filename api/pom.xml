@@ -8,10 +8,14 @@
     <packaging>war</packaging>
 
     <name>musutruq-api</name>
-
+    
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jersey.version>2.24.1</jersey.version>
+        <junit.version>4.12</junit.version>
+        <surefire.version>2.19</surefire.version>
+        <compiler.version>1.8</compiler.version>
     </properties>
     
     <dependencies>
@@ -19,13 +23,14 @@
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
-            <version>2.24.1</version>
+            <version>${jersey.version}</version>
         </dependency>
+        
         <!-- if you are using Jersey client specific features without the server side -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-client</artifactId>
-            <version>2.24.1</version>
+            <version>${jersey.version}</version>
         </dependency>
         
         <!-- for javax.servlet and so on -->
@@ -36,7 +41,16 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <!-- for redis cache servers management -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -51,14 +65,37 @@
         <dependency>
             <groupId>org.glassfish.jersey.security</groupId>
             <artifactId>oauth2-client</artifactId>
-            <version>2.24.1</version>
+            <version>${jersey.version}</version>
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+        <!-- for mongo db management -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>3.4.0</version>
+        </dependency>
+        
+        <!-- JSON layout for logstash integration -->
+        <dependency>
+            <groupId>net.logstash.log4j</groupId>
+            <artifactId>jsonevent-layout</artifactId>
+            <version>1.3</version>
+        </dependency>
+        
+        <!-- for testing -->
+        <!-- testing -->
+        <dependency>
+            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+            <artifactId>jersey-test-framework-provider-jetty</artifactId>
+            <version>${jersey.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -70,8 +107,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${compiler.version}</source>
+                    <target>${compiler.version}</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>

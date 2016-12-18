@@ -5,7 +5,6 @@
  */
 package musutruq.api;
 
-import musutruq.api.auth.OAuthApiSecurity;
 import java.net.URI;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -16,13 +15,16 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
-import org.glassfish.jersey.client.oauth2.ClientIdentifier;
 
+import org.glassfish.jersey.client.oauth2.ClientIdentifier;
 import org.glassfish.jersey.client.oauth2.OAuth2ClientSupport; 
 import org.glassfish.jersey.client.oauth2.OAuth2CodeGrantFlow; 
 import org.glassfish.jersey.client.oauth2.TokenResult;
+
 import musutruq.api.auth.SimpleOAuth2Service;
+import musutruq.api.auth.OAuthApiSecurity;
 import musutruq.securelayer.SecureLayerException;
+import musutruq.api.base.IAPIMessage;
 
 /**
  * REST Web Service
@@ -48,13 +50,14 @@ public class OAuthResource {
     @GET
     @Path("register")
     @Produces(MediaType.APPLICATION_JSON)
-    public APIMessage registerOauth(@QueryParam("clientId") String consumerKey,
+    public IAPIMessage registerOauth(@QueryParam("clientId") String consumerKey,
                           @QueryParam("clientSecret") String consumerSecret) {
         try{
             OAuthApiSecurity.hasValidInput(consumerKey, consumerSecret);
         }
         catch(SecureLayerException e){
-            return ApiResponse.sendException(e);
+            //return ApiResponse.sendException(e);
+            return null;
         }
         ClientIdentifier clientIdentifier = new ClientIdentifier(consumerKey, consumerSecret);
         OAuth2CodeGrantFlow.Builder builder =

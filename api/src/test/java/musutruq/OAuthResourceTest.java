@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package musutruq.api.base;
+package musutruq;
 
-import musutruq.securelayer.SecureLayerException;
+import org.glassfish.jersey.test.JerseyTest;
 
 /**
  *
- * @author .local
+ * @author sanguita
  */
-public interface IAPIMessage {
+public class OAuthResourceTest extends JerseyTest {
     
-    public IAPIMessage sendException(SecureLayerException e);
 }
