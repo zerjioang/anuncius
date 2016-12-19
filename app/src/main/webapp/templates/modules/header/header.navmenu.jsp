@@ -1,7 +1,7 @@
 <div id="nav-menu" class="navbar-collapse gl-menu-wrapper collapse" role="navigation">
     <ul class="nav navbar-nav gl-menus">
         <li class="active">
-          <a href="#">Musutruq</a>
+          <a href=".">Musutruq</a>
           <%--
           <ul class="gl-sub-menu">
               <li>
@@ -17,16 +17,30 @@
           --%>
         </li>
         <li>
-          <a href="#explore">Explorar</a>
+          <a href="explore.jsp">Explorar</a>
         </li>
         <li>
-          <a href="#ranking">Ranking</a>
+          <a href="ranking.jsp">Ranking</a>
         </li>
         <li>
-          <a href="#blog">Blog</a>
+          <a href="blog.jsp">Blog</a>
         </li>
         <li>
-          <a href="#about-us">Nosotros</a>
+          <a href="#">Acerca de</a>
+          <ul class="gl-sub-menu">
+              <li>
+                  <a href="contact.jsp">Contacto</a>
+              </li>
+              <li>
+                  <a href="privacy.jsp">Política de Privacidad</a>
+              </li>
+              <li>
+                  <a href="conditions.jsp">Términos y condiciones</a>
+              </li>
+              <li>
+                  <a href="questions.jsp">Preguntas frecuentes</a>
+              </li>
+          </ul>
         </li>
     </ul>
 </div>

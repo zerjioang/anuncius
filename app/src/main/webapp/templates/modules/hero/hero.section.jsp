@@ -7,7 +7,7 @@
             <h1 style="font-size: 50pt; color:white; font-family: 'Fredoka One', cursive;">Musutruq</h1>
             <br>
         </div>
-        <h2 class="gl-hero-text-heading">Tu ventana al <span class="gl-color-text">mundo</span></h2>
+        <h2 class="gl-hero-text-heading">${param.normal}<span class="gl-color-text">${param.bold}</span></h2>
 
         <div class="gl-scroll-down-wrapper">
           <a href="#featured" class="gl-scroll-down"><i class="ion-chevron-down"></i></a>

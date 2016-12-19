@@ -29,7 +29,7 @@
         <!-- OTHER BTNS -->
         <div class="gl-extra-btns-wrapper">
           <a href="#login" class="gl-add-post-btn" id="gl-side-menu-btn" style="background-color: #bababa">Mi cuenta</a>
-          <a href="#my-publish" class="gl-add-post-btn">+ Publicar</a>
+          <a href="#publish" class="gl-add-post-btn">+ Publicar</a>
 
           <!-- COMPARE BTN -->
           <div class="gl-compare-icon">
@@ -48,20 +48,20 @@
                   </div>
 
                   <div class="gl-compare-item-name">
-                    <a href="index.html#">Mad House</a>
+                    <a href="index.html">Mad House</a>
                   </div>
 
                   <div class="gl-compare-del-btn">
-                    <a href="index.html#">
+                    <a href="index.html">
                       <i class="ion-android-close"></i>
                     </a>
                   </div>
                 </li>
 
                 <li class="gl-comp-btns-wrapper">
-                  <a href="#list-compare" class="gl-btn gl-comp-btn">Comparar</a>
+                  <a href="#compare" class="gl-btn gl-comp-btn">Comparar</a>
 
-                  <a href="#list-empty" class="gl-clear-btn">Vaciar lista</a>
+                  <a href="#clear" class="gl-clear-btn">Vaciar lista</a>
                 </li>
               </ul>
           </div>

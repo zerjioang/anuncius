@@ -1,1 +1,0 @@
-function initialize(){var e=document.getElementById("gl-search-location");new google.maps.places.Autocomplete(e)}google.maps.event.addDomListener(window,"load",initialize);
