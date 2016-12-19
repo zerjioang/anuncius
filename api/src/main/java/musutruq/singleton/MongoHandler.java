@@ -45,7 +45,8 @@ public class MongoHandler {
     }
     
     private MongoHandler(){
-        if(secureMode){
+        try{
+            if(secureMode){
             //If MongoDB in secure mode, authentication is required.
             //... missing procedure
             MongoCredential credential = MongoCredential.createCredential(USERNAME, APP_DATABASE, PASSWORD.toCharArray());
@@ -55,11 +56,17 @@ public class MongoHandler {
             // Since 2.10.0, uses MongoClient
             mongo = new MongoClient(MONGO_HOST, MONGO_PORT);
         }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         if(mongo==null){
             //... missing procedure
         }
-        //Get database.
-        mainDatabase = getMainDatabase();
+        else{
+            //Get database.
+            mainDatabase = getMainDatabase();
+        }
     }
     
     private MongoDatabase getMainDatabase(){
@@ -92,7 +99,7 @@ public class MongoHandler {
 
     public boolean isConnected() {
         try{
-            return mongo.getAddress()!=null;
+            return mongo!=null && mongo.getAddress()!=null;
         }
         catch(Exception e){
             //todo handle exception

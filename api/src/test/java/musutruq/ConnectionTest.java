@@ -25,8 +25,7 @@ public class ConnectionTest {
     
     @Test
     public void redisUsageConnectionTest(){
-        RedisHandler redisHandler = RedisHandler.getInstance();
-        
+        RedisHandler redisHandler = RedisHandler.getInstance(); 
         redisHandler.addSet("test", "success");
         String data = redisHandler.getSet("test");
         assertEquals("success", data);
@@ -35,6 +34,7 @@ public class ConnectionTest {
     @Test
     public void mongoConnectionTest(){
         MongoHandler mongoHandler = MongoHandler.getInstance();
+        assertNotNull("Mongo handler valid", mongoHandler);
         assertEquals("Mongo handler", true, mongoHandler.isConnected());
     }
     

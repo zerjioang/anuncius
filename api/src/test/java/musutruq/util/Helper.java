@@ -7,6 +7,7 @@ package musutruq.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
@@ -29,11 +30,11 @@ public class Helper {
         
         //add query params in case of needed
         if(paramList!=null && !paramList.isEmpty()){
-            paramList.entrySet().forEach((entry) -> {
+            for(Map.Entry<String, Object> entry : paramList.entrySet()){
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 target.queryParam(key, value);
-            });
+            };
         }
         
         Response output = target.request().get();
