@@ -22,7 +22,7 @@
 
               <div class="gl-feat-item-details">
                 <h3>
-                  <a href="http://sites.redqteam.com/musutruq/real-estate/agent_profile.html">Robert Doe</a>
+                  <a href="./agent_profile.html">Robert Doe</a>
                 </h3>
                 <p>Buying Agent</p>
               </div>
@@ -37,7 +37,7 @@
 
               <div class="gl-feat-item-details">
                 <h3>
-                  <a href="http://sites.redqteam.com/musutruq/real-estate/agent_profile.html">George Kane</a>
+                  <a href="./agent_profile.html">George Kane</a>
                 </h3>
                 <p>Buying Agent</p>
               </div>
@@ -52,7 +52,7 @@
 
               <div class="gl-feat-item-details">
                 <h3>
-                  <a href="http://sites.redqteam.com/musutruq/real-estate/agent_profile.html">Maria</a>
+                  <a href="./agent_profile.html">Maria</a>
                 </h3>
                 <p>Buying Agent</p>
               </div>
@@ -67,7 +67,7 @@
 
               <div class="gl-feat-item-details">
                 <h3>
-                  <a href="http://sites.redqteam.com/musutruq/real-estate/agent_profile.html">Dave Neo</a>
+                  <a href="./agent_profile.html">Dave Neo</a>
                 </h3>
                 <p>Buying Agent</p>
               </div>
@@ -82,7 +82,7 @@
 
               <div class="gl-feat-item-details">
                 <h3>
-                  <a href="http://sites.redqteam.com/musutruq/real-estate/agent_profile.html">David Neolar</a>
+                  <a href="./agent_profile.html">David Neolar</a>
                 </h3>
                 <p>Buying Agent</p>
               </div>

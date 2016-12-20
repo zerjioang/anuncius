@@ -18,7 +18,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- Logo -->
-            <a class="navbar-brand" href="."><img class="logo" src="favicon/favicon-32x32.png" alt="logo de musutruq"></a>
+            <a class="navbar-brand" href="."><img class="logo" src="images/header.png" alt="logo de musutruq"></a>
         </div>
         <!-- Navbar Toggle End -->
 

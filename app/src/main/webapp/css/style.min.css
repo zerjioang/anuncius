@@ -2,27 +2,27 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700|PT+Sans);
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url(http://sites.redqteam.com/glimpse/real-estate/fonts/glyphicons-halflings-regular.eot;)
-    src: url(http://sites.redqteam.com/glimpse/real-estate/fonts/glyphicons-halflings-regular.eot?) format('embedded-opentype'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/glyphicons-halflings-regular.woff) format('woff'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/glyphicons-halflings-regular.svg) format('svg')
+    src: url(../fonts/glyphicons-halflings-regular.eot;)
+    src: url(../fonts/glyphicons-halflings-regular.eot?) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg) format('svg')
 }
 @font-face {
     font-family: 'FontAwesome';
-    src: url(../fonts/fontawesome-webfont.eot%3Fv=4.5.0);
-    src: url(../fonts/fontawesome-webfont.eot%3F) format('embedded-opentype'), url(../fonts/fontawesome-webfont.woff2%3Fv=4.5.0.html) format('woff2'), url(../fonts/fontawesome-webfont.woff%3Fv=4.5.0) format('woff'), url(../fonts/fontawesome-webfont.ttf%3Fv=4.5.0) format('truetype'), url(../fonts/fontawesome-webfont.svg%3Fv=4.5.0) format('svg');
+    src: url(../fonts/fontawesome-webfont.eot?v=4.5.0);
+    src: url(../fonts/fontawesome-webfont.eot%3F) format('embedded-opentype'), url(../fonts/fontawesome-webfont.woff2?v=4.5.0.html) format('woff2'), url(../fonts/fontawesome-webfont.woff?v=4.5.0) format('woff'), url(../fonts/fontawesome-webfont.ttf?v=4.5.0) format('truetype'), url(../fonts/fontawesome-webfont.svg?v=4.5.0) format('svg');
     font-weight: 400;
     font-style: normal
 }
 @font-face {
     font-family: "Ionicons";
-    src: url(../fonts/ionicons.eot%3Fv=2.0.0);
-    src: url(../fonts/ionicons.eot%3Fv=2.0.0) format("embedded-opentype"), url(../fonts/ionicons.ttf%3Fv=2.0.0) format("truetype"), url(../fonts/ionicons.woff%3Fv=2.0.0) format("woff"), url(../fonts/ionicons.svg%3Fv=2.0.0) format("svg");
+    src: url(../fonts/ionicons.eot?v=2.0.0);
+    src: url(../fonts/ionicons.eot?v=2.0.0) format("embedded-opentype"), url(../fonts/ionicons.ttf?v=2.0.0) format("truetype"), url(../fonts/ionicons.woff?v=2.0.0) format("woff"), url(../fonts/ionicons.svg?v=2.0.0) format("svg");
     font-weight: 400;
     font-style: normal
 }
 @font-face {
     font-family: 'micons';
-    src: url(http://sites.redqteam.com/glimpse/real-estate/fonts/icomoon.eot?1gcfmm);
-    src: url(http://sites.redqteam.com/glimpse/real-estate/fonts/icomoon.eot?1gcfmm) format('embedded-opentype'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/icomoon.ttf?1gcfmm) format('truetype'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/icomoon.woff?1gcfmm) format('woff'), url(http://sites.redqteam.com/glimpse/real-estate/fonts/icomoon.svg?1gcfmm) format('svg');
+    src: url(../fonts/icomoon.eot?1gcfmm);
+    src: url(../fonts/icomoon.eot?1gcfmm) format('embedded-opentype'), url(../fonts/icomoon.ttf?1gcfmm) format('truetype'), url(../fonts/icomoon.woff?1gcfmm) format('woff'), url(../fonts/icomoon.svg?1gcfmm) format('svg');
     font-weight: 400;
     font-style: normal
 }
@@ -2492,7 +2492,7 @@ fieldset[disabled] .btn-default:hover {
 }
 .btn-primary {
     color: #fff;
-    background-color: #337ab7;
+    background-color: #3bb733;
     border-color: #2e6da4
 }
 .btn-primary.focus,
@@ -2536,11 +2536,11 @@ fieldset[disabled] .btn-default:hover {
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:hover {
-    background-color: #337ab7;
+    background-color: #3bb733;
     border-color: #2e6da4
 }
 .btn-primary .badge {
-    color: #337ab7;
+    color: #3bb733;
     background-color: #fff
 }
 .btn-success {
@@ -2756,7 +2756,7 @@ fieldset[disabled] .btn-danger:hover {
     background-color: #fff
 }
 .btn-link {
-    color: #337ab7;
+    color: #3bb733;
     font-weight: 400;
     border-radius: 0
 }
@@ -2777,7 +2777,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:focus,
 .btn-link:hover {
-    color: #23527c;
+    color: #99f91b;
     text-decoration: underline;
     background-color: transparent
 }
@@ -2923,7 +2923,7 @@ tbody.collapse.in {
     color: #fff;
     text-decoration: none;
     outline: 0;
-    background-color: #337ab7
+    background-color: #3bb733
 }
 .dropdown-menu>.disabled>a,
 .dropdown-menu>.disabled>a:focus,
@@ -3358,7 +3358,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav .open>a:focus,
 .nav .open>a:hover {
     background-color: #eee;
-    border-color: #337ab7
+    border-color: #3bb733
 }
 .nav .nav-divider {
     height: 1px;
@@ -3449,7 +3449,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav-pills>li.active>a:focus,
 .nav-pills>li.active>a:hover {
     color: #fff;
-    background-color: #337ab7
+    background-color: #3bb733
 }
 .nav-justified>li,
 .nav-stacked>li {
@@ -4046,7 +4046,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
     padding: 6px 12px;
     line-height: 1.42857143;
     text-decoration: none;
-    color: #337ab7;
+    color: #3bb733;
     background-color: #fff;
     border: 1px solid #ddd;
     margin-left: -1px
@@ -4067,7 +4067,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pagination>li>span:focus,
 .pagination>li>span:hover {
     z-index: 2;
-    color: #23527c;
+    color: #99f91b;
     background-color: #eee;
     border-color: #ddd
 }
@@ -4079,8 +4079,8 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pagination>.active>span:hover {
     z-index: 3;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: #3bb733;
+    border-color: #3bb733;
     cursor: default
 }
 .pagination>.disabled>a,
@@ -4196,7 +4196,7 @@ a.label:hover {
     background-color: #5e5e5e
 }
 .label-primary {
-    background-color: #337ab7
+    background-color: #3bb733
 }
 .label-primary[href]:focus,
 .label-primary[href]:hover {
@@ -4258,7 +4258,7 @@ a.label:hover {
 }
 .list-group-item.active>.badge,
 .nav-pills>.active>a>.badge {
-    color: #337ab7;
+    color: #3bb733;
     background-color: #fff
 }
 .list-group-item>.badge {
@@ -4290,7 +4290,7 @@ a.label:hover {
 a.thumbnail.active,
 a.thumbnail:focus,
 a.thumbnail:hover {
-    border-color: #337ab7
+    border-color: #3bb733
 }
 .thumbnail .caption {
     padding: 9px;
@@ -4475,8 +4475,8 @@ button.list-group-item {
 .list-group-item.active:hover {
     z-index: 2;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7
+    background-color: #3bb733;
+    border-color: #3bb733
 }
 .list-group-item.active .list-group-item-heading,
 .list-group-item.active .list-group-item-heading>.small,
@@ -4857,22 +4857,22 @@ button.list-group-item-danger.active:hover {
     border-bottom-color: #ddd
 }
 .panel-primary {
-    border-color: #337ab7
+    border-color: #3bb733
 }
 .panel-primary>.panel-heading {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7
+    background-color: #3bb733;
+    border-color: #3bb733
 }
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
-    border-top-color: #337ab7
+    border-top-color: #3bb733
 }
 .panel-primary>.panel-heading .badge {
-    color: #337ab7;
+    color: #3bb733;
     background-color: #fff
 }
 .panel-primary>.panel-footer+.panel-collapse>.panel-body {
-    border-bottom-color: #337ab7
+    border-bottom-color: #3bb733
 }
 .panel-success {
     border-color: #d6e9c6
@@ -15279,11 +15279,11 @@ textarea {
     line-height: inherit
 }
 a {
-    color: #337ab7
+    color: #3bb733
 }
 a:focus,
 a:hover {
-    color: #23527c
+    color: #99f91b
 }
 a:focus {
     outline: thin dotted;
@@ -15565,7 +15565,7 @@ mark {
     color: #777
 }
 .text-primary {
-    color: #337ab7
+    color: #3bb733
 }
 a.text-primary:focus,
 a.text-primary:hover {
@@ -15601,7 +15601,7 @@ a.text-danger:hover {
 }
 .bg-primary {
     color: #fff;
-    background-color: #337ab7
+    background-color: #3bb733
 }
 a.bg-primary:focus,
 a.bg-primary:hover {
@@ -18650,7 +18650,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget h3.gl-footer-widget-title {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 21px;
     font-weight: 400;
-    color: #5b5b5b;
+    color: #c7c6c6;
     display: block;
     line-height: 1;
     margin: 0 0 25px
@@ -18662,13 +18662,13 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget p {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 14px;
     font-weight: 300;
-    color: #5b5b5b
+    color: #c7c6c6
 }
 footer .gl-footer-top-wrapper .gl-footer-widget .gl-footer-widget-content ul li a {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 14px;
     font-weight: 300;
-    color: #5b5b5b;
+    color: #c7c6c6;
     display: inline-block;
     *display: inline;
     *zoom: 1;
@@ -18712,7 +18712,7 @@ footer .gl-footer-top-wrapper .gl-contact-info ul li {
 }
 footer .gl-footer-top-wrapper .gl-contact-info ul li i {
     font-size: 14px;
-    color: #5b5b5b;
+    color: #c7c6c6;
     position: absolute;
     top: 4px;
     left: 0
@@ -18751,7 +18751,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form input {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 14px;
     font-weight: 300;
-    color: #5b5b5b;
+    color: #c7c6c6;
     width: 100%;
     height: 42px;
     border: 0 solid;
@@ -18827,7 +18827,7 @@ footer .gl-footer-bottom-wrapper .gl-copyright-info-wrapper p {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 14px;
     font-weight: 300;
-    color: #5b5b5b;
+    color: #c7c6c6;
     margin: 0
 }
 footer .gl-footer-bottom-wrapper .gl-social-info-wrapper {
@@ -19034,7 +19034,7 @@ header.gl-header .gl-header-topbar .gl-social-icon-list ul li a {
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li .gl-compare-del-btn a:hover,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li .gl-compare-del-btn a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 @media only screen and (max-width: 767px) {
     header.gl-header .gl-header-topbar .gl-social-icon-list ul li a {
@@ -19525,7 +19525,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li.gl-comp-btns-wrapper a.gl-comp-btn {
     display: table-cell;
     float: left;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     font-weight: 300
 }
 form.gl-contact-form input[type="submit"]:hover,
@@ -19609,7 +19609,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
     content: '\e032';
     font-family: 'et-line';
     font-size: 16px;
-    color: #ff5400;
+    color: #1aad6e;
     position: absolute;
     top: 1px;
     left: 0
@@ -19620,7 +19620,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
     font-size: 14px;
     color: #fff;
     font-weight: 700;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     border: 0;
     outline: 0;
     padding: 0 25px;
@@ -19646,7 +19646,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 .gl-side-menu-widget-wrap .gl-login-form button:hover,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-add-post-btn:hover,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-add-post-btn:hover {
-    background-color: #e64c00
+    background-color: #108653
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .navbar-header {
@@ -20131,7 +20131,7 @@ img {
 .gl-blog-items .gl-blog-item-details h3 a:hover,
 .gl-featured-items .gl-feat-item-details span.gl-item-rating i,
 .gl-side-menu-widget-wrap .gl-other-options a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-side-menu-widget-wrap .gl-other-options a.gl-forgot-pass {
     float: left
@@ -20375,7 +20375,7 @@ form.gl-contact-form input[type="submit"] {
     line-height: 1;
     padding: 15px 30px;
     margin-bottom: 0;
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-blog-items {
     display: inline-block;
@@ -20787,7 +20787,7 @@ a.gl-tag-btn {
     font-size: 14px;
     font-weight: 300;
     color: #fff;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     padding: 0 15px;
     height: 30px;
     line-height: 30px;
@@ -20956,7 +20956,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     background: url(../images/google-play.png) no-repeat center center
 }
 .gl-cta-section .gl-cta-content-wrapper ul li a.gl-app-store-btn {
-    background: url(http://sites.redqteam.com/glimpse/real-estate/images/app-store.png) no-repeat center center
+    background: url(../images/app-store.png) no-repeat center center
 }
 .gl-cta-section .gl-cta-content-wrapper ul li:last-child,
 .gl-tab-profile-meta-section .gl-tab-nav-wrapper .nav-tabs li:last-child {
@@ -21262,7 +21262,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-featured-items.gl-featured-items-alt .gl-feat-item-metas ul.gl-wishlist-compare-wrapper li a:hover,
 form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper .gl-rating-inputs .gl-rating-wrap span i.star-half-png,
 form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper .gl-rating-inputs .gl-rating-wrap span i.star-on-png {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-featured-items .gl-feat-item-details .gl-item-location {
     display: block;
@@ -21431,7 +21431,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .gl-side-menu-widget-wrap .gl-login-form button,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-compare-icon .gl-compare-btn-wrapper span.gl-compare-item-num,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon .gl-compare-btn-wrapper span.gl-compare-item-num {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-featured-items.gl-featured-items-alt .gl-feat-item-metas ul.gl-wishlist-compare-wrapper li:first-child {
     border-left: 1px solid #eee;
@@ -22539,11 +22539,11 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper {
     overflow: hidden
 }
 form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn {
-    background-color: #ff5400;
+    background-color: #1aad6e;
     color: #fff
 }
 form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
-    background-color: #e64c00
+    background-color: #108653
 }
 .remodal-wrapper {
     padding: 60px 15px
@@ -22738,7 +22738,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
 }
 .gl-agent-testimonial .swiper-pagination-bullet-active {
     opacity: 1;
-    background: #ff5400
+    background: #1aad6e
 }
 .gl-post-comments-wrapper {
     margin-bottom: 60px;
@@ -23034,13 +23034,13 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     color: #bababa
 }
 .gl-author-widget .gl-author-details ul.gl-author-social-links li:hover {
-    border: 1px solid #ff5400
+    border: 1px solid #1aad6e
 }
 .gl-author-widget .gl-author-details ul.gl-author-social-links li:hover a,
 .gl-schedule-widget ul li span.gl-schedule-time.closed,
 header.gl-header .gl-header-topbar .gl-social-icon-list ul li a:hover,
 span.gl-item-rating i {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-sidebar-contact-form {
     width: 100%;
@@ -23080,11 +23080,11 @@ span.gl-item-rating i {
 }
 .gl-feat-properties-section .gl-more-btn-wrapper a,
 .gl-sidebar-contact-form form input.gl-btn {
-    background-color: #ff5400;
+    background-color: #1aad6e;
     color: #fff
 }
 .gl-sidebar-contact-form form input.gl-btn:hover {
-    background-color: #e64c00
+    background-color: #108653
 }
 .gl-sidebar-map-widget {
     width: 100%;
@@ -23845,7 +23845,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 15px;
     font-weight: 300;
-    color: #ff5400;
+    color: #1aad6e;
     display: inline-block;
     float: right
 }
@@ -24954,7 +24954,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-style-map-top .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-filter-options.gl-search-location:after {
     content: '\f455';
     font-family: "Ionicons";
-    color: #ff5400;
+    color: #1aad6e;
     font-size: 21px;
     position: absolute;
     top: 19px;
@@ -25185,7 +25185,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     height: 0;
     border-style: solid;
     border-width: 0 4px 4px;
-    border-color: transparent transparent #ff5400 transparent;
+    border-color: transparent transparent #1aad6e transparent;
     position: absolute;
     top: -4px;
     left: 50%;
@@ -25818,11 +25818,11 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-featured-items .gl-feat-item-details h3 a:hover,
 .gl-featured-items .gl-feat-item-metas ul.gl-wishlist-compare-wrapper li a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-featured-items .gl-feat-item-details .gl-sold-label,
 .gl-featured-items .gl-feat-item-metas ul.gl-wishlist-compare-wrapper li a:hover span {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-featured-items .gl-feat-item-details .gl-sale-label {
     background-color: #22a8f4
@@ -25909,12 +25909,12 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 @media only screen and (max-width: 767px) {
     body.gl-realestate-template header.gl-header .gl-header-bottombar .icon-bar {
-        background-color: #ff5400
+        background-color: #1aad6e
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     body.gl-realestate-template header.gl-header .gl-header-bottombar .icon-bar {
-        background-color: #ff5400
+        background-color: #1aad6e
     }
 }
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul,
@@ -25939,17 +25939,17 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:hover,
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a:focus,
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li.active:after,
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active:after,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active:after {
     content: '';
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li.active a,
 body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active a {
-    color: #ff5400
+    color: #1aad6e
 }
 @media only screen and (max-width: 380px) {
     body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper,
@@ -26016,7 +26016,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
 }
 .gl-hero-img-wrapper .container .gl-elements-content-wrapper p.gl-hero-text-paragraph .gl-color-text {
     font-weight: 700;
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-hero-img-wrapper .container .gl-elements-content-wrapper .gl-scroll-down-wrapper {
     display: block;
@@ -26251,7 +26251,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     display: inline-block;
     *display: inline;
     *zoom: 1;
-    color: #ff5400;
+    color: #1aad6e;
     padding-right: 0;
     float: right
 }
@@ -26362,7 +26362,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     display: inline-block;
     *display: inline;
     *zoom: 1;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -o-border-radius: 50%;
@@ -26472,7 +26472,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     font-size: 21px
 }
 .gl-custom-prop-section .gl-custom-prop-features .gl-btn {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-custom-prop-section .gl-custom-prop-features .gl-btn:hover,
 .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form input.gl-btn:hover {
@@ -26515,7 +26515,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     text-align: center
 }
 .gl-feat-properties-section .gl-more-btn-wrapper a:hover {
-    background-color: #e64c00
+    background-color: #108653
 }
 .gl-recent-listing-section {
     background-color: #f9f9f9;
@@ -26600,10 +26600,10 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-agents-section .gl-agent-testimonial .gl-agents-slide .gl-feat-item-details h3 a:hover,
 .gl-agents-section .gl-agent-testimonial .gl-agents-slide:hover .gl-feat-item-details h3 a,
 .gl-recent-listing-section .gl-recent-listing-wrapper .gl-featured-items .gl-feat-item-details h3 a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-recent-listing-section .gl-recent-listing-wrapper .gl-featured-items .gl-sold-label {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-recent-listing-section .gl-recent-listing-wrapper .gl-featured-items .gl-sale-label {
     background-color: #22a8f4
@@ -26673,12 +26673,12 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-custom-section .container .gl-more-btn-wrapper a.gl-btn,
 .gl-page-header-wrapper .container .gl-page-head-btn-wrapper a.gl-btn {
-    background-color: #ff5400;
+    background-color: #1aad6e;
     color: #fff
 }
 .gl-custom-section .container .gl-more-btn-wrapper a.gl-btn:hover,
 footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form button:hover {
-    background-color: #e64c00
+    background-color: #108653
 }
 .gl-agents-section {
     background-color: #f9f9f9;
@@ -26749,7 +26749,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form button:
 }
 .gl-agents-section .gl-agent-testimonial .swiper-pagination-bullet-active {
     opacity: 1;
-    background: #ff5400
+    background: #1aad6e
 }
 .gl-realestate-template .gl-cta-section,
 body.gl-realestate-search-template .gl-cta-section {
@@ -26811,7 +26811,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form input.gl-btn {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-compare-table-section {
     background-color: #f9f9f9;
@@ -26931,7 +26931,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#99000000', GradientType=0)
 }
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li.gl-agent-name h3 a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-page-header-wrapper .container h1 .gl-item-status-label {
     top: 15px;
@@ -26978,7 +26978,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     height: 2px;
     display: block;
     overflow: hidden;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     position: absolute;
     bottom: -20px;
     left: 0
@@ -27014,7 +27014,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     margin-right: 0
 }
 .gl-tab-profile-meta-section .gl-profile-meta-wrapper ul li i {
-    color: #ff5400;
+    color: #1aad6e;
     margin-right: 10px
 }
 .gl-page-content-section {
@@ -27033,7 +27033,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-agent-contact-wrapper .gl-agent-contact-form form button,
 .gl-page-content-section .gl-sold-label {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-page-content-section .gl-sale-label {
     background-color: #22a8f4
@@ -27295,8 +27295,8 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     border-radius: 15px
 }
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li.gl-agent-social-icons a:hover {
-    color: #ff5400;
-    border: 1px solid #ff5400
+    color: #1aad6e;
+    border: 1px solid #1aad6e
 }
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li.gl-agent-social-icons a i {
     font-size: 16px;
@@ -27420,7 +27420,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 21px;
     font-weight: 400;
-    color: #ff5400;
+    color: #1aad6e;
     width: calc(100% - 120px);
     border-right: 1px solid #ededed
 }
@@ -27513,7 +27513,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     border-color: #ededed
 }
 .gl-sidebar-widget .gl-featured-items .gl-sold-label {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-sidebar-widget .gl-featured-items .gl-sale-label {
     background-color: #22a8f4
@@ -27676,7 +27676,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-filter-widget form .gl-filter-options.gl-search-location:after {
     content: '\f455';
     font-family: "Ionicons";
-    color: #ff5400;
+    color: #1aad6e;
     font-size: 18px;
     position: absolute;
     top: 7px;
@@ -27736,7 +27736,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-search-filter-widget form .gl-range-wrapper span.gl-range-value {
-    color: #ff5400;
+    color: #1aad6e;
     padding-right: 0;
     float: right
 }
@@ -27829,7 +27829,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     font-size: 11px;
     font-weight: 300;
     color: #fff;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     line-height: 1;
     padding: 3px 5px;
     position: absolute;
@@ -27852,7 +27852,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     height: 0;
     border-style: solid;
     border-width: 0 4px 4px;
-    border-color: transparent transparent #ff5400 transparent;
+    border-color: transparent transparent #1aad6e transparent;
     position: absolute;
     top: -4px;
     left: 50%;
@@ -27880,38 +27880,38 @@ footer .gl-footer-bottom-wrapper ul li a:hover,
 footer .gl-footer-top-wrapper .gl-footer-widget .gl-footer-widget-content ul li a:hover,
 footer .gl-footer-top-wrapper .gl-footer-widget.gl-useful-links ul li a:hover:before,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active a {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-search-expand-btn,
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-btn,
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-line,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-line {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-bar,
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-bar-edge,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-bar,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-bar-edge {
-    background: #ff5400
+    background: #1aad6e
 }
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-slider,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-slider {
-    border-color: #ff5400!important
+    border-color: #1aad6e!important
 }
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-to {
-    background-color: #ff5400;
+    background-color: #1aad6e;
     color: #fff
 }
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-from:before,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-single:before,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-range-wrapper .gl-range-slider .irs-to:before {
-    border-bottom-color: #ff5400
+    border-bottom-color: #1aad6e
 }
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-wrapper .gl-btn {
     color: #fff!important;
-    background: #ff5400
+    background: #1aad6e
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar {
     background-color: #f7f7f7
@@ -27926,15 +27926,15 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
     background-color: #fff
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-line {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-search-map-wrapper .gl-btn,
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-bar,
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-bar-edge {
-    background: #ff5400
+    background: #1aad6e
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-slider {
-    border: 3px solid #ff5400
+    border: 3px solid #1aad6e
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-single,
@@ -27942,7 +27942,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
     background-color: #fff
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-btn {
-    background: #ff5400;
+    background: #1aad6e;
     color: #fff
 }
 .gl-search-map-section {
@@ -27952,15 +27952,15 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 }
 .gl-search-style-map-left .gl-scroll-down {
     top: 15px;
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-search-style-map-right .gl-scroll-down {
     top: 175px;
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-search-style-map-top .gl-scroll-down {
     top: 15px;
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-search-meta-wrapper {
     display: table;
@@ -28154,7 +28154,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-search-result-wrapper .gl-featured-items.gl-listtype-display .gl-sold-label {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-search-result-wrapper .gl-featured-items.gl-listtype-display .gl-sale-label {
     background-color: #22a8f4
@@ -28375,7 +28375,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 #scrollUp,
 .gl-marker-icon.gl-real-estate-icon .gl-map-marker-img,
 footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form button {
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-marker-icon.gl-fashion-icon .gl-map-marker-img {
     background-color: #3375c7
@@ -28622,7 +28622,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-skillbar .gl-skillbar-bar-wrapper .gl-skillbar-bar {
     height: 4px;
     width: 0;
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-google-map-section {
     width: 100%;
@@ -28663,7 +28663,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     line-height: 1;
     padding: 15px 30px;
     margin-bottom: 0;
-    background-color: #ff5400;
+    background-color: #1aad6e;
     -webkit-border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
     -o-border-radius: 5px 5px 5px 5px;
@@ -28738,14 +28738,14 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:focus,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-blog-content .gl-blog-items .gl-blog-item-details h3 a:hover,
 .gl-category-widget ul li a:hover,
 .gl-page-header-wrapper .gl-breadcumb a:hover,
 .gl-recent-post-widget .gl-recent-post-wrapper .gl-recent-post-item .gl-recent-post-details h3 a:hover,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-profile-icon {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-blog-page-header {
     padding: 170px 0;
@@ -28946,7 +28946,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-category-widget ul li a:hover:before {
-    border-color: transparent transparent transparent #ff5400
+    border-color: transparent transparent transparent #1aad6e
 }
 .gl-featured-image-wrapper {
     width: 100%;
@@ -29053,14 +29053,14 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-blog-heading-metas ul li a:hover,
 .gl-post-comments-wrapper .gl-comments .gl-comment-text a.gl-reply:hover {
-    color: #ff5400
+    color: #1aad6e
 }
 .gl-comments-form-wrapper form input.gl-btn {
-    background-color: #ff5400;
+    background-color: #1aad6e;
     color: #fff
 }
 .gl-comments-form-wrapper form input.gl-btn:hover {
-    background-color: #e64c00
+    background-color: #108653
 }
 .gl-blog-heading-metas h1.gl-blog-titles {
     font-family: 'pt_sansregular', sans-serif;
@@ -29141,7 +29141,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-post-metas .gl-tag-wrapper a:hover {
     color: #fff;
-    background-color: #ff5400
+    background-color: #1aad6e
 }
 .gl-post-metas .gl-tag-wrapper a:last-child {
     margin-right: 0

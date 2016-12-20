@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row">
               <div class="gl-directory-searchbar gl-realestate-directory-searchbar collapsed">
-                <form action="index.html#" id="gl-bz-directory-form">
+                  <%--
+                  <form action="index.html#" id="gl-bz-directory-form">
                     <div class="gl-regular-search">
                         <input type="text" name="gl-realestate-keyword" id="gl-realestate-keyword" class="gl-directory-input" placeholder="Keywords">
 
@@ -45,6 +46,13 @@
                   <a href="index.html#" class="gl-advanced-search-btn">
                     <i class="ion-grid"></i>
                   </a>
+                </form>
+                  --%>
+                  <form action="index.html#" id="gl-bz-directory-form">
+                        <div class="gl-regular-search">
+                            <input type="text" name="gl-realestate-keyword" id="gl-realestate-keyword" class="gl-directory-input" placeholder="Keywords" style="width: 73%;">
+                            <button type="submit" class="gl-icon-btn">Search</button>
+                        </div>
                 </form>
               </div>
         </div>

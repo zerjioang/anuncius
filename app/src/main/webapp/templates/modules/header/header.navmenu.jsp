@@ -26,7 +26,7 @@
           <a href="blog.jsp">Blog</a>
         </li>
         <li>
-          <a href="#">Acerca de</a>
+          <a href="#">Información</a>
           <ul class="gl-sub-menu">
               <li>
                   <a href="contact.jsp">Contacto</a>

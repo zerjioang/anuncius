@@ -73,95 +73,124 @@
     <!-- HERO IMAGE END -->
     
     <div class="container" style='padding-top: 5%;padding-bottom: 5%;'>
-        <div class="jumbotron">
-            <h1 class="display-3">Información de contacto</h1>
-            <p class="lead">Para ponerte en contacto con nosotros, por favor envía un email a
-                <a href="mailto:info@musutruq.com">info@musutruq.com</a>
-            </p>
-            <p><a class="btn btn-lg btn-success" href="mailto:info@musutruq.com" role="button">Contactar </a></p>
-        </div>
-        
-        <div class="row">
-        <!-- Image -->
-        <div class="gl-about-company-image gl-left-side col-md-6 col-sm-6 col-xs-12">
-          <div class="gl-page-img-wrapper">
-            <img src="images/about-us.jpg" alt="About Us" class="gl-lazy">
+        <section id=""top>
+            <div class="row">
+                <!-- Image -->
+                <div class="gl-about-company-image gl-left-side col-md-6 col-sm-6 col-xs-12">
+                  <div class="gl-page-img-wrapper">
+                    <img src="images/about-us.jpg" alt="About Us" class="gl-lazy">
+                  </div>
+                </div>
+                <!-- END -->
+
+                <!-- About Text -->
+                <div class="gl-about-company-text gl-right-side col-md-6 col-sm-6 col-xs-12">
+                  <h3 class="gl-single-title">Sobre nosotros</h3>
+                  <p align='justify'>On the other hand, we denounce with righteous indignation and dislike men whos are of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an On the other hand, we denounce with righteous indignation and dislike men who ares of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an blame belongs to those who fail in their duty through weakness of will, which is the a On the other hand, we denounce with righteous indignation and dislike men whos are of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an On the other hand, we denounce with righteous indignation and dislike men who ares of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an </p>
+
+                  <p align='justify'>On the other hand, we denounce with righteous indignation and dislike men whos are of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an On the other hand, we denounce</p>
+                </div>
+                <!-- About Text End -->
           </div>
-        </div>
-        <!-- END -->
-
-        <!-- About Text -->
-        <div class="gl-about-company-text gl-right-side col-md-6 col-sm-6 col-xs-12">
-          <h3 class="gl-single-title">Sobre nosotros</h3>
-          <p align='justify'>On the other hand, we denounce with righteous indignation and dislike men whos are of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an On the other hand, we denounce with righteous indignation and dislike men who ares of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an blame belongs to those who fail in their duty through weakness of will, which is the a On the other hand, we denounce with righteous indignation and dislike men whos are of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an On the other hand, we denounce with righteous indignation and dislike men who ares of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an </p>
-
-          <p align='justify'>On the other hand, we denounce with righteous indignation and dislike men whos are of pleasure of the moment, so blinded by desire, that they cannot foresee the pain an On the other hand, we denounce</p>
-        </div>
-        <!-- About Text End -->
-      </div>
+        </section>
         
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-              <h2>Que es musutruq?</h2>
-              <p align='justify'>
-                  Es una plataforma online realizada con el objetivo de que cualquiera, sin ningun tipo de impedimento sea capaz de publicar en Internet y al mundo un anuncio publicitario de manera gratuita y segura.
-              </p>
-              <h2>Donde está alojado?</h2>
-              <p align='justify'>
-                  Está alojado en su totalidad bajo los servicio de Amazon AWS, concretamente en una instancia EC2.
-                  Las caracteristicas del servidor pueden cambiar dependiendo de la instancia que se ejecute, por lo que si desea ver cuales son las caracteristicas actuales pulse en el boton adjunto.
-              </p>
-              <a href="" class='btn btn-success' role='button'>Ver caracteristicas actuales</a>
-              <h2>Que tecnologías están detras?</h2>
-              <p align='justify'>
-                  Las tecnologías que hacen esta plataforma posible son:
-              </p>
-              
-              <div class="row">    
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="http://www.theodo.fr/uploads/blog//2015/11/mongodb.png" width="200px" height="200px"/>
+        <section>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <h2>Que es musutruq?</h2>
+                  <p align='justify'>
+                      Es una plataforma online realizada con el objetivo de que cualquiera, sin ningun tipo de impedimento sea capaz de publicar en Internet y al mundo un anuncio publicitario de manera gratuita y segura.
+                  </p>
+                  <h2>Donde está alojado?</h2>
+                  <p align='justify'>
+                      Está alojado en su totalidad bajo los servicio de Amazon AWS, concretamente en una instancia EC2.
+                      Las caracteristicas del servidor pueden cambiar dependiendo de la instancia que se ejecute, por lo que si desea ver cuales son las caracteristicas actuales pulse en el boton adjunto.
+                  </p>
+                  <a href="" class='btn btn-success' role='button'>Ver caracteristicas actuales</a>
+                  <h2>Que tecnologías están detras?</h2>
+                  <p align='justify'>
+                      Las tecnologías que hacen esta plataforma posible son:
+                  </p>
+
+                  <div class="row">    
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="http://www.theodo.fr/uploads/blog//2015/11/mongodb.png" width="200px" height="200px"/>
+                      </div>
+
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="http://www.antweb.es/wp-content/uploads/2012/10/redis318x260_1.png" width="200px" height="200px"/>
+                      </div>
+
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tomcat-logo.svg/1000px-Tomcat-logo.svg.png" width="200px" height="200px"/>
+                      </div>
+
                   </div>
-                  
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="http://www.antweb.es/wp-content/uploads/2012/10/redis318x260_1.png" width="200px" height="200px"/>
+
+                  <div class="row">
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="http://www.rightstar.com/wp-content/uploads/2014/03/Java.png" width="200px" height="200px"/>
+                      </div>
+
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png" width="200px" height="200px"/>
+                      </div>
+
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="https://torusware.com/wp-content/uploads/2016/06/FIRJNLJIDZSJ8P2.png" width="200px" height="200px"/>
+                      </div>
                   </div>
-                  
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tomcat-logo.svg/1000px-Tomcat-logo.svg.png" width="200px" height="200px"/>
+
+                  <div class="row">
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius: 10px; padding: 20px;'>
+                          <img src="https://rekenna.github.io/images/git.png" width="200px" height="200px"/>
+                      </div>
+
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="http://www.cloudlifeconsulting.com/wp-content/uploads/2014/01/unnamed.png" width="200px" height="200px"/>
+                      </div>
+
+                      <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
+                          <img src="http://devstickers.com/assets/img/cat/bootstrap.png" width="200px" height="200px"/>
+                      </div>
                   </div>
-                  
-              </div>
-              
-              <div class="row">
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="http://www.rightstar.com/wp-content/uploads/2014/03/Java.png" width="200px" height="200px"/>
-                  </div>
-                  
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png" width="200px" height="200px"/>
-                  </div>
-                  
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="https://torusware.com/wp-content/uploads/2016/06/FIRJNLJIDZSJ8P2.png" width="200px" height="200px"/>
-                  </div>
-              </div>
-              
-              <div class="row">
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius: 10px; padding: 20px;'>
-                      <img src="https://rekenna.github.io/images/git.png" width="200px" height="200px"/>
-                  </div>
-                  
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="http://www.cloudlifeconsulting.com/wp-content/uploads/2014/01/unnamed.png" width="200px" height="200px"/>
-                  </div>
-                  
-                  <div class="col-md-3 col-md-6 col-xs-12" style='margin:5px;text-align:-webkit-center;background-color:#e8e8e8;border-radius:10px;padding:20px;'>
-                      <img src="http://devstickers.com/assets/img/cat/bootstrap.png" width="200px" height="200px"/>
-                  </div>
-              </div>
-              
+
+                </div>
             </div>
-        </div>
+        </section>
+        
+        <section id="history">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Historia</h2>
+                    <p align='justify'>
+                      bla bla bla
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ethics">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Nuestros valores</h2>
+                    <p align='justify'>
+                      bla bla bla
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+             <h1>Información de contacto</h1>
+        
+            <div class="jumbotron">
+                <p class="lead">Para ponerte en contacto con nosotros, por favor envía un email a
+                    <a href="mailto:info@musutruq.com">info@musutruq.com</a>
+                </p>
+                <p><a class="btn btn-lg btn-success" href="mailto:info@musutruq.com" role="button">Contactar </a></p>
+            </div>
+        </section>
     </div>
 
     <!-- FOOTER -->
