@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="gl-compare-item-name">
-                    <a href="index.html">Mad House</a>
+                    <a href="index.html">temp</a>
                   </div>
 
                   <div class="gl-compare-del-btn">

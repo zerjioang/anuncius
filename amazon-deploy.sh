@@ -1,16 +1,28 @@
 #!/bin/bash
 
-cd  ../api
+#go to api
+
+cd api
 #mvn clean
 #mvn install
 
-#mv /home/ec2-user/musutruq/api/target/*.war ../docker/Dockerfile/apps/
+#mv ./api/target/*.war ./docker/Dockerfile/apps/
 
-cd ../app
+#go back
+cd ..
+
+#go to app
+cd app
+
 mvn clean
 mvn install
 
-mv /home/ec2-user/musutruq/app/target/*.war ../docker/Dockerfile/apps/
+#go back
+cd ..
 
-cd ../docker
+#move file
+mv ./app/target/*.war ./docker/Dockerfile/apps/
+
+#run docker
+cd docker
 docker-compose up --build
