@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="vendor/remodal/remodal.css">
     <link rel="stylesheet" href="vendor/remodal/remodal-default-theme.css">
 
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/clean.scrollbar.css">
 
     <!-- main title font -->

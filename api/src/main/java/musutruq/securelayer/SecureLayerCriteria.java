@@ -5,6 +5,9 @@
  */
 package musutruq.securelayer;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author .local
@@ -19,7 +22,8 @@ public enum SecureLayerCriteria {
             }
             return PASSED;
         }
-    }, CONSUMER_SECRET_CRITERIA {
+    },
+    CONSUMER_SECRET_CRITERIA {
         @Override
         public boolean validate(String consumerSecret) throws SecureLayerException {
             if(consumerSecret == null){
@@ -27,10 +31,23 @@ public enum SecureLayerCriteria {
             }
             return PASSED;
         }
-    };
+    },
+    VALID_EMAIL_CRITERIA {
+        @Override
+        public boolean validate(String email) throws SecureLayerException {
+            if(email!=null && !email.trim().isEmpty() && email.contains("@")){
+                Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+                Matcher mat = pattern.matcher(email);
+                return mat.matches();
+            }
+            return FAILED;
+        }
+    }
+    ;
 
     private static final boolean PASSED = true;
-    public static final boolean FAILED = false;
+    private static final boolean FAILED = false;
+    
     public abstract boolean validate(String data) throws SecureLayerException;
     
 }

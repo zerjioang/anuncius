@@ -33,6 +33,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(musutruq.api.OAuthResource.class);
         resources.add(musutruq.api.PublicResource.class);
+        resources.add(musutruq.api.ShareResource.class);
     }
     
 }
