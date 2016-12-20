@@ -1,5 +1,6 @@
-# musutruq
-
+<p align='center'>
+<img src='https://cloud.githubusercontent.com/assets/6706342/21369942/b0b665b6-c709-11e6-8379-bb563a1d46be.png'></img>
+</p>
 Social & Collaborative Donationware Shop
 
 ## Requirements
