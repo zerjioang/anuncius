@@ -4,7 +4,7 @@
         <!-- COPYRIGHT INFO -->
         <div class="gl-copyright-info-wrapper" data-remodal-target="copyright-modal">
           <p>
-              <a data-remodal-target="copyright-modal">Copyright &copy; 2016 Musutruq. Todos los derechos reservados</a>
+              <a data-remodal-target="copyright-modal">Copyright &copy; 2016 Anuncius. Todos los derechos reservados</a>
           </p>
         </div>
         <!-- COPYRIGHT INFO -->

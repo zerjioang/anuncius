@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <!-- PAGE TITLE -->
-    <title>Musutruq | La revolución de las tiendas online</title>
+    <title>Anuncius | La revolución de las tiendas online</title>
     
     <s:include value="/templates/modules/metadata/metadata.generic.jsp">
         <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
@@ -17,10 +17,10 @@
     <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
     
     <s:include value="/templates/modules/metadata/metadata.opengraph.jsp">
-        <s:param name="title" value="'Musutruq'"></s:param>
-        <s:param name="sitename" value="'Musutruq'"></s:param>
-        <s:param name="url" value="'http://www.musutruq.com/'"></s:param>
-        <s:param name="image" value="'http://www.musutruq.com/image.png'"></s:param>
+        <s:param name="title" value="'Anuncius'"></s:param>
+        <s:param name="sitename" value="'Anuncius'"></s:param>
+        <s:param name="url" value="'http://www.anuncius.org/'"></s:param>
+        <s:param name="image" value="'http://www.anuncius.org/image.png'"></s:param>
         <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
         <s:param name="address" value="'Avenida de las universidades'"></s:param>
         <s:param name="locality" value="'Bilbao'"></s:param>
@@ -30,18 +30,18 @@
     </s:include>
     
     <s:include value="/templates/modules/metadata/metadata.twitter.jsp">
-        <s:param name="alt" value="'Imagen de bienvenida de Musutruq'"></s:param>
-        <s:param name="site" value="'@musutruq'"></s:param>
-        <s:param name="title" value="'Musutruq - La revolución de las tiendas online'"></s:param>
-        <s:param name="description" value="'Bienvenido a musutruq. La tienda online donde encontrarás lo que quieras.'"></s:param>
+        <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
+        <s:param name="site" value="'@anuncius'"></s:param>
+        <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
+        <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
         <s:param name="author" value="'@zerjioang'"></s:param>
-        <s:param name="image" value="'http://www.musutruq.com/image.jpg'"></s:param>
+        <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
     </s:include>
     
     <s:include value="/templates/modules/metadata/metadata.google.jsp">
-        <s:param name="name" value="'Musutruq - La revolución de las tiendas online'"></s:param>
-        <s:param name="description" value="'Bienvenido a musutruq. La tienda online donde encontrarás lo que quieras.'"></s:param>
-        <s:param name="image" value="'http://www.musutruq.com/image.jpg'"></s:param>
+        <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
+        <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
+        <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
     </s:include>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />

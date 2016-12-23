@@ -8,10 +8,10 @@
             <a href="tel:+34 94 PHONE">+34 94 PHONE</a>
         </li>
         <li><i class="fa fa-envelope-o"></i>
-            <a href="mailto:info@musutruq.com">info@musutruq.com</a>
+            <a href="mailto:info@anuncius.org">info@anuncius.org</a>
         </li>
         <li><i class="fa fa-globe"></i>
-            <a href="http://www.musutruq.com" target="_blank">www.musutruq.com</a>
+            <a href="http://www.anuncius.org" target="_blank">www.anuncius.org</a>
         </li>
       </ul>
     </div>

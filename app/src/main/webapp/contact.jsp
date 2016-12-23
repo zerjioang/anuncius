@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <!-- PAGE TITLE -->
-    <title>Musutruq | La revolución de las tiendas online</title>
+    <title>Anuncius | La revolución de las tiendas online</title>
     
     <s:include value="/templates/modules/metadata/metadata.generic.jsp">
         <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
@@ -17,10 +17,10 @@
     <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
     
     <s:include value="/templates/modules/metadata/metadata.opengraph.jsp">
-        <s:param name="title" value="'Musutruq'"></s:param>
-        <s:param name="sitename" value="'Musutruq'"></s:param>
-        <s:param name="url" value="'http://www.musutruq.com/'"></s:param>
-        <s:param name="image" value="'http://www.musutruq.com/image.png'"></s:param>
+        <s:param name="title" value="'Anuncius'"></s:param>
+        <s:param name="sitename" value="'Anuncius'"></s:param>
+        <s:param name="url" value="'http://www.anuncius.org/'"></s:param>
+        <s:param name="image" value="'http://www.anuncius.org/image.png'"></s:param>
         <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
         <s:param name="address" value="'Avenida de las universidades'"></s:param>
         <s:param name="locality" value="'Bilbao'"></s:param>
@@ -30,18 +30,18 @@
     </s:include>
     
     <s:include value="/templates/modules/metadata/metadata.twitter.jsp">
-        <s:param name="alt" value="'Imagen de bienvenida de Musutruq'"></s:param>
-        <s:param name="site" value="'@musutruq'"></s:param>
-        <s:param name="title" value="'Musutruq - La revolución de las tiendas online'"></s:param>
-        <s:param name="description" value="'Bienvenido a musutruq. La tienda online donde encontrarás lo que quieras.'"></s:param>
+        <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
+        <s:param name="site" value="'@anuncius'"></s:param>
+        <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
+        <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
         <s:param name="author" value="'@zerjioang'"></s:param>
-        <s:param name="image" value="'http://www.musutruq.com/image.jpg'"></s:param>
+        <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
     </s:include>
     
     <s:include value="/templates/modules/metadata/metadata.google.jsp">
-        <s:param name="name" value="'Musutruq - La revolución de las tiendas online'"></s:param>
-        <s:param name="description" value="'Bienvenido a musutruq. La tienda online donde encontrarás lo que quieras.'"></s:param>
-        <s:param name="image" value="'http://www.musutruq.com/image.jpg'"></s:param>
+        <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
+        <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
+        <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
     </s:include>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -97,7 +97,7 @@
         <section>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                  <h2>Que es musutruq?</h2>
+                  <h2>Que es anuncius?</h2>
                   <p align='justify'>
                       Es una plataforma online realizada con el objetivo de que cualquiera, sin ningun tipo de impedimento sea capaz de publicar en Internet y al mundo un anuncio publicitario de manera gratuita y segura.
                   </p>
@@ -186,9 +186,9 @@
         
             <div class="jumbotron">
                 <p class="lead">Para ponerte en contacto con nosotros, por favor envía un email a
-                    <a href="mailto:info@musutruq.com">info@musutruq.com</a>
+                    <a href="mailto:info@anuncius.org">info@anuncius.org</a>
                 </p>
-                <p><a class="btn btn-lg btn-success" href="mailto:info@musutruq.com" role="button">Contactar </a></p>
+                <p><a class="btn btn-lg btn-success" href="mailto:info@anuncius.org" role="button">Contactar </a></p>
             </div>
         </section>
     </div>
