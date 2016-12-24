@@ -68,7 +68,7 @@
     -->
     <Connector
 		compressableMimeType="text/html,text/xml,text/css,text/javascript,application/x-javascript,application/javascript"
-		compression="off"
+		compression="on"
 		compressionMinSize="128"
 		connectionTimeout="20000"
 		noCompressionUserAgents="gozilla, traviata"
@@ -127,8 +127,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true">
+      <Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true">
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
@@ -143,6 +142,9 @@
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 
+	<!-- disable errors -->
+	<Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="false"/>
+	
       </Host>
     </Engine>
   </Service>

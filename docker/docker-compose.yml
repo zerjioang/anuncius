@@ -6,45 +6,23 @@ services:
     container_name: mongodb
     restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - './volumes/mongo/data:/data'
-    networks:
-      - back-tier
   cache:
     image: redis:latest
     container_name: redis
     ports:
-      - "6379:6379"
+      - '6379:6379'
     restart: always
     volumes:
       - './volumes/redis/redis.conf:/usr/local/etc/redis/redis.conf'
-    networks:
-      - back-tier
   web:
     build: ./Dockerfile/tomcat
     container_name: web
     ports:
-      - "8080:8080"
+      - '80:8080'
     links:
       - mongodb
       - cache
     restart: always
-    networks:
-      - back-tier
-  balancer:
-    build: ./Dockerfile/haproxy
-    container_name: proxy
-    ports:
-      - '80:80'
-    links:
-      - web
-    networks:
-      - front-tier
-      - back-tier
-
-networks:
-  front-tier:
-    driver: bridge
-  back-tier:
-    driver: bridge

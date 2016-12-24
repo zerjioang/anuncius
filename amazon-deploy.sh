@@ -21,7 +21,7 @@ mvn install
 cd ..
 
 #move file
-mv ./app/target/*.war ./docker/Dockerfile/apps/
+mv ./app/target/*.war ./docker/Dockerfile/tomcat/apps/
 
 #run docker
 cd docker
