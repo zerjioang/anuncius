@@ -17,37 +17,36 @@ import java.util.*;
 import javax.servlet.annotation.WebFilter;
 
 // Implements Filter class
-@WebFilter(filterName = "LogFilter", urlPatterns = {"/*"})
-public class LogFilter implements Filter {
+@WebFilter(filterName = "RedisFilter", urlPatterns = {"/*"})
+public class RedisFilter implements Filter {
 
+    private static String redisHandler = "";
     public void init(FilterConfig config) throws ServletException {
+        redisHandler = "redis";
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String uriStr = httpRequest.getRequestURI();
-        // Get the IP address of client machine.   
-        String ipAddress = request.getRemoteAddr();
-        // Get referer address for behaviour mapping
-        String referer = httpRequest.getHeader("referer");
-
-        // Log the IP address and current timestamp.
-        System.out.println(
-                "Time " + new Date().toString()
-                + ", IP " + ipAddress
-                + ", Host " + request.getRemoteHost()
-                + ", Port " + request.getRemotePort()
-                + ", URL " + uriStr
-                + ", Referer URL" + referer
-        );
-
-        // Pass request back down the filter chain
-        chain.doFilter(request, response);
+        
+        if(isCached(uriStr)){
+            response.getOutputStream().print("<html><body><h1>response from redis</h1></body></html>");
+            response.getOutputStream().flush();
+            response.getOutputStream().close();
+        }
+        else{
+            // Pass request back down the filter chain
+            chain.doFilter(request, response);
+        }
     }
 
     public void destroy() {
         /* Called before the Filter instance is removed 
         from service by the web container*/
+    }
+
+    private boolean isCached(String uriStr) {
+        return false;
     }
 }

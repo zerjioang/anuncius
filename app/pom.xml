@@ -10,15 +10,16 @@
     <name>anuncius-app</name>
 
     <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <endorsed.dir>${project.build.directory}/libs</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <compiler.version>1.7</compiler.version>
     </properties>
     
     <dependencies>
         
         <!-- Struts 2 -->
         <dependency>
-        <groupId>org.apache.struts</groupId>
+            <groupId>org.apache.struts</groupId>
             <artifactId>struts2-core</artifactId>
             <version>2.1.8</version>
         </dependency>
@@ -46,8 +47,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+			<source>${compiler.version}</source>
+			<target>${compiler.version}</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>

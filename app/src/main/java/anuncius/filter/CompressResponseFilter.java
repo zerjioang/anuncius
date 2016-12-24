@@ -18,36 +18,36 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(filterName = "CompressResponseFilter", urlPatterns = { "/*" })
+@WebFilter(filterName = "CompressResponseFilter", urlPatterns = {"/*"})
 public class CompressResponseFilter implements Filter {
 
-  private HtmlCompressor compressor;
+    private HtmlCompressor compressor;
 
-  @Override
-  public void doFilter(ServletRequest req, ServletResponse resp,
-      FilterChain chain) throws IOException, ServletException {
-      
-    CharResponseWrapper responseWrapper = new CharResponseWrapper((HttpServletResponse) resp);
-    chain.doFilter(req, responseWrapper);
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp,
+            FilterChain chain) throws IOException, ServletException {
 
-    String servletResponse = responseWrapper.toString();
-    String compressedResponse = compressor.compress(servletResponse);
-    
-    resp.getOutputStream().print(compressedResponse);
-    resp.getOutputStream().flush();
-    resp.getOutputStream().close(); 
-  }
+        CharResponseWrapper responseWrapper = new CharResponseWrapper((HttpServletResponse) resp);
+        chain.doFilter(req, responseWrapper);
 
-  @Override
-  public void init(FilterConfig config) throws ServletException {
-    compressor = new HtmlCompressor();
-    compressor.setCompressCss(true);
-    compressor.setCompressJavaScript(true);
-    compressor.setDevelopment(true);
-  }
+        String servletResponse = responseWrapper.toString();
+        String compressedResponse = compressor.compress(servletResponse);
 
-  @Override
-  public void destroy() {
-  }
+        resp.getOutputStream().print(compressedResponse);
+        resp.getOutputStream().flush();
+        resp.getOutputStream().close();
+    }
+
+    @Override
+    public void init(FilterConfig config) throws ServletException {
+        compressor = new HtmlCompressor();
+        compressor.setCompressCss(true);
+        compressor.setCompressJavaScript(true);
+        compressor.setDevelopment(true);
+    }
+
+    @Override
+    public void destroy() {
+    }
 
 }

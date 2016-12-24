@@ -21,9 +21,9 @@ services:
       - './volumes/redis/redis.conf:/usr/local/etc/redis/redis.conf'
     networks:
       - back-tier
-  tomcat:
+  web:
     build: ./Dockerfile/tomcat
-    container_name: tomcat
+    container_name: web
     ports:
       - "8080:8080"
     links:
@@ -32,14 +32,13 @@ services:
     restart: always
     networks:
       - back-tier
-  lighttpd:
-    container_name: lighttpd
-    build: ./Dockerfile/lighttpd
-    volumes:
-      - './volumes/lighttpd/static:/var/www/localhost/htdocs'
-      - './volumes/lighttpd/config/lighttpd.conf:/etc/lighttpd/lighttpd2.conf'
+  balancer:
+    build: ./Dockerfile/haproxy
+    container_name: proxy
     ports:
       - '80:80'
+    links:
+      - web
     networks:
       - front-tier
       - back-tier

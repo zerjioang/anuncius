@@ -10,17 +10,17 @@ public class HtmlCompressor {
     private boolean development;
     private boolean compressCss;
     private boolean compressJs;
-    
+
     private static final String NONE = "";
-    
-    public HtmlCompressor(){
+
+    public HtmlCompressor() {
         this.development = false;
     }
 
     public String compress(String html) {
         //remove new lines, tabs, etc
-        if(!development){
-            if(html!=null && !html.isEmpty()){
+        if (!development) {
+            if (html != null && !html.isEmpty()) {
                 html = html.replaceAll("\n|\r|\b|\t", NONE);
                 //remove multiple spaces
                 html = html.replaceAll("  ", NONE);
@@ -47,7 +47,7 @@ public class HtmlCompressor {
     public void setCompressJs(boolean compressJs) {
         this.compressJs = compressJs;
     }
-    
+
     public void setCompressCss(boolean b) {
         this.compressCss = b;
     }
@@ -55,5 +55,5 @@ public class HtmlCompressor {
     public void setCompressJavaScript(boolean b) {
         this.compressJs = b;
     }
-    
+
 }

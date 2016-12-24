@@ -29,18 +29,18 @@ function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
         dataType: 'json',
         data: payload,
         error: function (jqXHR, textStatus, errorThrown) {
-            if(onError){
+            if (onError) {
                 onError();
             }
         },
         success: function (data, textStatus, jqXHR) {
-            if(onSuccess){
+            if (onSuccess) {
                 onSuccess();
             }
         }
     });
 }
 
-function getFullyQualifiedRemotePath(remotePath){
-    return host+':'+port+base+remotePath;
+function getFullyQualifiedRemotePath(remotePath) {
+    return host + ':' + port + base + remotePath;
 }

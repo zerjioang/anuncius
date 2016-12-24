@@ -56,7 +56,7 @@
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     </head>
 
-    <body class="gl-realestate-template">
+    <body class="gl-blog-page gl-blog-grid gl-realestate-template">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
 
@@ -66,52 +66,35 @@
 
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp" />
-        <!-- HEADER END -->
 
-        <!-- HERO IMAGE -->
-        <s:include value="/templates/modules/hero/hero.section.jsp">
-            <s:param name="normal" value="'Tu compra '" />
-            <s:param name="bold" value="'inteligente'"/>
-        </s:include>
-        <!-- HERO IMAGE END -->
+        <!-- PAGE HEADER -->
+        <section class="gl-blog-page-header gl-page-header-wrapper">
+            <div class="container">
+                <div class="row">
+                    <h1>El ranking</h1>
+                    <div class="gl-breadcumb">
+                        <a href=".">Anuncius</a>
+                        <span>Ranking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PAGE HEADER -->
 
-        <!-- DIRECTORY FORM SECTION -->
-        <s:include value="/templates/modules/search/search.section.jsp" />
-        <!-- END -->
-
-        <!-- FEATURED PROPERTIES -->
-        <s:include value="/templates/modules/featured/featured.section.jsp" />
-        <!-- FEATURED PROPERTIES END -->
-
-        <%--
-        <!-- ICON WITH TEXT BEGIN -->
-        <s:include value="/templates/modules/features/features.section.jsp" />
-        <!-- ICON WITH TEXT END -->
-        --%>
-
-        <%--
-        <!-- CUSTOM SECTION  -->
-        <s:include value="/templates/modules/details/details.section.jsp" />
-        <!-- CUSTOM SECTION END  -->
-        --%>
-
-        <!-- RECENT LISTINGS -->
-        <s:include value="/templates/modules/listing/listing.section.jsp"/>
-        <!-- RECENT LISTINGS END -->
-
-        <%-- 
-        <!-- ETHICS SECTION -->
-        <s:include value="/templates/modules/ethics/ethics.section.jsp" />
-        <!-- ETHICS SECTION END -->
-        
-        <!-- AGENTS SECTION -->
-        <s:include value="/templates/modules/agents/agents.section.jsp" />
-        <!-- AGENTS SECTION END -->
-        
-        <!-- DONATIONS -->
-        <s:include value="/templates/modules/donation/donation.section.jsp" />
-        <!-- DONATIONS END -->
-        --%>
+        <section class="container">
+            <div class="row" style="padding:40px;">
+                <div class="col-md-6">
+                    <img class="img-center" src="https://www.digicert.com/images/seo-rank-boost.png" width="75%" alt="Imagen del top 10"/>
+                </div>
+                <div class="col-md-6">
+                    <h1 style="text-align: -webkit-center; font-family: 'Fredoka One', cursive;"><b>El top 10</b></h1>
+                    <ul>
+                        <li>Usuario 01</li>
+                    </ul>
+                    <p style="text-align: -webkit-center;">No hay usuarios actualmente en el top 10</p>
+                </div>
+            </div>
+        </section>
 
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />

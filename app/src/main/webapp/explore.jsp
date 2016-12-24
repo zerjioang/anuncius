@@ -10,7 +10,7 @@
 
         <s:include value="/templates/modules/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La compra inteligente'"></s:param>
-            <s:param name="author" value="'Sergio'"></s:param>
+            <s:param name="author" value="'Sergioó'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
