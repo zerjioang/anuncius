@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8
+FROM tomcat:9.0.0-alpine
 
 #remove tomcat default apps
 
@@ -9,7 +9,7 @@ RUN rm -rf /usr/local/tomcat/webapps/docs \
 #apps
 
 COPY ./apps/app-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
-COPY ./apps/jenkins.war /usr/local/tomcat/webapps/jenkins.war
+# COPY ./apps/jenkins.war /usr/local/tomcat/webapps/jenkins.war
 
 #COPY ./apps/api-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/api.war
 

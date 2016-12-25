@@ -40,6 +40,8 @@ services:
     links:
       - web:web
     restart: always
+    volumes:
+      - ./volumes/nginx/html:/usr/share/nginx/html
     networks:
       - backend
       - frontend

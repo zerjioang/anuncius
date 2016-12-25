@@ -43,5 +43,5 @@ captures/
 */target/*
 
 #war files
-docker/Dockerfile/apps/app-1.0-SNAPSHOT.war
-docker/Dockerfile/apps/api-1.0-SNAPSHOT.war
+docker/Dockerfile/tomcat/apps/app-1.0-SNAPSHOT.war
+docker/Dockerfile/tomcat/apps/api-1.0-SNAPSHOT.war
