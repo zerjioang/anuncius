@@ -19,8 +19,8 @@
         <s:include value="/templates/modules/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
-            <s:param name="url" value="'http://www.anuncius.org/'"></s:param>
-            <s:param name="image" value="'http://www.anuncius.org/image.png'"></s:param>
+            <s:param name="url" value="'http://www.anunci.us/'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.png'"></s:param>
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -35,13 +35,13 @@
             <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'@zerjioang'"></s:param>
-            <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
-            <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -70,6 +70,7 @@
             <s:param name="normal" value="'Términos y condiciones'" />
             <s:param name="bold" value=""/>
             <s:param name="image" value="'./images/blurred.jpg'" />
+            <s:param name="block" value="'terminos'" />
         </s:include>
         <!-- HERO IMAGE END -->
 
@@ -91,7 +92,7 @@
                         <h3>1. Datos identificativos
                         </h3>
                         <p align="justify">
-                            anuncius.org es un grupo independiente de profesionales especializados en las TIC que actuan como asesores en diversos proyectos para clientes de todo tipo.
+                            anunci.us es un grupo independiente de profesionales especializados en las TIC que actuan como asesores en diversos proyectos para clientes de todo tipo.
                         </p>
                         <h3>2. Descripción del servicio
                         </h3>
@@ -101,7 +102,7 @@
                         <p align="justify">
                             <b>ANUNCIUS</b>, se reserva el derecho a modificar cualquier tipo de información que pudiera aparecer en el sitio web, sin que exista obligación de preavisar o poner en conocimiento de los usuarios dichas obligaciones, entendiéndose como suficiente con la publicación en el sitio web del prestador. Uno de dichos servicios es el de optimizar el tiempo de carga de las paginas web, proporcionar herramientas de desarrollo opensource, etc. Los usuarios de <b>ANUNCIUS</b> pueden crear y adquirir los productos y o servicios que sean gratuitos para su propio uso exclusivamente sin coste alguno. Los usuarios que quieran usar dichos productos o servicios que no esten declarados como opensource para obtener beneficio o como herramientas de desarrollo, de trabajo, etc para cualquier persona fisica o juridica deberán aceptar las Condiciones de uso de software de negocio al momento de suscribirse a este servicio. <b>ANUNCIUS</b> permite a los usuarios navegar por su web y suscibirse a los servicios disponibles. Tanto los públicos como los privados.
                         </p>
-                        <h3>3. Uso de la web anuncius.org y del servicio
+                        <h3>3. Uso de la web anunci.us y del servicio
                         </h3>
                         <h4>3.1 Edad mínima
                         </h4>
@@ -116,7 +117,7 @@
                         <h4>3.3 Servicios ofrecidos por terceros
                         </h4>
                         <p align="justify">
-                            <b>ANUNCIUS</b> puede usar material de terceros para ofrecer determinados servicios a través de anuncius.org. <b>ANUNCIUS</b> no controla a estos terceros y sus servicios, y aceptas que <b>ANUNCIUS</b> no tiene ninguna responsabilidad en cómo tú puedes llegar a usar dichos servicios. Estos terceros tienen su propias Condiciones Generales de Uso. En caso de conflicto con <b>ANUNCIUS</b>, prevalecerán las Condiciones Generales de Uso de <b>ANUNCIUS</b>.
+                            <b>ANUNCIUS</b> puede usar material de terceros para ofrecer determinados servicios a través de anunci.us. <b>ANUNCIUS</b> no controla a estos terceros y sus servicios, y aceptas que <b>ANUNCIUS</b> no tiene ninguna responsabilidad en cómo tú puedes llegar a usar dichos servicios. Estos terceros tienen su propias Condiciones Generales de Uso. En caso de conflicto con <b>ANUNCIUS</b>, prevalecerán las Condiciones Generales de Uso de <b>ANUNCIUS</b>.
                         </p>
                         <p align="justify">
                             <b>ANUNCIUS</b>, se exime de cualquier tipo de responsabilidad derivada de la información publicada en su sitio web, siempre que esta información haya sido manipulada o introducida por un tercero ajeno al mismo.
@@ -135,7 +136,7 @@
                         <h4>4.1 Uso prohibido
                         </h4>
                         <p align="justify">
-                            No puedes intentar causar ningún daño a la web o al servicio de anuncius.org. Por ejemplo, y sin ser esta lista completa ni exhaustiva, no puedes
+                            No puedes intentar causar ningún daño a la web o al servicio de anunci.us. Por ejemplo, y sin ser esta lista completa ni exhaustiva, no puedes
                         </p>
                         a)    Entorpecer el servicio de <b>ANUNCIUS</b> usando malware u otros programas diseñados para causar daño a cualquier software o hardware.
                         b)    Modificar o crear versiones de cualquier tecnología usada en <b>ANUNCIUS</b> sin previa autorización por los responsables.
@@ -145,13 +146,13 @@
                         <h4>4.2 Privacidad y protección de datos
                         </h4>
                         <p align="justify">
-                            En anuncius.org estamos especialmente concienciados acerca de la seguridad y por garantizar la confidencialidad de los datos aportados por nuestros clientes. Nos comprometemos a darte el mejor servicio y la mejor experiencia online
+                            En anunci.us estamos especialmente concienciados acerca de la seguridad y por garantizar la confidencialidad de los datos aportados por nuestros clientes. Nos comprometemos a darte el mejor servicio y la mejor experiencia online
                         </p>
                         <p align="justify">
                             En el momento en que un cliente realiza un pedido a través de nuestro servidor seguro, sus datos personales, domiciliarios, y los relativos a sus compras y formas de pago, son incorporados a nuestra base de datos para tramitar el pedido
                         </p>
                         <p align="justify">
-                            En anuncius.org no tenemos ningún acceso a la información relacionada con el número de la tarjeta de crédito de nuestros clientes. Nosotros únicamente recibimos la confirmación del pago por parte de las instituciones bancarias que tramitan el pedido
+                            En anunci.us no tenemos ningún acceso a la información relacionada con el número de la tarjeta de crédito de nuestros clientes. Nosotros únicamente recibimos la confirmación del pago por parte de las instituciones bancarias que tramitan el pedido
                         </p>
                         <p align="justify">
                             En ningún caso, su información personal será cedida a terceros ajenos a los integrantes de la plataforma ANUNCIUS
@@ -169,40 +170,40 @@
                         Remitir el boletín de noticias o newsletter de <b>ANUNCIUS</b>. 
                         <b>ANUNCIUS</b> informa y garantiza expresamente a los usuarios que sus datos personales no serán cedidos en ningún caso a terceras compañías, y que siempre que fuera a realizarse algún tipo de cesión de datos personales, de forma previa, se solicitaría el consentimiento expreso, informado, e inequívoco por parte de los titulares. 
                         Todos los datos solicitados a través del sitio web son obligatorios, ya que son necesarios para la prestación de un servicio óptimo al usuario. En caso de que no sean facilitados todos los datos, <b>ANUNCIUS</b> no garantiza que la información y servicios facilitados sean completamente ajustados a sus necesidades. 
-                        <b>ANUNCIUS</b> garantiza en todo caso al usuario el ejercicio de los derechos de acceso, rectificación, cancelación, información y oposición, en los términos dispuestos en la legislación vigente. Por ello, de conformidad con lo dispuesto en la Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal (LOPD) podrá ejercer sus derechos remitiendo una solicitud expresa, junto a una copia de su DNI, a la dirección de correo electrónico: contact@anuncius.org
+                        <b>ANUNCIUS</b> garantiza en todo caso al usuario el ejercicio de los derechos de acceso, rectificación, cancelación, información y oposición, en los términos dispuestos en la legislación vigente. Por ello, de conformidad con lo dispuesto en la Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal (LOPD) podrá ejercer sus derechos remitiendo una solicitud expresa, junto a una copia de su DNI, a la dirección de correo electrónico: contact@anunci.us
                         <h4>4.3 Condiciones de compra
                         </h4>
                         <h5>Sistema de venta
                         </h5>
                         <p align="justify">
-                            Para realizar una compra, el usuario puede hacernos llegar su pedido por Internet a través del sistema implementado en nuestro sitio web anuncius.org o a traves de contacto directo por email o teléfono
+                            Para realizar una compra, el usuario puede hacernos llegar su pedido por Internet a través del sistema implementado en nuestro sitio web anunci.us o a traves de contacto directo por email o teléfono
                         </p>
                         <h5>Impuestos aplicables
                         </h5>
-                        Los precios de los productos expuestos en la página web de anuncius.org, incluyen el Impuesto sobre el Valor Añadido (IVA) que, en su caso, sea procedente aplicar.
+                        Los precios de los productos expuestos en la página web de anunci.us, incluyen el Impuesto sobre el Valor Añadido (IVA) que, en su caso, sea procedente aplicar.
                         Las compras que vayan a ser entregadas dentro del territorio de cualquiera de los estados miembros de la Unión Europea estarán sujetas a IVA.
                         Las compras que deban ser entregadas en territorios de Estados no miembros de la Unión Europea, Ceuta o Melilla estarán exentas del IVA.
                         <h5>Forma de pago
                         </h5>
-                        Al formular el pedido, el cliente puede elegir libremente abonar las compras que realice mediante tarjeta (American Express, MasterCard, Visa, Visa Electrón, etc); contra-reembolso (sólo en España y algunos países de la Unión Europea), mediante transferencia bancaria y mediante PayPal. En determinados casos y para prevenir posibles fraudes anuncius.org se reserva la posibilidad de solicitar a un cliente una forma de pago concreta.
+                        Al formular el pedido, el cliente puede elegir libremente abonar las compras que realice mediante tarjeta (American Express, MasterCard, Visa, Visa Electrón, etc); contra-reembolso (sólo en España y algunos países de la Unión Europea), mediante transferencia bancaria y mediante PayPal. En determinados casos y para prevenir posibles fraudes anunci.us se reserva la posibilidad de solicitar a un cliente una forma de pago concreta.
                         <h3>5. Garantía legal, devoluciones y cambios
                         </h3>
                         <h4>5.1. Garantía legal
                         </h4>
                         <p align="justify">
-                            En caso de producto defectuoso, anuncius.org procederá, según corresponda, a la reparación, sustitución, rebaja del precio o resolución del contrato, gestiones que serán gratuitas para el cliente. anuncius.org responde de las faltas de conformidad que se manifiesten en un plazo de 2 años desde la entrega. El cliente deberá informar a anuncius.org de la falta de conformidad en el plazo de 2 meses desde que tuvo conocimiento de ella.
+                            En caso de producto defectuoso, anunci.us procederá, según corresponda, a la reparación, sustitución, rebaja del precio o resolución del contrato, gestiones que serán gratuitas para el cliente. anunci.us responde de las faltas de conformidad que se manifiesten en un plazo de 2 años desde la entrega. El cliente deberá informar a anunci.us de la falta de conformidad en el plazo de 2 meses desde que tuvo conocimiento de ella.
                         </p>
                         <h4>5.2. Cambios y devoluciones (derecho de desistimiento)
                         </h4>
                         <p align="justify">
-                            El cliente podrá elegir entre el cambio del producto o de sus especificaciones o la devolución íntegra del importe. El usuario tendrá 30 días naturales para efectuar la devolución o el cambio, antes de la fecha limite de finalización del plazo marcado para el analisis y diseño de la solución. Para solicitar la devolución del pedido dentro del indicado plazo de 30 días naturales (derecho de desistimiento), el cliente deberá contactar con cualquiera de los responsables de anuncius.org mediante correo electronico o teléfono
+                            El cliente podrá elegir entre el cambio del producto o de sus especificaciones o la devolución íntegra del importe. El usuario tendrá 30 días naturales para efectuar la devolución o el cambio, antes de la fecha limite de finalización del plazo marcado para el analisis y diseño de la solución. Para solicitar la devolución del pedido dentro del indicado plazo de 30 días naturales (derecho de desistimiento), el cliente deberá contactar con cualquiera de los responsables de anunci.us mediante correo electronico o teléfono
                         </p>
                         <h3>6. Propiedad intelectual e industrial
                         </h3>
                         <h4>6.1. Propiedad de los usuarios 
                         </h4>
                         <p align="justify">
-                            El usuario declara y garantiza el propietario intelectual e industrial del contenido que ponga a disposición de anuncius.org, o tiene las autorizaciones necesarias de los propietarios para hacerlo. Igualmente, el usuario concede a <b>ANUNCIUS</b> una licencia no exclusiva, mundial y gratuita para usar dicho contenido, en los medios y formatos que <b>ANUNCIUS</b> crea conveniente para prestar su servicio de creación, producción y desarrollo. <b>ANUNCIUS</b> puede ceder esta licencia a un tercero en caso necesario para dicha creación, producción y envío de artículos. <b>ANUNCIUS</b> reconoce a favor de sus titulares los correspondientes derechos de propiedad industrial e intelectual, no implicando su sola mención o aparición en el sitio web la existencia de derechos o responsabilidad alguna del prestador sobre los mismos, como tampoco respaldo, patrocinio o recomendación por parte del mismo.
+                            El usuario declara y garantiza el propietario intelectual e industrial del contenido que ponga a disposición de anunci.us, o tiene las autorizaciones necesarias de los propietarios para hacerlo. Igualmente, el usuario concede a <b>ANUNCIUS</b> una licencia no exclusiva, mundial y gratuita para usar dicho contenido, en los medios y formatos que <b>ANUNCIUS</b> crea conveniente para prestar su servicio de creación, producción y desarrollo. <b>ANUNCIUS</b> puede ceder esta licencia a un tercero en caso necesario para dicha creación, producción y envío de artículos. <b>ANUNCIUS</b> reconoce a favor de sus titulares los correspondientes derechos de propiedad industrial e intelectual, no implicando su sola mención o aparición en el sitio web la existencia de derechos o responsabilidad alguna del prestador sobre los mismos, como tampoco respaldo, patrocinio o recomendación por parte del mismo.
                         </p>
                         <h4>6.2. Propiedad de <b>ANUNCIUS</b>
                         </h4>
@@ -212,7 +213,7 @@
                         <h4>6.3. Notificaciones de infracción 
                         </h4>
                         <p align="justify">
-                            Para realizar cualquier tipo de observación respecto a posibles incumplimientos de los derechos de propiedad intelectual o industrial, así como sobre cualquiera de los contenidos del sitio web, puede hacerlo a través del siguiente correo electrónico: contact@anuncius.org
+                            Para realizar cualquier tipo de observación respecto a posibles incumplimientos de los derechos de propiedad intelectual o industrial, así como sobre cualquiera de los contenidos del sitio web, puede hacerlo a través del siguiente correo electrónico: contact@anunci.us
                         </p>
                         <h3>7. Derechos de <b>ANUNCIUS</b>
                         </h3>
@@ -229,9 +230,9 @@
                         <h4>7.3 Cancelación del contrato o servicio
                         </h4>
                         <b>ANUNCIUS</b>, a su propio criterio y con aviso o sin él, puede: 
-                        a) suspender o limitar el uso de anuncius.org a un usuario en concreto, así como cerrar totalmente una cuenta.
-                        b) eliminar el contenido que crea oportuno de los servidores y directorios de anuncius.org
-                        c) Prohibir el uso de los servicios de anuncius.org
+                        a) suspender o limitar el uso de anunci.us a un usuario en concreto, así como cerrar totalmente una cuenta.
+                        b) eliminar el contenido que crea oportuno de los servidores y directorios de anunci.us
+                        c) Prohibir el uso de los servicios de anunci.us
                         <h4>7.4 Comunicaciones enviadas por los usuarios
                         </h4>
                         <p align="justify">
@@ -245,7 +246,7 @@
                         <h3>9. Limitación de responsabilidades
                         </h3>
                         <p align="justify">
-                            anuncius.org excluye cualquier responsabilidad por los daños y perjuicios de toda naturaleza que puedan deberse a la falta de disponibilidad o de continuidad del funcionamiento de anuncius.org, así como al mal uso del sitio web y/o de sus contenidos
+                            anunci.us excluye cualquier responsabilidad por los daños y perjuicios de toda naturaleza que puedan deberse a la falta de disponibilidad o de continuidad del funcionamiento de anunci.us, así como al mal uso del sitio web y/o de sus contenidos
                         </p>
                         <h3>10. Legislación aplicable y jurisdicción competente
                         </h3>

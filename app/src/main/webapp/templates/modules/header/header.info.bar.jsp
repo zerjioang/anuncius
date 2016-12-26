@@ -4,7 +4,7 @@
             <a href="tel:+34 94 PHONE">+34 94 PHONE</a>
         </li>
         <li><i class="ion-ios-email-outline"></i>
-            <a href="mailto:info@anuncius.org">info@anuncius.org</a>
+            <a href="mailto:info@anunci.us">info@anunci.us</a>
         </li>
     </ul>
 </div>

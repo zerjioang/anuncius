@@ -18,10 +18,16 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Logo -->
-                    <a class="navbar-brand" href="."><img class="logo" src="images/header.png" alt="logo de anuncius"></a>
+                    <div style="text-align: center;">
+                        <div style="display: inline-block;font-family: Fredoka One;margin: 0px;padding: 0px;">
+                            <img style="padding: 0px 0px 15px;" id="logo" src="/favicon/favicon-32x32.png"/>
+                            <a href="/">
+                                <h2 style="padding: 0px;margin: 0px;">Anuncius</h2>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <!-- Navbar Toggle End -->
-
                 <!-- navbar-collapse start-->
                 <s:include value="header.navmenu.jsp"/>
                 <!-- navbar-collapse end-->

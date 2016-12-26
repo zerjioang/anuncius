@@ -1,5 +1,5 @@
 <section class="gl-hero-img-wrapper gl-real-estate-hero"
-         style="background: url(${param.image}) center center no-repeat;background-size:cover;padding:140px">
+         style="background: url(${param.image}) center center no-repeat;background-size:cover;padding:100px">
     <div class="container">
         <div class="row">
             <div class="gl-elements-content-wrapper">
@@ -10,7 +10,7 @@
                 <h2 class="gl-hero-text-heading">${param.normal}<span class="gl-color-text">${param.bold}</span></h2>
 
                 <div class="gl-scroll-down-wrapper">
-                    <a href="#featured" class="gl-scroll-down"><i class="ion-chevron-down"></i></a>
+                    <a href="#${param.block}" class="gl-scroll-down"><i class="ion-chevron-down"></i></a>
                 </div>
             </div>
         </div>

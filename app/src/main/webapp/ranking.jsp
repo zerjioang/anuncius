@@ -18,8 +18,8 @@
         <s:include value="/templates/modules/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
-            <s:param name="url" value="'http://www.anuncius.org/'"></s:param>
-            <s:param name="image" value="'http://www.anuncius.org/image.png'"></s:param>
+            <s:param name="url" value="'http://www.anunci.us/'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.png'"></s:param>
             <s:param name="description" value="'La compra inteligente'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Anuncius - La compra inteligente'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'@zerjioang'"></s:param>
-            <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - La compra inteligente'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
-            <s:param name="image" value="'http://www.anuncius.org/image.jpg'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
