@@ -133,9 +133,6 @@
 
         <s:include value="/templates/modules/footer/common.footer.jsp" />
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/main.js"></script>
+        <s:include value="/templates/modules/js/minimum.js.jsp"/>
     </body>
 </html>

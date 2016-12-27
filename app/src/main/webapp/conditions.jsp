@@ -258,24 +258,7 @@
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/main.js"></script>
-
-        <script src="js/app/controller/landing/easytabs.js"></script>
-        <script src="js/app/controller/landing/events.js"></script>
-        <script src="js/app/controller/landing/functions.js"></script>
-        <script src="js/app/controller/landing/masonry.js"></script>
-        <script src="js/app/controller/landing/nicescroll.js"></script>
-        <script src="js/app/controller/landing/selector.js"></script>
-
-        <!-- api handler -->
-        <script src="js/app/api.js"></script>
-        <script src="js/app/custom.js"></script>
-
-        <!-- remodal js -->
-        <script src="vendor/remodal/remodal.min.js"></script>
+        <s:include value="/templates/modules/js/minimum.js.jsp"/>
 
     </body>
 </html>
