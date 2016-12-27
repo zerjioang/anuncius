@@ -3,8 +3,8 @@
 #go to api
 
 cd api
-#mvn clean
-#mvn install
+# /opt/apache-maven-3.3.9/bin/mvn clean
+# /opt/apache-maven-3.3.9/bin/mvn install
 
 #mv ./api/target/*.war ./docker/Dockerfile/apps/
 
@@ -14,8 +14,8 @@ cd ..
 #go to app
 cd app
 
-mvn clean
-mvn install
+/opt/apache-maven-3.3.9/bin/mvn clean
+/opt/apache-maven-3.3.9/bin/mvn install
 
 #go back
 cd ..
