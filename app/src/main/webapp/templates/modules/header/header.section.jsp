@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <header class="gl-header">
     <!-- TOPBAR -->
@@ -18,11 +19,11 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Logo -->
-                    <div style="text-align: center;">
-                        <div style="display: inline-block;font-family: Fredoka One;margin: 0px;padding: 0px;">
+                    <div>
+                        <div style="display: inline-block;margin: 0px;padding: 0px;">
                             <img style="padding: 0px 0px 15px;" id="logo" src="/favicon/favicon-32x32.png"/>
                             <a href="/">
-                                <h2 style="padding: 0px;margin: 0px;">Anuncius</h2>
+                                <h2 style="padding: 0px;margin: 0px;font-family: Fredoka One;">Anuncius</h2>
                             </a>
                         </div>
                     </div>

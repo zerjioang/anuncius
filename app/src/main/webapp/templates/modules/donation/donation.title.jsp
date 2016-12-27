@@ -1,1 +1,1 @@
-<p align="center" style="width: 100%; margin-bottom:15px">Haz una donación directa &amp; colabora</p>
+<p align="center" style="width: 100%; margin-bottom:15px">Haz una donaciÃ³n directa &amp; colabora</p>

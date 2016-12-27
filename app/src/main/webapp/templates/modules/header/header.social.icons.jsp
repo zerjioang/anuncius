@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="gl-social-icon-list">
     <ul>
         <li>

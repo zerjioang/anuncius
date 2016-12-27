@@ -43,17 +43,7 @@
             <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-        <!-- remodal css -->
-        <link rel="stylesheet" href="vendor/remodal/remodal.css">
-        <link rel="stylesheet" href="vendor/remodal/remodal-default-theme.css">
-
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/clean.scrollbar.css">
-
-        <!-- main title font -->
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <s:include value="/templates/modules/css/minimum.css.jsp"/>
     </head>
 
     <body class="gl-blog-page gl-blog-grid gl-realestate-template">
@@ -99,16 +89,6 @@
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
-
-        <div class="remodal" data-remodal-id="copyright-modal">
-            <button data-remodal-action="close" class="remodal-close"></button>
-            <h1>Copyright</h1>
-            <p>
-                Plataforma desarrollada por @zerjioang
-            </p>
-            <br>
-            <button data-remodal-action="confirm" class="remodal-confirm">Cerrar</button>
-        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/plugins.js"></script>

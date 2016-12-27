@@ -1,32 +1,32 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="nav-menu" class="navbar-collapse gl-menu-wrapper collapse" role="navigation">
     <ul class="nav navbar-nav gl-menus">
         <li>
             <a href="/">Anuncius</a>
         </li>
+        <li>
+            <a href="/explore.jsp">Explorar</a>
         </li>
         <li>
-            <a href="explore.jsp">Explorar</a>
+            <a href="/ranking.jsp">Ranking</a>
         </li>
         <li>
-            <a href="ranking.jsp">Ranking</a>
+            <a href="/blog.jsp">Blog</a>
         </li>
         <li>
-            <a href="blog.jsp">Blog</a>
-        </li>
-        <li>
-            <a href="#">Información</a>
+            <a href="#">InformaciÃ³n</a>
             <ul class="gl-sub-menu">
                 <li>
-                    <a href="contact.jsp">Contacto</a>
+                    <a href="/contact.jsp">Contacto</a>
                 </li>
                 <li>
-                    <a href="privacy.jsp">Política de Privacidad</a>
+                    <a href="/privacy.jsp">PolÃ­tica de Privacidad</a>
                 </li>
                 <li>
-                    <a href="conditions.jsp">Términos y condiciones</a>
+                    <a href="/conditions.jsp">TÃ©rminos y condiciones</a>
                 </li>
                 <li>
-                    <a href="questions.jsp">Preguntas frecuentes</a>
+                    <a href="/questions.jsp">Preguntas frecuentes</a>
                 </li>
             </ul>
         </li>

@@ -1,5 +1,5 @@
 <section class="gl-hero-img-wrapper gl-real-estate-hero"
-         style="background: url(${param.image}) center center no-repeat;background-size:cover;padding:100px">
+         style="background: url(${param.image}) center center no-repeat;background-size:cover;padding:130px">
     <div class="container">
         <div class="row">
             <div class="gl-elements-content-wrapper">

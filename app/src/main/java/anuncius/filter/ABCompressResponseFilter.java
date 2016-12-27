@@ -19,23 +19,24 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(filterName = "CompressResponseFilter", urlPatterns = {"/*"})
-public class CompressResponseFilter implements Filter {
+public class ABCompressResponseFilter implements Filter {
 
     private HtmlCompressor compressor;
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse resp,
-            FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 
+        System.out.println("Compress filter: ");
+        
         CharResponseWrapper responseWrapper = new CharResponseWrapper((HttpServletResponse) resp);
         chain.doFilter(req, responseWrapper);
 
         String servletResponse = responseWrapper.toString();
         String compressedResponse = compressor.compress(servletResponse);
-
-        resp.getOutputStream().print(compressedResponse);
-        resp.getOutputStream().flush();
-        resp.getOutputStream().close();
+        if(compressedResponse!=null && !compressedResponse.isEmpty()){
+            resp.getWriter().flush();
+            resp.getWriter().write(compressedResponse);
+        }
     }
 
     @Override

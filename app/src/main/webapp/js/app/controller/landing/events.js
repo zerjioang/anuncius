@@ -1,3 +1,9 @@
+$("#publish").on("click", function () {
+    // Show the modal via Javascript
+    //$('#publishModal').modal();
+    alert("demo");
+});
+
 $(".up-redq-notification-close-btn").on("click", function (types) {
     types.preventDefault();
     $(this).parent().remove();

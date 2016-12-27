@@ -11,7 +11,7 @@
 
         <s:include value="/templates/modules/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
-            <s:param name="description" value="'Sergio'"></s:param>
+            <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
@@ -44,17 +44,12 @@
             <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-        <!-- remodal css -->
-        <link rel="stylesheet" href="vendor/remodal/remodal.css">
-        <link rel="stylesheet" href="vendor/remodal/remodal-default-theme.css">
-
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/clean.scrollbar.css">
-
-        <!-- main title font -->
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <s:include value="/templates/modules/css/minimum.css.jsp"/>
+        
+        <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+        <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+        <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
     </head>
 
     <body class="gl-realestate-template">
@@ -150,8 +145,7 @@
 
                             <div class="gl-property-features">
                                 <ul>
-                                    <li><i class="ion-checkmark"></i>Balcony</li>
-                                    <li><i class="ion-checkmark"></i>Balcony</li>
+                                    <li><i class="ion-checkmark"></i>Nuevo</li>
                                 </ul>
                             </div>
                         </div>
@@ -168,7 +162,7 @@
                                         <!-- header -->
                                         <div class="gl-floorplan-item-wrapper panel-heading" role="tab" id="gl-floorplan-1">
                                             <a role="button" data-toggle="collapse" data-parent="#gl-floorplan" href="#gl-floorplan-1-Details" aria-expanded="true" aria-controls="gl-floorplan-1-Details">
-                                                <h3>Floor Plan A</h3>
+                                                <h3>Vista frontal</h3>
                                                 <span class="gl-toggle-symbol">
                                                     <i class="ion-ios-plus-empty"></i>
                                                 </span>
@@ -191,7 +185,7 @@
                                         <!-- header -->
                                         <div class="gl-floorplan-item-wrapper panel-heading" role="tab" id="gl-floorplan-2">
                                             <a role="button" data-toggle="collapse" data-parent="#gl-floorplan" href="#gl-floorplan-2-Details" aria-expanded="true" aria-controls="gl-floorplan-2-Details">
-                                                <h3>Floor Plan B</h3>
+                                                <h3>Vista lateral</h3>
                                                 <span class="gl-toggle-symbol">
                                                     <i class="ion-ios-plus-empty"></i>
                                                 </span>
@@ -214,7 +208,7 @@
                                         <!-- header -->
                                         <div class="gl-floorplan-item-wrapper panel-heading" role="tab" id="gl-floorplan-3">
                                             <a role="button" data-toggle="collapse" data-parent="#gl-floorplan" href="#gl-floorplan-3-Details" aria-expanded="true" aria-controls="gl-floorplan-3-Details">
-                                                <h3>Floor Plan C</h3>
+                                                <h3>Vista superior</h3>
                                                 <span class="gl-toggle-symbol">
                                                     <i class="ion-ios-plus-empty"></i>
                                                 </span>
@@ -241,8 +235,8 @@
                         <div class="gl-page-contents-wrapper gl-location-map-wrapper appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
                             <h3 class="gl-content-title">Lugar del articulo</h3>
 
-                            <div class="gl-location-map">
-                                <div id="gl-map-small"></div>
+                            <div class="gl-location-map" style="padding: 5px;">
+                                <div id="map"></div>
                             </div>
                         </div>
                         <!-- END -->
@@ -258,22 +252,22 @@
                                     <ul>
                                         <li class="gl-agent-name">
                                             <h3><a href="agent_profile.html">Nombre vendedor</a></h3>
-                                            <p>Buying Agent</p>
+                                            <p>Nombre Apellido1 Apellido2</p>
                                         </li>
 
-                                        <li><i class="ion-ios-telephone-outline"></i>082 856 310</li>
-                                        <li><i class="ion-ios-email-outline"></i>info@mail.com</li>
+                                        <li><i class="ion-ios-telephone-outline"></i>telefono vendedor</li>
+                                        <li><i class="ion-ios-email-outline"></i>nombre@domain.tld</li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="gl-agent-contact-form gl-same-height">
-                                <h3 class="gl-content-title">Contact Agent</h3>
+                                <h3 class="gl-content-title">Enviar mensaje</h3>
                                 <form action="#">
-                                    <input type="text" name="gl-agent-name" id="gl-agent-name" placeholder="Name">
+                                    <input type="text" name="gl-agent-name" id="gl-agent-name" placeholder="Nombre">
                                     <input type="email" name="gl-agent-email" id="gl-agent-email" placeholder="Email">
-                                    <textarea name="gl-agent-msg" id="gl-agent-msg" cols="30" rows="3" placeholder="Message"></textarea>
-                                    <button type="submit" class="gl-btn">Send</button>
+                                    <textarea name="gl-agent-msg" id="gl-agent-msg" cols="30" rows="3" placeholder="Mensaje"></textarea>
+                                    <button type="submit" class="gl-btn">Enviar</button>
                                 </form>
                             </div>
                         </div>
@@ -286,18 +280,18 @@
                         <!-- OVERVIEW WIDGET -->
                         <div class="gl-sidebar-widget gl-overview-widget">
                             <div class="gl-overview-wrapper">
-                                <h3>Overview</h3>
+                                <h3>Resumen</h3>
                                 <ul>
-                                    <li>Baths<span>2</span></li>
-                                    <li>Beds<span>3</span></li>
-                                    <li>Area<span>2000 sqft</span></li>
-                                    <li>Type<span>Rent</span></li>
+                                    <li>Estado<span>Nuevo</span></li>
+                                    <li>Envio<span>Gratuito</span></li>
+                                    <li>Tipo<span>Venta</span></li>
                                 </ul>
                             </div>
 
                             <div class="gl-overview-btns-wrapper">
-                                <span class="gl-overview-price">$400</span>
+                                <span class="gl-overview-price">10€</span>
                                 <a href="#" class="gl-overview-btns"><i class="ion-ios-heart-outline"></i></a>
+                                <%--
                                 <a href="#" class="gl-overview-btns">
                                     <div class="gl-compare-btn">
                                         <span class="icon-bar"></span>
@@ -305,6 +299,7 @@
                                         <span class="icon-bar"></span>
                                     </div>
                                 </a>
+                                --%>
                             </div>
                         </div>
                         <!-- END -->
@@ -325,14 +320,14 @@
                                 </div>
 
                                 <div class="gl-feat-item-details">
-                                    <span class="gl-item-status-label gl-sold-label">Sold</span>
+                                    <span class="gl-item-status-label gl-sold-label">En venta</span>
 
                                     <h3>
-                                        <a href="#">Lake Cafe</a>
+                                        <a href="#">Nombre</a>
                                     </h3>
                                     <div class="gl-item-location">
                                         <i class="ion-ios-location-outline"></i>
-                                        <span>Road 3, West Portland, USA</span>
+                                        <span>Bilbao, España</span>
                                     </div>
                                 </div>
 
@@ -352,7 +347,8 @@
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
                                         </li>
-
+                                        
+                                        <%--
                                         <li>
                                             <a href="#" class="gl-add-compare">
                                                 <div class="gl-compare-btn">
@@ -362,60 +358,7 @@
                                                 </div>
                                             </a>
                                         </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- END -->
-
-                            <!-- FEATURED ITEMS -->
-                            <div class="gl-featured-items">
-                                <div class="gl-feat-items-img-wrapper">
-                                    <picture>
-                                        <source media="(min-width: 768px)" srcset=images/real-estate-img-5-lg.jpg>
-                                        <img alt="Category Image" srcset=images/real-estate-img-5.jpg>
-                                    </picture>
-
-                                    <span class="gl-price-tag">$300</span>
-                                </div>
-
-                                <div class="gl-feat-item-details">
-                                    <span class="gl-item-status-label gl-rent-label">Rent</span>
-
-                                    <h3>
-                                        <a href="#">Lake Cafe</a>
-                                    </h3>
-                                    <div class="gl-item-location">
-                                        <i class="ion-ios-location-outline"></i>
-                                        <span>Road 3, West Portland, USA</span>
-                                    </div>
-                                </div>
-
-                                <div class="gl-feat-item-metas">
-                                    <ul class="gl-feature-info">
-                                        <li>Beds<span>3</span>
-                                        </li>
-                                        <li>Baths<span>2</span>
-                                        </li>
-                                        <li>Area<span>900 sqft</span>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="gl-wishlist-compare-wrapper">
-                                        <li>
-                                            <a href="#" class="gl-add-wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="gl-add-compare">
-                                                <div class="gl-compare-btn">
-                                                    <span class="icon-bar"></span>
-                                                    <span class="icon-bar"></span>
-                                                    <span class="icon-bar"></span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        --%>
                                     </ul>
                                 </div>
                             </div>
@@ -432,16 +375,6 @@
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
-
-        <div class="remodal" data-remodal-id="copyright-modal">
-            <button data-remodal-action="close" class="remodal-close"></button>
-            <h1>Copyright</h1>
-            <p>
-                Plataforma desarrollada por @zerjioang
-            </p>
-            <br>
-            <button data-remodal-action="confirm" class="remodal-confirm">Cerrar</button>
-        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/plugins.js"></script>
@@ -461,6 +394,29 @@
 
         <!-- remodal js -->
         <script src="vendor/remodal/remodal.min.js"></script>
+        
+        <script>
+        var map = new ol.Map({
+          interactions: ol.interaction.defaults().extend([
+            new ol.interaction.DragRotateAndZoom()
+          ]),
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          ],
+          target: 'map',
+          view: new ol.View({
+            center: [0, 0],
+            zoom: 0
+          })
+        });
+        var lat = 43.270675;
+        var long = -2.937939;
+        console.log("Long: " + long + " Lat: " + lat);
+        map.getView().setCenter(ol.proj.transform([long, lat], 'EPSG:4326', 'EPSG:3857'));
+        map.getView().setZoom(13);
+      </script>
 
     </body>
 </html>

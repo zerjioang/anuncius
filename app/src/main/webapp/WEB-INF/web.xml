@@ -51,4 +51,12 @@
         <error-code>503</error-code>
         <location>/errors/503.html</location>
     </error-page>
+    
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+    
 </web-app>

@@ -5,7 +5,7 @@
         <select class="gl-location-selection" name="destination" required>
             <option>&nbsp;</option>
             <option value="Aleatorio">Aleatorio</option>
-            <option value="Cáritas">Cáritas</option>
+            <option value="Cï¿½ritas">CÃ¡ritas</option>
             <option value="Acnur">Acnur</option>
             <option value="Cruz roja">Cruz roja</option>
         </select>

@@ -5,11 +5,11 @@
         <div class="row">
             <h3>Martin Luther King</h3>
 
-            <p>'Si ayudo a una sola persona a tener esperanza, no habrÈ vivido en vano'</p>
+            <p>'Si ayudo a una sola persona a tener esperanza, no habr√° vivido en vano'</p>
 
             <!-- MORE BTN -->
             <div class="gl-more-btn-wrapper">
-                <a href="#details1" class="gl-more-btn gl-btn">Leer m·s</a>
+                <a href="#details1" class="gl-more-btn gl-btn">Leer m√°s</a>
             </div>
             <!-- END -->
         </div>

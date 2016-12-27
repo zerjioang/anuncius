@@ -5,13 +5,13 @@
 <html lang="es">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <!-- PAGE TITLE -->
         <title>Anuncius | La revolución de las tiendas online</title>
 
         <s:include value="/templates/modules/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
-            <s:param name="description" value="'Sergio'"></s:param>
+            <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
@@ -44,30 +44,24 @@
             <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-        <!-- remodal css -->
-        <link rel="stylesheet" href="vendor/remodal/remodal.css">
-        <link rel="stylesheet" href="vendor/remodal/remodal-default-theme.css">
-
-        <link rel="stylesheet" href="css/style.min.css">
-        <link rel="stylesheet" href="css/clean.scrollbar.css">
-
-        <!-- main title font -->
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <s:include value="/templates/modules/css/minimum.css.jsp"/>
     </head>
 
     <body class="gl-realestate-template">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
 
+        <!-- SIDE MENU-->
+        <s:include value="/templates/modules/aside/login/login.section.jsp" />
+        <!-- SIDE MENU END -->
+        
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp"/>
         <!-- HEADER END -->
 
         <!-- HERO IMAGE -->
         <s:include value="/templates/modules/hero/hero.section.jsp">
-            <s:param name="normal" value="'Acerca de'" />
+            <s:param name="normal" value="'Información'" />
             <s:param name="bold" value=""/>
             <s:param name="image" value="'http://easybizresourcing.com/wp-content/uploads/2014/09/Easy-Bis-About-Us.jpg'" />
             <s:param name="block" value="'contact'" />
@@ -75,7 +69,7 @@
         <!-- HERO IMAGE END -->
 
         <div class="container" style='padding-top: 5%;padding-bottom: 5%;'>
-            <section id=""top>
+            <section id="top">
                 <div class="row">
                     <!-- Image -->
                     <div class="gl-about-company-image gl-left-side col-md-6 col-sm-6 col-xs-12">
@@ -97,7 +91,7 @@
                 </div>
             </section>
 
-            <section>
+            <section id="contact">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <h2>Que es anuncius?</h2>
@@ -208,16 +202,6 @@
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
-
-        <div class="remodal" data-remodal-id="copyright-modal">
-            <button data-remodal-action="close" class="remodal-close"></button>
-            <h1>Copyright</h1>
-            <p>
-                Plataforma desarrollada por @zerjioang
-            </p>
-            <br>
-            <button data-remodal-action="confirm" class="remodal-confirm">Cerrar</button>
-        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/plugins.js"></script>

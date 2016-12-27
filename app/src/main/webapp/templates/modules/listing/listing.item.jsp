@@ -13,11 +13,11 @@
         <span class="gl-item-status-label gl-sold-label">Sold</span>
 
         <h3>
-            <a href="#item1-details">Lake Cafe</a>
+            <a href="#item1-details">Nombre artículos</a>
         </h3>
         <div class="gl-item-location">
             <i class="ion-ios-location-outline"></i>
-            <span>Road 3, West Portland, USA</span>
+            <span>Lugar, Provincia</span>
         </div>
     </div>
 </div>

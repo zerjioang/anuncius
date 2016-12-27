@@ -1,6 +1,3 @@
-/**
- * @return {undefined}
- */
 function bottom() {
     var height = $(window).height();
     var slide = $("header.up-redq-header-wrapper");
@@ -27,9 +24,6 @@ function bottom() {
     body.outerHeight(rvar);
 }
 
-/**
- * @return {undefined}
- */
 function toggleClass() {
     if ($(".up-redq-frontend--section").hasClass("show-nav")) {
         $(".up-redq-frontend--section").removeClass("show-nav");

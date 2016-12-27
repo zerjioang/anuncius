@@ -5,25 +5,45 @@
 <html lang="es">
 
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
         <!-- PAGE TITLE -->
         <title>Anuncius - Blog</title>
+        
+        <s:include value="/templates/modules/metadata/metadata.generic.jsp">
+            <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
+            <s:param name="author" value="'Sergio'"></s:param>
+        </s:include>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
 
-        <!-- remodal css -->
-        <link rel="stylesheet" href="vendor/remodal/remodal.css">
-        <link rel="stylesheet" href="vendor/remodal/remodal-default-theme.css">
+        <s:include value="/templates/modules/metadata/metadata.opengraph.jsp">
+            <s:param name="title" value="'Blog de Anuncius'"></s:param>
+            <s:param name="sitename" value="'Anuncius'"></s:param>
+            <s:param name="url" value="'http://www.anunci.us/blog'"></s:param>
+            <s:param name="image" value="'http://www.anunci.us/image.png'"></s:param>
+            <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
+            <s:param name="address" value="'Avenida de las universidades'"></s:param>
+            <s:param name="locality" value="'Bilbao'"></s:param>
+            <s:param name="region" value="'Bizkaia'"></s:param>
+            <s:param name="code" value="'48003'"></s:param>
+            <s:param name="country" value="'Spain'"></s:param>
+        </s:include>
 
-        <link rel="stylesheet" href="css/style.min.css">
-        <link rel="stylesheet" href="css/clean.scrollbar.css">
+        <s:include value="/templates/modules/metadata/metadata.twitter.jsp">
+            <s:param name="alt" value="'Imagen de bienvenida al blog de Anuncius'"></s:param>
+            <s:param name="site" value="'@anunci.us'"></s:param>
+            <s:param name="title" value="'Blog de Anuncius'"></s:param>
+            <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
+            <s:param name="author" value="'@zerjioang'"></s:param>
+            <s:param name="image" value="'http://static.anunci.us/img/twitter.image.png'"></s:param>
+        </s:include>
 
-        <!-- main title font -->
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <s:include value="/templates/modules/metadata/metadata.google.jsp">
+            <s:param name="name" value="'Blog de Anuncius'"></s:param>
+            <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
+            <s:param name="image" value="'http://static.anunci.us/img/google.image.png'"></s:param>
+        </s:include>
+
+        <s:include value="/templates/modules/css/minimum.css.jsp"/>
 
         <link rel="shortcut icon" href="images/favicon.ico">
     </head>
@@ -63,11 +83,10 @@
                         <!-- BLOG ITEMS -->
                         <div class="gl-blog-items gl-image-post col-md-4 col-sm-4 col-xs-12">
                             <div class="gl-blog-img-wrapper">
-                                <img src="images/product.png" alt="Blog img">
-                                <!-- <picture>
-                                    <source media="(min-width: 768px)" srcset=images/blog-5-lg.jpg>
-                                    <img alt="Category Image" srcset=images/blog-5-lg.jpg>
-                                </picture> -->
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset=images/blog/welcome.jpg>
+                                    <img alt="Imagen de bienvenida al blog" srcset=images/blog/welcome.jpg>
+                                </picture>
                                 <div class="gl-blog-cat-icon">
                                     <i class="ion-ios-musical-notes"></i>
                                 </div>
@@ -75,79 +94,10 @@
 
                             <div class="gl-blog-item-details">
                                 <h3>
-                                    <a href="blog-details.html">Atención: Estrenamos Anuncius!</a>
+                                    <a href="post/1">Atención: Estrenamos Anuncius!</a>
                                 </h3>
-                                <p>Estamos deseándote darte la bienvenida oficial</p>
-                                <span class="gl-blog-post-date">March 20, 2016</span>
-                            </div>
-                        </div>
-                        <!-- BLOG ITEMS END -->
-
-                        <!-- BLOG ITEMS -->
-                        <div class="gl-blog-items gl-music-post col-md-4 col-sm-4 col-xs-12">
-                            <div class="gl-blog-img-wrapper">
-                                <img src="images/product.png" alt="Blog img" >
-                                <!-- <picture>
-                                    <source media="(min-width: 768px)" srcset=images/blog-13-lg.jpg>
-                                    <img alt="Category Image" srcset=images/blog-13-xs.jpg>
-                                </picture> -->
-                                <div class="gl-blog-cat-icon">
-                                    <i class="ion-ios-camera-outline"></i>
-                                </div>
-                            </div>
-
-                            <div class="gl-blog-item-details">
-                                <h3>
-                                    <a href="blog-details.html">Keep Playing</a>
-                                </h3>
-                                <p>Music kills the devil always. Love music so blinded by desire</p>
-                                <span class="gl-blog-post-date">March 20, 2016</span>
-                            </div>
-                        </div>
-                        <!-- BLOG ITEMS END -->
-
-                        <!-- BLOG ITEMS -->
-                        <div class="gl-blog-items gl-image-post col-md-4 col-sm-4 col-xs-12">
-                            <div class="gl-blog-img-wrapper">
-                                <img src="images/product.png" alt="Blog img">
-                                <!-- <picture>
-                                    <source media="(min-width: 768px)" srcset=images/blog-3-lg.jpg>
-                                    <img alt="Category Image" srcset=images/blog-3-xs.jpg>
-                                </picture> -->
-                                <div class="gl-blog-cat-icon">
-                                    <i class="ion-ios-musical-notes"></i>
-                                </div>
-                            </div>
-
-                            <div class="gl-blog-item-details">
-                                <h3>
-                                    <a href="blog-details.html">Keep Playing</a>
-                                </h3>
-                                <p>Music kills the devil always. Love music so blinded by desire</p>
-                                <span class="gl-blog-post-date">March 20, 2016</span>
-                            </div>
-                        </div>
-                        <!-- BLOG ITEMS END -->
-
-                        <!-- BLOG ITEMS -->
-                        <div class="gl-blog-items gl-image-post col-md-4 col-sm-4 col-xs-12">
-                            <div class="gl-blog-img-wrapper">
-                                <img src="images/product.png" alt="Blog img">
-                                <!-- <picture>
-                                    <source media="(min-width: 768px)" srcset=images/blog-4-lg.jpg>
-                                    <img alt="Category Image" srcset=images/blog-4-xs.jpg>
-                                </picture> -->
-                                <div class="gl-blog-cat-icon">
-                                    <i class="ion-ios-musical-notes"></i>
-                                </div>
-                            </div>
-
-                            <div class="gl-blog-item-details">
-                                <h3>
-                                    <a href="blog-details.html">Keep Playing</a>
-                                </h3>
-                                <p>Music kills the devil always. Love music so blinded by desire</p>
-                                <span class="gl-blog-post-date">March 20, 2016</span>
+                                <p>Estamos deseando darte la bienvenida oficial</p>
+                                <span class="gl-blog-post-date">2 de Enero, 2017</span>
                             </div>
                         </div>
                         <!-- BLOG ITEMS END -->
@@ -161,39 +111,16 @@
 
                                 <div class="gl-blog-item-details">
                                     <h3>
-                                        <a href="blog-details.html">Many desktop publish web page editors now as default model lorem ipsum</a>
+                                        <a href="#">Bienvenido al blog de Anunci.us</a>
                                     </h3>
-                                    <a href="blog-grid.html#" class="gl-post-author">admin</a>
+                                    <a href="#" class="gl-post-author"><b>El equipo de anunci.us</b></a>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- BLOG ITEMS END -->
-
-                        <!-- BLOG ITEMS -->
-                        <div class="gl-blog-items gl-image-post col-md-4 col-sm-4 col-xs-12">
-                            <div class="gl-blog-img-wrapper">
-                                <img src="images/product.png" alt="Blog img">
-                                <!-- <picture>
-                                    <source media="(min-width: 768px)" srcset=images/blog-6-lg.jpg>
-                                    <img alt="Category Image" srcset=images/blog-6-xs.jpg>
-                                </picture> -->
-                                <div class="gl-blog-cat-icon">
-                                    <i class="ion-ios-musical-notes"></i>
-                                </div>
-                            </div>
-
-                            <div class="gl-blog-item-details">
-                                <h3>
-                                    <a href="blog-details.html">Keep Playing</a>
-                                </h3>
-                                <p>Music kills the devil always. Love music so blinded by desire</p>
-                                <span class="gl-blog-post-date">March 20, 2016</span>
                             </div>
                         </div>
                         <!-- BLOG ITEMS END -->
 
                         <div id="gl-blog-next-page-nav">
-                            <a href="misc/blog-grid-2.html"></a>
+                            <a href="next"></a>
                         </div>
 
 

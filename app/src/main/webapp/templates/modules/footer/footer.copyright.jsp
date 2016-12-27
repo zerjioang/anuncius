@@ -1,10 +1,11 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="gl-footer-bottom-wrapper">
     <div class="container">
         <div class="row">
             <!-- COPYRIGHT INFO -->
             <div class="gl-copyright-info-wrapper" data-remodal-target="copyright-modal">
                 <p>
-                    <a data-remodal-target="copyright-modal">Copyright &copy; 2016 Anuncius. Todos los derechos reservados</a>
+                    <a href="" data-remodal-target="copyright-modal">Copyright &copy; 2016 Anuncius. Todos los derechos reservados</a>
                 </p>
             </div>
             <!-- COPYRIGHT INFO -->

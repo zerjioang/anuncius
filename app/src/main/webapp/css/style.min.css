@@ -15263,7 +15263,7 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 body {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 1.42857143;
     color: #333;
@@ -18647,7 +18647,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget:first-child {
     border-left: 0 solid
 }
 footer .gl-footer-top-wrapper .gl-footer-widget h3.gl-footer-widget-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #c7c6c6;
@@ -18659,13 +18659,13 @@ footer .gl-footer-top-wrapper .gl-footer-widget .gl-footer-widget-content ul li,
 footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget p {
     display: block;
     overflow: hidden;
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #c7c6c6
 }
 footer .gl-footer-top-wrapper .gl-footer-widget .gl-footer-widget-content ul li a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #c7c6c6;
@@ -18748,7 +18748,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form {
     overflow: hidden
 }
 footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #c7c6c6;
@@ -18824,7 +18824,7 @@ footer .gl-footer-bottom-wrapper .gl-copyright-info-wrapper {
     }
 }
 footer .gl-footer-bottom-wrapper .gl-copyright-info-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #c7c6c6;
@@ -18915,7 +18915,7 @@ header.gl-header .gl-header-topbar .gl-header-contact-info {
     }
 }
 header.gl-header .gl-header-topbar .gl-header-contact-info ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 12px;
     color: #888;
@@ -19020,7 +19020,7 @@ header.gl-header .gl-header-topbar .gl-social-icon-list ul li:first-child {
     }
 }
 header.gl-header .gl-header-topbar .gl-social-icon-list ul li a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;
     color: #bababa;
@@ -19187,7 +19187,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li a,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #454545;
@@ -19369,7 +19369,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-compare-icon .gl-compare-btn-wrapper span.gl-compare-item-num,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon .gl-compare-btn-wrapper span.gl-compare-item-num {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 12px;
     color: #fff;
@@ -19466,7 +19466,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li .gl-compare-item-name a,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li .gl-compare-item-name a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #454545;
@@ -19531,13 +19531,13 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 form.gl-contact-form input[type="submit"]:hover,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li.gl-comp-btns-wrapper a.gl-comp-btn:hover,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li.gl-comp-btns-wrapper a.gl-comp-btn:hover {
-    background-color: #cc4300
+    background-color: #108653
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li.gl-comp-btns-wrapper a.gl-clear-btn,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-compare-icon ul.gl-compare-menu li.gl-comp-btns-wrapper a.gl-clear-btn {
     display: table-cell;
     vertical-align: middle;
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;
     color: #bababa
@@ -19581,7 +19581,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-login-btn,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-login-btn {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #454545;
     font-weight: 400;
@@ -19616,7 +19616,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 }
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-add-post-btn,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-add-post-btn {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #fff;
     font-weight: 700;
@@ -20030,7 +20030,7 @@ img {
 }
 .gl-side-menu-widget-wrap h3,
 .gl-side-menu-widget-wrap p {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     display: block
 }
@@ -20050,7 +20050,7 @@ img {
     border-bottom: 1px solid #dedede
 }
 .gl-side-menu-widget-wrap .gl-login-form input {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     color: #bababa;
     width: 100%;
@@ -20065,7 +20065,7 @@ img {
 }
 .gl-side-menu-widget-wrap .gl-login-form button,
 .gl-side-menu-widget-wrap .gl-social-login-opt a.gl-social-login-btn {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 700;
     color: #fff;
@@ -20118,7 +20118,7 @@ img {
     overflow: hidden
 }
 .gl-side-menu-widget-wrap .gl-other-options a {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #888;
@@ -20156,7 +20156,7 @@ img {
 .gl-hero-img-wrapper .container .gl-elements-content-wrapper h2.gl-hero-text-heading {
     width: auto;
     position: relative;
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 48px;
     font-weight: 100;
     color: #fff;
@@ -20233,7 +20233,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-hero-img-wrapper .container .gl-elements-content-wrapper .gl-directory-searchbar form fieldset input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -20295,7 +20295,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-hero-img-wrapper .container .gl-elements-content-wrapper .gl-directory-searchbar form button,
 form.gl-contact-form input[type="submit"] {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: #fff;
     -webkit-border-radius: 5px 5px 5px 5px;
@@ -20361,7 +20361,7 @@ form.gl-contact-form input {
 .gl-blog-items .gl-blog-item-details p,
 form.gl-contact-form input,
 form.gl-contact-form textarea {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     display: block
@@ -20428,7 +20428,7 @@ form.gl-contact-form input[type="submit"] {
     margin: 0 0 10px
 }
 .gl-blog-items .gl-blog-item-details h3 a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -20443,7 +20443,7 @@ form.gl-contact-form input[type="submit"] {
     margin-bottom: 10px
 }
 .gl-blog-items .gl-blog-item-details span.gl-blog-post-date {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: 300;
     color: #bababa
@@ -20481,7 +20481,7 @@ form.gl-contact-form input[type="submit"] {
     *zoom: 1
 }
 .gl-quote-post .gl-blog-img-wrapper .gl-blog-item-details a.gl-post-author {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #fff;
@@ -20583,7 +20583,7 @@ form.gl-contact-form input[type="submit"] {
     background-color: #fff
 }
 .gl-accordion-item.panel .gl-accordion-item-wrapper a h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -20610,7 +20610,7 @@ form.gl-contact-form input[type="submit"] {
     border: 0
 }
 .gl-accordion-item.panel .gl-accordion-details .panel-body p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -20619,7 +20619,7 @@ form.gl-contact-form input[type="submit"] {
     text-align: left
 }
 .gl-tab-style-1 .gl-tab-nav-btns ul.nav-tabs li a {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     color: #454545;
     font-weight: 400;
@@ -20665,7 +20665,7 @@ form.gl-contact-form input[type="submit"] {
 }
 .gl-tab-style-1 .gl-tab-nav-contents p,
 .gl-tab-style-2 .gl-tab-nav-contents p {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -20686,7 +20686,7 @@ form.gl-contact-form input[type="submit"] {
     position: relative
 }
 .gl-tab-style-2 .gl-tab-nav-btns ul.nav-tabs li a {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     color: #454545;
     font-weight: 400;
@@ -20733,7 +20733,7 @@ form.gl-contact-form input[type="submit"] {
     text-align: center
 }
 .gl-btn {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: #fff;
@@ -20783,7 +20783,7 @@ form.gl-contact-form input[type="submit"] {
     box-shadow: 0 5px 0 rgba(0, 0, 0, .1), inset 0 0 1px #f0f0f0
 }
 a.gl-tag-btn {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #fff;
@@ -20852,7 +20852,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-cta-section .gl-cta-content-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 300;
     color: #888;
@@ -20977,7 +20977,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-cta-section .gl-cta-content-wrapper form input:not([type=submit]) {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -21186,7 +21186,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-featured-items .gl-feat-item-details .gl-item-status-label,
 .gl-featured-items .gl-feat-items-img-wrapper .gl-price-tag {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: #fff;
     display: inline-block;
@@ -21252,7 +21252,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     padding-right: 50px
 }
 .gl-featured-items .gl-feat-item-details h3 a {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545
@@ -21283,7 +21283,7 @@ form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper .gl-ra
 }
 .gl-featured-items .gl-feat-item-details .gl-item-location span,
 .gl-featured-items .gl-feat-item-metas ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     display: inline-block;
     *display: inline;
@@ -21307,7 +21307,7 @@ form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper .gl-ra
     color: #bababa
 }
 .gl-featured-items .gl-feat-item-metas ul li span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
     color: #888;
@@ -21439,7 +21439,7 @@ header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-
 }
 .gl-icon-top-with-text p,
 span.gl-item-rating {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888
@@ -21509,7 +21509,7 @@ span.gl-item-rating i {
     transform: translateX(-50%)
 }
 .gl-icon-top-with-text h3 {
-    font-family: 'robotolight, robotoregular, robotobold', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -21540,7 +21540,7 @@ span.gl-item-rating i {
 }
 .gl-iconimg-text-wrapper h3,
 .gl-iconimg-text-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -21594,7 +21594,7 @@ span.gl-item-rating i {
 }
 .gl-img-box-wrapper .gl-img-overlay .gl-img-box-text,
 .gl-img-box-wrapper .gl-overlay-effect .gl-img-box-text {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-weight: 700;
     color: #fff;
@@ -21695,7 +21695,7 @@ span.gl-item-rating i {
     }
 }
 .gl-job-list-item .gl-job-list-item-wrapper a .gl-job-position-company h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -21718,7 +21718,7 @@ span.gl-item-rating i {
     }
 }
 .gl-job-list-item .gl-job-list-item-wrapper a .gl-job-position-company p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -21770,7 +21770,7 @@ span.gl-item-rating i {
     *zoom: 1
 }
 .gl-job-list-item .gl-job-list-item-wrapper a .gl-job-sallery h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -21783,7 +21783,7 @@ span.gl-item-rating i {
 }
 .gl-job-list-item .gl-job-list-item-wrapper a .gl-job-location span,
 .gl-job-list-item .gl-job-list-item-wrapper a .gl-job-sallery span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -21842,7 +21842,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-job-list-item .gl-job-list-details>.list-group .gl-jobdetails-sec h3,
 .gl-job-list-item .gl-job-list-details>.panel-body .gl-jobdetails-sec h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -21852,7 +21852,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-job-list-item .gl-job-list-details>.list-group .gl-jobdetails-sec p,
 .gl-job-list-item .gl-job-list-details>.panel-body .gl-jobdetails-sec p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -21868,7 +21868,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-job-list-item .gl-job-list-details>.list-group .gl-jobdetails-sec ul li,
 .gl-job-list-item .gl-job-list-details>.panel-body .gl-jobdetails-sec ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -21921,7 +21921,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     padding-left: 0
 }
 .gl-item-status-label {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 400;
     color: #fff;
@@ -21974,7 +21974,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     z-index: 10
 }
 .gl-page-header-wrapper .container h1 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 40px;
     font-weight: 700;
     color: #fff;
@@ -22001,7 +22001,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-page-header-wrapper .container p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #fff;
@@ -22033,7 +22033,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-page-header-wrapper .container .gl-breadcumb a,
 .gl-page-header-wrapper .container .gl-breadcumb span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #fff;
@@ -22067,7 +22067,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     margin-right: 0
 }
 .gl-page-header-wrapper a.gl-info-btn {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 700;
     color: #fff;
@@ -22101,7 +22101,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     margin: 0 0 10px
 }
 .gl-section-headings p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -22113,7 +22113,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-page-content-section h3.gl-content-title,
 .gl-section-headings h1,
 .gl-single-headings h1 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: #454545
 }
@@ -22156,7 +22156,7 @@ ul.gl-gallery {
 }
 .gl-page-content-section .gl-page-contents-wrapper ul li,
 form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper span.gl-rating-number {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888
@@ -22266,7 +22266,7 @@ ul.gl-gallery li .gl-more-img-text:before {
     left: 0
 }
 ul.gl-gallery li .gl-more-img-text span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 300;
     color: #fff;
@@ -22373,7 +22373,7 @@ ul.gl-gallery li .gl-more-img-text span {
     }
 }
 .gl-review-details .gl-reviews .gl-review-text h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -22381,7 +22381,7 @@ ul.gl-gallery li .gl-more-img-text span {
     display: block
 }
 .gl-review-details .gl-reviews .gl-review-text p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -22424,7 +22424,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 form.gl-review-submission-form fieldset.gl-form-fields .gl-input-area input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     line-height: 50px;
@@ -22446,7 +22446,7 @@ form.gl-review-submission-form fieldset.gl-form-fields .gl-input-area input:last
     margin-right: 0
 }
 form.gl-review-submission-form fieldset.gl-form-fields .gl-input-area textarea {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -22493,7 +22493,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper h4 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -22507,7 +22507,7 @@ form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper .gl-ra
     margin-bottom: 15px
 }
 form.gl-review-submission-form fieldset.gl-form-fields .gl-rating-wrapper .gl-rating-inputs span.gl-rating-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #888;
@@ -22562,7 +22562,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     }
 }
 .gl-share-modal-wrapper h3.gl-modal-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -22615,7 +22615,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     float: left
 }
 .gl-share-modal-wrapper .gl-share-opt-wrapper ul li a span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     color: #fff;
@@ -22725,13 +22725,13 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     margin: 0 0 1px
 }
 .gl-agent-testimonial .gl-agents-slide .gl-feat-item-details h3 a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545
 }
 .gl-agent-testimonial .gl-agents-slide .gl-feat-item-details p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888
@@ -22835,7 +22835,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     }
 }
 .gl-post-comments-wrapper .gl-comments .gl-comment-text .gl-username-date h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -22847,7 +22847,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     float: left
 }
 .gl-post-comments-wrapper .gl-comments .gl-comment-text .gl-username-date span.gl-comments-date {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -22867,7 +22867,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
 .gl-post-comments-wrapper .gl-comments .gl-comment-text p {
     display: block;
     overflow: hidden;
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -22875,7 +22875,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
 }
 .gl-author-widget .gl-author-details p,
 .gl-post-comments-wrapper .gl-comments .gl-comment-text a.gl-reply {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa
@@ -22886,7 +22886,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
 }
 .gl-comments-form-wrapper form fieldset input,
 .gl-comments-form-wrapper form textarea {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -22986,7 +22986,7 @@ form.gl-review-submission-form fieldset.gl-submit-wrapper input.gl-btn:hover {
     overflow: hidden
 }
 .gl-author-widget .gl-author-details h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -23049,7 +23049,7 @@ span.gl-item-rating i {
     border: 1px solid #f2f2f2
 }
 .gl-sidebar-contact-form form input:not([type=submit]) {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -23065,7 +23065,7 @@ span.gl-item-rating i {
     background-color: transparent
 }
 .gl-sidebar-contact-form form textarea {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -23108,7 +23108,7 @@ span.gl-item-rating i {
     margin-bottom: 0
 }
 .gl-sidebar-widget h3.gl-sidebar-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -23137,7 +23137,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     margin-bottom: 20px
 }
 .gl-sidebar-job-meta ul li span.gl-job-meta-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -23150,7 +23150,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-compare-table-section .gl-compare-table-wrapper .gl-compare-table>ul>li.gl-table-row.gl-comp-item-img-row ul .gl-comp-item-img .gl-comp-item-name .gl-item-location span,
 .gl-sidebar-job-meta ul li span.gl-job-meta-text {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -23234,7 +23234,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     transition: all .35s ease
 }
 .gl-category-widget ul li a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -23323,7 +23323,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     margin: 0 0 5px
 }
 .gl-recent-post-widget .gl-recent-post-wrapper .gl-recent-post-item .gl-recent-post-details h3 a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -23338,7 +23338,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-blog-content .gl-blog-items .gl-blog-item-details span.gl-blog-post-date,
 .gl-recent-post-widget .gl-recent-post-wrapper .gl-recent-post-item .gl-recent-post-details span.gl-post-date {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: 300;
     color: #bababa
@@ -23368,7 +23368,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-schedule-widget ul li span.gl-schedule-date,
 .gl-schedule-widget ul li span.gl-schedule-time {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #454545;
@@ -23475,7 +23475,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-filter-options input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -23623,7 +23623,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-advanced-search-wrapper .gl-range-wrapper span.gl-filter-inp-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -23633,7 +23633,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     line-height: 42px
 }
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-advanced-search-wrapper .gl-range-wrapper span.gl-range-value {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -23686,7 +23686,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-advanced-search-wrapper .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-advanced-search-wrapper .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-style-map-left .gl-search-filter-wrapper form .gl-advanced-search-wrapper .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     color: #888;
@@ -23761,7 +23761,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-search-style-map-left .gl-search-meta-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -23842,7 +23842,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     color: #3468ed
 }
 .gl-search-style-map-left .gl-search-meta-wrapper a.gl-reset-btn {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #1aad6e;
@@ -24029,7 +24029,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 .gl-search-style-map-right .gl-search-filter-bar .gl-search-filter-wrapper form .gl-filter-options input,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-filter-options input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -24163,7 +24163,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-search-style-map-right .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper span.gl-filter-inp-title,
 .gl-search-style-map-right .gl-search-meta-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -24268,7 +24268,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-style-map-right .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-right .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-style-map-right .gl-search-filter-bar .gl-search-filter-wrapper form .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     color: #888;
@@ -24516,7 +24516,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper span.gl-filter-inp-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -24620,7 +24620,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-style-map-right.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     line-height: 1;
@@ -24779,7 +24779,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-search-style-map-right .gl-search-meta-wrapper a.gl-reset-btn {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     display: table-cell;
@@ -24921,7 +24921,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-search-style-map-top .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-filter-options input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -25049,7 +25049,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-meta-wrapper p,
 .gl-search-style-map-top .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper span.gl-filter-inp-title,
 .gl-search-style-map-top .gl-search-meta-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -25152,7 +25152,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-style-map-top .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-top .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-style-map-top .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     color: #fff;
@@ -25299,7 +25299,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-filter-options input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -25438,7 +25438,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper span.gl-filter-inp-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -25542,7 +25542,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-style-map-top.gl-search-style-alt .gl-search-filter-bar .gl-search-filter-wrapper form .gl-search-inputs-box .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     color: #888;
@@ -26006,7 +26006,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     text-shadow: 0 1px 1px rgba(0, 0, 0, .25)
 }
 .gl-hero-img-wrapper .container .gl-elements-content-wrapper p.gl-hero-text-paragraph {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 300;
     color: #fff;
@@ -26085,7 +26085,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     padding: 35px 0
 }
 .gl-directory-searchbar-section .gl-directory-searchbar form input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -26158,7 +26158,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
 }
 .gl-agents-section .gl-agent-testimonial .gl-agents-slide .gl-feat-item-details h3 a,
 .gl-directory-searchbar-section .gl-directory-searchbar form button {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-transition: all .35s ease;
     -moz-transition: all .35s ease;
     -ms-transition: all .35s ease;
@@ -26234,7 +26234,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     }
 }
 .gl-directory-searchbar-section .gl-directory-searchbar form .gl-advanced-search-wrapper .gl-range-wrapper span.gl-filter-inp-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -26245,7 +26245,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     float: left
 }
 .gl-directory-searchbar-section .gl-directory-searchbar form .gl-advanced-search-wrapper .gl-range-wrapper span.gl-range-value {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     display: inline-block;
@@ -26262,7 +26262,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
 }
 .gl-search-filter-widget form .gl-range-wrapper span.gl-filter-inp-title,
 .gl-search-filter-widget form .gl-range-wrapper span.gl-range-value {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     display: inline-block;
@@ -26316,7 +26316,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
 .gl-directory-searchbar-section .gl-directory-searchbar form .gl-advanced-search-wrapper .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-directory-searchbar-section .gl-directory-searchbar form .gl-advanced-search-wrapper .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-directory-searchbar-section .gl-directory-searchbar form .gl-advanced-search-wrapper .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     color: #888;
@@ -26421,7 +26421,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     }
 }
 .gl-custom-prop-section .gl-custom-prop-features h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-weight: 700;
     color: #fff;
@@ -26429,7 +26429,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     display: block
 }
 .gl-custom-prop-section .gl-custom-prop-features p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #fff;
@@ -26450,7 +26450,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     margin-bottom: 15px
 }
 .gl-custom-prop-section .gl-custom-prop-features ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
     color: #fff;
@@ -26459,7 +26459,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     border-top: 1px solid rgba(255, 255, 255, .15)
 }
 .gl-custom-prop-section .gl-custom-prop-features ul li span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
     color: #fff;
@@ -26476,7 +26476,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
 }
 .gl-custom-prop-section .gl-custom-prop-features .gl-btn:hover,
 .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form input.gl-btn:hover {
-    background-color: #cc4300
+    background-color: #108653
 }
 .gl-feat-properties-section,
 body.gl-agent-profile-template,
@@ -26579,7 +26579,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-recent-listing-section .gl-recent-listing-wrapper .gl-featured-items .gl-feat-items-img-wrapper a.gl-overlay:before {
     content: "+";
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 32px;
     font-weight: 400;
     color: #fff;
@@ -26649,7 +26649,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-custom-section .container h3,
 .gl-custom-section .container p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #fff
 }
@@ -26742,7 +26742,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form button:
 }
 .gl-agents-section .gl-agent-testimonial .gl-agents-slide .gl-feat-item-details p,
 .gl-page-content-section .gl-page-contents-wrapper p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888
@@ -26830,7 +26830,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     border-left: 1px solid #f3f3f3
 }
 .gl-compare-table-section .gl-compare-table-wrapper .gl-compare-table>ul>li.gl-table-row ul li.gl-comp-item-col {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -26846,7 +26846,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     width: 210px;
     background: #fff;
     padding: 20px 35px;
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: #454545;
@@ -26883,7 +26883,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     position: relative
 }
 .gl-compare-table-section .gl-compare-table-wrapper .gl-compare-table>ul>li.gl-table-row.gl-comp-item-img-row ul .gl-comp-item-img .gl-comp-item-name h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -26944,7 +26944,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-agent-contact-wrapper .gl-agent-contact-form form button:hover,
 .gl-page-header-wrapper .container .gl-page-head-btn-wrapper a.gl-btn:hover {
-    background-color: #cc4300
+    background-color: #108653
 }
 .gl-tab-profile-meta-section {
     width: 100%;
@@ -26961,7 +26961,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     border-bottom: 0 solid #ddd
 }
 .gl-tab-profile-meta-section .gl-tab-nav-wrapper .nav-tabs li a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -27000,7 +27000,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     float: right
 }
 .gl-tab-profile-meta-section .gl-profile-meta-wrapper ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -27069,7 +27069,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     display: block
 }
 .gl-floor-plan-accordion .gl-floorplan-item .gl-floorplan-item-wrapper a h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -27103,7 +27103,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li,
 .gl-property-features ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     color: #888;
     border-bottom: 1px solid #ededed;
@@ -27237,14 +27237,14 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li.gl-agent-name h3,
 .gl-map-marker-wrapper.gl-business-listing-map .gl-map-marker-info-details h3.gl-heading,
 .gl-overview-widget .gl-overview-wrapper h3 {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
     margin: 0 0 5px
 }
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li.gl-agent-name h3 a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
     font-weight: 400;
     color: #454545;
@@ -27256,7 +27256,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     transition: all .35s ease
 }
 .gl-agent-contact-wrapper .gl-agent-info-wrapper .gl-agent-infos ul li.gl-agent-name p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -27340,7 +27340,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-agent-contact-wrapper .gl-agent-contact-form form input,
 .gl-agent-contact-wrapper .gl-agent-contact-form form textarea {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -27390,7 +27390,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     margin-bottom: 0
 }
 .gl-overview-widget .gl-overview-wrapper ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
     color: #bababa;
@@ -27399,7 +27399,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     border-top: 1px solid #f3f3f3
 }
 .gl-overview-widget .gl-overview-wrapper ul li span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
     color: #888;
@@ -27417,7 +27417,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     line-height: 60px;
     padding-left: 70px;
     padding-right: 15px;
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #1aad6e;
@@ -27660,7 +27660,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     margin-bottom: 10px
 }
 .gl-search-filter-widget form .gl-filter-options input {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888;
@@ -27825,7 +27825,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .gl-search-filter-widget form .gl-range-wrapper .gl-range-slider .irs-from,
 .gl-search-filter-widget form .gl-range-wrapper .gl-range-slider .irs-single,
 .gl-search-filter-widget form .gl-range-wrapper .gl-range-slider .irs-to {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 300;
     color: #fff;
@@ -28304,7 +28304,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     padding: 15px 30px
 }
 .gl-map-marker-wrapper.gl-business-listing-map .gl-map-marker-info-details p.gl-location {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
     color: #888;
@@ -28403,7 +28403,7 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form button 
 .gl-about-page-header-wrapper .gl-page-title,
 .gl-inner-section h3.gl-single-title,
 h3.gl-single-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -28550,7 +28550,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-blog-content .gl-blog-items .gl-blog-item-details h3 a,
 .gl-expert-team-section .gl-agents-box .gl-feat-item-details h3 a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -28562,7 +28562,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-expert-team-section .gl-agents-box .gl-feat-item-details p,
 .gl-inner-section p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888
@@ -28577,7 +28577,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-skillbar p,
 .gl-skillbar span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -28631,7 +28631,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 .gl-contact-form-wrapper form input,
 .gl-contact-form-wrapper form textarea {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -28655,7 +28655,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     padding: 15px
 }
 .gl-contact-form-wrapper form input[type="submit"] {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: #fff;
@@ -28670,7 +28670,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     border-radius: 5px 5px 5px 5px
 }
 .gl-contact-form-wrapper form input[type="submit"]:hover {
-    background-color: #cc4300
+    background-color: #108653
 }
 .gl-address-col {
     width: 50%;
@@ -28709,7 +28709,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-address-col .gl-address ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     color: #888;
@@ -28772,7 +28772,7 @@ body.gl-blog-page .gl-page-content-section .gl-blog-details-wrapper {
     }
 }
 .gl-blog-sec-title {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 21px;
     font-weight: 400;
     color: #454545;
@@ -28869,7 +28869,7 @@ body.gl-blog-page .gl-page-content-section .gl-blog-details-wrapper {
     *zoom: 1
 }
 .gl-blog-content .gl-quote-post .gl-blog-img-wrapper .gl-blog-item-details a.gl-post-author {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #fff;
@@ -28894,7 +28894,7 @@ body.gl-blog-page .gl-page-content-section .gl-blog-details-wrapper {
 .gl-blog-content #infscr-loading,
 .gl-blog-content .gl-blog-items .gl-blog-item-details p,
 .gl-blog-post-details p {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #888
@@ -28999,7 +28999,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-blog-post-details .gl-blockquote span {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 22px;
     font-weight: 400;
     color: #454545;
@@ -29063,7 +29063,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     background-color: #108653
 }
 .gl-blog-heading-metas h1.gl-blog-titles {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 40px;
     font-weight: 700;
     color: #454545;
@@ -29071,7 +29071,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     display: block
 }
 .gl-blog-heading-metas ul li {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: #bababa;
@@ -29125,7 +29125,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
 }
 .gl-post-metas .gl-tag-wrapper a {
-    font-family: 'pt_sansregular', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
     display: inline-block;
