@@ -3,5 +3,5 @@
 <%-- redireccionar a la view de mantenimiento --%>
 <jsp:forward page="/next/index.html"/>
 <%--
-<jsp:forward page="/pages/frontend/index.jsp"/>
+<jsp:forward page="/landing.jsp"/>
 --%>

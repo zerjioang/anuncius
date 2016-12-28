@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package anuncius.filter;
 
 import anuncius.compress.CharResponseWrapper;
@@ -20,7 +15,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(filterName = "CompressResponseFilter", urlPatterns = {"/*"})
-public class ABCompressResponseFilter implements Filter {
+public class ACCompressResponseFilter implements Filter {
 
     private HtmlCompressor compressor;
     private static final Map<String, String> env = System.getenv();

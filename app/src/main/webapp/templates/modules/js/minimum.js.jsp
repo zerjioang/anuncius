@@ -17,4 +17,7 @@
 <script src="http://static.anunci.us/theme/js/app/custom.js"></script>
 
 <!-- remodal js -->
-<script src="http://static.anunci.us/theme/vendor/remodal/remodal.min.js"></script>
+<script src="http://static.anunci.us/theme/vendor/remodal/remodal.min.js" async defer></script>
+
+<!-- google oauth 2 script-->
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>

@@ -8,14 +8,14 @@
         <!-- PAGE TITLE -->
         <title>Anuncius - Blog</title>
         
-        <s:include value="/templates/modules/metadata/metadata.generic.jsp">
+        <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/metadata/metadata.favicon.jsp" />
+        <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
-        <s:include value="/templates/modules/metadata/metadata.opengraph.jsp">
+        <s:include value="/templates/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'http://www.anunci.us/blog'"></s:param>
@@ -28,7 +28,7 @@
             <s:param name="country" value="'Spain'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/metadata/metadata.twitter.jsp">
+        <s:include value="/templates/metadata/metadata.twitter.jsp">
             <s:param name="alt" value="'Imagen de bienvenida al blog de Anuncius'"></s:param>
             <s:param name="site" value="'@anunci.us'"></s:param>
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
@@ -37,7 +37,7 @@
             <s:param name="image" value="'http://static.anunci.us/img/twitter.image.png'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/metadata/metadata.google.jsp">
+        <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Blog de Anuncius'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="image" value="'http://static.anunci.us/img/google.image.png'"></s:param>
