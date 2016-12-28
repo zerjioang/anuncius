@@ -21,7 +21,6 @@ public class HtmlCompressor {
         //remove new lines, tabs, etc
         if (!development) {
             if (html != null && !html.isEmpty()) {
-                html = html.replaceAll("(\\/\\*[\\w\\'\\s\\r\\n\\*]*\\*\\/)|(\\/\\/[\\w\\s\\']*)|(\\<![\\-\\-\\s\\w\\>\\/]*\\>)", NONE);
                 html = html.replaceAll("\n|\r|\b|\t", NONE);
                 //remove multiple spaces
                 html = html.replaceAll("  ", NONE);

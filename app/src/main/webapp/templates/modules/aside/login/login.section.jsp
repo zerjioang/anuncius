@@ -48,7 +48,6 @@
         function onSuccess(googleUser) {
             console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
             var profile = onSignIn(googleUser);
-            //close aside, only if it is already open
             if(document.getElementsByTagName("body")[0].className.indexOf('gl-show-menu')!=-1){
                 $("#gl-side-menu-close-button").click();
             }
