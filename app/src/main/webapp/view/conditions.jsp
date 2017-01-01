@@ -1,18 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html ⚡ lang="es">
 
-    <head>
-        <meta charset="utf-8">
-        <!-- PAGE TITLE -->
-        <title>Anuncius | La revolución de las tiendas online</title>
-
+    <head>        
         <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
             <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
+        
+        <!-- PAGE TITLE -->
+        <title>Anuncius | La revolución de las tiendas online</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
@@ -63,7 +62,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Términos y condiciones'" />
             <s:param name="bold" value=""/>
-            <s:param name="image" value="'./images/blurred.jpg'" />
+            <s:param name="image" value="'http://static.anunci.us/img/hero/conditions/hero.jpg'" />
             <s:param name="block" value="'conditions'" />
         </s:include>
         <!-- HERO IMAGE END -->

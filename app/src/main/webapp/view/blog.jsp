@@ -1,17 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html ⚡ lang="es">
 
     <head>
-        <!-- PAGE TITLE -->
-        <title>Anuncius - Blog</title>
-        
         <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
+        
+        <!-- PAGE TITLE -->
+        <title>Anuncius - Blog</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
@@ -84,8 +84,14 @@
                         <div class="gl-blog-items gl-image-post col-md-4 col-sm-4 col-xs-12">
                             <div class="gl-blog-img-wrapper">
                                 <picture>
-                                    <source media="(min-width: 768px)" srcset=images/blog/welcome.jpg>
-                                    <img alt="Imagen de bienvenida al blog" srcset=images/blog/welcome.jpg>
+                                    <amp-img
+                                        src="http://static.anunci.us/theme/images/blog/welcome.jpg"
+                                        alt="Imagen de bienvenida al blog"
+                                        class="gl-lazy"
+                                        width=360
+                                        height=240
+                                        layout=responsive>
+                                    </amp-img>
                                 </picture>
                                 <div class="gl-blog-cat-icon">
                                     <i class="ion-ios-musical-notes"></i>
@@ -94,10 +100,10 @@
 
                             <div class="gl-blog-item-details">
                                 <h3>
-                                    <a href="post/1">Atención: Estrenamos Anuncius!</a>
+                                    <a href="/post/1">Atención: Estrenamos Anuncius!</a>
                                 </h3>
                                 <p>Estamos deseando darte la bienvenida oficial</p>
-                                <span class="gl-blog-post-date">2 de Enero, 2017</span>
+                                <span class="gl-blog-post-date">1 de Enero, 2017</span>
                             </div>
                         </div>
                         <!-- BLOG ITEMS END -->

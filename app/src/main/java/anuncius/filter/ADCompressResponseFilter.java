@@ -15,7 +15,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(filterName = "CompressResponseFilter", urlPatterns = {"/*"})
-public class ACCompressResponseFilter implements Filter {
+public class ADCompressResponseFilter implements Filter {
 
     private HtmlCompressor compressor;
     private static final Map<String, String> env = System.getenv();

@@ -1,17 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html ⚡ lang="es">
 
     <head>
-        <!-- PAGE TITLE -->
-        <title>Anuncius | La compra inteligente</title>
-
         <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La compra inteligente'"></s:param>
             <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
+        
+        <!-- PAGE TITLE -->
+        <title>Anuncius | La compra inteligente</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 

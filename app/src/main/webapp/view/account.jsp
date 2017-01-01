@@ -1,18 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html ⚡ lang="es">
 
     <head>
-        <meta charset="UTF-8">
-        <!-- PAGE TITLE -->
-        <title>Anuncius | Perfil de usuario</title>
-
         <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
             <s:param name="author" value="'Sergio'"></s:param>
         </s:include>
+        
+        <!-- PAGE TITLE -->
+        <title>Anuncius | Perfil de usuario</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
@@ -48,7 +47,7 @@
     </head>
 
     <body class="gl-agent-profile-template gl-realestate-template">
-
+        
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
 
         <!-- SIDE MENU-->
@@ -58,7 +57,7 @@
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp" />
         <!-- HEADER END -->
-
+        
         <!-- PAGE CONTETNT -->
         <section class="gl-page-content-section">
             <div class="container">
@@ -72,7 +71,14 @@
                                 <div class="gl-agent-contact-wrapper">
                                     <div class="gl-agent-info-wrapper">
                                         <div class="gl-agent-img-wrapper">
-                                            <img src="images/product.png" alt="Imagen del usuario pepito" class="gl-lazy" >
+                                             <amp-img
+                                                src="http://static.anunci.us/theme/images/product.png"
+                                                alt="Imagen de perfil de Maria"
+                                                class="gl-lazy"
+                                                width=600
+                                                height=400
+                                                layout=responsive>
+                                            </amp-img>
                                         </div>
 
                                         <div class="gl-agent-infos">
@@ -115,8 +121,14 @@
                                 <div class="gl-featured-items">
                                     <div class="gl-feat-items-img-wrapper">
                                         <picture>
-                                            <source media="(min-width: 768px)" srcset=images/product.png>
-                                            <img alt="Category Image" srcset=images/product.png>
+                                            <amp-img
+                                                src="http://static.anunci.us/theme/images/product.png"
+                                                alt="Imagen del producto"
+                                                class="gl-lazy"
+                                                width=600
+                                                height=400
+                                                layout=responsive>
+                                            </amp-img>
                                         </picture>
 
                                         <span class="gl-price-tag">10€</span>
@@ -178,8 +190,14 @@
                                 <div class="gl-featured-items col-md-3 col-sm-6 col-xs-12  appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
                                     <div class="gl-feat-items-img-wrapper">
                                         <picture>
-                                            <source media="(min-width: 768px)" srcset=images/product.png>
-                                            <img alt="Category Image" srcset=images/product.png>
+                                            <amp-img
+                                                src="http://static.anunci.us/theme/images/product.png"
+                                                alt="Imagen del producto"
+                                                class="gl-lazy"
+                                                width=600
+                                                height=400
+                                                layout=responsive>
+                                            </amp-img>
                                         </picture>
 
                                         <span class="gl-price-tag">12€</span>

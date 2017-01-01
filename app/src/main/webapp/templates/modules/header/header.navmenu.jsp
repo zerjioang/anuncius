@@ -5,28 +5,30 @@
             <a href="/">Anuncius</a>
         </li>
         <li>
-            <a href="/explore.jsp">Explorar</a>
+            <a href="/explore">Explorar</a>
         </li>
+        <%--
         <li>
-            <a href="/ranking.jsp">Ranking</a>
+            <a href="/ranking">Ranking</a>
         </li>
+        --%>
         <li>
-            <a href="/blog.jsp">Blog</a>
+            <a href="/blog">Blog</a>
         </li>
         <li>
             <a href="#">Información</a>
             <ul class="gl-sub-menu">
                 <li>
-                    <a href="/contact.jsp">Contacto</a>
+                    <a href="/contact">Contacto</a>
                 </li>
                 <li>
-                    <a href="/privacy.jsp">Política de Privacidad</a>
+                    <a href="/privacy">Política de Privacidad</a>
                 </li>
                 <li>
-                    <a href="/conditions.jsp">Términos y condiciones</a>
+                    <a href="/conditions">Términos y condiciones</a>
                 </li>
                 <li>
-                    <a href="/questions.jsp">Preguntas frecuentes</a>
+                    <a href="/questions">Preguntas frecuentes</a>
                 </li>
             </ul>
         </li>

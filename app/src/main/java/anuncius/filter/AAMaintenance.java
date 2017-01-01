@@ -12,13 +12,13 @@ import javax.servlet.annotation.WebFilter;
 
 // Implements Filter class
 @WebFilter(filterName = "MaintenanceFilter", urlPatterns = {"/*"})
-public class AAMmaintenance implements Filter {
+public class AAMaintenance implements Filter {
 
     private static final boolean MAINTENANCE_ENABLED = false;
     
     private String updatingMessage;
     public void init(FilterConfig config) throws ServletException {
-        updatingMessage = "<html><body><h1>Server is updating, please wait</h1><h1>El servidor está actualizandose, por favor, espera.</h1></body></html>";
+        updatingMessage = "<html ⚡ ⚡><body><h1>Server is updating, please wait</h1><h1>El servidor está actualizandose, por favor, espera.</h1></body></html>";
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

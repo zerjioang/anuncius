@@ -39,6 +39,7 @@
                     <a href="#publish" class="gl-add-post-btn" style="margin: 2px;">+ Publicar</a>
 
                     <!-- COMPARE BTN -->
+                    <%--
                     <div class="gl-compare-icon">
                         <div class="gl-compare-btn-wrapper">
                             <span class="gl-compare-item-num">1</span>
@@ -72,10 +73,9 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- END -->
+                    --%>
                 </div>
                 <!-- END -->
-
             </div>
         </nav>
         <!-- Navigation Menu end-->
