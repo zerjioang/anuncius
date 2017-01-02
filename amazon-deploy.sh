@@ -1,13 +1,17 @@
 #!/bin/bash
 
+#restart local nginx
+sudo service nginx restart
+
 #request ssl cert update
 /opt/letsencrypt/certbot-auto renew
 
+#stop local nginx after request done
+sudo service nginx stop
+
 #update ssl cert
-sudo cat live/anunci.us/cert.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/cert.pem
-sudo cat live/anunci.us/chain.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/chain.pem
-sudo cat live/anunci.us/fullchain.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/fullchain.pem
-sudo cat live/anunci.us/privkey.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/privkey.pem
+sudo chown $USER -R /etc/letsencrypt/live/
+cp /etc/letsencrypt/live/anunci.us/* /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/
 
 #update
 sudo git pull
