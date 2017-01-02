@@ -4,10 +4,10 @@
 /opt/letsencrypt/certbot-auto renew
 
 #update ssl cert
-sudo cat live/anunci.us/cert.pem > /home/ec2-user/anuncius/ssl/cert.pem
-sudo cat live/anunci.us/chain.pem > /home/ec2-user/anuncius/ssl/chain.pem
-sudo cat live/anunci.us/fullchain.pem > /home/ec2-user/anuncius/ssl/fullchain.pem
-sudo cat live/anunci.us/privkey.pem > /home/ec2-user/anuncius/ssl/privkey.pem
+sudo cat live/anunci.us/cert.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/cert.pem
+sudo cat live/anunci.us/chain.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/chain.pem
+sudo cat live/anunci.us/fullchain.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/fullchain.pem
+sudo cat live/anunci.us/privkey.pem > /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/privkey.pem
 
 #update
 sudo git pull
