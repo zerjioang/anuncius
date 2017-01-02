@@ -18,8 +18,8 @@
         <s:include value="/templates/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
-            <s:param name="url" value="'http://www.anunci.us/'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.png'"></s:param>
+            <s:param name="url" value="'https://www.anunci.us/'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.png'"></s:param>
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'@zerjioang'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/css/minimum.css.jsp"/>
@@ -62,7 +62,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Información'" />
             <s:param name="bold" value=""/>
-            <s:param name="image" value="'http://static.anunci.us/img/hero/contact/hero.jpg'" />
+            <s:param name="image" value="'https://static.anunci.us/img/hero/contact/hero.jpg'" />
             <s:param name="block" value="'top'" />
         </s:include>
         <!-- HERO IMAGE END -->
@@ -75,7 +75,7 @@
                         <div class="gl-page-img-wrapper">
                             <picture>
                                 <amp-img
-                                    src="http://static.anunci.us/theme/images/working.jpg"
+                                    src="https://static.anunci.us/theme/images/working.jpg"
                                     alt="Imagen acerca de anunci.us"
                                     class="gl-lazy"
                                     width=900

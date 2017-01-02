@@ -18,8 +18,8 @@
         <s:include value="/templates/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
-            <s:param name="url" value="'http://www.anunci.us/blog'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.png'"></s:param>
+            <s:param name="url" value="'https://www.anunci.us/blog'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.png'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="author" value="'@zerjioang'"></s:param>
-            <s:param name="image" value="'http://static.anunci.us/img/twitter.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/img/twitter.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Blog de Anuncius'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
-            <s:param name="image" value="'http://static.anunci.us/img/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/img/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/css/minimum.css.jsp"/>
@@ -62,8 +62,8 @@
         <!-- FEATURED IMAGE -->
         <section class="gl-featured-image-wrapper">
             <picture>
-                <source media="(min-width: 768px)" srcset=http://static.anunci.us/theme/images/product.png>
-                <img alt="Featured Image" srcset=http://static.anunci.us/theme/images/product.png>
+                <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                <img alt="Featured Image" srcset=https://static.anunci.us/theme/images/product.png>
             </picture>
         </section>
         <!-- FEATURED IMAGE END -->

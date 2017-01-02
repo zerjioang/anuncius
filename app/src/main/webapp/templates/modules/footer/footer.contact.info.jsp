@@ -12,7 +12,7 @@
                 <a href="mailto:info@anunci.us">info@anunci.us</a>
             </li>
             <li><i class="fa fa-globe"></i>
-                <a href="http://anunci.us" target="_blank">anunci.us</a>
+                <a href="https://anunci.us" target="_blank">anunci.us</a>
             </li>
         </ul>
     </div>

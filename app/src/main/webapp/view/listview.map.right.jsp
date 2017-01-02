@@ -37,7 +37,7 @@
                                 new XMLHttpRequest; else if (window.ActiveXObject)try{f = new ActiveXObject("Msxml2.XMLHTTP")} catch (k){try{f = new ActiveXObject("Microsoft.XMLHTTP")} catch (v){}}f && (f.open("POST", c + ( - 1 == c.indexOf("?")?"?":"&") + "url=" + encodeURIComponent(b)), f.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), f.send(a))}}}
                         function t(){var b = {}, d = document.getElementsByTagName("IMG"); if (0 == d.length)return{}; var a = d[0]; if (!("naturalWidth"in a && "naturalHeight"in a))return{}; for (var c = 0; a = d[c]; ++c){var e = a.getAttribute("data-pagespeed-url-hash"); e && (!(e in b) && 0 < a.width && 0 < a.height && 0 < a.naturalWidth && 0 < a.naturalHeight || e in b && a.width >= b[e].o && a.height >= b[e].m) && (b[e] = {rw:a.width, rh:a.height, ow:a.naturalWidth, oh:a.naturalHeight})}return b}var u = ""; h("pagespeed.CriticalImages.getBeaconData", function(){return u});
                         h("pagespeed.CriticalImages.Run", function(b, d, a, c, e, f){var k = new p(b, d, a, e, f); n = k; c && m(function(){window.setTimeout(function(){r(k)}, 0)})}); })();
-                        pagespeed.CriticalImages.Run('/mod_pagespeed_beacon', 'http://sites.redqteam.com/glimpse/real-estate/listing-style-1.html', 'xbZ8FGz51H', true, false, 'NS1u1rGRnhU');
+                        pagespeed.CriticalImages.Run('/mod_pagespeed_beacon', 'https://sites.redqteam.com/glimpse/real-estate/listing-style-1.html', 'xbZ8FGz51H', true, false, 'NS1u1rGRnhU');
                         //]]></script><img src="images/ploading.gif" alt="Page Loader" data-pagespeed-url-hash="106915360" >
                 </div>
             </div>
@@ -783,19 +783,19 @@
         </section>
         <!-- PAGE CONTETNT END -->
 
-        <script src="http://sites.redqteam.com/glimpse/js/jquery.min.js.pagespeed.ce.M8q_oVwQYK.js"></script>
+        <script src="https://sites.redqteam.com/glimpse/js/jquery.min.js.pagespeed.ce.M8q_oVwQYK.js"></script>
 
 
         <!-- Google Map -->
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBF0FPDHlurGkDKua7PfZjpD2fr2rQsRw0&libraries=places"></script>
 
         <script src="../js/plugins.js"></script>
-        <script src="http://sites.redqteam.com/glimpse/js/scripts.js.pagespeed.ce.QAVzN4Pttq.js"></script>
+        <script src="https://sites.redqteam.com/glimpse/js/scripts.js.pagespeed.ce.QAVzN4Pttq.js"></script>
 
-        <script src="http://sites.redqteam.com/glimpse/js/infobubble-richmarker.js+realestate-map,_google-searchmap-init.js+google-autocomplete.js.pagespeed.jc.EN7wnMfBGq.js"></script><script>eval(mod_pagespeed_4Qt_Nv8wWy);</script>
+        <script src="https://sites.redqteam.com/glimpse/js/infobubble-richmarker.js+realestate-map,_google-searchmap-init.js+google-autocomplete.js.pagespeed.jc.EN7wnMfBGq.js"></script><script>eval(mod_pagespeed_4Qt_Nv8wWy);</script>
         <script>eval(mod_pagespeed_Z3HIglTXGW);</script>
         <script>eval(mod_pagespeed_IRAB4R600c);</script>
 
-        <script src="http://sites.redqteam.com/glimpse/js/main.js.pagespeed.ce.834V6Gn8Qo.js"></script>
+        <script src="https://sites.redqteam.com/glimpse/js/main.js.pagespeed.ce.834V6Gn8Qo.js"></script>
     </body>
 </html>

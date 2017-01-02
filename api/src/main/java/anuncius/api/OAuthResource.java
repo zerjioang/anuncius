@@ -105,7 +105,7 @@ public class OAuthResource {
     }
     
     /**
-     * http://localhost:8080/rest/api/oauth/setup?clientId=demo&clientSecret=1234
+     * https://localhost:8080/rest/api/oauth/setup?clientId=demo&clientSecret=1234
      * @param consumerKey               client consumer key
      * @param consumerSecret            client consumer secret
      * @return                          http response object
