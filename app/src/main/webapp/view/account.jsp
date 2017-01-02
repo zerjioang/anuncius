@@ -18,8 +18,8 @@
         <s:include value="/templates/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
-            <s:param name="url" value="'http://www.anunci.us/'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.png'"></s:param>
+            <s:param name="url" value="'https://www.anunci.us/'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.png'"></s:param>
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'@zerjioang'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
-            <s:param name="image" value="'http://www.anunci.us/image.jpg'"></s:param>
+            <s:param name="image" value="'https://www.anunci.us/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/css/minimum.css.jsp"/>
@@ -72,7 +72,7 @@
                                     <div class="gl-agent-info-wrapper">
                                         <div class="gl-agent-img-wrapper">
                                              <amp-img
-                                                src="http://static.anunci.us/theme/images/product.png"
+                                                src="https://static.anunci.us/theme/images/product.png"
                                                 alt="Imagen de perfil de Maria"
                                                 class="gl-lazy"
                                                 width=600
@@ -122,7 +122,7 @@
                                     <div class="gl-feat-items-img-wrapper">
                                         <picture>
                                             <amp-img
-                                                src="http://static.anunci.us/theme/images/product.png"
+                                                src="https://static.anunci.us/theme/images/product.png"
                                                 alt="Imagen del producto"
                                                 class="gl-lazy"
                                                 width=600
@@ -191,7 +191,7 @@
                                     <div class="gl-feat-items-img-wrapper">
                                         <picture>
                                             <amp-img
-                                                src="http://static.anunci.us/theme/images/product.png"
+                                                src="https://static.anunci.us/theme/images/product.png"
                                                 alt="Imagen del producto"
                                                 class="gl-lazy"
                                                 width=600

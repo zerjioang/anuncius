@@ -3,7 +3,7 @@
     <a style="margin: auto;display: table;padding: 10px; padding-bottom: 30px" href="/">
         <picture>
             <amp-img
-                src="http://static.anunci.us/theme/images/footer.logo.png"
+                src="https://static.anunci.us/theme/images/footer.logo.png"
                 alt="logo de anuncius"
                 class="gl-lazy"
                 width=228

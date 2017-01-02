@@ -18,8 +18,8 @@
         <s:include value="/templates/metadata/metadata.opengraph.jsp">
             <s:param name="title" value="'Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
-            <s:param name="url" value="'http://www.anunci.us/'"></s:param>
-            <s:param name="image" value="'http://static.anunci.us/image/image.png'"></s:param>
+            <s:param name="url" value="'https://www.anunci.us/'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/image/image.png'"></s:param>
             <s:param name="description" value="'La compra inteligente'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Anuncius - La compra inteligente'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'@zerjioang'"></s:param>
-            <s:param name="image" value="'http://static.anunci.us/image/image.jpg'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/image/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - La compra inteligente'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
-            <s:param name="image" value="'http://static.anunci.us/image/image.jpg'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/image/image.jpg'"></s:param>
         </s:include>
 
         <s:include value="/templates/modules/css/minimum.css.jsp"/>
@@ -106,8 +106,8 @@
                             <div class="gl-featured-items gl-alt-search">
                                 <div class="gl-feat-items-img-wrapper">
                                     <picture>
-                                        <source media="(min-width: 768px)" srcset=http://static.anunci.us/theme/images/product.png>
-                                        <img alt="Imagen del articulo" srcset=http://static.anunci.us/theme/images/product.png>
+                                        <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                        <img alt="Imagen del articulo" srcset=https://static.anunci.us/theme/images/product.png>
                                     </picture>
 
                                     <span class="gl-price-tag">$3,000</span>
