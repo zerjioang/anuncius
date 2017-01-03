@@ -45,6 +45,7 @@ public class ADCompressResponseFilter implements Filter {
             String name = env.get("HOSTNAME");
             compressor.setDevelopment(name.equals("orion"));
         }
+        System.out.println("Compression enabled: "+!this.compressor.isDevelopment());
     }
 
     @Override

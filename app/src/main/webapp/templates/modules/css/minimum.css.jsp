@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
-
 <!-- remodal css -->
 <link rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal.css">
 <link rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal-default-theme.css">
@@ -9,18 +7,10 @@
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/style.min.css">
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.min.css">
 
-<link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
+<link href="https://static.anunci.us/next/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://static.anunci.us/next/css/style.min.css" rel="stylesheet">
 
-<style>
-    html, p, a, li, h3, h4 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 300;
-    }
-    h1, h2 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-    }
-</style>
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
 
 <!-- main title font -->
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
