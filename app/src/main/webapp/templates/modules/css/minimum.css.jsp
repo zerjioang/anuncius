@@ -1,13 +1,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
 
 <!-- remodal css -->
 <link rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal.css">
 <link rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal-default-theme.css">
 
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/style.min.css">
-<link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.css">
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.min.css">
+
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
 
 <style>
     html, p, a, li, h3, h4 {

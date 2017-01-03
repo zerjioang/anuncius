@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%--
 <div class="ui modal" id="publishModal">
   <i class="close icon"></i>
   <div class="header">
@@ -17,3 +18,4 @@
     <div class="ui button">OK</div>
   </div>
 </div>
+--%>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!doctype html>
-<html ⚡ lang="es">
+<html lang="es">
 
     <head>      
         <s:include value="/templates/metadata/metadata.generic.jsp">

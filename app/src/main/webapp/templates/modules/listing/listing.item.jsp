@@ -1,10 +1,10 @@
 <div class="gl-featured-items col-md-3 col-sm-6 col-xs-12">
     <div class="gl-feat-items-img-wrapper">
         <picture>
-            <source media="(min-width: 768px)" srcset=images/product.png>
-            <img alt="Category Image" srcset=images/product.png>
+            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
         </picture>
-        <a href="images/product.png" class="gl-lightbox-img gl-overlay"></a>
+        <a href="https://static.anunci.us/theme/images/product.png" class="gl-lightbox-img gl-overlay"></a>
 
         <span class="gl-price-tag">2 EURO</span>
     </div>

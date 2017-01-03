@@ -19,7 +19,7 @@ public class ACRedisFilter implements Filter {
     private String cachedHtml;
     public void init(FilterConfig config) throws ServletException {
         redisHandler = "redis";
-        cachedHtml = "<html ⚡ ⚡><body><h1>atención: response from redis</h1></body></html>";
+        cachedHtml = "<html ⚡><body><h1>atención: response from redis</h1></body></html>";
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!doctype html>
-<html ⚡ lang="es">
+<html lang="es">
 
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
@@ -71,14 +71,10 @@
                                 <div class="gl-agent-contact-wrapper">
                                     <div class="gl-agent-info-wrapper">
                                         <div class="gl-agent-img-wrapper">
-                                             <amp-img
-                                                src="https://static.anunci.us/theme/images/product.png"
-                                                alt="Imagen de perfil de Maria"
-                                                class="gl-lazy"
-                                                width=600
-                                                height=400
-                                                layout=responsive>
-                                            </amp-img>
+                                            <picture>
+                                                <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                                <img src="https://static.anunci.us/theme/images/product.png" alt="Imagen de perfil de Maria">
+                                            </picture>
                                         </div>
 
                                         <div class="gl-agent-infos">
@@ -121,14 +117,8 @@
                                 <div class="gl-featured-items">
                                     <div class="gl-feat-items-img-wrapper">
                                         <picture>
-                                            <amp-img
-                                                src="https://static.anunci.us/theme/images/product.png"
-                                                alt="Imagen del producto"
-                                                class="gl-lazy"
-                                                width=600
-                                                height=400
-                                                layout=responsive>
-                                            </amp-img>
+                                            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                            <img src="https://static.anunci.us/theme/images/product.png" alt="Imagen del producto">
                                         </picture>
 
                                         <span class="gl-price-tag">10€</span>
@@ -190,14 +180,8 @@
                                 <div class="gl-featured-items col-md-3 col-sm-6 col-xs-12  appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
                                     <div class="gl-feat-items-img-wrapper">
                                         <picture>
-                                            <amp-img
-                                                src="https://static.anunci.us/theme/images/product.png"
-                                                alt="Imagen del producto"
-                                                class="gl-lazy"
-                                                width=600
-                                                height=400
-                                                layout=responsive>
-                                            </amp-img>
+                                            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                            <img src="https://static.anunci.us/theme/images/product.png" alt="Imagen del producto">
                                         </picture>
 
                                         <span class="gl-price-tag">12€</span>

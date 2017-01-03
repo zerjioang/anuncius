@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!doctype html>
-<html ⚡ lang="es">
+<html lang="es">
 
     <head>
         
@@ -86,38 +86,38 @@
                         <div class="gl-profile-gallery">
                             <ul class="gl-gallery">
                                 <li>
-                                    <a href="images/product.png" class="gl-lightbox-img">
+                                    <a href="https://static.anunci.us/theme/images/product.png" class="gl-lightbox-img">
                                         <picture>
-                                            <source media="(min-width: 768px)" srcset=images/product.png>
-                                            <img alt="Category Image" srcset=images/product.png>
+                                            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
                                         </picture>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="images/product.png" class="gl-lightbox-img">
+                                    <a href="https://static.anunci.us/theme/images/product.png" class="gl-lightbox-img">
                                         <picture>
-                                            <source media="(min-width: 768px)" srcset=images/product.png>
-                                            <img alt="Category Image" srcset=images/product.png>
+                                            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
                                         </picture>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="images/product.png" class="gl-lightbox-img">
-                                        <img src="images/product.png" alt="Profile Gallery Image" class="gl-lazy">
+                                    <a href="https://static.anunci.us/theme/images/product.png" class="gl-lightbox-img">
+                                        <img src="https://static.anunci.us/theme/images/product.png" alt="Profile Gallery Image" class="gl-lazy">
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="images/product.png" class="gl-lightbox-img">
-                                        <img src="images/product.png" alt="Profile Gallery Image" class="gl-lazy">
+                                    <a href="https://static.anunci.us/theme/images/product.png" class="gl-lightbox-img">
+                                        <img src="https://static.anunci.us/theme/images/product.png" alt="Profile Gallery Image" class="gl-lazy">
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="images/product.png" class="gl-lightbox-img">
-                                        <img src="images/product.png" alt="Profile Gallery Image" class="gl-lazy">
+                                    <a href="https://static.anunci.us/theme/images/product.png" class="gl-lightbox-img">
+                                        <img src="https://static.anunci.us/theme/images/product.png" alt="Profile Gallery Image" class="gl-lazy">
                                     </a>
                                 </li>
                             </ul>
@@ -170,7 +170,7 @@
                                         <!-- Details -->
                                         <div id="gl-floorplan-1-Details" class="panel-collapse collapse gl-floorplan-details" role="tabpanel" aria-labelledby="gl-floorplanOne">
                                             <div class="panel-body">
-                                                <img src="images/product.png" alt="Floor Plan" class="gl-lazy">
+                                                <img src="https://static.anunci.us/theme/images/product.png" alt="Floor Plan" class="gl-lazy">
                                             </div>
                                         </div>
                                         <!-- END -->
@@ -193,7 +193,7 @@
                                         <!-- Details -->
                                         <div id="gl-floorplan-2-Details" class="panel-collapse collapse gl-floorplan-details" role="tabpanel" aria-labelledby="gl-floorplantwo">
                                             <div class="panel-body">
-                                                <img src="images/product.png" alt="Floor Plan" class="gl-lazy">
+                                                <img src="https://static.anunci.us/theme/images/product.png" alt="Floor Plan" class="gl-lazy">
                                             </div>
                                         </div>
                                         <!-- END -->
@@ -216,7 +216,7 @@
                                         <!-- Details -->
                                         <div id="gl-floorplan-3-Details" class="panel-collapse collapse gl-floorplan-details" role="tabpanel" aria-labelledby="gl-floorplanthree">
                                             <div class="panel-body">
-                                                <img src="images/product.png" alt="Floor Plan" class="gl-lazy">
+                                                <img src="https://static.anunci.us/theme/images/product.png" alt="Floor Plan" class="gl-lazy">
                                             </div>
                                         </div>
                                         <!-- END -->
@@ -242,7 +242,7 @@
                         <div class="gl-page-contents-wrapper gl-agent-contact-wrapper appear fadeIn" data-wow-duration=".5s" data-wow-delay=".5s">
                             <div class="gl-agent-info-wrapper gl-same-height">
                                 <div class="gl-agent-img-wrapper">
-                                    <img src="images/product.png" alt="Agent" class="gl-lazy">
+                                    <img src="https://static.anunci.us/theme/images/product.png" alt="Agent" class="gl-lazy">
                                 </div>
 
                                 <div class="gl-agent-infos">
@@ -309,8 +309,8 @@
                             <div class="gl-featured-items">
                                 <div class="gl-feat-items-img-wrapper">
                                     <picture>
-                                        <source media="(min-width: 768px)" srcset=images/product.png>
-                                        <img alt="Category Image" srcset=images/product.png>
+                                        <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                        <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
                                     </picture>
 
                                     <span class="gl-price-tag">10€</span>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!doctype html>
-<html ⚡ lang="es">
+<html lang="es">
 
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
@@ -92,6 +92,10 @@
                                         height=240
                                         layout=responsive>
                                     </amp-img>
+                                </picture>
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+                                    <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
                                 </picture>
                                 <div class="gl-blog-cat-icon">
                                     <i class="ion-ios-musical-notes"></i>

@@ -5,12 +5,5 @@
     <h2>Todos los derechos reservados</h2>
     <img src="https://static.anunci.us/theme/images/deusto.jpg" width="350" alt="Logo oficial de la Universidad de Deusto"/>
     <h3>Plataforma desarrollada como proyecto en la Universidad de Deusto</h3>
-    <p align="justify">
-        Información de licencia
-    </p>
-    <p align="justify">
-        This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-    </p>
-        <br>
     <button data-remodal-action="confirm" class="remodal-confirm">Cerrar</button>
 </div>

@@ -1,8 +1,8 @@
 <div class="gl-featured-items col-md-4 col-sm-4 col-xs-12">
     <div class="gl-feat-items-img-wrapper">
         <picture>
-            <source media="(min-width: 768px)" srcset=images/product.png>
-            <img alt="Category Image" srcset=images/product.png>
+            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
+            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
         </picture>
 
         <span class="gl-price-tag">$3,000</span>
