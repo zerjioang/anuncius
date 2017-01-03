@@ -1,5 +1,21 @@
 #!/bin/bash
 
+#restart local nginx
+sudo service nginx restart
+
+#request ssl cert update
+/opt/letsencrypt/certbot-auto renew
+
+#stop local nginx after request done
+sudo service nginx stop
+
+#update ssl cert
+sudo chown $USER -R /etc/letsencrypt/live/
+cp /etc/letsencrypt/live/anunci.us/* /home/ec2-user/anuncius/docker/Dockerfile/nginx/ssl/
+
+#update
+sudo git pull
+
 #go to api
 
 cd api
