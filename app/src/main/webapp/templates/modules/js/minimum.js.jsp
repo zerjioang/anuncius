@@ -5,12 +5,16 @@
 <script src="https://static.anunci.us/theme/js/scripts.js"></script>
 <script src="https://static.anunci.us/theme/js/main.js"></script>
 
+<%--
+
 <script src="https://static.anunci.us/theme/js/app/controller/landing/easytabs.js"></script>
 <script src="https://static.anunci.us/theme/js/app/controller/landing/events.js"></script>
 <script src="https://static.anunci.us/theme/js/app/controller/landing/functions.js"></script>
 <script src="https://static.anunci.us/theme/js/app/controller/landing/masonry.js"></script>
 <script src="https://static.anunci.us/theme/js/app/controller/landing/nicescroll.js"></script>
 <script src="https://static.anunci.us/theme/js/app/controller/landing/selector.js"></script>
+
+--%>
 
 <!-- api handler -->
 <script src="https://static.anunci.us/theme/js/app/api.js"></script>

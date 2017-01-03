@@ -1,6 +1,12 @@
-var host = './';
-var port = '80';
-var base = '/api/v1/public';
+var host = 'https://api.anunci.us/';
+var base = 'api/v1/public';
+
+var thisUrl = window.location.href;
+console.log(thisUrl);
+
+if(thisUrl.startsWith('http://localhost/')){
+    host = 'http://localhost/';
+}
 
 function contactAPIviaGET(remotePath, payload, onSuccess, onError) {
     remotePath = getFullyQualifiedRemotePath(remotePath);
@@ -42,5 +48,5 @@ function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
 }
 
 function getFullyQualifiedRemotePath(remotePath) {
-    return host + ':' + port + base + remotePath;
+    return host  + base + remotePath;
 }
