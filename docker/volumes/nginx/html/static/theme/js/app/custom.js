@@ -21,6 +21,7 @@ $("#btn-suscribe-form").on("click", function (event) {
 function getNavigationLocation() {
     if (navigator.geolocation) {
         return navigator.geolocation.getCurrentPosition();
+    }
     return undefined;
 }
 
@@ -30,5 +31,18 @@ function getNavigationCoordinates(){
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;
         console.log("Navigator location: "+lat+" "+lon);
+        console.log("Accuracy: "+location.accuracy);
+        console.log("Heading: "+location.heading);
     }
+}
+
+function resolveAddress(){
+    var locCurrent = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'latLng': locCurrent }, function (results, status) {
+            var locItemCount = results.length;
+            var locCountryNameCount = locItemCount - 1;
+            var locCountryName = results[locCountryNameCount].formatted_address;
+            console.log("Resolved name: "+locCountryName);
+    });
 }
