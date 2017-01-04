@@ -7,9 +7,6 @@
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/style.min.css">
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.min.css">
 
-<link href="https://static.anunci.us/next/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://static.anunci.us/next/css/style.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
 
 <!-- main title font -->
