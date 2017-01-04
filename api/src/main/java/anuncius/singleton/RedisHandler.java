@@ -16,7 +16,7 @@ import redis.clients.jedis.JedisPool;
 public class RedisHandler {
  
     //address of your redis server
-    private static final String REDIS_HOST = "localhost";
+    private static final String REDIS_HOST = "cache";
     private static final Integer REDIS_PORT = 6379;
  
     //the jedis connection pool..

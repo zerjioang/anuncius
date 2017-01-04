@@ -1,5 +1,6 @@
 package anuncius.filter;
 
+import anuncius.util.PlatformUtil;
 import anuncius.compress.CharResponseWrapper;
 import anuncius.compress.HtmlCompressor;
 import anuncius.singleton.RedisHandler;
@@ -18,10 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ADCompressResponseFilter implements Filter {
 
-    private HtmlCompressor compressor;
-    private static final Map<String, String> env = System.getenv();
-    
     private static final RedisHandler redis = RedisHandler.getInstance();
+    
+    private HtmlCompressor compressor;
     
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
@@ -38,9 +38,9 @@ public class ADCompressResponseFilter implements Filter {
         String compressedResponse = compressor.compress(servletResponse);
         if(compressedResponse!=null && !compressedResponse.isEmpty()){
             //add response to redis
-            redis.addSet(uriStr, compressedResponse);
             resp.getWriter().flush();
             resp.getWriter().write(compressedResponse);
+            saveRequestOnRedis(uriStr, compressedResponse);
         }
     }
 
@@ -49,15 +49,18 @@ public class ADCompressResponseFilter implements Filter {
         compressor = new HtmlCompressor();
         compressor.setCompressCss(true);
         compressor.setCompressJavaScript(true);
-        if(env!=null && env.get("HOSTNAME")!=null){
-            String name = env.get("HOSTNAME");
-            compressor.setDevelopment(name.equals("orion"));
-        }
+        compressor.isDevelopment(PlatformUtil.isDevelopment());
         System.out.println("Compression enabled: "+!this.compressor.isDevelopment());
     }
 
     @Override
     public void destroy() {
+    }
+
+    private void saveRequestOnRedis(String key, String value) {
+        new Thread(() -> {
+            redis.addSet(key, value);
+        }).start();
     }
 
 }
