@@ -49,7 +49,9 @@ public class ADCompressResponseFilter implements Filter {
         compressor = new HtmlCompressor();
         compressor.setCompressCss(true);
         compressor.setCompressJavaScript(true);
-        compressor.isDevelopment(PlatformUtil.isDevelopment());
+        compressor.setDevelopment(
+                PlatformUtil.isDevelopment()
+        );
         System.out.println("Compression enabled: "+!this.compressor.isDevelopment());
     }
 
