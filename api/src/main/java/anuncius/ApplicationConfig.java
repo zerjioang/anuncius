@@ -31,7 +31,6 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(anuncius.api.OAuthResource.class);
         resources.add(anuncius.api.PublicResource.class);
         resources.add(anuncius.api.ShareResource.class);
     }

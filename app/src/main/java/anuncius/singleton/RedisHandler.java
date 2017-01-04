@@ -34,9 +34,12 @@ public class RedisHandler {
     private RedisHandler(){
         try{
             //configure our pool connection
+            System.out.println("Getting a Redis pool. Host: "+REDIS_HOST+", port: "+REDIS_PORT);
             pool = new JedisPool(REDIS_HOST, REDIS_PORT);
+            System.out.println("Pool estabilshed: "+pool!=null);
             //Connecting to Redis server on localhost
             Jedis jedis = pool.getResource();
+            System.out.println("Redis connection established?: "+jedis!=null);
             if(jedis!=null){
                 System.out.println("Connection to server sucessfully");
                 //check whether server is running or not
