@@ -11,7 +11,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.WebFilter;
 
 // Implements Filter class
-@WebFilter(filterName = "MaintenanceFilter", urlPatterns = {"/*"})
 public class AAMaintenance implements Filter {
 
     private static final boolean MAINTENANCE_ENABLED = false;

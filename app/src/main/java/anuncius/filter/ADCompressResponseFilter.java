@@ -2,6 +2,7 @@ package anuncius.filter;
 
 import anuncius.compress.CharResponseWrapper;
 import anuncius.compress.HtmlCompressor;
+import anuncius.singleton.RedisHandler;
 import java.io.IOException;
 import java.util.Map;
 
@@ -12,18 +13,23 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(filterName = "CompressResponseFilter", urlPatterns = {"/*"})
 public class ADCompressResponseFilter implements Filter {
 
     private HtmlCompressor compressor;
     private static final Map<String, String> env = System.getenv();
     
+    private static final RedisHandler redis = RedisHandler.getInstance();
+    
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 
         System.out.println("Compress filter: ");
+        
+        HttpServletRequest httpRequest = (HttpServletRequest) req;
+        String uriStr = httpRequest.getRequestURI();
         
         CharResponseWrapper responseWrapper = new CharResponseWrapper((HttpServletResponse) resp);
         chain.doFilter(req, responseWrapper);
@@ -31,6 +37,8 @@ public class ADCompressResponseFilter implements Filter {
         String servletResponse = responseWrapper.toString();
         String compressedResponse = compressor.compress(servletResponse);
         if(compressedResponse!=null && !compressedResponse.isEmpty()){
+            //add response to redis
+            redis.addSet(uriStr, compressedResponse);
             resp.getWriter().flush();
             resp.getWriter().write(compressedResponse);
         }

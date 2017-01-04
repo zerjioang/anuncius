@@ -11,7 +11,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.WebFilter;
 
 // Implements Filter class
-@WebFilter(filterName = "FordwardFilter", urlPatterns = {"*"})
 public class ABFordwardFilter implements Filter {
     
     public void init(FilterConfig config) throws ServletException {

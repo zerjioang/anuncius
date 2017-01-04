@@ -41,14 +41,14 @@
     </filter-mapping>
     
     <filter-mapping>
-        <filter-name>cache</filter-name>
+        <filter-name>rewrite</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
     
     <filter-mapping>
-        <filter-name>compress</filter-name>
+        <filter-name>cache</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
@@ -62,7 +62,7 @@
     </filter-mapping>
     
     <filter-mapping>
-        <filter-name>rewrite</filter-name>
+        <filter-name>compress</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
