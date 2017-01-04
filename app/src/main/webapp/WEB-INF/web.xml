@@ -4,13 +4,23 @@
     <display-name>Anunci.us platform app</display-name>
     
     <filter>
-        <filter-name>struts-prepare</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
+        <filter-name>maintenance</filter-name>
+        <filter-class>anuncius.filter.AAMaintenance</filter-class>
     </filter>
     
     <filter>
-        <filter-name>struts-rewrite</filter-name>
+        <filter-name>rewrite</filter-name>
         <filter-class>anuncius.filter.ABFordwardFilter</filter-class>
+    </filter>
+    
+    <filter>
+        <filter-name>cache</filter-name>
+        <filter-class>anuncius.filter.ACRedisFilter</filter-class>
+    </filter>
+    
+    <filter>
+        <filter-name>struts-prepare</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
     </filter>
     
     <filter>
@@ -18,18 +28,46 @@
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
     </filter>
     
+    <filter>
+        <filter-name>compress</filter-name>
+        <filter-class>anuncius.filter.ADCompressResponseFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>maintenance</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>cache</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>compress</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
     <filter-mapping>
         <filter-name>struts-prepare</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
+    
     <filter-mapping>
-        <filter-name>struts-rewrite</filter-name>
+        <filter-name>rewrite</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
+    
     <filter-mapping>
         <filter-name>struts-execute</filter-name>
         <url-pattern>/*</url-pattern>

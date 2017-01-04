@@ -19,6 +19,7 @@ public class ADCompressResponseFilter implements Filter {
 
     private HtmlCompressor compressor;
     private static final Map<String, String> env = System.getenv();
+    
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 
@@ -40,7 +41,6 @@ public class ADCompressResponseFilter implements Filter {
         compressor = new HtmlCompressor();
         compressor.setCompressCss(true);
         compressor.setCompressJavaScript(true);
-        compressor.setDevelopment(false);
         if(env!=null && env.get("HOSTNAME")!=null){
             String name = env.get("HOSTNAME");
             compressor.setDevelopment(name.equals("orion"));
