@@ -11,7 +11,7 @@ RUN rm -rf /usr/local/tomcat/webapps/docs \
 COPY ./apps/app-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 # COPY ./apps/jenkins.war /usr/local/tomcat/webapps/jenkins.war
 
-#COPY ./apps/api-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/api.war
+COPY ./apps/api-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/api.war
 
 #config
 
