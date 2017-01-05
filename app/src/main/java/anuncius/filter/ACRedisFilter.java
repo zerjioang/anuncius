@@ -25,10 +25,9 @@ public class ACRedisFilter implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String uriStr = httpRequest.getRequestURI();
-        
-        System.out.println("Redis filter: ");
+       
         String data = gotHit(uriStr);
-        System.out.println("Hit: "+data!=null);
+        System.out.println("Redis filter: "+data!=null);
         if(data!=null){
             response.getWriter().write(data);
         }

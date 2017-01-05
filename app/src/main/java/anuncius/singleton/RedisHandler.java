@@ -5,6 +5,7 @@
  */
 package anuncius.singleton;
 
+import java.util.Base64;
 import java.util.Set;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -57,7 +58,11 @@ public class RedisHandler {
         try{
             if(jedis!=null){
                 //set the data in redis string
-                jedis.set(key, value);
+                if(key!=null && value!=null){
+                    //encode value to b64
+                    value = Base64.getEncoder().encodeToString(value.getBytes());
+                    jedis.set(key, value);
+                }
             }
         }
         catch(Exception e){
@@ -68,9 +73,12 @@ public class RedisHandler {
     public String getSet(String key){
         //Connecting to Redis server on localhost
         try{
-            if(jedis!=null){
+            if(jedis!=null && key!=null){
                 //set the data in redis string
-                return jedis.get(key);
+                String data = jedis.get(key);
+                if(data!=null){
+                    return new String(Base64.getDecoder().decode(data));
+                }
             }
         }
         catch(Exception e){
