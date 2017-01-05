@@ -24,6 +24,8 @@ services:
   web:
     build: ./Dockerfile/tomcat
     container_name: web
+    environment:
+      - JAVA_OPTS=-Djava.awt.headless=true -server -Xms48m -Xmx1024M -XX:MaxPermSize=512m
     ports:
       - '8080:8080'
     links:
