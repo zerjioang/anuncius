@@ -2,7 +2,7 @@
 
 <section class="gl-feat-properties-section gl-section-wrapper" id="featured">
     <div class="container">
-        <div class="row">
+        <div class="row" id="index">
             <s:include value="/templates/modules/featured/featured.title.jsp" />
             <!-- WRAPPER -->
             <div class="gl-featured-listing-wrapper">

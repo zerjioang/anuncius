@@ -61,13 +61,21 @@
         <!-- PAGE CONTETNT -->
         <section class="gl-page-content-section">
             <div class="container">
+                
+                <!-- ASSIGNED PROPERTY -->
+                <div class="row">
+                    <div class="gl-page-contents-wrapper">
+                        <h3 class="gl-content-title">Perfil de usuario</h3>
+                    </div>
+                </div>
+                        <!-- END -->
                 <div class="row">
                     <!-- PAGE CONTENT DETAILS -->
                     <div class="gl-page-content">
 
                         <!-- AGENT INFO -->
                         <div class="gl-page-contents-wrapper">
-                            <div class="gl-agent-info-section col-md-8 col-sm-8 col-xs-12">
+                            <div class="gl-agent-info-section col-md-12 col-sm-12 col-xs-12">
                                 <div class="gl-agent-contact-wrapper">
                                     <div class="gl-agent-info-wrapper">
                                         <div class="gl-agent-img-wrapper">
@@ -108,125 +116,6 @@
                                 </div>
                             </div>
 
-                            <div class="gl-agent-featured-property col-md-4 col-sm-4 col-xs-12">
-                                <h3 class="gl-content-title">Artículos TOP</h3>
-                                <!-- FEATURED ITEMS -->
-                                <div class="gl-featured-items">
-                                    <div class="gl-feat-items-img-wrapper">
-                                        <picture>
-                                            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
-                                        </picture>
-
-                                        <span class="gl-price-tag">10€</span>
-                                    </div>
-
-                                    <div class="gl-feat-item-details">
-                                        <span class="gl-item-status-label gl-sale-label">En venta</span>
-
-                                        <h3>
-                                            <a href="#">Nombre del item</a>
-                                        </h3>
-                                        <div class="gl-item-location">
-                                            <i class="ion-ios-location-outline"></i>
-                                            <span>Bilbao, España</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="gl-feat-item-metas">
-                                        <ul class="gl-feature-info">
-                                            <li>Beds<span>3</span>
-                                            </li>
-                                            <li>Baths<span>2</span>
-                                            </li>
-                                            <li>Area<span>900 sqft</span>
-                                            </li>
-                                        </ul>
-
-                                        <ul class="gl-wishlist-compare-wrapper">
-                                            <li>
-                                                <a href="#" class="gl-add-wishlist">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </a>
-                                            </li>
-                                            <%--
-                                            <li>
-                                                <a href="#" class="gl-add-compare">
-                                                    <div class="gl-compare-btn">
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            --%>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- END -->
-                            </div>
-                        </div>
-                        <!-- END -->
-
-                        <!-- ASSIGNED PROPERTY -->
-                        <div class="gl-page-contents-wrapper">
-                            <h3 class="gl-content-title">Artículos publicados</h3>
-
-                            <div class="gl-assigned-properties-wrapper">
-                                <!-- FEATURED ITEMS -->
-                                <div class="gl-featured-items col-md-3 col-sm-6 col-xs-12  appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
-                                    <div class="gl-feat-items-img-wrapper">
-                                        <picture>
-                                            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
-                                        </picture>
-
-                                        <span class="gl-price-tag">12€</span>
-                                    </div>
-
-                                    <div class="gl-feat-item-details">
-                                        <span class="gl-item-status-label gl-sale-label">En venta</span>
-
-                                        <h3>
-                                            <a href="#">Nombre artículo</a>
-                                        </h3>
-                                        <div class="gl-item-location">
-                                            <i class="ion-ios-location-outline"></i>
-                                            <span>Bilbao, España</span>
-                                        </div>
-                                    </div>
-                                    <div class="gl-feat-item-metas">
-                                        <ul class="gl-feature-info">
-                                            <li>Beds<span>3</span>
-                                            </li>
-                                            <li>Baths<span>2</span>
-                                            </li>
-                                            <li>Area<span>900 sqft</span>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="gl-wishlist-compare-wrapper">
-                                            <li>
-                                                <a href="#" class="gl-add-wishlist">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </a>
-                                            </li>
-                                            <%--
-                                            <li>
-                                                <a href="#" class="gl-add-compare">
-                                                    <div class="gl-compare-btn">
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            --%>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- END -->
-                            </div>
                         </div>
                         <!-- END -->
                     </div>

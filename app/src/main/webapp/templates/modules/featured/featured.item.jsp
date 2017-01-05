@@ -12,7 +12,7 @@
         <span class="gl-item-status-label gl-sold-label">Sold</span>
 
         <h3>
-            <a href="index.html#">Lake Cafe</a>
+            <a href="/item/1">Lake Cafe</a>
         </h3>
         <div class="gl-item-location">
             <i class="ion-ios-location-outline"></i>
@@ -32,13 +32,13 @@
 
         <ul class="gl-wishlist-compare-wrapper">
             <li>
-                <a href="index.html#" class="gl-add-wishlist">
+                <a href="/item/1" class="gl-add-wishlist">
                     <i class="fa fa-heart-o"></i>
                 </a>
             </li>
 
             <li>
-                <a href="index.html#" class="gl-add-compare">
+                <a href="/item/1" class="gl-add-compare">
                     <div class="gl-compare-btn">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>

@@ -76,9 +76,9 @@
                         <div class="gl-search-meta-wrapper">
                             <p class="gl-search-number">1 Artículo encontrado</p>
                             <div class="gl-search-tags">
-                                <a href="listing-style-4.html#" class="gl-tag-btn gl-duplex">tag 1</a>
-                                <a href="listing-style-4.html#" class="gl-tag-btn gl-resort">tag 2</a>
-                                <a href="listing-style-4.html#" class="gl-tag-btn gl-villa">tag 3</a>
+                                <a href="/item/1" class="gl-tag-btn gl-duplex">tag 1</a>
+                                <a href="/item/1" class="gl-tag-btn gl-resort">tag 2</a>
+                                <a href="/item/1" class="gl-tag-btn gl-villa">tag 3</a>
                             </div>
 
                             <div class="gl-search-sorting">
@@ -92,7 +92,7 @@
                                         </select>
                                     </div>
 
-                                    <a href="listing-style-4.html#" class="gl-sorting-btn gl-grid-view">
+                                    <a href="/item/1" class="gl-sorting-btn gl-grid-view">
                                         <i class="fa fa-list-ul"></i>
                                     </a>
                                 </div>
@@ -116,7 +116,7 @@
                                 <div class="gl-feat-details-meta">
                                     <div class="gl-feat-item-details">
                                         <h3>
-                                            <a href="listing-style-4.html#">Nombre del articulo</a>
+                                            <a href="/item/1">Nombre del articulo</a>
                                         </h3>
                                         <div class="gl-item-location">
                                             <i class="ion-ios-location-outline"></i>
@@ -138,13 +138,13 @@
 
                                         <ul class="gl-wishlist-compare-wrapper">
                                             <li>
-                                                <a href="listing-style-4.html#" class="gl-add-wishlist">
+                                                <a href="/item/1" class="gl-add-wishlist">
                                                     <i class="fa fa-heart-o"></i>
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a href="listing-style-4.html#" class="gl-add-compare">
+                                                <a href="/item/1" class="gl-add-compare">
                                                     <div class="gl-compare-btn">
                                                         <span class="icon-bar"></span>
                                                         <span class="icon-bar"></span>
@@ -168,7 +168,7 @@
                         <div class="gl-sidebar-widget gl-search-filter-widget">
                             <h3 class="gl-sidebar-title">Búsqueda avanzada</h3>
 
-                            <form action="listing-style-4.html#">
+                            <form action="/item/1">
                                 <div class="gl-filter-options gl-search-keyword">
                                     <input type="text" name="gl-search-keyword" id="gl-search-keyword" placeholder="Keywords">
                                 </div>

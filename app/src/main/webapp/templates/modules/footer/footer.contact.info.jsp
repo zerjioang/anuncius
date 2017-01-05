@@ -4,10 +4,12 @@
 
     <div class="gl-footer-widget-content">
         <ul>
-            <li><i class="fa fa-map-marker"></i>Bilbao, España</li>
+            <li><i class="fa fa-map-marker"></i>C\ Avenida de las Universidades. Bilbao, España</li>
+            <%--
             <li><i class="fa fa-phone"></i>
                 <a href="tel:+34 622 579 711">+34 622 579 711</a>
             </li>
+            --%>
             <li><i class="fa fa-envelope-o"></i>
                 <a href="mailto:info@anunci.us">info@anunci.us</a>
             </li>
