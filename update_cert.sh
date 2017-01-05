@@ -9,7 +9,7 @@ cd ..
 sudo service nginx restart
 
 #request ssl cert update
-/opt/letsencrypt/certbot-auto renew
+./tools/letsencrypt/certbot-auto renew
 
 #stop local nginx after request done
 sudo service nginx stop
