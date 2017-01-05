@@ -32,6 +32,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(anuncius.api.PublicResource.class);
+        resources.add(anuncius.api.SearchResource.class);
         resources.add(anuncius.api.ShareResource.class);
     }
     

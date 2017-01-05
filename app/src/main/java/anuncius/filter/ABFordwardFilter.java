@@ -8,7 +8,6 @@ package anuncius.filter;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.WebFilter;
 
 // Implements Filter class
 public class ABFordwardFilter implements Filter {
@@ -23,7 +22,7 @@ public class ABFordwardFilter implements Filter {
         
         System.out.println("Fordward Filter: "+uriStr);
         String destination = requiresFordward(uriStr);
-        if(destination!=null){
+        if(destination!=null && !destination.trim().isEmpty()){
             httpRequest.getSession().getServletContext().getRequestDispatcher(destination).forward(request,response);
         }
         else{

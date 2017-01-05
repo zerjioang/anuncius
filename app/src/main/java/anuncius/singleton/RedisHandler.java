@@ -21,8 +21,9 @@ public class RedisHandler {
  
     //the jedis connection pool..
     private static JedisPool pool = null;
-    
     private static RedisHandler instance;
+    
+    private Jedis jedis;
 
     public static RedisHandler getInstance() {
         if(instance==null){
@@ -38,7 +39,7 @@ public class RedisHandler {
             pool = new JedisPool(REDIS_HOST, REDIS_PORT);
             System.out.println("Pool estabilshed: "+pool!=null);
             //Connecting to Redis server on localhost
-            Jedis jedis = pool.getResource();
+            jedis = pool.getResource();
             System.out.println("Redis connection established?: "+jedis!=null);
             if(jedis!=null){
                 System.out.println("Connection to server sucessfully");
@@ -54,7 +55,6 @@ public class RedisHandler {
     public void addSet(String key, String value){
         //Connecting to Redis server on localhost
         try{
-            Jedis jedis = pool.getResource();
             if(jedis!=null){
                 //set the data in redis string
                 jedis.set(key, value);
@@ -68,7 +68,6 @@ public class RedisHandler {
     public String getSet(String key){
         //Connecting to Redis server on localhost
         try{
-            Jedis jedis = pool.getResource();
             if(jedis!=null){
                 //set the data in redis string
                 return jedis.get(key);
@@ -82,19 +81,28 @@ public class RedisHandler {
     
     public Set<String> getAllKeys(){
         //Connecting to Redis server on localhost
-        Jedis jedis = pool.getResource();
-        if(jedis!=null){
-            //set the data in redis string
-            return jedis.keys("*");
+        try{
+            if(jedis!=null){
+                //set the data in redis string
+                return jedis.keys("*");
+            }
+        }
+        catch(Exception e){
+            System.err.println(e.getLocalizedMessage());
         }
         return null;
     }
 
     public String ping() {
-        Jedis jedis = pool.getResource();
-        if(jedis!=null){
+        //Connecting to Redis server on localhost
+        try{
+            if(jedis!=null){
             //set the data in redis string
             return jedis.ping();
+            }
+        }
+        catch(Exception e){
+            System.err.println(e.getLocalizedMessage());
         }
         return null;
     }

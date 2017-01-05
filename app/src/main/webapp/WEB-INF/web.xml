@@ -62,14 +62,14 @@
     </filter-mapping>
     
     <filter-mapping>
-        <filter-name>compress</filter-name>
+        <filter-name>struts-execute</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
     
     <filter-mapping>
-        <filter-name>struts-execute</filter-name>
+        <filter-name>compress</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>

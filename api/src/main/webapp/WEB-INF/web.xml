@@ -3,20 +3,6 @@
     <display-name>ANUNCIUS API</display-name>
     <!-- http log request filter -->
     
-    <filter>
-        <filter-name>LogFilter</filter-name>
-        <filter-class>anuncius.LogFilter</filter-class>
-        <init-param>
-            <param-name>test-param</param-name>
-            <param-value>LogFilter started</param-value>
-        </init-param>
-    </filter>
-    
-    <filter-mapping>
-        <filter-name>LogFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

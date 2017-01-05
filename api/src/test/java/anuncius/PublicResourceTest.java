@@ -26,7 +26,7 @@ public class PublicResourceTest extends JerseyTest {
         return new ResourceConfig(PublicResource.class);
     }
     
-    @Test
+    //@Test
     public void testDemo() {
         Helper.testSimpleGET(this, "/public/demo", 200, String.class, "{}");
     }

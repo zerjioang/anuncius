@@ -28,6 +28,7 @@ public class ACRedisFilter implements Filter {
         
         System.out.println("Redis filter: ");
         String data = gotHit(uriStr);
+        System.out.println("Hit: "+data!=null);
         if(data!=null){
             response.getWriter().write(data);
         }

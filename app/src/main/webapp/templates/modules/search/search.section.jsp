@@ -48,9 +48,9 @@
                   </a>
                 </form>
                 --%>
-                <form action="/search" id="gl-bz-directory-form">
+                <form id="search_item_for">
                     <div class="gl-regular-search">
-                        <input type="text" name="gl-realestate-keyword" id="gl-realestate-keyword" class="gl-directory-input" placeholder="Buscar..." style="width: 73%;">
+                        <input type="text" name="item" id="search_box_item" class="gl-directory-input" placeholder="Buscar..." style="width: 73%;">
                         <button type="submit" class="gl-icon-btn">Buscar</button>
                     </div>
                 </form>

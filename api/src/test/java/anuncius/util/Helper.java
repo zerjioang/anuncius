@@ -5,10 +5,8 @@
  */
 package anuncius.util;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import static junit.framework.Assert.assertEquals;

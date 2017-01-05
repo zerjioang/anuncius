@@ -16,10 +16,22 @@
 -->
 
 <meta charset="utf-8">
+<link rel="canonical" href=".">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="language" content="Spanish">
+<meta name="distribution" content="global">
+<meta name="resource-type" content="document">
+
 <meta name="description" content="${param.description}">
 <meta name="robots" content="index, follow">
 <meta name="author" content="${param.author}">
-<link rel="canonical" href=".">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+<meta name="keywords" content="anuncius,inteligente,anuncios inteligentes,anunci.us,anuncios clasificados,tablón de anuncios,anunciar gratis,clasificados,anuncios gratis,anunciar,comprar,vender">
+
+<meta name="robots" content="index, follow">
+<meta name="revisit" content="5 days">
+
+<meta name="google-site-verification" content="3CCWLw7ljS55o_Wd13IvKsiIs9lbpfYDBIVVp0Ipqac" />

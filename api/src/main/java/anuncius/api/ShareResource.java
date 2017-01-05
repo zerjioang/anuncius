@@ -18,6 +18,8 @@ import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
 import anuncius.singleton.PersistenceHandler;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 
 /**
  * REST Web Service
@@ -35,13 +37,43 @@ public class ShareResource {
      */
     public ShareResource() {
     }
-
-    @PUT
-    @Path("/subscribe")
+    
+    @GET
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    public IAPIMessage demo(@QueryParam("email") String email) {
+    public String searchItem() {
+        return "{}";
+    }
+
+    @POST
+    @Path("/subscribe/user")
+    @Produces(MediaType.APPLICATION_JSON)
+    public IAPIMessage subscribe(
+            @QueryParam("email") String email
+    ) {
         try{
             SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_EMAIL_CRITERIA);
+            //todo save user in db
+            PersistenceHandler.getInstance().saveUserEmailAsSubscription(email);
+            return APIResponse.USER_SUBSCRIBED_SUCCESSFUL.getAPIResponse();
+        }
+        catch(SecureLayerException e){
+            return APIResponse.INVALID_SUBSCRIPTION_MESSAGE.getAPIResponse();
+        }
+    }
+    
+    @POST
+    @Path("/contact")
+    @Produces(MediaType.APPLICATION_JSON)
+    public IAPIMessage subscribe(
+            @QueryParam("name") String name,
+            @QueryParam("email") String email,
+            @QueryParam("message") String message
+    ) {
+        try{
+            SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_EMAIL_CRITERIA);
+            SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_NAME_CRITERIA);
+            SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
             //todo save user in db
             PersistenceHandler.getInstance().saveUserEmailAsSubscription(email);
             return APIResponse.USER_SUBSCRIBED_SUCCESSFUL.getAPIResponse();
