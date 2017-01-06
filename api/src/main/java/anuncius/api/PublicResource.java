@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author .local
  */
-@Path("/public")
+@Path("/demo")
 public class PublicResource {
 
     @Context

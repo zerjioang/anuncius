@@ -64,6 +64,7 @@
       "openingHours": "Mo 00:00-23:59 Tu 00:00-23:59, We 00:00-23:59, Th 00:00-23:59, Fr 00:00-23:59, Sa 00:00-23:59, Su 00:00-23:59"
     }
 </script>
+https://api.anunci.us/api/v1/public/demo
 <script type='application/ld+json'>
 {
   "@context": "http://schema.org",
@@ -71,12 +72,8 @@
   "url": "https://anunci.us/",
   "potentialAction": [{
     "@type": "SearchAction",
-    "target": "https://anunci.us/search/item/{search_term_string}",
-    "query-input": "required name=search_term_string"
-  },{
-    "@type": "SearchAction",
-    "target": "android-app://com.anuncius/https/anunci.us/search/item/{search_term_string}",
-    "query-input": "required name=search_term_string"
+    "target": "https://anunci.us/search/item/{term}",
+    "query-input": "required name=term"
   }]
 }
 </script>

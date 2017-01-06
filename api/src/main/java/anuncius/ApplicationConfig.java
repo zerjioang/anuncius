@@ -13,7 +13,7 @@ import javax.ws.rs.core.Application;
  *
  * @author .local
  */
-@ApplicationPath("api/v1")
+@ApplicationPath("api/v1/public")
 public class ApplicationConfig extends Application {
 
     

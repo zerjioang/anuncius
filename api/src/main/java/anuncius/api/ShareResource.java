@@ -26,7 +26,7 @@ import javax.ws.rs.POST;
  *
  * @author sanguita
  */
-@Path("share")
+@Path("/share")
 public class ShareResource {
 
     @Context
@@ -39,9 +39,9 @@ public class ShareResource {
     }
     
     @GET
-    @Path("/")
+    @Path("/demo")
     @Produces(MediaType.APPLICATION_JSON)
-    public String searchItem() {
+    public String demo() {
         return "{}";
     }
 

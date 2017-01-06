@@ -30,7 +30,14 @@ public class SearchResource {
      */
     public SearchResource() {
     }
-
+    
+    @GET
+    @Path("/demo")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String demo() {
+        return "{}";
+    }
+    
     @GET
     @Path("/item")
     @Produces(MediaType.APPLICATION_JSON)
