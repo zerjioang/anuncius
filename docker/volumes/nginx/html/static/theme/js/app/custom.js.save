@@ -68,4 +68,4 @@ function resolveAddress(){
 
 $(document).ready(){
 	getNavigationCoordinates();
-}
+};
