@@ -49,10 +49,6 @@
     <body class="gl-realestate-template">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
-
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
         
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp"/>
@@ -76,7 +72,7 @@
                             <picture>
                                 <amp-img
                                     src="https://static.anunci.us/theme/images/working.jpg"
-                                    alt="Imagen acerca de anunci.us"
+                                    alt="Imagen acerca de anuncius"
                                     class="gl-lazy"
                                     width=900
                                     height=600
@@ -84,7 +80,7 @@
                                 </amp-img>
                                 <picture>
                                     <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                    <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
+                                    <img alt="Imagen sobre en producto en venta" srcset=https://static.anunci.us/theme/images/product.png>
                                 </picture>
                             </picture>
                         </div>
@@ -96,7 +92,7 @@
                         <h3 class="gl-single-title">Sobre nosotros</h3>
                         <p align='justify'>
                             Cómodo, fácil, rapido, seguro y gratuito<br>
-                            Así es anunci.us, sin complicaciones, sin letra pequeña.
+                            Así es anuncius, sin complicaciones, sin letra pequeña.
                         </p>
                     </div>
                     <!-- About Text End -->
@@ -126,9 +122,9 @@
                     <div class="col-md-12">
                         <h2>Historia</h2>
                         <p align='justify'>
-                            Los orígenes de anunci.us se sitúan en 2016, siendo en sus inicios una simple aplicación web realizada para una asignatura de la Universidad. Es en 2017 cuando anunci.us da el salto a internet para convertirse, exclusivamente en un portal web para comprar y vender objetos usados.
+                            Los orígenes de anuncius se sitúan en 2016, siendo en sus inicios una simple aplicación web realizada para una asignatura de la Universidad. Es en 2017 cuando anuncius da el salto a internet para convertirse, exclusivamente en un portal web para comprar y vender objetos usados.
                             <br>
-                            Hoy en día, anunci.us pertenece a sus creadores originales, y además de gestionar el portal de compraventa, estos tambien se dedican a mejorar la plataforma dia tras dia añadiendo las demandas de sus usuarios y mejorando la usabilidad y seguridad de la misma.
+                            Hoy en día, anuncius pertenece a sus creadores originales, y además de gestionar el portal de compraventa, estos tambien se dedican a mejorar la plataforma dia tras dia añadiendo las demandas de sus usuarios y mejorando la usabilidad y seguridad de la misma.
                         </p>
                     </div>
                 </div>
@@ -218,6 +214,10 @@
               </section>
             
         </div>
+        
+        <!-- SIDE MENU-->
+        <s:include value="/templates/modules/aside/login/login.section.jsp" />
+        <!-- SIDE MENU END -->
 
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />

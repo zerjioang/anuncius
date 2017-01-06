@@ -31,7 +31,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="${param.author}">
 
-<meta name="keywords" content="anuncius,inteligente,anuncios inteligentes,anunci.us,anuncios clasificados,tablón de anuncios,anunciar gratis,clasificados,anuncios gratis,anunciar,comprar,vender">
+<meta name="keywords" content="anuncius, inteligente, comprar, venta, oferta, destacado, pro, nuevo, gratis">
 
 <meta name="robots" content="index, follow">
 <meta name="revisit" content="5 days">

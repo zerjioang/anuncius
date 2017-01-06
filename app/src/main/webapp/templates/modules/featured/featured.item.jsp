@@ -5,38 +5,42 @@
             <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
         </picture>
 
-        <span class="gl-price-tag">$3,000</span>
+        <span class="gl-price-tag">Ver precio</span>
     </div>
 
     <div class="gl-feat-item-details">
-        <span class="gl-item-status-label gl-sold-label">Sold</span>
+        <span class="gl-item-status-label gl-sold-label">Oferta</span>
 
         <h3>
-            <a href="/item/1">Lake Cafe</a>
+            <a href="/item/1">Item en venta</a>
         </h3>
         <div class="gl-item-location">
             <i class="ion-ios-location-outline"></i>
-            <span>Road 3, West Portland, USA</span>
+            <span>Elemento destacado</span>
         </div>
     </div>
 
     <div class="gl-feat-item-metas">
         <ul class="gl-feature-info">
-            <li>Beds<span>3</span>
-            </li>
-            <li>Baths<span>2</span>
-            </li>
-            <li>Area<span>900 sqft</span>
-            </li>
+            <li class="font-bold">PRO</li>
+            <li class="font-bold">NUEVO</li>
+            <li class="font-bold">GRATIS</li>
         </ul>
 
         <ul class="gl-wishlist-compare-wrapper">
             <li>
                 <a href="/item/1" class="gl-add-wishlist">
-                    <i class="fa fa-heart-o"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
                 </a>
             </li>
-
+            
+            <li>
+                <a href="/item/1" class="gl-add-wishlist">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+            </li>
+            
+            <%--
             <li>
                 <a href="/item/1" class="gl-add-compare">
                     <div class="gl-compare-btn">
@@ -46,6 +50,7 @@
                     </div>
                 </a>
             </li>
+            --%>
         </ul>
     </div>
 </div>

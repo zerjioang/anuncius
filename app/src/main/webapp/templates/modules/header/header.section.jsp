@@ -21,7 +21,7 @@
                     <!-- Logo -->
                     <div>
                         <div style="display: inline-block;margin: 0px;padding: 0px;">
-                            <img style="padding: 0px 0px 15px;" id="logo" src="https://static.anunci.us/theme/favicon/favicon-32x32.png"/>
+                            <img style="padding: 0px 0px 15px;" id="logo" alt="logo oficial de anuncius" src="https://static.anunci.us/theme/favicon/favicon-32x32.png"/>
                             <a href="/">
                                 <h2 style="padding: 0px;margin: 0px;font-family: Fredoka One;">Anuncius</h2>
                             </a>

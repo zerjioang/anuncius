@@ -49,10 +49,6 @@
     <body class="gl-realestate-template">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
-        
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
 
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp"/>
@@ -74,7 +70,7 @@
                         <div>
                             <h2>Privacidad y protección de datos</h2>
                             <h3>Protección de datos</h3>
-                            <p align="justify">En anunci.us estamos especialmente concienciados acerca de la seguridad y por garantizar la confidencialidad de los datos aportados por nuestros clientes. Nos comprometemos a darte el mejor servicio y la mejor experiencia online. En el momento en que un cliente realiza cualquier interacción a través de nuestro servidor seguro, sus datos personales, domiciliarios, y los relativos a sus compras y formas de pago, en caso de existir, son incorporados a nuestra base de datos para tramitar el pedido. Todo ello realizandose de forma segura usando los estandares de seguridad apropiados para ello. En anunci.us no tenemos ningún acceso a la información relacionada con el número de la tarjeta de crédito de nuestros clientes. Nosotros únicamente recibimos la confirmación del pago por parte de las instituciones bancarias que tramitan el pedido. En ningún caso, su información personal será cedida a terceros ajenos.
+                            <p align="justify">En anuncius estamos especialmente concienciados acerca de la seguridad y por garantizar la confidencialidad de los datos aportados por nuestros clientes. Nos comprometemos a darte el mejor servicio y la mejor experiencia online. En el momento en que un cliente realiza cualquier interacción a través de nuestro servidor seguro, sus datos personales, domiciliarios, y los relativos a sus compras y formas de pago, en caso de existir, son incorporados a nuestra base de datos para tramitar el pedido. Todo ello realizandose de forma segura usando los estandares de seguridad apropiados para ello. En anunci.us no tenemos ningún acceso a la información relacionada con el número de la tarjeta de crédito de nuestros clientes. Nosotros únicamente recibimos la confirmación del pago por parte de las instituciones bancarias que tramitan el pedido. En ningún caso, su información personal será cedida a terceros ajenos.
                             </p>
                             <h3>Ley de Protección de Datos:</h3>
                             <p align="justify">
@@ -172,6 +168,10 @@
                 </div>
             </div>
         </section>
+        
+        <!-- SIDE MENU-->
+        <s:include value="/templates/modules/aside/login/login.section.jsp" />
+        <!-- SIDE MENU END -->
 
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />

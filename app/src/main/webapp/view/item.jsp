@@ -53,10 +53,6 @@
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
 
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
-
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp" />
         <!-- HEADER END -->
@@ -367,6 +363,11 @@
                 </div>
             </div>
         </section>
+                                    
+        <!-- SIDE MENU-->
+        <s:include value="/templates/modules/aside/login/login.section.jsp" />
+        <!-- SIDE MENU END -->
+        
         <!-- PAGE CONTETNT END -->
 
         <!-- FOOTER -->
@@ -374,6 +375,7 @@
         <!-- FOOTER END -->
 
         <s:include value="/templates/modules/js/minimum.js.jsp"/>
+        
         <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
         <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>

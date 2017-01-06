@@ -49,10 +49,6 @@
     <body class="gl-realestate-template">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
-        
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
 
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp"/>
@@ -78,11 +74,11 @@
                         <h3 class="gl-single-title">Tienes alguna pregunta que hacernos, y no está en la lista? Preguntanos!</h3>
 
                         <form action="#">
-                            <input type="text" name="gl-contact-name" id="gl-contact-name" placeholder="Nombre" required>
-                            <input type="email" name="gl-contact-email" id="gl-contact-email" placeholder="Email" required>
-                            <textarea name="gl-contact-message" id="gl-contact-message" cols="30" rows="10" placeholder="Tu pregunta" required></textarea>
+                            <input type="text" name="name" id="gl-contact-name" placeholder="Nombre" required>
+                            <input type="email" name="email" id="gl-contact-email" placeholder="Email" required>
+                            <textarea name="message" id="gl-contact-message" cols="30" rows="10" placeholder="Tu pregunta" required></textarea>
 
-                            <input type="submit" value="Send" class="gl-btn">
+                            <input type="submit" value="send" class="gl-btn">
                         </form>
                     </div>
 
@@ -108,6 +104,10 @@
                 </div>
             </div>
         </section>
+        
+        <!-- SIDE MENU-->
+        <s:include value="/templates/modules/aside/login/login.section.jsp" />
+        <!-- SIDE MENU END -->
 
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />

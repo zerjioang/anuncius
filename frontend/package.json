@@ -1,0 +1,28 @@
+{
+  "name": "anuncius",
+  "version": "1.0.0",
+  "description": "anuncius platform frontend",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-cssmin": "^0.1.7",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.0.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uncss": "^1.0.6",
+    "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "anuncius"
+  ],
+  "author": "@zerjioang",
+  "license": "MIT"
+}

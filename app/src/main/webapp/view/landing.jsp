@@ -50,10 +50,6 @@
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
 
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
-
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp" />
         <!-- HEADER END -->
@@ -62,7 +58,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'La compra '" />
             <s:param name="bold" value="'inteligente'"/>
-            <s:param name="block" value="'index'" />
+            <s:param name="block" value="'featured'" />
             <s:param name="image" value="'https://static.anunci.us/img/hero/landing/hero.jpg'" />
         </s:include>
         <!-- HERO IMAGE END -->
@@ -104,7 +100,11 @@
         <s:include value="/templates/modules/donation/donation.section.jsp" />
         <!-- DONATIONS END -->
         --%>
-
+        
+        <!-- SIDE MENU-->
+        <s:include value="/templates/modules/aside/login/login.section.jsp" />
+        <!-- SIDE MENU END -->
+        
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
