@@ -46,7 +46,7 @@ services:
     restart: always
     volumes:
       - ./volumes/nginx/html:/usr/share/nginx/html
-      - ./volumes/nginx/ssl:/ssl
+      - ./volumes/nginx/config:/config
     networks:
       - backend
       - frontend

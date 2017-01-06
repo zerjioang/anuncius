@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://anunci.us/</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/explore</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/blog</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/contact</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/privacy</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/conditions</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/questions</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/item/1</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/account</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/.</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/post/1</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/item/agent_profile.html</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://anunci.us/post/blog-details.html</loc>
+  <changefreq>always</changefreq>
+</url>
+</urlset>
