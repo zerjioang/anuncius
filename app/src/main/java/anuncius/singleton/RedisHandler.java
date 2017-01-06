@@ -77,7 +77,7 @@ public class RedisHandler {
                 //set the data in redis string
                 String data = jedis.get(key);
                 if(data!=null){
-                    return new String(Base64.getDecoder().decode(data));
+                    return new String(Base64.getDecoder().decode(data), "utf-8");
                 }
             }
         }
