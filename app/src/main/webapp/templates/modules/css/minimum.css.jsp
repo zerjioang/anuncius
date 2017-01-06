@@ -1,15 +1,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/bootstrap.css">
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.css">
 
-<!-- remodal css -->
-<link rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal.css">
-<link rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal-default-theme.css">
-
-<link rel="stylesheet" href="https://static.anunci.us/theme/css/style.min.css">
-<link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.min.css">
+<!-- main title font -->
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/fonts.min.css">
 
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
 
-<!-- main title font -->
-<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+<!-- icon fonts -->
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/fontawesome.css">
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/glyphicon.css">
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/mic-font.css">
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/ion-font.css">
+
+<!-- other styles -->
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/style.css">
+
+<!-- remodal css -->
+<link async defer rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal.css">
+<link async defer rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal-default-theme.css">

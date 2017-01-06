@@ -1,9 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="nav-menu" class="navbar-collapse gl-menu-wrapper collapse" role="navigation">
-    <ul class="nav navbar-nav gl-menus">
-        <li>
-            <a href="/">Anuncius</a>
-        </li>
+    <ul class="nav navbar-nav gl-menus">    
         <li>
             <a href="/explore">Explorar</a>
         </li>
