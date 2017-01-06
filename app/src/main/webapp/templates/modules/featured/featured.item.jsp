@@ -16,7 +16,7 @@
         </h3>
         <div class="gl-item-location">
             <i class="ion-ios-location-outline"></i>
-            <span>Elemento destacado</span>
+            <span>Anuncio destacado</span>
         </div>
     </div>
 

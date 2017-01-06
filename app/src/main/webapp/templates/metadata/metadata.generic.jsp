@@ -31,7 +31,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="${param.author}">
 
-<meta name="keywords" content="anuncius, inteligente, comprar, venta, oferta, destacado, pro, nuevo, gratis">
+<meta name="keywords" content="anuncius, inteligente, precio, comprar, anuncio, oferta, destacado, pro, nuevo, gratis">
 
 <meta name="robots" content="index, follow">
 <meta name="revisit" content="5 days">
@@ -64,3 +64,21 @@
       "openingHours": "Mo 00:00-23:59 Tu 00:00-23:59, We 00:00-23:59, Th 00:00-23:59, Fr 00:00-23:59, Sa 00:00-23:59, Su 00:00-23:59"
     }
 </script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "https://anunci.us/",
+  "potentialAction": [{
+    "@type": "SearchAction",
+    "target": "https://anunci.us/search/item/{search_term_string}",
+    "query-input": "required name=search_term_string"
+  },{
+    "@type": "SearchAction",
+    "target": "android-app://com.anuncius/https/anunci.us/search/item/{search_term_string}",
+    "query-input": "required name=search_term_string"
+  }]
+}
+</script>
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://static.anunci.us/opensearchdescription.xml" title="Busqueda rapida en Anunci.us" />
