@@ -45,7 +45,7 @@ function getNavigationLocation() {
 }
 
 function getNavigationCoordinates(){
-    varhead location = getNavigationLocation();
+    var location = getNavigationLocation();
     if(location!=undefined){
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;

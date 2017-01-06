@@ -37,7 +37,11 @@ public class ABFordwardFilter implements Filter {
     }
 
     private String requiresFordward(String uriStr) {
-        if(uriStr.equals("/account") || uriStr.startsWith("/account/")){
+        if(uriStr.startsWith("/search/item/")){
+            //enable redirects for opensearch queries
+            return "/view/explore.jsp";
+        }
+        else if(uriStr.equals("/account") || uriStr.startsWith("/account/")){
             return "/view/account.jsp";
         }
         else if(uriStr.equals("/blog") || uriStr.startsWith("/blog/")){

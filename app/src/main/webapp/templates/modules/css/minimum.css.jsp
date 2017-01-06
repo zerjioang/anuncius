@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/bootstrap.css">
-<link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.css">
+<link rel="stylesheet" href="https://static.anunci.us/theme/css/clean.scrollbar.min.css">
 
 <!-- main title font -->
 <link rel="stylesheet" href="https://static.anunci.us/theme/css/fonts.min.css">
