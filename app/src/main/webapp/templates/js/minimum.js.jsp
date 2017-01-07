@@ -19,7 +19,7 @@
     <script async defer src="/theme/js/app/custom.js"></script>
     
 <% }else{ %>
-    <script src="/dist/js/all.min.js"></script>
+    <script src="https://anunci.us/dist/js/all.min.js"></script>
     <!-- google oauth 2 script-->
     <script async defer src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
     <!-- google sensor -->

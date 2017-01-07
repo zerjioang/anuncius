@@ -25,13 +25,13 @@ public class ACRedisFilter implements Filter {
         String uriStr = httpRequest.getRequestURI();
        
         String data = gotHit(uriStr);
-        System.out.println("Redis filter hit: "+data!=null);
-        System.out.println(data);
         if(data!=null && data.startsWith("<!doctype html>")){
+            System.out.println("Redis filter hit");
             response.getWriter().write(data);
         }
         else{
             // Pass request back down the filter chain
+            System.out.println("Redis Filter >> next");
             chain.doFilter(request, response);
         }
     }

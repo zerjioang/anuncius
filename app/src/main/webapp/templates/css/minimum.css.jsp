@@ -30,7 +30,7 @@
     --%>
     
 <% }else{ %>
-    <link async defer rel="stylesheet" href="https://anunci.us/dist/css/style.min.css">
+    <link async defer rel="stylesheet" href="https://static.anunci.us/dist/css/style.min.css">
 <% } %>
 
 

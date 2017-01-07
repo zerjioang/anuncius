@@ -34,9 +34,9 @@ public class ADCompressResponseFilter implements Filter {
 
         String servletResponse = responseWrapper.toString();
         String compressedResponse = compressor.compress(servletResponse);
-        double amount = (servletResponse.length()-compressedResponse.length())/servletResponse.length();
-        System.out.println("Saving "+amount+ " %");
         if(compressedResponse!=null && !compressedResponse.isEmpty()){
+            double amount = (servletResponse.length()-compressedResponse.length())/servletResponse.length();
+            System.out.println("Saving "+amount+ " %");
             //add response to redis
             resp.getWriter().flush();
             resp.getWriter().write(compressedResponse);

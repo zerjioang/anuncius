@@ -21,12 +21,13 @@ public class ABFordwardFilter implements Filter {
         String uriStr = httpRequest.getRequestURI();
         
         String destination = requiresFordward(uriStr);
-        System.out.println("Fordward Filter redirects "+uriStr+" to "+destination);
         if(destination!=null && !destination.trim().isEmpty()){
+            System.out.println("Fordward Filter redirects "+uriStr+" to "+destination);
             httpRequest.getSession().getServletContext().getRequestDispatcher(destination).forward(request,response);
         }
         else{
             // Pass request back down the filter chain
+            System.out.println("Fordward Filter >> next");
             chain.doFilter(request, response);
         }
     }
