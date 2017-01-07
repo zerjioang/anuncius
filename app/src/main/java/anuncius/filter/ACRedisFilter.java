@@ -16,9 +16,7 @@ public class ACRedisFilter implements Filter {
 
     private static RedisHandler redis = RedisHandler.getInstance();
     
-    private String cachedHtml;
     public void init(FilterConfig config) throws ServletException {
-        cachedHtml = "<html ⚡><body><h1>warning: response from redis</h1></body></html>";
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -27,7 +25,8 @@ public class ACRedisFilter implements Filter {
         String uriStr = httpRequest.getRequestURI();
        
         String data = gotHit(uriStr);
-        System.out.println("Redis filter: "+data!=null);
+        System.out.println("Redis filter hit: "+data!=null);
+        System.out.println(data);
         if(data!=null){
             response.getWriter().write(data);
         }
