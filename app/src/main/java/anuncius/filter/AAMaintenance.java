@@ -24,7 +24,7 @@ public class AAMaintenance implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         
-        System.out.println("Maintenance filter: ");
+        System.out.println("Maintenance filter");
         if(MAINTENANCE_ENABLED){
             response.getWriter().write(updatingMessage);
         }
@@ -37,5 +37,6 @@ public class AAMaintenance implements Filter {
     public void destroy() {
         /* Called before the Filter instance is removed 
         from service by the web container*/
+        System.out.println("Maintenance filter destroyed");
     }
 }

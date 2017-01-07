@@ -20,8 +20,8 @@ public class ABFordwardFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String uriStr = httpRequest.getRequestURI();
         
-        System.out.println("Fordward Filter: "+uriStr);
         String destination = requiresFordward(uriStr);
+        System.out.println("Fordward Filter redirects "+uriStr+" to "+destination);
         if(destination!=null && !destination.trim().isEmpty()){
             httpRequest.getSession().getServletContext().getRequestDispatcher(destination).forward(request,response);
         }
@@ -34,6 +34,7 @@ public class ABFordwardFilter implements Filter {
     public void destroy() {
         /* Called before the Filter instance is removed 
         from service by the web container*/
+        System.out.println("Fordward filter destroyed");
     }
 
     private String requiresFordward(String uriStr) {

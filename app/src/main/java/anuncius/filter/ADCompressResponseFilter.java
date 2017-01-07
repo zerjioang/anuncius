@@ -5,7 +5,6 @@ import anuncius.compress.CharResponseWrapper;
 import anuncius.compress.HtmlCompressor;
 import anuncius.singleton.RedisHandler;
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,7 +12,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,7 +24,7 @@ public class ADCompressResponseFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 
-        System.out.println("Compress filter: ");
+        System.out.println("Compress filter");
         
         HttpServletRequest httpRequest = (HttpServletRequest) req;
         String uriStr = httpRequest.getRequestURI();
@@ -36,6 +34,8 @@ public class ADCompressResponseFilter implements Filter {
 
         String servletResponse = responseWrapper.toString();
         String compressedResponse = compressor.compress(servletResponse);
+        double amount = (servletResponse.length()-compressedResponse.length())/servletResponse.length();
+        System.out.println("Saving "+amount+ " %");
         if(compressedResponse!=null && !compressedResponse.isEmpty()){
             //add response to redis
             resp.getWriter().flush();
@@ -57,6 +57,7 @@ public class ADCompressResponseFilter implements Filter {
 
     @Override
     public void destroy() {
+        System.out.println("Compress filter destroyed");
     }
 
     private void saveRequestOnRedis(String key, String value) {

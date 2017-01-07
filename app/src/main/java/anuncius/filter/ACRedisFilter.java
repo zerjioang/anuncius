@@ -27,7 +27,7 @@ public class ACRedisFilter implements Filter {
         String data = gotHit(uriStr);
         System.out.println("Redis filter hit: "+data!=null);
         System.out.println(data);
-        if(data!=null){
+        if(data!=null && data.startsWith("<!doctype html>")){
             response.getWriter().write(data);
         }
         else{
@@ -39,6 +39,7 @@ public class ACRedisFilter implements Filter {
     public void destroy() {
         /* Called before the Filter instance is removed 
         from service by the web container*/
+        System.out.println("Redis filter destroyed");
     }
 
     private String gotHit(String uriStr) {
