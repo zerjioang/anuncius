@@ -33,7 +33,7 @@
             <s:param name="site" value="'@anunci.us'"></s:param>
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
-            <s:param name="author" value="'@zerjioang'"></s:param>
+            <s:param name="author" value="'@anuncius.online'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/twitter.image.png'"></s:param>
         </s:include>
 

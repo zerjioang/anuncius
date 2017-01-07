@@ -25,8 +25,9 @@ public class ACRedisFilter implements Filter {
         String uriStr = httpRequest.getRequestURI();
        
         String data = gotHit(uriStr);
-        if(data!=null && data.startsWith("<!doctype html>")){
+        if(false && data!=null && data.startsWith("<!doctype html>")){
             System.out.println("Redis filter hit");
+            response.getWriter().flush();
             response.getWriter().write(data);
         }
         else{
