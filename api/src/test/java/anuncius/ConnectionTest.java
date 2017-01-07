@@ -5,7 +5,6 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import anuncius.singleton.MongoHandler;
 import anuncius.singleton.RedisHandler;
-import org.junit.Test;
 
 /**
  *
@@ -31,14 +30,14 @@ public class ConnectionTest {
     
     //@Test
     public void mongoConnectionTest(){
-        MongoHandler mongoHandler = MongoHandler.getInstance();
+        MongoHandler mongoHandler = MongoHandler.getInstance("anuncius");
         assertNotNull("Mongo handler valid", mongoHandler);
         assertEquals("Mongo handler", true, mongoHandler.isConnected());
     }
     
     //@Test
     public void mongoUsageConnectionTest(){
-        MongoHandler mongoHandler = MongoHandler.getInstance();
+        MongoHandler mongoHandler = MongoHandler.getInstance("anuncius");
         assertNotNull("Mongo handler", mongoHandler);
         ArrayList<String> list = mongoHandler.getAllCollectionsNames("anuncius");
         assertNotNull("Mongo databases list", list);

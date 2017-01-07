@@ -5,6 +5,9 @@
  */
 package anuncius.api.base;
 
+import anuncius.api.model.ResponseInvalidEmail;
+import anuncius.api.model.ResponseUserSubscriptionDone;
+
 /**
  *
  * @author sanguita
@@ -14,12 +17,12 @@ public enum APIResponse {
     INVALID_SUBSCRIPTION_MESSAGE {
         @Override
         public IAPIMessage getAPIResponse() {
-            return null;
+            return new ResponseInvalidEmail();
         }
     }, USER_SUBSCRIBED_SUCCESSFUL{
         @Override
         public IAPIMessage getAPIResponse() {
-            return null;
+            return new ResponseUserSubscriptionDone();
         }
     };
     

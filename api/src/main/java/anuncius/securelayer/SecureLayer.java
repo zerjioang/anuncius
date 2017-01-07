@@ -11,9 +11,13 @@ package anuncius.securelayer;
  */
 public final class SecureLayer {
 
-    public static boolean hasApproved(String data, SecureLayerCriteria criteria) throws SecureLayerException {
-        if(criteria!=null)
-            return criteria.validate(data);
-        return SecureLayerCriteria.getFailedValue();
+    public static void hasApproved(String data, SecureLayerCriteria criteria) throws SecureLayerException {
+        if(criteria!=null){
+            criteria.validate(data);
+        }
+        else{
+            //no criteria specified throw error
+            throw new SecureLayerException("Inbound API Security Check failed cause no criteria was specified");
+        }
     }
 }

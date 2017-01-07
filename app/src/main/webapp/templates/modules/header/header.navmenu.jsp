@@ -29,5 +29,8 @@
                 </li>
             </ul>
         </li>
+        <li id="header-menu-account">
+            <a href="/account">Mi cuenta</a>
+        </li>
     </ul>
 </div>

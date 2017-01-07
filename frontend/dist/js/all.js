@@ -332,8 +332,10 @@ var base = 'api/v1/public';
 var thisUrl = window.location.href;
 console.log(thisUrl);
 
-if(thisUrl.startsWith('http://localhost/')){
-    host = 'http://localhost/';
+var localDate = new Date();
+
+if(thisUrl.startsWith('http://localhost:8084')){
+    host = 'http://localhost:8084/';
 }
 
 function contactAPIviaGET(remotePath, payload, onSuccess, onError) {
@@ -357,6 +359,25 @@ function contactAPIviaDELETE(remotePath, payload, onSuccess, onError) {
 }
 
 function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
+    
+    //add context information before any request
+    
+    if(payload){
+        payload['time'] = localDate.getTime();
+        payload['user_agent'] = navigator.userAgent;
+        payload['cookies'] = navigator.cookieEnabled;
+        payload['language'] = navigator.language;
+        payload['platform'] = navigator.platform;
+        payload['vendor'] = navigator.vendor;
+    }
+    
+    if(isGoogleProfileInfo()){
+        payload['loc'] = sessionStorage.locationTag;
+    }
+    else{
+        payload['loc'] = "unknown";
+    }
+    
     $.ajax({
         method: requestType,
         url: remotePath,
@@ -364,12 +385,12 @@ function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
         data: payload,
         error: function (jqXHR, textStatus, errorThrown) {
             if (onError) {
-                onError();
+                onError(jqXHR, textStatus, errorThrown);
             }
         },
         success: function (data, textStatus, jqXHR) {
             if (onSuccess) {
-                onSuccess();
+                onSuccess(data, textStatus, jqXHR);
             }
         }
     });
@@ -378,34 +399,115 @@ function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
 function getFullyQualifiedRemotePath(remotePath) {
     return host  + base + remotePath;
 }
+var footer_modal_template = '<div class="remodal" data-remodal-id="copyright-modal"><button data-remodal-action="close" class="remodal-close"></button><h1>{{title}}</h1><h2>{{message}}</h2>{{other}}<button data-remodal-action="confirm" class="remodal-confirm">Cerrar</button></div>';
+
+var featured_item_template = '\
+<div class="gl-featured-items col-md-4 col-sm-4 col-xs-12">\
+    <div class="gl-feat-items-img-wrapper">\
+        <picture>\
+            <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>\
+            <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>\
+        </picture>\
+\
+        <span class="gl-price-tag">Ver precio</span>\
+    </div>\
+\
+    <div class="gl-feat-item-details">\
+        <span class="gl-item-status-label gl-sold-label">Oferta</span>\
+\
+        <h3>\
+            <a href="/item/1">Item en venta</a>\
+        </h3>\
+        <div class="gl-item-location">\
+            <i class="ion-ios-location-outline"></i>\
+            <span>Anuncio destacado</span>\
+        </div>\
+    </div>\
+\
+    <div class="gl-feat-item-metas">\
+        <ul class="gl-feature-info">\
+            <li class="font-bold">PRO</li>\
+            <li class="font-bold">NUEVO</li>\
+            <li class="font-bold">GRATIS</li>\
+        </ul>\
+\
+        <ul class="gl-wishlist-compare-wrapper">\
+            <li>\
+                <a href="/item/1" class="gl-add-wishlist">\
+                    <i class="fa fa-star-o" aria-hidden="true"></i>\
+                </a>\
+            </li>\
+            \
+            <li>\
+                <a href="/item/1" class="gl-add-wishlist">\
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>\
+                </a>\
+            </li>\
+            \
+            <!--\
+            <li>\
+                <a href="/item/1" class="gl-add-compare">\
+                    <div class="gl-compare-btn">\
+                        <span class="icon-bar"></span>\
+                        <span class="icon-bar"></span>\
+                        <span class="icon-bar"></span>\
+                    </div>\
+                </a>\
+            </li>\
+            -->\
+        </ul>\
+    </div>\
+</div>';
+//generic on error message
+var onError = function (jqXHR, textStatus, errorThrown) {
+    if(textStatus!==undefined && textStatus!==errorThrown){
+        //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
+        swal(errorThrown, textStatus, "error");
+    }
+};
+    
 //subscribe button event
 $("#btn-suscribe-form").on("click", function (event) {
     event.preventDefault();
 
-    var onError = function () {
-        alert('error');
-    };
-
-    var onSuccess = function () {
-        alert('success');
+    var onSuccess = function (data, textStatus, jqXHR) {
+        if(data!==undefined){
+            if(data.request_completed)
+                swal(data.title_es, data.message_es, "success")
+            else
+                swal(data.title_es, data.message_es, "warning");
+        }
     };
 
     var payload = {
         'email': $("#subscription-form-email").val()
     };
 
-    contactAPIviaPOST('/suscribe/user/', payload, onSuccess, onError);
+    contactAPIviaPOST('/share/subscribe/user', payload, onSuccess, onError);
+});
+
+$("#no-featured-items-btn").on("click", function (event) {
+    event.preventDefault();
+    alert('no feature elements');
+    //$('#newProductLandingModal').modal('show');
+    BootstrapDialog.alert('I want banana!');
+});
+
+$("#featured-items-btn").on("click", function (event) {
+    event.preventDefault();
+    alert('yes feature elements');
+});
+
+$("#session-logout").on("click", function (event) {
+    signOut();
+    removeLoggedUserElementsFromView(true);
 });
 
 //search button event
 $("#btn-search-form").on("click", function (event) {
     event.preventDefault();
 
-    var onError = function () {
-        alert('error');
-    };
-
-    var onSuccess = function () {
+    var onSuccess = function (data, textStatus, jqXHR) {
         alert('success');
     };
 
@@ -417,34 +519,3465 @@ $("#btn-search-form").on("click", function (event) {
 });
 
 //get current user location
+//example on https://developer.mozilla.org/es/docs/Web/API/Geolocation/getCurrentPosition
 function getNavigationLocation() {
     if (navigator.geolocation) {
-        return navigator.geolocation.getCurrentPosition();
-    }
-    return undefined;
-}
-
-function getNavigationCoordinates(){
-    var location = getNavigationLocation();
-    if(location!=undefined){
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        console.log("Navigator location: "+lat+" "+lon);
-        console.log("Accuracy: "+location.accuracy);
-        console.log("Heading: "+location.heading);
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 3000,
+            maximumAge: 0
+        };
+        function error(err) {
+            console.warn('ERROR(' + err.code + '): ' + err.message);
+        };
+        navigator.geolocation.getCurrentPosition(onPositionSuccess, error, options);
     }
 }
 
-function resolveAddress(){
+function onPositionSuccess(position){
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    console.log("Navigator location: "+lat+" "+lon);
+    console.log("Accuracy: "+location.accuracy);
+    console.log("Heading: "+location.heading);
+    resolveAddress(position);
+}
+
+function resolveAddress(position){
     var locCurrent = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'latLng': locCurrent }, function (results, status) {
+            var arrAddress = '';
+            var itemRoute='';
+            var itemLocality='';
+            var itemCountry='';
+            var itemPc='';
+            var itemSnumber='';
+            for (var resultIdx = 0; resultIdx < results.length; resultIdx++){
+                var individualResult = results[resultIdx];
+                var addressList = individualResult.address_components;
+                for (var addressIdx = 0; addressIdx < addressList.length; addressIdx++){
+                    var individualAddress = addressList[addressIdx];
+                    if (individualAddress.types[0] === "route"){
+                        console.log(addressIdx+": route:"+individualAddress.long_name);
+                        itemRoute = individualAddress.long_name;
+                    }
+
+                    if (individualAddress.types[0] === "locality"){
+                        console.log("town:"+individualAddress.long_name);
+                        itemLocality = individualAddress.long_name;
+                    }
+
+                    if (individualAddress.types[0] === "country"){ 
+                        console.log("country:"+individualAddress.long_name); 
+                        itemCountry = individualAddress.long_name;
+                    }
+
+                    if (individualAddress.types[0] === "postal_code_prefix"){ 
+                        console.log("pc:"+individualAddress.long_name);  
+                        itemPc = individualAddress.long_name;
+                    }
+
+                    if (individualAddress.types[0] === "street_number"){ 
+                        console.log("street_number:"+individualAddress.long_name);  
+                        itemSnumber = individualAddress.long_name;
+                    }
+                }
+            }
             var locItemCount = results.length;
             var locCountryNameCount = locItemCount - 1;
             var locCountryName = results[locCountryNameCount].formatted_address;
-            console.log("Resolved name: "+locCountryName);
+            console.log("Resolved country name: "+locCountryName);
+            sessionStorage.locationTag = itemCountry+" "+itemLocality+" "+itemRoute+" "+itemPc+" "+itemSnumber;
+            console.log("User location at: "+sessionStorage.locationTag);
+            //save info on local storage and avoid multiple request on page reloading
+            sessionStorage.arrAddress = arrAddress;
+            sessionStorage.itemRoute = itemRoute;
+            sessionStorage.itemLocality = itemLocality;
+            sessionStorage.itemCountry = itemCountry;
+            sessionStorage.itemPc = itemPc;
+            sessionStorage.itemSnumber = itemSnumber;
+            sessionStorage.userLocated = true;            
+            $('#listing-title').text("Mira los últimos anuncios publicados en "+itemLocality);
     });
 }
+
+$(document).ready(function(){
+    
+    //lozalizar al usuario
+    if(sessionStorage.userLocated){
+        console.log("user already pin point");
+        $('#listing-title').text("Mira los últimos anuncios publicados en "+sessionStorage.itemLocality);
+    }
+    else{
+        getNavigationLocation();
+    }
+    
+    //mostrar cosas solo si esta logeado
+    if(isGoogleProfileInfo()){
+        showLoggedUserElementsInView(false);
+    }
+    else{
+        removeLoggedUserElementsFromView(false);
+    }
+    
+    //ahora se piden los anuncios destacados
+    var featuredList = [];
+    
+    if(featuredList.length>0){
+        //render on screen
+        var destDiv = $('#featured_elements_block');
+        var data = {};
+        var html = Mustache.to_html(featured_item_template, data);
+        destDiv.html(html);
+        $('#container-with-featured-items').show();
+        $('#container-without-featured-items').hide();
+    }
+    else{
+        $('#container-with-featured-items').hide();
+        $('#container-without-featured-items').show();
+    }
+});
+
+function removeLoggedUserElementsFromView(showMessage){
+    $('#header-menu-account').hide();
+    $('#gl-side-menu-btn').show();
+    $('#session-logout').hide();
+    if(showMessage){
+        swal("Desconectado", "Ha finalizado sesión correctamente.", "success");
+    }
+}
+
+function showLoggedUserElementsInView(showMessage){
+    $('#header-menu-account').show();
+    $('#gl-side-menu-btn').hide();
+    $('#session-logout').show();
+    if(showMessage){
+        swal("Sesión iniciada", "Ha iniciado sesión correctamente.", "success");
+    }
+}
+function isGoogleProfileInfo(){
+    googleProfile = sessionStorage.googleProfile;
+    return googleProfile!==undefined && googleProfile!=="undefined";
+}
+var googleProfile = undefined;
+
+function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    var profile = onSignIn(googleUser);
+    if(document.getElementsByTagName("body")[0].className.indexOf('gl-show-menu')!=-1){
+        $("#gl-side-menu-close-button").click();
+    }
+    showLoggedUserElementsInView(false);
+}
+
+function onFailure(error) {
+  console.log(error);
+}
+
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    'scope': 'profile email',
+    'width': 300,
+    'height': 42,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFailure
+  });
+}
+
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+    googleProfile = profile;
+    sessionStorage.googleProfile = googleProfile;
+    return profile;
+  }
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+    googleProfile = undefined;
+    sessionStorage.googleProfile = undefined;
+}
+/*!
+ * mustache.js - Logic-less {{mustache}} templates with JavaScript
+ * http://github.com/janl/mustache.js
+ */
+
+/*global define: false Mustache: true*/
+
+(function defineMustache (global, factory) {
+  if (typeof exports === 'object' && exports && typeof exports.nodeName !== 'string') {
+    factory(exports); // CommonJS
+  } else if (typeof define === 'function' && define.amd) {
+    define(['exports'], factory); // AMD
+  } else {
+    global.Mustache = {};
+    factory(global.Mustache); // script, wsh, asp
+  }
+}(this, function mustacheFactory (mustache) {
+
+  var objectToString = Object.prototype.toString;
+  var isArray = Array.isArray || function isArrayPolyfill (object) {
+    return objectToString.call(object) === '[object Array]';
+  };
+
+  function isFunction (object) {
+    return typeof object === 'function';
+  }
+
+  /**
+   * More correct typeof string handling array
+   * which normally returns typeof 'object'
+   */
+  function typeStr (obj) {
+    return isArray(obj) ? 'array' : typeof obj;
+  }
+
+  function escapeRegExp (string) {
+    return string.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
+  }
+
+  /**
+   * Null safe way of checking whether or not an object,
+   * including its prototype, has a given property
+   */
+  function hasProperty (obj, propName) {
+    return obj != null && typeof obj === 'object' && (propName in obj);
+  }
+
+  // Workaround for https://issues.apache.org/jira/browse/COUCHDB-577
+  // See https://github.com/janl/mustache.js/issues/189
+  var regExpTest = RegExp.prototype.test;
+  function testRegExp (re, string) {
+    return regExpTest.call(re, string);
+  }
+
+  var nonSpaceRe = /\S/;
+  function isWhitespace (string) {
+    return !testRegExp(nonSpaceRe, string);
+  }
+
+  var entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;'
+  };
+
+  function escapeHtml (string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function fromEntityMap (s) {
+      return entityMap[s];
+    });
+  }
+
+  var whiteRe = /\s*/;
+  var spaceRe = /\s+/;
+  var equalsRe = /\s*=/;
+  var curlyRe = /\s*\}/;
+  var tagRe = /#|\^|\/|>|\{|&|=|!/;
+
+  /**
+   * Breaks up the given `template` string into a tree of tokens. If the `tags`
+   * argument is given here it must be an array with two string values: the
+   * opening and closing tags used in the template (e.g. [ "<%", "%>" ]). Of
+   * course, the default is to use mustaches (i.e. mustache.tags).
+   *
+   * A token is an array with at least 4 elements. The first element is the
+   * mustache symbol that was used inside the tag, e.g. "#" or "&". If the tag
+   * did not contain a symbol (i.e. {{myValue}}) this element is "name". For
+   * all text that appears outside a symbol this element is "text".
+   *
+   * The second element of a token is its "value". For mustache tags this is
+   * whatever else was inside the tag besides the opening symbol. For text tokens
+   * this is the text itself.
+   *
+   * The third and fourth elements of the token are the start and end indices,
+   * respectively, of the token in the original template.
+   *
+   * Tokens that are the root node of a subtree contain two more elements: 1) an
+   * array of tokens in the subtree and 2) the index in the original template at
+   * which the closing tag for that section begins.
+   */
+  function parseTemplate (template, tags) {
+    if (!template)
+      return [];
+
+    var sections = [];     // Stack to hold section tokens
+    var tokens = [];       // Buffer to hold the tokens
+    var spaces = [];       // Indices of whitespace tokens on the current line
+    var hasTag = false;    // Is there a {{tag}} on the current line?
+    var nonSpace = false;  // Is there a non-space char on the current line?
+
+    // Strips all whitespace tokens array for the current line
+    // if there was a {{#tag}} on it and otherwise only space.
+    function stripSpace () {
+      if (hasTag && !nonSpace) {
+        while (spaces.length)
+          delete tokens[spaces.pop()];
+      } else {
+        spaces = [];
+      }
+
+      hasTag = false;
+      nonSpace = false;
+    }
+
+    var openingTagRe, closingTagRe, closingCurlyRe;
+    function compileTags (tagsToCompile) {
+      if (typeof tagsToCompile === 'string')
+        tagsToCompile = tagsToCompile.split(spaceRe, 2);
+
+      if (!isArray(tagsToCompile) || tagsToCompile.length !== 2)
+        throw new Error('Invalid tags: ' + tagsToCompile);
+
+      openingTagRe = new RegExp(escapeRegExp(tagsToCompile[0]) + '\\s*');
+      closingTagRe = new RegExp('\\s*' + escapeRegExp(tagsToCompile[1]));
+      closingCurlyRe = new RegExp('\\s*' + escapeRegExp('}' + tagsToCompile[1]));
+    }
+
+    compileTags(tags || mustache.tags);
+
+    var scanner = new Scanner(template);
+
+    var start, type, value, chr, token, openSection;
+    while (!scanner.eos()) {
+      start = scanner.pos;
+
+      // Match any text between tags.
+      value = scanner.scanUntil(openingTagRe);
+
+      if (value) {
+        for (var i = 0, valueLength = value.length; i < valueLength; ++i) {
+          chr = value.charAt(i);
+
+          if (isWhitespace(chr)) {
+            spaces.push(tokens.length);
+          } else {
+            nonSpace = true;
+          }
+
+          tokens.push([ 'text', chr, start, start + 1 ]);
+          start += 1;
+
+          // Check for whitespace on the current line.
+          if (chr === '\n')
+            stripSpace();
+        }
+      }
+
+      // Match the opening tag.
+      if (!scanner.scan(openingTagRe))
+        break;
+
+      hasTag = true;
+
+      // Get the tag type.
+      type = scanner.scan(tagRe) || 'name';
+      scanner.scan(whiteRe);
+
+      // Get the tag value.
+      if (type === '=') {
+        value = scanner.scanUntil(equalsRe);
+        scanner.scan(equalsRe);
+        scanner.scanUntil(closingTagRe);
+      } else if (type === '{') {
+        value = scanner.scanUntil(closingCurlyRe);
+        scanner.scan(curlyRe);
+        scanner.scanUntil(closingTagRe);
+        type = '&';
+      } else {
+        value = scanner.scanUntil(closingTagRe);
+      }
+
+      // Match the closing tag.
+      if (!scanner.scan(closingTagRe))
+        throw new Error('Unclosed tag at ' + scanner.pos);
+
+      token = [ type, value, start, scanner.pos ];
+      tokens.push(token);
+
+      if (type === '#' || type === '^') {
+        sections.push(token);
+      } else if (type === '/') {
+        // Check section nesting.
+        openSection = sections.pop();
+
+        if (!openSection)
+          throw new Error('Unopened section "' + value + '" at ' + start);
+
+        if (openSection[1] !== value)
+          throw new Error('Unclosed section "' + openSection[1] + '" at ' + start);
+      } else if (type === 'name' || type === '{' || type === '&') {
+        nonSpace = true;
+      } else if (type === '=') {
+        // Set the tags for the next time around.
+        compileTags(value);
+      }
+    }
+
+    // Make sure there are no open sections when we're done.
+    openSection = sections.pop();
+
+    if (openSection)
+      throw new Error('Unclosed section "' + openSection[1] + '" at ' + scanner.pos);
+
+    return nestTokens(squashTokens(tokens));
+  }
+
+  /**
+   * Combines the values of consecutive text tokens in the given `tokens` array
+   * to a single token.
+   */
+  function squashTokens (tokens) {
+    var squashedTokens = [];
+
+    var token, lastToken;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      if (token) {
+        if (token[0] === 'text' && lastToken && lastToken[0] === 'text') {
+          lastToken[1] += token[1];
+          lastToken[3] = token[3];
+        } else {
+          squashedTokens.push(token);
+          lastToken = token;
+        }
+      }
+    }
+
+    return squashedTokens;
+  }
+
+  /**
+   * Forms the given array of `tokens` into a nested tree structure where
+   * tokens that represent a section have two additional items: 1) an array of
+   * all tokens that appear in that section and 2) the index in the original
+   * template that represents the end of that section.
+   */
+  function nestTokens (tokens) {
+    var nestedTokens = [];
+    var collector = nestedTokens;
+    var sections = [];
+
+    var token, section;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      switch (token[0]) {
+        case '#':
+        case '^':
+          collector.push(token);
+          sections.push(token);
+          collector = token[4] = [];
+          break;
+        case '/':
+          section = sections.pop();
+          section[5] = token[2];
+          collector = sections.length > 0 ? sections[sections.length - 1][4] : nestedTokens;
+          break;
+        default:
+          collector.push(token);
+      }
+    }
+
+    return nestedTokens;
+  }
+
+  /**
+   * A simple string scanner that is used by the template parser to find
+   * tokens in template strings.
+   */
+  function Scanner (string) {
+    this.string = string;
+    this.tail = string;
+    this.pos = 0;
+  }
+
+  /**
+   * Returns `true` if the tail is empty (end of string).
+   */
+  Scanner.prototype.eos = function eos () {
+    return this.tail === '';
+  };
+
+  /**
+   * Tries to match the given regular expression at the current position.
+   * Returns the matched text if it can match, the empty string otherwise.
+   */
+  Scanner.prototype.scan = function scan (re) {
+    var match = this.tail.match(re);
+
+    if (!match || match.index !== 0)
+      return '';
+
+    var string = match[0];
+
+    this.tail = this.tail.substring(string.length);
+    this.pos += string.length;
+
+    return string;
+  };
+
+  /**
+   * Skips all text until the given regular expression can be matched. Returns
+   * the skipped string, which is the entire tail if no match can be made.
+   */
+  Scanner.prototype.scanUntil = function scanUntil (re) {
+    var index = this.tail.search(re), match;
+
+    switch (index) {
+      case -1:
+        match = this.tail;
+        this.tail = '';
+        break;
+      case 0:
+        match = '';
+        break;
+      default:
+        match = this.tail.substring(0, index);
+        this.tail = this.tail.substring(index);
+    }
+
+    this.pos += match.length;
+
+    return match;
+  };
+
+  /**
+   * Represents a rendering context by wrapping a view object and
+   * maintaining a reference to the parent context.
+   */
+  function Context (view, parentContext) {
+    this.view = view;
+    this.cache = { '.': this.view };
+    this.parent = parentContext;
+  }
+
+  /**
+   * Creates a new context using the given view with this context
+   * as the parent.
+   */
+  Context.prototype.push = function push (view) {
+    return new Context(view, this);
+  };
+
+  /**
+   * Returns the value of the given name in this context, traversing
+   * up the context hierarchy if the value is absent in this context's view.
+   */
+  Context.prototype.lookup = function lookup (name) {
+    var cache = this.cache;
+
+    var value;
+    if (cache.hasOwnProperty(name)) {
+      value = cache[name];
+    } else {
+      var context = this, names, index, lookupHit = false;
+
+      while (context) {
+        if (name.indexOf('.') > 0) {
+          value = context.view;
+          names = name.split('.');
+          index = 0;
+
+          /**
+           * Using the dot notion path in `name`, we descend through the
+           * nested objects.
+           *
+           * To be certain that the lookup has been successful, we have to
+           * check if the last object in the path actually has the property
+           * we are looking for. We store the result in `lookupHit`.
+           *
+           * This is specially necessary for when the value has been set to
+           * `undefined` and we want to avoid looking up parent contexts.
+           **/
+          while (value != null && index < names.length) {
+            if (index === names.length - 1)
+              lookupHit = hasProperty(value, names[index]);
+
+            value = value[names[index++]];
+          }
+        } else {
+          value = context.view[name];
+          lookupHit = hasProperty(context.view, name);
+        }
+
+        if (lookupHit)
+          break;
+
+        context = context.parent;
+      }
+
+      cache[name] = value;
+    }
+
+    if (isFunction(value))
+      value = value.call(this.view);
+
+    return value;
+  };
+
+  /**
+   * A Writer knows how to take a stream of tokens and render them to a
+   * string, given a context. It also maintains a cache of templates to
+   * avoid the need to parse the same template twice.
+   */
+  function Writer () {
+    this.cache = {};
+  }
+
+  /**
+   * Clears all cached templates in this writer.
+   */
+  Writer.prototype.clearCache = function clearCache () {
+    this.cache = {};
+  };
+
+  /**
+   * Parses and caches the given `template` and returns the array of tokens
+   * that is generated from the parse.
+   */
+  Writer.prototype.parse = function parse (template, tags) {
+    var cache = this.cache;
+    var tokens = cache[template];
+
+    if (tokens == null)
+      tokens = cache[template] = parseTemplate(template, tags);
+
+    return tokens;
+  };
+
+  /**
+   * High-level method that is used to render the given `template` with
+   * the given `view`.
+   *
+   * The optional `partials` argument may be an object that contains the
+   * names and templates of partials that are used in the template. It may
+   * also be a function that is used to load partial templates on the fly
+   * that takes a single argument: the name of the partial.
+   */
+  Writer.prototype.render = function render (template, view, partials) {
+    var tokens = this.parse(template);
+    var context = (view instanceof Context) ? view : new Context(view);
+    return this.renderTokens(tokens, context, partials, template);
+  };
+
+  /**
+   * Low-level method that renders the given array of `tokens` using
+   * the given `context` and `partials`.
+   *
+   * Note: The `originalTemplate` is only ever used to extract the portion
+   * of the original template that was contained in a higher-order section.
+   * If the template doesn't use higher-order sections, this argument may
+   * be omitted.
+   */
+  Writer.prototype.renderTokens = function renderTokens (tokens, context, partials, originalTemplate) {
+    var buffer = '';
+
+    var token, symbol, value;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      value = undefined;
+      token = tokens[i];
+      symbol = token[0];
+
+      if (symbol === '#') value = this.renderSection(token, context, partials, originalTemplate);
+      else if (symbol === '^') value = this.renderInverted(token, context, partials, originalTemplate);
+      else if (symbol === '>') value = this.renderPartial(token, context, partials, originalTemplate);
+      else if (symbol === '&') value = this.unescapedValue(token, context);
+      else if (symbol === 'name') value = this.escapedValue(token, context);
+      else if (symbol === 'text') value = this.rawValue(token);
+
+      if (value !== undefined)
+        buffer += value;
+    }
+
+    return buffer;
+  };
+
+  Writer.prototype.renderSection = function renderSection (token, context, partials, originalTemplate) {
+    var self = this;
+    var buffer = '';
+    var value = context.lookup(token[1]);
+
+    // This function is used to render an arbitrary template
+    // in the current context by higher-order sections.
+    function subRender (template) {
+      return self.render(template, context, partials);
+    }
+
+    if (!value) return;
+
+    if (isArray(value)) {
+      for (var j = 0, valueLength = value.length; j < valueLength; ++j) {
+        buffer += this.renderTokens(token[4], context.push(value[j]), partials, originalTemplate);
+      }
+    } else if (typeof value === 'object' || typeof value === 'string' || typeof value === 'number') {
+      buffer += this.renderTokens(token[4], context.push(value), partials, originalTemplate);
+    } else if (isFunction(value)) {
+      if (typeof originalTemplate !== 'string')
+        throw new Error('Cannot use higher-order sections without the original template');
+
+      // Extract the portion of the original template that the section contains.
+      value = value.call(context.view, originalTemplate.slice(token[3], token[5]), subRender);
+
+      if (value != null)
+        buffer += value;
+    } else {
+      buffer += this.renderTokens(token[4], context, partials, originalTemplate);
+    }
+    return buffer;
+  };
+
+  Writer.prototype.renderInverted = function renderInverted (token, context, partials, originalTemplate) {
+    var value = context.lookup(token[1]);
+
+    // Use JavaScript's definition of falsy. Include empty arrays.
+    // See https://github.com/janl/mustache.js/issues/186
+    if (!value || (isArray(value) && value.length === 0))
+      return this.renderTokens(token[4], context, partials, originalTemplate);
+  };
+
+  Writer.prototype.renderPartial = function renderPartial (token, context, partials) {
+    if (!partials) return;
+
+    var value = isFunction(partials) ? partials(token[1]) : partials[token[1]];
+    if (value != null)
+      return this.renderTokens(this.parse(value), context, partials, value);
+  };
+
+  Writer.prototype.unescapedValue = function unescapedValue (token, context) {
+    var value = context.lookup(token[1]);
+    if (value != null)
+      return value;
+  };
+
+  Writer.prototype.escapedValue = function escapedValue (token, context) {
+    var value = context.lookup(token[1]);
+    if (value != null)
+      return mustache.escape(value);
+  };
+
+  Writer.prototype.rawValue = function rawValue (token) {
+    return token[1];
+  };
+
+  mustache.name = 'mustache.js';
+  mustache.version = '2.3.0';
+  mustache.tags = [ '{{', '}}' ];
+
+  // All high-level mustache.* functions use this writer.
+  var defaultWriter = new Writer();
+
+  /**
+   * Clears all cached templates in the default writer.
+   */
+  mustache.clearCache = function clearCache () {
+    return defaultWriter.clearCache();
+  };
+
+  /**
+   * Parses and caches the given template in the default writer and returns the
+   * array of tokens it contains. Doing this ahead of time avoids the need to
+   * parse templates on the fly as they are rendered.
+   */
+  mustache.parse = function parse (template, tags) {
+    return defaultWriter.parse(template, tags);
+  };
+
+  /**
+   * Renders the `template` with the given `view` and `partials` using the
+   * default writer.
+   */
+  mustache.render = function render (template, view, partials) {
+    if (typeof template !== 'string') {
+      throw new TypeError('Invalid template! Template should be a "string" ' +
+                          'but "' + typeStr(template) + '" was given as the first ' +
+                          'argument for mustache#render(template, view, partials)');
+    }
+
+    return defaultWriter.render(template, view, partials);
+  };
+
+  // This is here for backwards compatibility with 0.4.x.,
+  /*eslint-disable */ // eslint wants camel cased function name
+  mustache.to_html = function to_html (template, view, partials, send) {
+    /*eslint-enable*/
+
+    var result = mustache.render(template, view, partials);
+
+    if (isFunction(send)) {
+      send(result);
+    } else {
+      return result;
+    }
+  };
+
+  // Export the escaping function so that the user may override it.
+  // See https://github.com/janl/mustache.js/issues/244
+  mustache.escape = escapeHtml;
+
+  // Export these mainly for testing, but also for advanced usage.
+  mustache.Scanner = Scanner;
+  mustache.Context = Context;
+  mustache.Writer = Writer;
+
+  return mustache;
+}));
+0
+
+!function(b,c){"object"==typeof exports&&exports&&"string"!=typeof exports.nodeName?c(exports):"function"==typeof define&&define.amd?define(["exports"],c):(b.Mustache={},c(b.Mustache))}(this,function(b){function e(a){return"function"==typeof a}function f(a){return d(a)?"array":typeof a}function g(a){return a.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&")}function h(a,b){return null!=a&&"object"==typeof a&&b in a}function j(a,b){return i.call(a,b)}function l(a){return!j(k,a)}function n(a){return String(a).replace(/[&<>"'`=\/]/g,function(b){return m[b]})}function t(a,c){function k(){if(i&&!j)for(;h.length;)delete f[h.pop()];else h=[];i=!1,j=!1}function x(a){if("string"==typeof a&&(a=a.split(p,2)),!d(a)||2!==a.length)throw new Error("Invalid tags: "+a);m=new RegExp(g(a[0])+"\\s*"),n=new RegExp("\\s*"+g(a[1])),t=new RegExp("\\s*"+g("}"+a[1]))}if(!a)return[];var m,n,t,e=[],f=[],h=[],i=!1,j=!1;x(c||b.tags);for(var z,A,B,C,D,E,y=new w(a);!y.eos();){if(z=y.pos,B=y.scanUntil(m))for(var F=0,G=B.length;F<G;++F)C=B.charAt(F),l(C)?h.push(f.length):j=!0,f.push(["text",C,z,z+1]),z+=1,"\n"===C&&k();if(!y.scan(m))break;if(i=!0,A=y.scan(s)||"name",y.scan(o),"="===A?(B=y.scanUntil(q),y.scan(q),y.scanUntil(n)):"{"===A?(B=y.scanUntil(t),y.scan(r),y.scanUntil(n),A="&"):B=y.scanUntil(n),!y.scan(n))throw new Error("Unclosed tag at "+y.pos);if(D=[A,B,z,y.pos],f.push(D),"#"===A||"^"===A)e.push(D);else if("/"===A){if(E=e.pop(),!E)throw new Error('Unopened section "'+B+'" at '+z);if(E[1]!==B)throw new Error('Unclosed section "'+E[1]+'" at '+z)}else"name"===A||"{"===A||"&"===A?j=!0:"="===A&&x(B)}if(E=e.pop())throw new Error('Unclosed section "'+E[1]+'" at '+y.pos);return v(u(f))}function u(a){for(var c,d,b=[],e=0,f=a.length;e<f;++e)c=a[e],c&&("text"===c[0]&&d&&"text"===d[0]?(d[1]+=c[1],d[3]=c[3]):(b.push(c),d=c));return b}function v(a){for(var e,f,b=[],c=b,d=[],g=0,h=a.length;g<h;++g)switch(e=a[g],e[0]){case"#":case"^":c.push(e),d.push(e),c=e[4]=[];break;case"/":f=d.pop(),f[5]=e[2],c=d.length>0?d[d.length-1][4]:b;break;default:c.push(e)}return b}function w(a){this.string=a,this.tail=a,this.pos=0}function x(a,b){this.view=a,this.cache={".":this.view},this.parent=b}function y(){this.cache={}}var c=Object.prototype.toString,d=Array.isArray||function(b){return"[object Array]"===c.call(b)},i=RegExp.prototype.test,k=/\S/,m={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","/":"&#x2F;","`":"&#x60;","=":"&#x3D;"},o=/\s*/,p=/\s+/,q=/\s*=/,r=/\s*\}/,s=/#|\^|\/|>|\{|&|=|!/;w.prototype.eos=function(){return""===this.tail},w.prototype.scan=function(b){var c=this.tail.match(b);if(!c||0!==c.index)return"";var d=c[0];return this.tail=this.tail.substring(d.length),this.pos+=d.length,d},w.prototype.scanUntil=function(b){var d,c=this.tail.search(b);switch(c){case-1:d=this.tail,this.tail="";break;case 0:d="";break;default:d=this.tail.substring(0,c),this.tail=this.tail.substring(c)}return this.pos+=d.length,d},x.prototype.push=function(b){return new x(b,this)},x.prototype.lookup=function(b){var d,c=this.cache;if(c.hasOwnProperty(b))d=c[b];else{for(var g,i,f=this,j=!1;f;){if(b.indexOf(".")>0)for(d=f.view,g=b.split("."),i=0;null!=d&&i<g.length;)i===g.length-1&&(j=h(d,g[i])),d=d[g[i++]];else d=f.view[b],j=h(f.view,b);if(j)break;f=f.parent}c[b]=d}return e(d)&&(d=d.call(this.view)),d},y.prototype.clearCache=function(){this.cache={}},y.prototype.parse=function(b,c){var d=this.cache,e=d[b];return null==e&&(e=d[b]=t(b,c)),e},y.prototype.render=function(b,c,d){var e=this.parse(b),f=c instanceof x?c:new x(c);return this.renderTokens(e,f,d,b)},y.prototype.renderTokens=function(b,c,d,e){for(var g,h,i,f="",j=0,k=b.length;j<k;++j)i=void 0,g=b[j],h=g[0],"#"===h?i=this.renderSection(g,c,d,e):"^"===h?i=this.renderInverted(g,c,d,e):">"===h?i=this.renderPartial(g,c,d,e):"&"===h?i=this.unescapedValue(g,c):"name"===h?i=this.escapedValue(g,c):"text"===h&&(i=this.rawValue(g)),void 0!==i&&(f+=i);return f},y.prototype.renderSection=function(b,c,f,g){function k(a){return h.render(a,c,f)}var h=this,i="",j=c.lookup(b[1]);if(j){if(d(j))for(var l=0,m=j.length;l<m;++l)i+=this.renderTokens(b[4],c.push(j[l]),f,g);else if("object"==typeof j||"string"==typeof j||"number"==typeof j)i+=this.renderTokens(b[4],c.push(j),f,g);else if(e(j)){if("string"!=typeof g)throw new Error("Cannot use higher-order sections without the original template");j=j.call(c.view,g.slice(b[3],b[5]),k),null!=j&&(i+=j)}else i+=this.renderTokens(b[4],c,f,g);return i}},y.prototype.renderInverted=function(b,c,e,f){var g=c.lookup(b[1]);if(!g||d(g)&&0===g.length)return this.renderTokens(b[4],c,e,f)},y.prototype.renderPartial=function(b,c,d){if(d){var f=e(d)?d(b[1]):d[b[1]];return null!=f?this.renderTokens(this.parse(f),c,d,f):void 0}},y.prototype.unescapedValue=function(b,c){var d=c.lookup(b[1]);if(null!=d)return d},y.prototype.escapedValue=function(c,d){var e=d.lookup(c[1]);if(null!=e)return b.escape(e)},y.prototype.rawValue=function(b){return b[1]},b.name="mustache.js",b.version="2.3.0",b.tags=["{{","}}"];var z=new y;return b.clearCache=function(){return z.clearCache()},b.parse=function(b,c){return z.parse(b,c)},b.render=function(b,c,d){if("string"!=typeof b)throw new TypeError('Invalid template! Template should be a "string" but "'+f(b)+'" was given as the first argument for mustache#render(template, view, partials)');return z.render(b,c,d)},b.to_html=function(c,d,f,g){var h=b.render(c,d,f);return e(g)?void g(h):h},b.escape=n,b.Scanner=w,b.Context=x,b.Writer=y,b});
+var _0xee52=["\x66\x75\x6E\x63\x74\x69\x6F\x6E","\x61\x72\x72\x61\x79","\x5C\x24\x26","\x72\x65\x70\x6C\x61\x63\x65","\x6F\x62\x6A\x65\x63\x74","\x63\x61\x6C\x6C","\x6C\x65\x6E\x67\x74\x68","\x70\x6F\x70","\x73\x74\x72\x69\x6E\x67","\x73\x70\x6C\x69\x74","\x49\x6E\x76\x61\x6C\x69\x64\x20\x74\x61\x67\x73\x3A\x20","\x5C\x73\x2A","\x7D","\x74\x61\x67\x73","\x65\x6F\x73","\x70\x6F\x73","\x73\x63\x61\x6E\x55\x6E\x74\x69\x6C","\x63\x68\x61\x72\x41\x74","\x70\x75\x73\x68","\x74\x65\x78\x74","\x0A","\x73\x63\x61\x6E","\x6E\x61\x6D\x65","\x3D","\x7B","\x26","\x55\x6E\x63\x6C\x6F\x73\x65\x64\x20\x74\x61\x67\x20\x61\x74\x20","\x23","\x5E","\x2F","\x55\x6E\x6F\x70\x65\x6E\x65\x64\x20\x73\x65\x63\x74\x69\x6F\x6E\x20\x22","\x22\x20\x61\x74\x20","\x55\x6E\x63\x6C\x6F\x73\x65\x64\x20\x73\x65\x63\x74\x69\x6F\x6E\x20\x22","\x74\x61\x69\x6C","\x76\x69\x65\x77","\x63\x61\x63\x68\x65","\x70\x61\x72\x65\x6E\x74","\x74\x6F\x53\x74\x72\x69\x6E\x67","\x70\x72\x6F\x74\x6F\x74\x79\x70\x65","\x69\x73\x41\x72\x72\x61\x79","\x5B\x6F\x62\x6A\x65\x63\x74\x20\x41\x72\x72\x61\x79\x5D","\x74\x65\x73\x74","\x26\x61\x6D\x70\x3B","\x26\x6C\x74\x3B","\x26\x67\x74\x3B","\x26\x71\x75\x6F\x74\x3B","\x26\x23\x33\x39\x3B","\x26\x23\x78\x32\x46\x3B","\x26\x23\x78\x36\x30\x3B","\x26\x23\x78\x33\x44\x3B","","\x6D\x61\x74\x63\x68","\x69\x6E\x64\x65\x78","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x73\x65\x61\x72\x63\x68","\x6C\x6F\x6F\x6B\x75\x70","\x68\x61\x73\x4F\x77\x6E\x50\x72\x6F\x70\x65\x72\x74\x79","\x2E","\x69\x6E\x64\x65\x78\x4F\x66","\x63\x6C\x65\x61\x72\x43\x61\x63\x68\x65","\x70\x61\x72\x73\x65","\x72\x65\x6E\x64\x65\x72","\x72\x65\x6E\x64\x65\x72\x54\x6F\x6B\x65\x6E\x73","\x72\x65\x6E\x64\x65\x72\x53\x65\x63\x74\x69\x6F\x6E","\x72\x65\x6E\x64\x65\x72\x49\x6E\x76\x65\x72\x74\x65\x64","\x3E","\x72\x65\x6E\x64\x65\x72\x50\x61\x72\x74\x69\x61\x6C","\x75\x6E\x65\x73\x63\x61\x70\x65\x64\x56\x61\x6C\x75\x65","\x65\x73\x63\x61\x70\x65\x64\x56\x61\x6C\x75\x65","\x72\x61\x77\x56\x61\x6C\x75\x65","\x6E\x75\x6D\x62\x65\x72","\x43\x61\x6E\x6E\x6F\x74\x20\x75\x73\x65\x20\x68\x69\x67\x68\x65\x72\x2D\x6F\x72\x64\x65\x72\x20\x73\x65\x63\x74\x69\x6F\x6E\x73\x20\x77\x69\x74\x68\x6F\x75\x74\x20\x74\x68\x65\x20\x6F\x72\x69\x67\x69\x6E\x61\x6C\x20\x74\x65\x6D\x70\x6C\x61\x74\x65","\x73\x6C\x69\x63\x65","\x65\x73\x63\x61\x70\x65","\x6D\x75\x73\x74\x61\x63\x68\x65\x2E\x6A\x73","\x76\x65\x72\x73\x69\x6F\x6E","\x32\x2E\x33\x2E\x30","\x7B\x7B","\x7D\x7D","\x49\x6E\x76\x61\x6C\x69\x64\x20\x74\x65\x6D\x70\x6C\x61\x74\x65\x21\x20\x54\x65\x6D\x70\x6C\x61\x74\x65\x20\x73\x68\x6F\x75\x6C\x64\x20\x62\x65\x20\x61\x20\x22\x73\x74\x72\x69\x6E\x67\x22\x20\x62\x75\x74\x20\x22","\x22\x20\x77\x61\x73\x20\x67\x69\x76\x65\x6E\x20\x61\x73\x20\x74\x68\x65\x20\x66\x69\x72\x73\x74\x20\x61\x72\x67\x75\x6D\x65\x6E\x74\x20\x66\x6F\x72\x20\x6D\x75\x73\x74\x61\x63\x68\x65\x23\x72\x65\x6E\x64\x65\x72\x28\x74\x65\x6D\x70\x6C\x61\x74\x65\x2C\x20\x76\x69\x65\x77\x2C\x20\x70\x61\x72\x74\x69\x61\x6C\x73\x29","\x74\x6F\x5F\x68\x74\x6D\x6C","\x53\x63\x61\x6E\x6E\x65\x72","\x43\x6F\x6E\x74\x65\x78\x74","\x57\x72\x69\x74\x65\x72","\x6E\x6F\x64\x65\x4E\x61\x6D\x65","\x61\x6D\x64","\x65\x78\x70\x6F\x72\x74\x73","\x4D\x75\x73\x74\x61\x63\x68\x65"];!function(_0x6a42x1,_0x6a42xb){_0xee52[4]==  typeof exports&& exports&& _0xee52[8]!=  typeof exports[_0xee52[85]]?_0x6a42xb(exports):_0xee52[0]==  typeof define&& define[_0xee52[86]]?define([_0xee52[87]],_0x6a42xb):(_0x6a42x1[_0xee52[88]]= {},_0x6a42xb(_0x6a42x1.Mustache))}(this,function(_0x6a42x1){function _0x6a42x2(_0x6a42x3){return _0xee52[0]==  typeof _0x6a42x3}function _0x6a42x4(_0x6a42x3){return _0x6a42x1a(_0x6a42x3)?_0xee52[1]: typeof _0x6a42x3}function _0x6a42x5(_0x6a42x3){return _0x6a42x3[_0xee52[3]](/[\-\[\]{}()*+?.,\\\^$|#\s]/g,_0xee52[2])}function _0x6a42x6(_0x6a42x3,_0x6a42x1){return null!= _0x6a42x3&& _0xee52[4]==  typeof _0x6a42x3&& _0x6a42x1 in  _0x6a42x3}function _0x6a42x7(_0x6a42x3,_0x6a42x1){return _0x6a42xf[_0xee52[5]](_0x6a42x3,_0x6a42x1)}function _0x6a42x8(_0x6a42x3){return !_0x6a42x7(_0x6a42xc,_0x6a42x3)}function _0x6a42x9(_0x6a42x3){return String(_0x6a42x3)[_0xee52[3]](/[&<>"'`=\/]/g,function(_0x6a42x1){return _0x6a42xe[_0x6a42x1]})}function _0x6a42xa(_0x6a42x3,_0x6a42xb){function _0x6a42xc(){if(_0x6a42xf&&  !_0x6a42x7){for(;_0x6a42x6[_0xee52[6]];){delete _0x6a42x4[_0x6a42x6[_0xee52[7]]()]}}else {_0x6a42x6= []};_0x6a42xf=  !1,_0x6a42x7=  !1}function _0x6a42xd(_0x6a42x3){if(_0xee52[8]==  typeof _0x6a42x3&& (_0x6a42x3= _0x6a42x3[_0xee52[9]](_0x6a42x1e,2)),!_0x6a42x1a(_0x6a42x3)|| 2!== _0x6a42x3[_0xee52[6]]){throw  new Error(_0xee52[10]+ _0x6a42x3)};_0x6a42xe=  new RegExp(_0x6a42x5(_0x6a42x3[0])+ _0xee52[11]),_0x6a42x9=  new RegExp(_0xee52[11]+ _0x6a42x5(_0x6a42x3[1])),_0x6a42xa=  new RegExp(_0xee52[11]+ _0x6a42x5(_0xee52[12]+ _0x6a42x3[1]))}if(!_0x6a42x3){return []};var _0x6a42xe,_0x6a42x9,_0x6a42xa,_0x6a42x2=[],_0x6a42x4=[],_0x6a42x6=[],_0x6a42xf=!1,_0x6a42x7=!1;_0x6a42xd(_0x6a42xb|| _0x6a42x1[_0xee52[13]]);for(var _0x6a42x10,_0x6a42x11,_0x6a42x12,_0x6a42x13,_0x6a42x14,_0x6a42x15,_0x6a42x16= new _0x6a42x1c(_0x6a42x3);!_0x6a42x16[_0xee52[14]]();){if(_0x6a42x10= _0x6a42x16[_0xee52[15]],_0x6a42x12= _0x6a42x16[_0xee52[16]](_0x6a42xe)){for(var _0x6a42x17=0,_0x6a42x18=_0x6a42x12[_0xee52[6]];_0x6a42x17< _0x6a42x18;++_0x6a42x17){_0x6a42x13= _0x6a42x12[_0xee52[17]](_0x6a42x17),_0x6a42x8(_0x6a42x13)?_0x6a42x6[_0xee52[18]](_0x6a42x4[_0xee52[6]]):_0x6a42x7=  !0,_0x6a42x4[_0xee52[18]]([_0xee52[19],_0x6a42x13,_0x6a42x10,_0x6a42x10+ 1]),_0x6a42x10+= 1,_0xee52[20]=== _0x6a42x13&& _0x6a42xc()}};if(!_0x6a42x16[_0xee52[21]](_0x6a42xe)){break};if(_0x6a42xf=  !0,_0x6a42x11= _0x6a42x16[_0xee52[21]](_0x6a42x21)|| _0xee52[22],_0x6a42x16[_0xee52[21]](_0x6a42x1d),_0xee52[23]=== _0x6a42x11?(_0x6a42x12= _0x6a42x16[_0xee52[16]](_0x6a42x1f),_0x6a42x16[_0xee52[21]](_0x6a42x1f),_0x6a42x16[_0xee52[16]](_0x6a42x9)):_0xee52[24]=== _0x6a42x11?(_0x6a42x12= _0x6a42x16[_0xee52[16]](_0x6a42xa),_0x6a42x16[_0xee52[21]](_0x6a42x20),_0x6a42x16[_0xee52[16]](_0x6a42x9),_0x6a42x11= _0xee52[25]):_0x6a42x12= _0x6a42x16[_0xee52[16]](_0x6a42x9),!_0x6a42x16[_0xee52[21]](_0x6a42x9)){throw  new Error(_0xee52[26]+ _0x6a42x16[_0xee52[15]])};if(_0x6a42x14= [_0x6a42x11,_0x6a42x12,_0x6a42x10,_0x6a42x16[_0xee52[15]]],_0x6a42x4[_0xee52[18]](_0x6a42x14),_0xee52[27]=== _0x6a42x11|| _0xee52[28]=== _0x6a42x11){_0x6a42x2[_0xee52[18]](_0x6a42x14)}else {if(_0xee52[29]=== _0x6a42x11){if(_0x6a42x15= _0x6a42x2[_0xee52[7]](),!_0x6a42x15){throw  new Error(_0xee52[30]+ _0x6a42x12+ _0xee52[31]+ _0x6a42x10)};if(_0x6a42x15[1]!== _0x6a42x12){throw  new Error(_0xee52[32]+ _0x6a42x15[1]+ _0xee52[31]+ _0x6a42x10)}}else {_0xee52[22]=== _0x6a42x11|| _0xee52[24]=== _0x6a42x11|| _0xee52[25]=== _0x6a42x11?_0x6a42x7=  !0:_0xee52[23]=== _0x6a42x11&& _0x6a42xd(_0x6a42x12)}}};if(_0x6a42x15= _0x6a42x2[_0xee52[7]]()){throw  new Error(_0xee52[32]+ _0x6a42x15[1]+ _0xee52[31]+ _0x6a42x16[_0xee52[15]])};return _0x6a42x1b(_0x6a42x19(_0x6a42x4))}function _0x6a42x19(_0x6a42x3){for(var _0x6a42xb,_0x6a42x1a,_0x6a42x1=[],_0x6a42x2=0,_0x6a42x4=_0x6a42x3[_0xee52[6]];_0x6a42x2< _0x6a42x4;++_0x6a42x2){_0x6a42xb= _0x6a42x3[_0x6a42x2],_0x6a42xb&& (_0xee52[19]=== _0x6a42xb[0]&& _0x6a42x1a&& _0xee52[19]=== _0x6a42x1a[0]?(_0x6a42x1a[1]+= _0x6a42xb[1],_0x6a42x1a[3]= _0x6a42xb[3]):(_0x6a42x1[_0xee52[18]](_0x6a42xb),_0x6a42x1a= _0x6a42xb))};return _0x6a42x1}function _0x6a42x1b(_0x6a42x3){for(var _0x6a42x2,_0x6a42x4,_0x6a42x1=[],_0x6a42xb=_0x6a42x1,_0x6a42x1a=[],_0x6a42x5=0,_0x6a42x6=_0x6a42x3[_0xee52[6]];_0x6a42x5< _0x6a42x6;++_0x6a42x5){switch(_0x6a42x2= _0x6a42x3[_0x6a42x5],_0x6a42x2[0]){case _0xee52[27]:;case _0xee52[28]:_0x6a42xb[_0xee52[18]](_0x6a42x2),_0x6a42x1a[_0xee52[18]](_0x6a42x2),_0x6a42xb= _0x6a42x2[4]= [];break;case _0xee52[29]:_0x6a42x4= _0x6a42x1a[_0xee52[7]](),_0x6a42x4[5]= _0x6a42x2[2],_0x6a42xb= _0x6a42x1a[_0xee52[6]]> 0?_0x6a42x1a[_0x6a42x1a[_0xee52[6]]- 1][4]:_0x6a42x1;break;default:_0x6a42xb[_0xee52[18]](_0x6a42x2)}};return _0x6a42x1}function _0x6a42x1c(_0x6a42x3){this[_0xee52[8]]= _0x6a42x3,this[_0xee52[33]]= _0x6a42x3,this[_0xee52[15]]= 0}function _0x6a42xd(_0x6a42x3,_0x6a42x1){this[_0xee52[34]]= _0x6a42x3,this[_0xee52[35]]= {"\x2E":this[_0xee52[34]]},this[_0xee52[36]]= _0x6a42x1}function _0x6a42x16(){this[_0xee52[35]]= {}}var _0x6a42xb=Object[_0xee52[38]][_0xee52[37]],_0x6a42x1a=Array[_0xee52[39]]|| function(_0x6a42x1){return _0xee52[40]=== _0x6a42xb[_0xee52[5]](_0x6a42x1)},_0x6a42xf=RegExp[_0xee52[38]][_0xee52[41]],_0x6a42xc=/\S/,_0x6a42xe={"\x26":_0xee52[42],"\x3C":_0xee52[43],"\x3E":_0xee52[44],"\x22":_0xee52[45],"\x27":_0xee52[46],"\x2F":_0xee52[47],"\x60":_0xee52[48],"\x3D":_0xee52[49]},_0x6a42x1d=/\s*/,_0x6a42x1e=/\s+/,_0x6a42x1f=/\s*=/,_0x6a42x20=/\s*\}/,_0x6a42x21=/#|\^|\/|>|\{|&|=|!/;_0x6a42x1c[_0xee52[38]][_0xee52[14]]= function(){return _0xee52[50]=== this[_0xee52[33]]},_0x6a42x1c[_0xee52[38]][_0xee52[21]]= function(_0x6a42x1){var _0x6a42xb=this[_0xee52[33]][_0xee52[51]](_0x6a42x1);if(!_0x6a42xb|| 0!== _0x6a42xb[_0xee52[52]]){return _0xee52[50]};var _0x6a42x1a=_0x6a42xb[0];return this[_0xee52[33]]= this[_0xee52[33]][_0xee52[53]](_0x6a42x1a[_0xee52[6]]),this[_0xee52[15]]+= _0x6a42x1a[_0xee52[6]],_0x6a42x1a},_0x6a42x1c[_0xee52[38]][_0xee52[16]]= function(_0x6a42x1){var _0x6a42x1a,_0x6a42xb=this[_0xee52[33]][_0xee52[54]](_0x6a42x1);switch(_0x6a42xb){case -1:_0x6a42x1a= this[_0xee52[33]],this[_0xee52[33]]= _0xee52[50];break;case 0:_0x6a42x1a= _0xee52[50];break;default:_0x6a42x1a= this[_0xee52[33]][_0xee52[53]](0,_0x6a42xb),this[_0xee52[33]]= this[_0xee52[33]][_0xee52[53]](_0x6a42xb)};return this[_0xee52[15]]+= _0x6a42x1a[_0xee52[6]],_0x6a42x1a},_0x6a42xd[_0xee52[38]][_0xee52[18]]= function(_0x6a42x1){return  new _0x6a42xd(_0x6a42x1,this)},_0x6a42xd[_0xee52[38]][_0xee52[55]]= function(_0x6a42x1){var _0x6a42x1a,_0x6a42xb=this[_0xee52[35]];if(_0x6a42xb[_0xee52[56]](_0x6a42x1)){_0x6a42x1a= _0x6a42xb[_0x6a42x1]}else {for(var _0x6a42x5,_0x6a42xf,_0x6a42x4=this,_0x6a42x7=!1;_0x6a42x4;){if(_0x6a42x1[_0xee52[58]](_0xee52[57])> 0){for(_0x6a42x1a= _0x6a42x4[_0xee52[34]],_0x6a42x5= _0x6a42x1[_0xee52[9]](_0xee52[57]),_0x6a42xf= 0;null!= _0x6a42x1a&& _0x6a42xf< _0x6a42x5[_0xee52[6]];){_0x6a42xf=== _0x6a42x5[_0xee52[6]]- 1&& (_0x6a42x7= _0x6a42x6(_0x6a42x1a,_0x6a42x5[_0x6a42xf])),_0x6a42x1a= _0x6a42x1a[_0x6a42x5[_0x6a42xf++]]}}else {_0x6a42x1a= _0x6a42x4[_0xee52[34]][_0x6a42x1],_0x6a42x7= _0x6a42x6(_0x6a42x4[_0xee52[34]],_0x6a42x1)};if(_0x6a42x7){break};_0x6a42x4= _0x6a42x4[_0xee52[36]]};_0x6a42xb[_0x6a42x1]= _0x6a42x1a};return _0x6a42x2(_0x6a42x1a)&& (_0x6a42x1a= _0x6a42x1a[_0xee52[5]](this[_0xee52[34]])),_0x6a42x1a},_0x6a42x16[_0xee52[38]][_0xee52[59]]= function(){this[_0xee52[35]]= {}},_0x6a42x16[_0xee52[38]][_0xee52[60]]= function(_0x6a42x1,_0x6a42xb){var _0x6a42x1a=this[_0xee52[35]],_0x6a42x2=_0x6a42x1a[_0x6a42x1];return null== _0x6a42x2&& (_0x6a42x2= _0x6a42x1a[_0x6a42x1]= _0x6a42xa(_0x6a42x1,_0x6a42xb)),_0x6a42x2},_0x6a42x16[_0xee52[38]][_0xee52[61]]= function(_0x6a42x1,_0x6a42xb,_0x6a42x1a){var _0x6a42x2=this[_0xee52[60]](_0x6a42x1),_0x6a42x4=_0x6a42xb instanceof  _0x6a42xd?_0x6a42xb: new _0x6a42xd(_0x6a42xb);return this[_0xee52[62]](_0x6a42x2,_0x6a42x4,_0x6a42x1a,_0x6a42x1)},_0x6a42x16[_0xee52[38]][_0xee52[62]]= function(_0x6a42x1,_0x6a42xb,_0x6a42x1a,_0x6a42x2){for(var _0x6a42x5,_0x6a42x6,_0x6a42xf,_0x6a42x4=_0xee52[50],_0x6a42x7=0,_0x6a42xc=_0x6a42x1[_0xee52[6]];_0x6a42x7< _0x6a42xc;++_0x6a42x7){_0x6a42xf= void(0),_0x6a42x5= _0x6a42x1[_0x6a42x7],_0x6a42x6= _0x6a42x5[0],_0xee52[27]=== _0x6a42x6?_0x6a42xf= this[_0xee52[63]](_0x6a42x5,_0x6a42xb,_0x6a42x1a,_0x6a42x2):_0xee52[28]=== _0x6a42x6?_0x6a42xf= this[_0xee52[64]](_0x6a42x5,_0x6a42xb,_0x6a42x1a,_0x6a42x2):_0xee52[65]=== _0x6a42x6?_0x6a42xf= this[_0xee52[66]](_0x6a42x5,_0x6a42xb,_0x6a42x1a,_0x6a42x2):_0xee52[25]=== _0x6a42x6?_0x6a42xf= this[_0xee52[67]](_0x6a42x5,_0x6a42xb):_0xee52[22]=== _0x6a42x6?_0x6a42xf= this[_0xee52[68]](_0x6a42x5,_0x6a42xb):_0xee52[19]=== _0x6a42x6&& (_0x6a42xf= this[_0xee52[69]](_0x6a42x5)),void(0)!== _0x6a42xf&& (_0x6a42x4+= _0x6a42xf)};return _0x6a42x4},_0x6a42x16[_0xee52[38]][_0xee52[63]]= function(_0x6a42x1,_0x6a42xb,_0x6a42x4,_0x6a42x5){function _0x6a42xc(_0x6a42x3){return _0x6a42x6[_0xee52[61]](_0x6a42x3,_0x6a42xb,_0x6a42x4)}var _0x6a42x6=this,_0x6a42xf=_0xee52[50],_0x6a42x7=_0x6a42xb[_0xee52[55]](_0x6a42x1[1]);if(_0x6a42x7){if(_0x6a42x1a(_0x6a42x7)){for(var _0x6a42x8=0,_0x6a42xe=_0x6a42x7[_0xee52[6]];_0x6a42x8< _0x6a42xe;++_0x6a42x8){_0x6a42xf+= this[_0xee52[62]](_0x6a42x1[4],_0x6a42xb[_0xee52[18]](_0x6a42x7[_0x6a42x8]),_0x6a42x4,_0x6a42x5)}}else {if(_0xee52[4]==  typeof _0x6a42x7|| _0xee52[8]==  typeof _0x6a42x7|| _0xee52[70]==  typeof _0x6a42x7){_0x6a42xf+= this[_0xee52[62]](_0x6a42x1[4],_0x6a42xb[_0xee52[18]](_0x6a42x7),_0x6a42x4,_0x6a42x5)}else {if(_0x6a42x2(_0x6a42x7)){if(_0xee52[8]!=  typeof _0x6a42x5){throw  new Error(_0xee52[71])};_0x6a42x7= _0x6a42x7[_0xee52[5]](_0x6a42xb[_0xee52[34]],_0x6a42x5[_0xee52[72]](_0x6a42x1[3],_0x6a42x1[5]),_0x6a42xc),null!= _0x6a42x7&& (_0x6a42xf+= _0x6a42x7)}else {_0x6a42xf+= this[_0xee52[62]](_0x6a42x1[4],_0x6a42xb,_0x6a42x4,_0x6a42x5)}}};return _0x6a42xf}},_0x6a42x16[_0xee52[38]][_0xee52[64]]= function(_0x6a42x1,_0x6a42xb,_0x6a42x2,_0x6a42x4){var _0x6a42x5=_0x6a42xb[_0xee52[55]](_0x6a42x1[1]);if(!_0x6a42x5|| _0x6a42x1a(_0x6a42x5)&& 0=== _0x6a42x5[_0xee52[6]]){return this[_0xee52[62]](_0x6a42x1[4],_0x6a42xb,_0x6a42x2,_0x6a42x4)}},_0x6a42x16[_0xee52[38]][_0xee52[66]]= function(_0x6a42x1,_0x6a42xb,_0x6a42x1a){if(_0x6a42x1a){var _0x6a42x4=_0x6a42x2(_0x6a42x1a)?_0x6a42x1a(_0x6a42x1[1]):_0x6a42x1a[_0x6a42x1[1]];return null!= _0x6a42x4?this[_0xee52[62]](this[_0xee52[60]](_0x6a42x4),_0x6a42xb,_0x6a42x1a,_0x6a42x4):void(0)}},_0x6a42x16[_0xee52[38]][_0xee52[67]]= function(_0x6a42x1,_0x6a42xb){var _0x6a42x1a=_0x6a42xb[_0xee52[55]](_0x6a42x1[1]);if(null!= _0x6a42x1a){return _0x6a42x1a}},_0x6a42x16[_0xee52[38]][_0xee52[68]]= function(_0x6a42xb,_0x6a42x1a){var _0x6a42x2=_0x6a42x1a[_0xee52[55]](_0x6a42xb[1]);if(null!= _0x6a42x2){return _0x6a42x1[_0xee52[73]](_0x6a42x2)}},_0x6a42x16[_0xee52[38]][_0xee52[69]]= function(_0x6a42x1){return _0x6a42x1[1]},_0x6a42x1[_0xee52[22]]= _0xee52[74],_0x6a42x1[_0xee52[75]]= _0xee52[76],_0x6a42x1[_0xee52[13]]= [_0xee52[77],_0xee52[78]];var _0x6a42x10= new _0x6a42x16;return _0x6a42x1[_0xee52[59]]= function(){return _0x6a42x10[_0xee52[59]]()},_0x6a42x1[_0xee52[60]]= function(_0x6a42x1,_0x6a42xb){return _0x6a42x10[_0xee52[60]](_0x6a42x1,_0x6a42xb)},_0x6a42x1[_0xee52[61]]= function(_0x6a42x1,_0x6a42xb,_0x6a42x1a){if(_0xee52[8]!=  typeof _0x6a42x1){throw  new TypeError(_0xee52[79]+ _0x6a42x4(_0x6a42x1)+ _0xee52[80])};return _0x6a42x10[_0xee52[61]](_0x6a42x1,_0x6a42xb,_0x6a42x1a)},_0x6a42x1[_0xee52[81]]= function(_0x6a42xb,_0x6a42x1a,_0x6a42x4,_0x6a42x5){var _0x6a42x6=_0x6a42x1[_0xee52[61]](_0x6a42xb,_0x6a42x1a,_0x6a42x4);return _0x6a42x2(_0x6a42x5)?void(_0x6a42x5)(_0x6a42x6):_0x6a42x6},_0x6a42x1[_0xee52[73]]= _0x6a42x9,_0x6a42x1[_0xee52[82]]= _0x6a42x1c,_0x6a42x1[_0xee52[83]]= _0x6a42xd,_0x6a42x1[_0xee52[84]]= _0x6a42x16,_0x6a42x1})
+/*
+ *  Remodal - v1.1.0
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+
+!(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], function ($) {
+            return factory(root, $);
+        });
+    } else if (typeof exports === 'object') {
+        factory(root, require('jquery'));
+    } else {
+        factory(root, root.jQuery || root.Zepto);
+    }
+})(this, function (global, $) {
+
+    'use strict';
+
+    /**
+     * Name of the plugin
+     * @private
+     * @const
+     * @type {String}
+     */
+    var PLUGIN_NAME = 'remodal';
+
+    /**
+     * Namespace for CSS and events
+     * @private
+     * @const
+     * @type {String}
+     */
+    var NAMESPACE = global.REMODAL_GLOBALS && global.REMODAL_GLOBALS.NAMESPACE || PLUGIN_NAME;
+
+    /**
+     * Animationstart event with vendor prefixes
+     * @private
+     * @const
+     * @type {String}
+     */
+    var ANIMATIONSTART_EVENTS = $.map(
+            ['animationstart', 'webkitAnimationStart', 'MSAnimationStart', 'oAnimationStart'],
+            function (eventName) {
+                return eventName + '.' + NAMESPACE;
+            }
+
+    ).join(' ');
+
+    /**
+     * Animationend event with vendor prefixes
+     * @private
+     * @const
+     * @type {String}
+     */
+    var ANIMATIONEND_EVENTS = $.map(
+            ['animationend', 'webkitAnimationEnd', 'MSAnimationEnd', 'oAnimationEnd'],
+            function (eventName) {
+                return eventName + '.' + NAMESPACE;
+            }
+
+    ).join(' ');
+
+    /**
+     * Default settings
+     * @private
+     * @const
+     * @type {Object}
+     */
+    var DEFAULTS = $.extend({
+        hashTracking: true,
+        closeOnConfirm: true,
+        closeOnCancel: true,
+        closeOnEscape: true,
+        closeOnOutsideClick: true,
+        modifier: '',
+        appendTo: null
+    }, global.REMODAL_GLOBALS && global.REMODAL_GLOBALS.DEFAULTS);
+
+    /**
+     * States of the Remodal
+     * @private
+     * @const
+     * @enum {String}
+     */
+    var STATES = {
+        CLOSING: 'closing',
+        CLOSED: 'closed',
+        OPENING: 'opening',
+        OPENED: 'opened'
+    };
+
+    /**
+     * Reasons of the state change.
+     * @private
+     * @const
+     * @enum {String}
+     */
+    var STATE_CHANGE_REASONS = {
+        CONFIRMATION: 'confirmation',
+        CANCELLATION: 'cancellation'
+    };
+
+    /**
+     * Is animation supported?
+     * @private
+     * @const
+     * @type {Boolean}
+     */
+    var IS_ANIMATION = (function () {
+        var style = document.createElement('div').style;
+
+        return style.animationName !== undefined ||
+                style.WebkitAnimationName !== undefined ||
+                style.MozAnimationName !== undefined ||
+                style.msAnimationName !== undefined ||
+                style.OAnimationName !== undefined;
+    })();
+
+    /**
+     * Is iOS?
+     * @private
+     * @const
+     * @type {Boolean}
+     */
+    var IS_IOS = /iPad|iPhone|iPod/.test(navigator.platform);
+
+    /**
+     * Current modal
+     * @private
+     * @type {Remodal}
+     */
+    var current;
+
+    /**
+     * Scrollbar position
+     * @private
+     * @type {Number}
+     */
+    var scrollTop;
+
+    /**
+     * Returns an animation duration
+     * @private
+     * @param {jQuery} $elem
+     * @returns {Number}
+     */
+    function getAnimationDuration($elem) {
+        if (
+                IS_ANIMATION &&
+                $elem.css('animation-name') === 'none' &&
+                $elem.css('-webkit-animation-name') === 'none' &&
+                $elem.css('-moz-animation-name') === 'none' &&
+                $elem.css('-o-animation-name') === 'none' &&
+                $elem.css('-ms-animation-name') === 'none'
+                ) {
+            return 0;
+        }
+
+        var duration = $elem.css('animation-duration') ||
+                $elem.css('-webkit-animation-duration') ||
+                $elem.css('-moz-animation-duration') ||
+                $elem.css('-o-animation-duration') ||
+                $elem.css('-ms-animation-duration') ||
+                '0s';
+
+        var delay = $elem.css('animation-delay') ||
+                $elem.css('-webkit-animation-delay') ||
+                $elem.css('-moz-animation-delay') ||
+                $elem.css('-o-animation-delay') ||
+                $elem.css('-ms-animation-delay') ||
+                '0s';
+
+        var iterationCount = $elem.css('animation-iteration-count') ||
+                $elem.css('-webkit-animation-iteration-count') ||
+                $elem.css('-moz-animation-iteration-count') ||
+                $elem.css('-o-animation-iteration-count') ||
+                $elem.css('-ms-animation-iteration-count') ||
+                '1';
+
+        var max;
+        var len;
+        var num;
+        var i;
+
+        duration = duration.split(', ');
+        delay = delay.split(', ');
+        iterationCount = iterationCount.split(', ');
+
+        // The 'duration' size is the same as the 'delay' size
+        for (i = 0, len = duration.length, max = Number.NEGATIVE_INFINITY; i < len; i++) {
+            num = parseFloat(duration[i]) * parseInt(iterationCount[i], 10) + parseFloat(delay[i]);
+
+            if (num > max) {
+                max = num;
+            }
+        }
+
+        return max;
+    }
+
+    /**
+     * Returns a scrollbar width
+     * @private
+     * @returns {Number}
+     */
+    function getScrollbarWidth() {
+        if ($(document.body).height() <= $(window).height()) {
+            return 0;
+        }
+
+        var outer = document.createElement('div');
+        var inner = document.createElement('div');
+        var widthNoScroll;
+        var widthWithScroll;
+
+        outer.style.visibility = 'hidden';
+        outer.style.width = '100px';
+        document.body.appendChild(outer);
+
+        widthNoScroll = outer.offsetWidth;
+
+        // Force scrollbars
+        outer.style.overflow = 'scroll';
+
+        // Add inner div
+        inner.style.width = '100%';
+        outer.appendChild(inner);
+
+        widthWithScroll = inner.offsetWidth;
+
+        // Remove divs
+        outer.parentNode.removeChild(outer);
+
+        return widthNoScroll - widthWithScroll;
+    }
+
+    /**
+     * Locks the screen
+     * @private
+     */
+    function lockScreen() {
+        if (IS_IOS) {
+            return;
+        }
+
+        var $html = $('html');
+        var lockedClass = namespacify('is-locked');
+        var paddingRight;
+        var $body;
+
+        if (!$html.hasClass(lockedClass)) {
+            $body = $(document.body);
+
+            // Zepto does not support '-=', '+=' in the `css` method
+            paddingRight = parseInt($body.css('padding-right'), 10) + getScrollbarWidth();
+
+            $body.css('padding-right', paddingRight + 'px');
+            $html.addClass(lockedClass);
+        }
+    }
+
+    /**
+     * Unlocks the screen
+     * @private
+     */
+    function unlockScreen() {
+        if (IS_IOS) {
+            return;
+        }
+
+        var $html = $('html');
+        var lockedClass = namespacify('is-locked');
+        var paddingRight;
+        var $body;
+
+        if ($html.hasClass(lockedClass)) {
+            $body = $(document.body);
+
+            // Zepto does not support '-=', '+=' in the `css` method
+            paddingRight = parseInt($body.css('padding-right'), 10) - getScrollbarWidth();
+
+            $body.css('padding-right', paddingRight + 'px');
+            $html.removeClass(lockedClass);
+        }
+    }
+
+    /**
+     * Sets a state for an instance
+     * @private
+     * @param {Remodal} instance
+     * @param {STATES} state
+     * @param {Boolean} isSilent If true, Remodal does not trigger events
+     * @param {String} Reason of a state change.
+     */
+    function setState(instance, state, isSilent, reason) {
+
+        var newState = namespacify('is', state);
+        var allStates = [namespacify('is', STATES.CLOSING),
+            namespacify('is', STATES.OPENING),
+            namespacify('is', STATES.CLOSED),
+            namespacify('is', STATES.OPENED)].join(' ');
+
+        instance.$bg
+                .removeClass(allStates)
+                .addClass(newState);
+
+        instance.$overlay
+                .removeClass(allStates)
+                .addClass(newState);
+
+        instance.$wrapper
+                .removeClass(allStates)
+                .addClass(newState);
+
+        instance.$modal
+                .removeClass(allStates)
+                .addClass(newState);
+
+        instance.state = state;
+        !isSilent && instance.$modal.trigger({
+            type: state,
+            reason: reason
+        }, [{reason: reason}]);
+    }
+
+    /**
+     * Synchronizes with the animation
+     * @param {Function} doBeforeAnimation
+     * @param {Function} doAfterAnimation
+     * @param {Remodal} instance
+     */
+    function syncWithAnimation(doBeforeAnimation, doAfterAnimation, instance) {
+        var runningAnimationsCount = 0;
+
+        var handleAnimationStart = function (e) {
+            if (e.target !== this) {
+                return;
+            }
+
+            runningAnimationsCount++;
+        };
+
+        var handleAnimationEnd = function (e) {
+            if (e.target !== this) {
+                return;
+            }
+
+            if (--runningAnimationsCount === 0) {
+
+                // Remove event listeners
+                $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+                    instance[elemName].off(ANIMATIONSTART_EVENTS + ' ' + ANIMATIONEND_EVENTS);
+                });
+
+                doAfterAnimation();
+            }
+        };
+
+        $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+            instance[elemName]
+                    .on(ANIMATIONSTART_EVENTS, handleAnimationStart)
+                    .on(ANIMATIONEND_EVENTS, handleAnimationEnd);
+        });
+
+        doBeforeAnimation();
+
+        // If the animation is not supported by a browser or its duration is 0
+        if (
+                getAnimationDuration(instance.$bg) === 0 &&
+                getAnimationDuration(instance.$overlay) === 0 &&
+                getAnimationDuration(instance.$wrapper) === 0 &&
+                getAnimationDuration(instance.$modal) === 0
+                ) {
+
+            // Remove event listeners
+            $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+                instance[elemName].off(ANIMATIONSTART_EVENTS + ' ' + ANIMATIONEND_EVENTS);
+            });
+
+            doAfterAnimation();
+        }
+    }
+
+    /**
+     * Closes immediately
+     * @private
+     * @param {Remodal} instance
+     */
+    function halt(instance) {
+        if (instance.state === STATES.CLOSED) {
+            return;
+        }
+
+        $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+            instance[elemName].off(ANIMATIONSTART_EVENTS + ' ' + ANIMATIONEND_EVENTS);
+        });
+
+        instance.$bg.removeClass(instance.settings.modifier);
+        instance.$overlay.removeClass(instance.settings.modifier).hide();
+        instance.$wrapper.hide();
+        unlockScreen();
+        setState(instance, STATES.CLOSED, true);
+    }
+
+    /**
+     * Parses a string with options
+     * @private
+     * @param str
+     * @returns {Object}
+     */
+    function parseOptions(str) {
+        var obj = {};
+        var arr;
+        var len;
+        var val;
+        var i;
+
+        // Remove spaces before and after delimiters
+        str = str.replace(/\s*:\s*/g, ':').replace(/\s*,\s*/g, ',');
+
+        // Parse a string
+        arr = str.split(',');
+        for (i = 0, len = arr.length; i < len; i++) {
+            arr[i] = arr[i].split(':');
+            val = arr[i][1];
+
+            // Convert a string value if it is like a boolean
+            if (typeof val === 'string' || val instanceof String) {
+                val = val === 'true' || (val === 'false' ? false : val);
+            }
+
+            // Convert a string value if it is like a number
+            if (typeof val === 'string' || val instanceof String) {
+                val = !isNaN(val) ? +val : val;
+            }
+
+            obj[arr[i][0]] = val;
+        }
+
+        return obj;
+    }
+
+    /**
+     * Generates a string separated by dashes and prefixed with NAMESPACE
+     * @private
+     * @param {...String}
+     * @returns {String}
+     */
+    function namespacify() {
+        var result = NAMESPACE;
+
+        for (var i = 0; i < arguments.length; ++i) {
+            result += '-' + arguments[i];
+        }
+
+        return result;
+    }
+
+    /**
+     * Handles the hashchange event
+     * @private
+     * @listens hashchange
+     */
+    function handleHashChangeEvent() {
+        var id = location.hash.replace('#', '');
+        var instance;
+        var $elem;
+
+        if (!id) {
+
+            // Check if we have currently opened modal and animation was completed
+            if (current && current.state === STATES.OPENED && current.settings.hashTracking) {
+                current.close();
+            }
+        } else {
+
+            // Catch syntax error if your hash is bad
+            try {
+                $elem = $(
+                        '[data-' + PLUGIN_NAME + '-id="' + id + '"]'
+                        );
+            } catch (err) {
+            }
+
+            if ($elem && $elem.length) {
+                instance = $[PLUGIN_NAME].lookup[$elem.data(PLUGIN_NAME)];
+
+                if (instance && instance.settings.hashTracking) {
+                    instance.open();
+                }
+            }
+
+        }
+    }
+
+    /**
+     * Remodal constructor
+     * @constructor
+     * @param {jQuery} $modal
+     * @param {Object} options
+     */
+    function Remodal($modal, options) {
+        var $body = $(document.body);
+        var $appendTo = $body;
+        var remodal = this;
+
+        remodal.settings = $.extend({}, DEFAULTS, options);
+        remodal.index = $[PLUGIN_NAME].lookup.push(remodal) - 1;
+        remodal.state = STATES.CLOSED;
+
+        remodal.$overlay = $('.' + namespacify('overlay'));
+
+        if (remodal.settings.appendTo !== null && remodal.settings.appendTo.length) {
+            $appendTo = $(remodal.settings.appendTo);
+        }
+
+        if (!remodal.$overlay.length) {
+            remodal.$overlay = $('<div>').addClass(namespacify('overlay') + ' ' + namespacify('is', STATES.CLOSED)).hide();
+            $appendTo.append(remodal.$overlay);
+        }
+
+        remodal.$bg = $('.' + namespacify('bg')).addClass(namespacify('is', STATES.CLOSED));
+
+        remodal.$modal = $modal
+                .addClass(
+                        NAMESPACE + ' ' +
+                        namespacify('is-initialized') + ' ' +
+                        remodal.settings.modifier + ' ' +
+                        namespacify('is', STATES.CLOSED))
+                .attr('tabindex', '-1');
+
+        remodal.$wrapper = $('<div>')
+                .addClass(
+                        namespacify('wrapper') + ' ' +
+                        remodal.settings.modifier + ' ' +
+                        namespacify('is', STATES.CLOSED))
+                .hide()
+                .append(remodal.$modal);
+        $appendTo.append(remodal.$wrapper);
+
+        // Add the event listener for the close button
+        remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="close"]', function (e) {
+            e.preventDefault();
+
+            remodal.close();
+        });
+
+        // Add the event listener for the cancel button
+        remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="cancel"]', function (e) {
+            e.preventDefault();
+
+            remodal.$modal.trigger(STATE_CHANGE_REASONS.CANCELLATION);
+
+            if (remodal.settings.closeOnCancel) {
+                remodal.close(STATE_CHANGE_REASONS.CANCELLATION);
+            }
+        });
+
+        // Add the event listener for the confirm button
+        remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="confirm"]', function (e) {
+            e.preventDefault();
+
+            remodal.$modal.trigger(STATE_CHANGE_REASONS.CONFIRMATION);
+
+            if (remodal.settings.closeOnConfirm) {
+                remodal.close(STATE_CHANGE_REASONS.CONFIRMATION);
+            }
+        });
+
+        // Add the event listener for the overlay
+        remodal.$wrapper.on('click.' + NAMESPACE, function (e) {
+            var $target = $(e.target);
+
+            if (!$target.hasClass(namespacify('wrapper'))) {
+                return;
+            }
+
+            if (remodal.settings.closeOnOutsideClick) {
+                remodal.close();
+            }
+        });
+    }
+
+    /**
+     * Opens a modal window
+     * @public
+     */
+    Remodal.prototype.open = function () {
+        var remodal = this;
+        var id;
+
+        // Check if the animation was completed
+        if (remodal.state === STATES.OPENING || remodal.state === STATES.CLOSING) {
+            return;
+        }
+
+        id = remodal.$modal.attr('data-' + PLUGIN_NAME + '-id');
+
+        if (id && remodal.settings.hashTracking) {
+            scrollTop = $(window).scrollTop();
+            location.hash = id;
+        }
+
+        if (current && current !== remodal) {
+            halt(current);
+        }
+
+        current = remodal;
+        lockScreen();
+        remodal.$bg.addClass(remodal.settings.modifier);
+        remodal.$overlay.addClass(remodal.settings.modifier).show();
+        remodal.$wrapper.show().scrollTop(0);
+        remodal.$modal.focus();
+
+        syncWithAnimation(
+                function () {
+                    setState(remodal, STATES.OPENING);
+                },
+                function () {
+                    setState(remodal, STATES.OPENED);
+                },
+                remodal);
+    };
+
+    /**
+     * Closes a modal window
+     * @public
+     * @param {String} reason
+     */
+    Remodal.prototype.close = function (reason) {
+        var remodal = this;
+
+        // Check if the animation was completed
+        if (remodal.state === STATES.OPENING || remodal.state === STATES.CLOSING) {
+            return;
+        }
+
+        if (
+                remodal.settings.hashTracking &&
+                remodal.$modal.attr('data-' + PLUGIN_NAME + '-id') === location.hash.substr(1)
+                ) {
+            location.hash = '';
+            $(window).scrollTop(scrollTop);
+        }
+
+        syncWithAnimation(
+                function () {
+                    setState(remodal, STATES.CLOSING, false, reason);
+                },
+                function () {
+                    remodal.$bg.removeClass(remodal.settings.modifier);
+                    remodal.$overlay.removeClass(remodal.settings.modifier).hide();
+                    remodal.$wrapper.hide();
+                    unlockScreen();
+
+                    setState(remodal, STATES.CLOSED, false, reason);
+                },
+                remodal);
+    };
+
+    /**
+     * Returns a current state of a modal
+     * @public
+     * @returns {STATES}
+     */
+    Remodal.prototype.getState = function () {
+        return this.state;
+    };
+
+    /**
+     * Destroys a modal
+     * @public
+     */
+    Remodal.prototype.destroy = function () {
+        var lookup = $[PLUGIN_NAME].lookup;
+        var instanceCount;
+
+        halt(this);
+        this.$wrapper.remove();
+
+        delete lookup[this.index];
+        instanceCount = $.grep(lookup, function (instance) {
+            return !!instance;
+        }).length;
+
+        if (instanceCount === 0) {
+            this.$overlay.remove();
+            this.$bg.removeClass(
+                    namespacify('is', STATES.CLOSING) + ' ' +
+                    namespacify('is', STATES.OPENING) + ' ' +
+                    namespacify('is', STATES.CLOSED) + ' ' +
+                    namespacify('is', STATES.OPENED));
+        }
+    };
+
+    /**
+     * Special plugin object for instances
+     * @public
+     * @type {Object}
+     */
+    $[PLUGIN_NAME] = {
+        lookup: []
+    };
+
+    /**
+     * Plugin constructor
+     * @constructor
+     * @param {Object} options
+     * @returns {JQuery}
+     */
+    $.fn[PLUGIN_NAME] = function (opts) {
+        var instance;
+        var $elem;
+
+        this.each(function (index, elem) {
+            $elem = $(elem);
+
+            if ($elem.data(PLUGIN_NAME) == null) {
+                instance = new Remodal($elem, opts);
+                $elem.data(PLUGIN_NAME, instance.index);
+
+                if (
+                        instance.settings.hashTracking &&
+                        $elem.attr('data-' + PLUGIN_NAME + '-id') === location.hash.substr(1)
+                        ) {
+                    instance.open();
+                }
+            } else {
+                instance = $[PLUGIN_NAME].lookup[$elem.data(PLUGIN_NAME)];
+            }
+        });
+
+        return instance;
+    };
+
+    $(document).ready(function () {
+
+        // data-remodal-target opens a modal window with the special Id
+        $(document).on('click', '[data-' + PLUGIN_NAME + '-target]', function (e) {
+            e.preventDefault();
+
+            var elem = e.currentTarget;
+            var id = elem.getAttribute('data-' + PLUGIN_NAME + '-target');
+            var $target = $('[data-' + PLUGIN_NAME + '-id="' + id + '"]');
+
+            $[PLUGIN_NAME].lookup[$target.data(PLUGIN_NAME)].open();
+        });
+
+        // Auto initialization of modal windows
+        // They should have the 'remodal' class attribute
+        // Also you can write the `data-remodal-options` attribute to pass params into the modal
+        $(document).find('.' + NAMESPACE).each(function (i, container) {
+            var $container = $(container);
+            var options = $container.data(PLUGIN_NAME + '-options');
+
+            if (!options) {
+                options = {};
+            } else if (typeof options === 'string' || options instanceof String) {
+                options = parseOptions(options);
+            }
+
+            $container[PLUGIN_NAME](options);
+        });
+
+        // Handles the keydown event
+        $(document).on('keydown.' + NAMESPACE, function (e) {
+            if (current && current.settings.closeOnEscape && current.state === STATES.OPENED && e.keyCode === 27) {
+                current.close();
+            }
+        });
+
+        // Handles the hashchange event
+        $(window).on('hashchange.' + NAMESPACE, handleHashChangeEvent);
+    });
+});
+
+!function(a,b){"function"==typeof define&&define.amd?define(["jquery"],function(c){return b(a,c)}):"object"==typeof exports?b(a,require("jquery")):b(a,a.jQuery||a.Zepto)}(this,function(a,b){"use strict";function n(a){if(j&&"none"===a.css("animation-name")&&"none"===a.css("-webkit-animation-name")&&"none"===a.css("-moz-animation-name")&&"none"===a.css("-o-animation-name")&&"none"===a.css("-ms-animation-name"))return 0;var e,f,g,h,b=a.css("animation-duration")||a.css("-webkit-animation-duration")||a.css("-moz-animation-duration")||a.css("-o-animation-duration")||a.css("-ms-animation-duration")||"0s",c=a.css("animation-delay")||a.css("-webkit-animation-delay")||a.css("-moz-animation-delay")||a.css("-o-animation-delay")||a.css("-ms-animation-delay")||"0s",d=a.css("animation-iteration-count")||a.css("-webkit-animation-iteration-count")||a.css("-moz-animation-iteration-count")||a.css("-o-animation-iteration-count")||a.css("-ms-animation-iteration-count")||"1";for(b=b.split(", "),c=c.split(", "),d=d.split(", "),h=0,f=b.length,e=Number.NEGATIVE_INFINITY;h<f;h++)g=parseFloat(b[h])*parseInt(d[h],10)+parseFloat(c[h]),g>e&&(e=g);return e}function o(){if(b(document.body).height()<=b(window).height())return 0;var d,e,a=document.createElement("div"),c=document.createElement("div");return a.style.visibility="hidden",a.style.width="100px",document.body.appendChild(a),d=a.offsetWidth,a.style.overflow="scroll",c.style.width="100%",a.appendChild(c),e=c.offsetWidth,a.parentNode.removeChild(a),d-e}function p(){if(!k){var d,e,a=b("html"),c=v("is-locked");a.hasClass(c)||(e=b(document.body),d=parseInt(e.css("padding-right"),10)+o(),e.css("padding-right",d+"px"),a.addClass(c))}}function q(){if(!k){var d,e,a=b("html"),c=v("is-locked");a.hasClass(c)&&(e=b(document.body),d=parseInt(e.css("padding-right"),10)-o(),e.css("padding-right",d+"px"),a.removeClass(c))}}function r(a,b,c,d){var e=v("is",b),f=[v("is",h.CLOSING),v("is",h.OPENING),v("is",h.CLOSED),v("is",h.OPENED)].join(" ");a.$bg.removeClass(f).addClass(e),a.$overlay.removeClass(f).addClass(e),a.$wrapper.removeClass(f).addClass(e),a.$modal.removeClass(f).addClass(e),a.state=b,!c&&a.$modal.trigger({type:b,reason:d},[{reason:d}])}function s(a,c,d){var g=0,h=function(a){a.target===this&&g++},i=function(a){a.target===this&&0===--g&&(b.each(["$bg","$overlay","$wrapper","$modal"],function(a,b){d[b].off(e+" "+f)}),c())};b.each(["$bg","$overlay","$wrapper","$modal"],function(a,b){d[b].on(e,h).on(f,i)}),a(),0===n(d.$bg)&&0===n(d.$overlay)&&0===n(d.$wrapper)&&0===n(d.$modal)&&(b.each(["$bg","$overlay","$wrapper","$modal"],function(a,b){d[b].off(e+" "+f)}),c())}function t(a){a.state!==h.CLOSED&&(b.each(["$bg","$overlay","$wrapper","$modal"],function(b,c){a[c].off(e+" "+f)}),a.$bg.removeClass(a.settings.modifier),a.$overlay.removeClass(a.settings.modifier).hide(),a.$wrapper.hide(),q(),r(a,h.CLOSED,!0))}function u(a){var c,d,e,f,b={};for(a=a.replace(/\s*:\s*/g,":").replace(/\s*,\s*/g,","),c=a.split(","),f=0,d=c.length;f<d;f++)c[f]=c[f].split(":"),e=c[f][1],("string"==typeof e||e instanceof String)&&(e="true"===e||"false"!==e&&e),("string"==typeof e||e instanceof String)&&(e=isNaN(e)?e:+e),b[c[f][0]]=e;return b}function v(){for(var a=d,b=0;b<arguments.length;++b)a+="-"+arguments[b];return a}function w(){var d,e,a=location.hash.replace("#","");if(a){try{e=b('[data-remodal-id="'+a+'"]')}catch(a){}e&&e.length&&(d=b[c].lookup[e.data(c)],d&&d.settings.hashTracking&&d.open())}else l&&l.state===h.OPENED&&l.settings.hashTracking&&l.close()}function x(a,e){var f=b(document.body),j=f,k=this;k.settings=b.extend({},g,e),k.index=b[c].lookup.push(k)-1,k.state=h.CLOSED,k.$overlay=b("."+v("overlay")),null!==k.settings.appendTo&&k.settings.appendTo.length&&(j=b(k.settings.appendTo)),k.$overlay.length||(k.$overlay=b("<div>").addClass(v("overlay")+" "+v("is",h.CLOSED)).hide(),j.append(k.$overlay)),k.$bg=b("."+v("bg")).addClass(v("is",h.CLOSED)),k.$modal=a.addClass(d+" "+v("is-initialized")+" "+k.settings.modifier+" "+v("is",h.CLOSED)).attr("tabindex","-1"),k.$wrapper=b("<div>").addClass(v("wrapper")+" "+k.settings.modifier+" "+v("is",h.CLOSED)).hide().append(k.$modal),j.append(k.$wrapper),k.$wrapper.on("click."+d,'[data-remodal-action="close"]',function(a){a.preventDefault(),k.close()}),k.$wrapper.on("click."+d,'[data-remodal-action="cancel"]',function(a){a.preventDefault(),k.$modal.trigger(i.CANCELLATION),k.settings.closeOnCancel&&k.close(i.CANCELLATION)}),k.$wrapper.on("click."+d,'[data-remodal-action="confirm"]',function(a){a.preventDefault(),k.$modal.trigger(i.CONFIRMATION),k.settings.closeOnConfirm&&k.close(i.CONFIRMATION)}),k.$wrapper.on("click."+d,function(a){var c=b(a.target);c.hasClass(v("wrapper"))&&k.settings.closeOnOutsideClick&&k.close()})}var l,m,c="remodal",d=a.REMODAL_GLOBALS&&a.REMODAL_GLOBALS.NAMESPACE||c,e=b.map(["animationstart","webkitAnimationStart","MSAnimationStart","oAnimationStart"],function(a){return a+"."+d}).join(" "),f=b.map(["animationend","webkitAnimationEnd","MSAnimationEnd","oAnimationEnd"],function(a){return a+"."+d}).join(" "),g=b.extend({hashTracking:!0,closeOnConfirm:!0,closeOnCancel:!0,closeOnEscape:!0,closeOnOutsideClick:!0,modifier:"",appendTo:null},a.REMODAL_GLOBALS&&a.REMODAL_GLOBALS.DEFAULTS),h={CLOSING:"closing",CLOSED:"closed",OPENING:"opening",OPENED:"opened"},i={CONFIRMATION:"confirmation",CANCELLATION:"cancellation"},j=function(){var a=document.createElement("div").style;return void 0!==a.animationName||void 0!==a.WebkitAnimationName||void 0!==a.MozAnimationName||void 0!==a.msAnimationName||void 0!==a.OAnimationName}(),k=/iPad|iPhone|iPod/.test(navigator.platform);x.prototype.open=function(){var d,a=this;a.state!==h.OPENING&&a.state!==h.CLOSING&&(d=a.$modal.attr("data-remodal-id"),d&&a.settings.hashTracking&&(m=b(window).scrollTop(),location.hash=d),l&&l!==a&&t(l),l=a,p(),a.$bg.addClass(a.settings.modifier),a.$overlay.addClass(a.settings.modifier).show(),a.$wrapper.show().scrollTop(0),a.$modal.focus(),s(function(){r(a,h.OPENING)},function(){r(a,h.OPENED)},a))},x.prototype.close=function(a){var d=this;d.state!==h.OPENING&&d.state!==h.CLOSING&&(d.settings.hashTracking&&d.$modal.attr("data-remodal-id")===location.hash.substr(1)&&(location.hash="",b(window).scrollTop(m)),s(function(){r(d,h.CLOSING,!1,a)},function(){d.$bg.removeClass(d.settings.modifier),d.$overlay.removeClass(d.settings.modifier).hide(),d.$wrapper.hide(),q(),r(d,h.CLOSED,!1,a)},d))},x.prototype.getState=function(){return this.state},x.prototype.destroy=function(){var d,a=b[c].lookup;t(this),this.$wrapper.remove(),delete a[this.index],d=b.grep(a,function(a){return!!a}).length,0===d&&(this.$overlay.remove(),this.$bg.removeClass(v("is",h.CLOSING)+" "+v("is",h.OPENING)+" "+v("is",h.CLOSED)+" "+v("is",h.OPENED)))},b[c]={lookup:[]},b.fn[c]=function(a){var d,e;return this.each(function(f,g){e=b(g),null==e.data(c)?(d=new x(e,a),e.data(c,d.index),d.settings.hashTracking&&e.attr("data-remodal-id")===location.hash.substr(1)&&d.open()):d=b[c].lookup[e.data(c)]}),d},b(document).ready(function(){b(document).on("click","[data-remodal-target]",function(a){a.preventDefault();var d=a.currentTarget,e=d.getAttribute("data-remodal-target"),f=b('[data-remodal-id="'+e+'"]');b[c].lookup[f.data(c)].open()}),b(document).find("."+d).each(function(a,d){var e=b(d),f=e.data("remodal-options");f?("string"==typeof f||f instanceof String)&&(f=u(f)):f={},e[c](f)}),b(document).on("keydown."+d,function(a){l&&l.settings.closeOnEscape&&l.state===h.OPENED&&27===a.keyCode&&l.close()}),b(window).on("hashchange."+d,w)})});
+/*!
+ * # Semantic UI 2.2.6 - Modal
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+;(function ($, window, document, undefined) {
+
+"use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
+
+var _module = module;
+module.exports = function(parameters) {
+  var
+    $allModules    = $(this),
+    $window        = $(window),
+    $document      = $(document),
+    $body          = $('body'),
+
+    moduleSelector = $allModules.selector || '',
+
+    time           = new Date().getTime(),
+    performance    = [],
+
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
+    returnedValue
+  ;
+
+  $allModules
+    .each(function() {
+      var
+        settings    = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, _module.exports.settings, parameters)
+          : $.extend({}, _module.exports.settings),
+
+        selector        = settings.selector,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
+        $module         = $(this),
+        $context        = $(settings.context),
+        $close          = $module.find(selector.close),
+
+        $allModals,
+        $otherModals,
+        $focusedElement,
+        $dimmable,
+        $dimmer,
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
+
+        elementEventNamespace,
+        id,
+        observer,
+        module
+      ;
+      module  = {
+
+        initialize: function() {
+          module.verbose('Initializing dimmer', $context);
+
+          module.create.id();
+          module.create.dimmer();
+          module.refreshModals();
+
+          module.bind.events();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of modal');
+          instance = module;
+          $module
+            .data(moduleNamespace, instance)
+          ;
+        },
+
+        create: {
+          dimmer: function() {
+            var
+              defaultSettings = {
+                debug      : settings.debug,
+                dimmerName : 'modals',
+                duration   : {
+                  show     : settings.duration,
+                  hide     : settings.duration
+                }
+              },
+              dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
+            ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmerSettings.variation + ' inverted'
+                : 'inverted'
+              ;
+            }
+            if($.fn.dimmer === undefined) {
+              module.error(error.dimmer);
+              return;
+            }
+            module.debug('Creating dimmer with settings', dimmerSettings);
+            $dimmable = $context.dimmer(dimmerSettings);
+            if(settings.detachable) {
+              module.verbose('Modal is detachable, moving content into dimmer');
+              $dimmable.dimmer('add content', $module);
+            }
+            else {
+              module.set.undetached();
+            }
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
+            }
+            $dimmer = $dimmable.dimmer('get dimmer');
+          },
+          id: function() {
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
+            elementEventNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
+          }
+        },
+
+        destroy: function() {
+          module.verbose('Destroying previous modal');
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+          $window.off(elementEventNamespace);
+          $dimmer.off(elementEventNamespace);
+          $close.off(eventNamespace);
+          $context.dimmer('destroy');
+        },
+
+        observeChanges: function() {
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, refreshing');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
+        refresh: function() {
+          module.remove.scrolling();
+          module.cacheSizes();
+          module.set.screenHeight();
+          module.set.type();
+          module.set.position();
+        },
+
+        refreshModals: function() {
+          $otherModals = $module.siblings(selector.modal);
+          $allModals   = $otherModals.add($module);
+        },
+
+        attachEvents: function(selector, event) {
+          var
+            $toggle = $(selector)
+          ;
+          event = $.isFunction(module[event])
+            ? module[event]
+            : module.toggle
+          ;
+          if($toggle.length > 0) {
+            module.debug('Attaching modal events to element', selector, event);
+            $toggle
+              .off(eventNamespace)
+              .on('click' + eventNamespace, event)
+            ;
+          }
+          else {
+            module.error(error.notFound, selector);
+          }
+        },
+
+        bind: {
+          events: function() {
+            module.verbose('Attaching events');
+            $module
+              .on('click' + eventNamespace, selector.close, module.event.close)
+              .on('click' + eventNamespace, selector.approve, module.event.approve)
+              .on('click' + eventNamespace, selector.deny, module.event.deny)
+            ;
+            $window
+              .on('resize' + elementEventNamespace, module.event.resize)
+            ;
+          }
+        },
+
+        get: {
+          id: function() {
+            return (Math.random().toString(16) + '000000000').substr(2,8);
+          }
+        },
+
+        event: {
+          approve: function() {
+            if(settings.onApprove.call(element, $(this)) === false) {
+              module.verbose('Approve callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
+          deny: function() {
+            if(settings.onDeny.call(element, $(this)) === false) {
+              module.verbose('Deny callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
+          close: function() {
+            module.hide();
+          },
+          click: function(event) {
+            var
+              $target   = $(event.target),
+              isInModal = ($target.closest(selector.modal).length > 0),
+              isInDOM   = $.contains(document.documentElement, event.target)
+            ;
+            if(!isInModal && isInDOM) {
+              module.debug('Dimmer clicked, hiding all modals');
+              if( module.is.active() ) {
+                module.remove.clickaway();
+                if(settings.allowMultiple) {
+                  module.hide();
+                }
+                else {
+                  module.hideAll();
+                }
+              }
+            }
+          },
+          debounce: function(method, delay) {
+            clearTimeout(module.timer);
+            module.timer = setTimeout(method, delay);
+          },
+          keyboard: function(event) {
+            var
+              keyCode   = event.which,
+              escapeKey = 27
+            ;
+            if(keyCode == escapeKey) {
+              if(settings.closable) {
+                module.debug('Escape key pressed hiding modal');
+                module.hide();
+              }
+              else {
+                module.debug('Escape key pressed, but closable is set to false');
+              }
+              event.preventDefault();
+            }
+          },
+          resize: function() {
+            if( $dimmable.dimmer('is active') ) {
+              requestAnimationFrame(module.refresh);
+            }
+          }
+        },
+
+        toggle: function() {
+          if( module.is.active() || module.is.animating() ) {
+            module.hide();
+          }
+          else {
+            module.show();
+          }
+        },
+
+        show: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.refreshModals();
+          module.showModal(callback);
+        },
+
+        hide: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.refreshModals();
+          module.hideModal(callback);
+        },
+
+        showModal: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( module.is.animating() || !module.is.active() ) {
+
+            module.showDimmer();
+            module.cacheSizes();
+            module.set.position();
+            module.set.screenHeight();
+            module.set.type();
+            module.set.clickaway();
+
+            if( !settings.allowMultiple && module.others.active() ) {
+              module.hideOthers(module.showModal);
+            }
+            else {
+              settings.onShow.call(element);
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Showing modal with css animations');
+                $module
+                  .transition({
+                    debug       : settings.debug,
+                    animation   : settings.transition + ' in',
+                    queue       : settings.queue,
+                    duration    : settings.duration,
+                    useFailSafe : true,
+                    onComplete : function() {
+                      settings.onVisible.apply(element);
+                      if(settings.keyboardShortcuts) {
+                        module.add.keyboardShortcuts();
+                      }
+                      module.save.focus();
+                      module.set.active();
+                      if(settings.autofocus) {
+                        module.set.autofocus();
+                      }
+                      callback();
+                    }
+                  })
+                ;
+              }
+              else {
+                module.error(error.noTransition);
+              }
+            }
+          }
+          else {
+            module.debug('Modal is already visible');
+          }
+        },
+
+        hideModal: function(callback, keepDimmed) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.debug('Hiding modal');
+          if(settings.onHide.call(element, $(this)) === false) {
+            module.verbose('Hide callback returned false cancelling hide');
+            return;
+          }
+
+          if( module.is.animating() || module.is.active() ) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              module.remove.active();
+              $module
+                .transition({
+                  debug       : settings.debug,
+                  animation   : settings.transition + ' out',
+                  queue       : settings.queue,
+                  duration    : settings.duration,
+                  useFailSafe : true,
+                  onStart     : function() {
+                    if(!module.others.active() && !keepDimmed) {
+                      module.hideDimmer();
+                    }
+                    if(settings.keyboardShortcuts) {
+                      module.remove.keyboardShortcuts();
+                    }
+                  },
+                  onComplete : function() {
+                    settings.onHidden.call(element);
+                    module.restore.focus();
+                    callback();
+                  }
+                })
+              ;
+            }
+            else {
+              module.error(error.noTransition);
+            }
+          }
+        },
+
+        showDimmer: function() {
+          if($dimmable.dimmer('is animating') || !$dimmable.dimmer('is active') ) {
+            module.debug('Showing dimmer');
+            $dimmable.dimmer('show');
+          }
+          else {
+            module.debug('Dimmer already visible');
+          }
+        },
+
+        hideDimmer: function() {
+          if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
+            $dimmable.dimmer('hide', function() {
+              module.remove.clickaway();
+              module.remove.screenHeight();
+            });
+          }
+          else {
+            module.debug('Dimmer is not visible cannot hide');
+            return;
+          }
+        },
+
+        hideAll: function(callback) {
+          var
+            $visibleModals = $allModals.filter('.' + className.active + ', .' + className.animating)
+          ;
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( $visibleModals.length > 0 ) {
+            module.debug('Hiding all visible modals');
+            module.hideDimmer();
+            $visibleModals
+              .modal('hide modal', callback)
+            ;
+          }
+        },
+
+        hideOthers: function(callback) {
+          var
+            $visibleModals = $otherModals.filter('.' + className.active + ', .' + className.animating)
+          ;
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( $visibleModals.length > 0 ) {
+            module.debug('Hiding other modals', $otherModals);
+            $visibleModals
+              .modal('hide modal', callback, true)
+            ;
+          }
+        },
+
+        others: {
+          active: function() {
+            return ($otherModals.filter('.' + className.active).length > 0);
+          },
+          animating: function() {
+            return ($otherModals.filter('.' + className.animating).length > 0);
+          }
+        },
+
+
+        add: {
+          keyboardShortcuts: function() {
+            module.verbose('Adding keyboard shortcuts');
+            $document
+              .on('keyup' + eventNamespace, module.event.keyboard)
+            ;
+          }
+        },
+
+        save: {
+          focus: function() {
+            $focusedElement = $(document.activeElement).blur();
+          }
+        },
+
+        restore: {
+          focus: function() {
+            if($focusedElement && $focusedElement.length > 0) {
+              $focusedElement.focus();
+            }
+          }
+        },
+
+        remove: {
+          active: function() {
+            $module.removeClass(className.active);
+          },
+          clickaway: function() {
+            if(settings.closable) {
+              $dimmer
+                .off('click' + elementEventNamespace)
+              ;
+            }
+          },
+          bodyStyle: function() {
+            if($body.attr('style') === '') {
+              module.verbose('Removing style attribute');
+              $body.removeAttr('style');
+            }
+          },
+          screenHeight: function() {
+            module.debug('Removing page height');
+            $body
+              .css('height', '')
+            ;
+          },
+          keyboardShortcuts: function() {
+            module.verbose('Removing keyboard shortcuts');
+            $document
+              .off('keyup' + eventNamespace)
+            ;
+          },
+          scrolling: function() {
+            $dimmable.removeClass(className.scrolling);
+            $module.removeClass(className.scrolling);
+          }
+        },
+
+        cacheSizes: function() {
+          var
+            modalHeight = $module.outerHeight()
+          ;
+          if(module.cache === undefined || modalHeight !== 0) {
+            module.cache = {
+              pageHeight    : $(document).outerHeight(),
+              height        : modalHeight + settings.offset,
+              contextHeight : (settings.context == 'body')
+                ? $(window).height()
+                : $dimmable.height()
+            };
+          }
+          module.debug('Caching modal and container sizes', module.cache);
+        },
+
+        can: {
+          fit: function() {
+            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
+          }
+        },
+
+        is: {
+          active: function() {
+            return $module.hasClass(className.active);
+          },
+          animating: function() {
+            return $module.transition('is supported')
+              ? $module.transition('is animating')
+              : $module.is(':visible')
+            ;
+          },
+          scrolling: function() {
+            return $dimmable.hasClass(className.scrolling);
+          },
+          modernBrowser: function() {
+            // appName for IE11 reports 'Netscape' can no longer use
+            return !(window.ActiveXObject || "ActiveXObject" in window);
+          }
+        },
+
+        set: {
+          autofocus: function() {
+            var
+              $inputs    = $module.find('[tabindex], :input').filter(':visible'),
+              $autofocus = $inputs.filter('[autofocus]'),
+              $input     = ($autofocus.length > 0)
+                ? $autofocus.first()
+                : $inputs.first()
+            ;
+            if($input.length > 0) {
+              $input.focus();
+            }
+          },
+          clickaway: function() {
+            if(settings.closable) {
+              $dimmer
+                .on('click' + elementEventNamespace, module.event.click)
+              ;
+            }
+          },
+          screenHeight: function() {
+            if( module.can.fit() ) {
+              $body.css('height', '');
+            }
+            else {
+              module.debug('Modal is taller than page content, resizing page height');
+              $body
+                .css('height', module.cache.height + (settings.padding * 2) )
+              ;
+            }
+          },
+          active: function() {
+            $module.addClass(className.active);
+          },
+          scrolling: function() {
+            $dimmable.addClass(className.scrolling);
+            $module.addClass(className.scrolling);
+          },
+          type: function() {
+            if(module.can.fit()) {
+              module.verbose('Modal fits on screen');
+              if(!module.others.active() && !module.others.animating()) {
+                module.remove.scrolling();
+              }
+            }
+            else {
+              module.verbose('Modal cannot fit on screen setting to scrolling');
+              module.set.scrolling();
+            }
+          },
+          position: function() {
+            module.verbose('Centering modal on page', module.cache);
+            if(module.can.fit()) {
+              $module
+                .css({
+                  top: '',
+                  marginTop: -(module.cache.height / 2)
+                })
+              ;
+            }
+            else {
+              $module
+                .css({
+                  marginTop : '',
+                  top       : $document.scrollTop()
+                })
+              ;
+            }
+          },
+          undetached: function() {
+            $dimmable.addClass(className.undetached);
+          }
+        },
+
+        setting: function(name, value) {
+          module.debug('Changing setting', name, value);
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(!settings.silent && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.debug.apply(console, arguments);
+            }
+          }
+        },
+        verbose: function() {
+          if(!settings.silent && settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.verbose.apply(console, arguments);
+            }
+          }
+        },
+        error: function() {
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime;
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
+                'Execution Time' : executionTime
+              });
+            }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 500);
+          },
+          display: function() {
+            var
+              title = settings.name + ':',
+              totalTime = 0
+            ;
+            time = false;
+            clearTimeout(module.performance.timer);
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
+            }
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
+          }
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            object = instance,
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && object !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
+              }
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
+                return false;
+              }
+              else {
+                return false;
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
+          }
+          else if(response !== undefined) {
+            returnedValue = response;
+          }
+          return found;
+        }
+      };
+
+      if(methodInvoked) {
+        if(instance === undefined) {
+          module.initialize();
+        }
+        module.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          instance.invoke('destroy');
+        }
+        module.initialize();
+      }
+    })
+  ;
+
+  return (returnedValue !== undefined)
+    ? returnedValue
+    : this
+  ;
+};
+
+_module.exports.settings = {
+
+  name           : 'Modal',
+  namespace      : 'modal',
+
+  silent         : false,
+  debug          : false,
+  verbose        : false,
+  performance    : true,
+
+  observeChanges : false,
+
+  allowMultiple  : false,
+  detachable     : true,
+  closable       : true,
+  autofocus      : true,
+
+  inverted       : false,
+  blurring       : false,
+
+  dimmerSettings : {
+    closable : false,
+    useCSS   : true
+  },
+
+  // whether to use keyboard shortcuts
+  keyboardShortcuts: true,
+
+  context    : 'body',
+
+  queue      : false,
+  duration   : 500,
+  offset     : 0,
+  transition : 'scale',
+
+  // padding with edge of page
+  padding    : 50,
+
+  // called before show animation
+  onShow     : function(){},
+
+  // called after show animation
+  onVisible  : function(){},
+
+  // called before hide animation
+  onHide     : function(){ return true; },
+
+  // called after hide animation
+  onHidden   : function(){},
+
+  // called after approve selector match
+  onApprove  : function(){ return true; },
+
+  // called after deny selector match
+  onDeny     : function(){ return true; },
+
+  selector    : {
+    close    : '> .close',
+    approve  : '.actions .positive, .actions .approve, .actions .ok',
+    deny     : '.actions .negative, .actions .deny, .actions .cancel',
+    modal    : '.ui.modal'
+  },
+  error : {
+    dimmer    : 'UI Dimmer, a required component is not included in this page',
+    method    : 'The method you called is not defined.',
+    notFound  : 'The element you specified could not be found'
+  },
+  className : {
+    active     : 'active',
+    animating  : 'animating',
+    blurring   : 'blurring',
+    scrolling  : 'scrolling',
+    undetached : 'undetached'
+  }
+};
+
+
+})( require("jquery"), window, document );
+
+/*!
+ * # Semantic UI 2.2.6 - Modal
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+;(function ($, window, document, undefined) {
+
+"use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
+
+$.fn.modal = function(parameters) {
+  var
+    $allModules    = $(this),
+    $window        = $(window),
+    $document      = $(document),
+    $body          = $('body'),
+
+    moduleSelector = $allModules.selector || '',
+
+    time           = new Date().getTime(),
+    performance    = [],
+
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
+    returnedValue
+  ;
+
+  $allModules
+    .each(function() {
+      var
+        settings    = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.modal.settings, parameters)
+          : $.extend({}, $.fn.modal.settings),
+
+        selector        = settings.selector,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
+        $module         = $(this),
+        $context        = $(settings.context),
+        $close          = $module.find(selector.close),
+
+        $allModals,
+        $otherModals,
+        $focusedElement,
+        $dimmable,
+        $dimmer,
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
+
+        elementEventNamespace,
+        id,
+        observer,
+        module
+      ;
+      module  = {
+
+        initialize: function() {
+          module.verbose('Initializing dimmer', $context);
+
+          module.create.id();
+          module.create.dimmer();
+          module.refreshModals();
+
+          module.bind.events();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of modal');
+          instance = module;
+          $module
+            .data(moduleNamespace, instance)
+          ;
+        },
+
+        create: {
+          dimmer: function() {
+            var
+              defaultSettings = {
+                debug      : settings.debug,
+                dimmerName : 'modals',
+                duration   : {
+                  show     : settings.duration,
+                  hide     : settings.duration
+                }
+              },
+              dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
+            ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmerSettings.variation + ' inverted'
+                : 'inverted'
+              ;
+            }
+            if($.fn.dimmer === undefined) {
+              module.error(error.dimmer);
+              return;
+            }
+            module.debug('Creating dimmer with settings', dimmerSettings);
+            $dimmable = $context.dimmer(dimmerSettings);
+            if(settings.detachable) {
+              module.verbose('Modal is detachable, moving content into dimmer');
+              $dimmable.dimmer('add content', $module);
+            }
+            else {
+              module.set.undetached();
+            }
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
+            }
+            $dimmer = $dimmable.dimmer('get dimmer');
+          },
+          id: function() {
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
+            elementEventNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
+          }
+        },
+
+        destroy: function() {
+          module.verbose('Destroying previous modal');
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+          $window.off(elementEventNamespace);
+          $dimmer.off(elementEventNamespace);
+          $close.off(eventNamespace);
+          $context.dimmer('destroy');
+        },
+
+        observeChanges: function() {
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, refreshing');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
+        refresh: function() {
+          module.remove.scrolling();
+          module.cacheSizes();
+          module.set.screenHeight();
+          module.set.type();
+          module.set.position();
+        },
+
+        refreshModals: function() {
+          $otherModals = $module.siblings(selector.modal);
+          $allModals   = $otherModals.add($module);
+        },
+
+        attachEvents: function(selector, event) {
+          var
+            $toggle = $(selector)
+          ;
+          event = $.isFunction(module[event])
+            ? module[event]
+            : module.toggle
+          ;
+          if($toggle.length > 0) {
+            module.debug('Attaching modal events to element', selector, event);
+            $toggle
+              .off(eventNamespace)
+              .on('click' + eventNamespace, event)
+            ;
+          }
+          else {
+            module.error(error.notFound, selector);
+          }
+        },
+
+        bind: {
+          events: function() {
+            module.verbose('Attaching events');
+            $module
+              .on('click' + eventNamespace, selector.close, module.event.close)
+              .on('click' + eventNamespace, selector.approve, module.event.approve)
+              .on('click' + eventNamespace, selector.deny, module.event.deny)
+            ;
+            $window
+              .on('resize' + elementEventNamespace, module.event.resize)
+            ;
+          }
+        },
+
+        get: {
+          id: function() {
+            return (Math.random().toString(16) + '000000000').substr(2,8);
+          }
+        },
+
+        event: {
+          approve: function() {
+            if(settings.onApprove.call(element, $(this)) === false) {
+              module.verbose('Approve callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
+          deny: function() {
+            if(settings.onDeny.call(element, $(this)) === false) {
+              module.verbose('Deny callback returned false cancelling hide');
+              return;
+            }
+            module.hide();
+          },
+          close: function() {
+            module.hide();
+          },
+          click: function(event) {
+            var
+              $target   = $(event.target),
+              isInModal = ($target.closest(selector.modal).length > 0),
+              isInDOM   = $.contains(document.documentElement, event.target)
+            ;
+            if(!isInModal && isInDOM) {
+              module.debug('Dimmer clicked, hiding all modals');
+              if( module.is.active() ) {
+                module.remove.clickaway();
+                if(settings.allowMultiple) {
+                  module.hide();
+                }
+                else {
+                  module.hideAll();
+                }
+              }
+            }
+          },
+          debounce: function(method, delay) {
+            clearTimeout(module.timer);
+            module.timer = setTimeout(method, delay);
+          },
+          keyboard: function(event) {
+            var
+              keyCode   = event.which,
+              escapeKey = 27
+            ;
+            if(keyCode == escapeKey) {
+              if(settings.closable) {
+                module.debug('Escape key pressed hiding modal');
+                module.hide();
+              }
+              else {
+                module.debug('Escape key pressed, but closable is set to false');
+              }
+              event.preventDefault();
+            }
+          },
+          resize: function() {
+            if( $dimmable.dimmer('is active') ) {
+              requestAnimationFrame(module.refresh);
+            }
+          }
+        },
+
+        toggle: function() {
+          if( module.is.active() || module.is.animating() ) {
+            module.hide();
+          }
+          else {
+            module.show();
+          }
+        },
+
+        show: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.refreshModals();
+          module.showModal(callback);
+        },
+
+        hide: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.refreshModals();
+          module.hideModal(callback);
+        },
+
+        showModal: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( module.is.animating() || !module.is.active() ) {
+
+            module.showDimmer();
+            module.cacheSizes();
+            module.set.position();
+            module.set.screenHeight();
+            module.set.type();
+            module.set.clickaway();
+
+            if( !settings.allowMultiple && module.others.active() ) {
+              module.hideOthers(module.showModal);
+            }
+            else {
+              settings.onShow.call(element);
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Showing modal with css animations');
+                $module
+                  .transition({
+                    debug       : settings.debug,
+                    animation   : settings.transition + ' in',
+                    queue       : settings.queue,
+                    duration    : settings.duration,
+                    useFailSafe : true,
+                    onComplete : function() {
+                      settings.onVisible.apply(element);
+                      if(settings.keyboardShortcuts) {
+                        module.add.keyboardShortcuts();
+                      }
+                      module.save.focus();
+                      module.set.active();
+                      if(settings.autofocus) {
+                        module.set.autofocus();
+                      }
+                      callback();
+                    }
+                  })
+                ;
+              }
+              else {
+                module.error(error.noTransition);
+              }
+            }
+          }
+          else {
+            module.debug('Modal is already visible');
+          }
+        },
+
+        hideModal: function(callback, keepDimmed) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.debug('Hiding modal');
+          if(settings.onHide.call(element, $(this)) === false) {
+            module.verbose('Hide callback returned false cancelling hide');
+            return;
+          }
+
+          if( module.is.animating() || module.is.active() ) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              module.remove.active();
+              $module
+                .transition({
+                  debug       : settings.debug,
+                  animation   : settings.transition + ' out',
+                  queue       : settings.queue,
+                  duration    : settings.duration,
+                  useFailSafe : true,
+                  onStart     : function() {
+                    if(!module.others.active() && !keepDimmed) {
+                      module.hideDimmer();
+                    }
+                    if(settings.keyboardShortcuts) {
+                      module.remove.keyboardShortcuts();
+                    }
+                  },
+                  onComplete : function() {
+                    settings.onHidden.call(element);
+                    module.restore.focus();
+                    callback();
+                  }
+                })
+              ;
+            }
+            else {
+              module.error(error.noTransition);
+            }
+          }
+        },
+
+        showDimmer: function() {
+          if($dimmable.dimmer('is animating') || !$dimmable.dimmer('is active') ) {
+            module.debug('Showing dimmer');
+            $dimmable.dimmer('show');
+          }
+          else {
+            module.debug('Dimmer already visible');
+          }
+        },
+
+        hideDimmer: function() {
+          if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
+            $dimmable.dimmer('hide', function() {
+              module.remove.clickaway();
+              module.remove.screenHeight();
+            });
+          }
+          else {
+            module.debug('Dimmer is not visible cannot hide');
+            return;
+          }
+        },
+
+        hideAll: function(callback) {
+          var
+            $visibleModals = $allModals.filter('.' + className.active + ', .' + className.animating)
+          ;
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( $visibleModals.length > 0 ) {
+            module.debug('Hiding all visible modals');
+            module.hideDimmer();
+            $visibleModals
+              .modal('hide modal', callback)
+            ;
+          }
+        },
+
+        hideOthers: function(callback) {
+          var
+            $visibleModals = $otherModals.filter('.' + className.active + ', .' + className.animating)
+          ;
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( $visibleModals.length > 0 ) {
+            module.debug('Hiding other modals', $otherModals);
+            $visibleModals
+              .modal('hide modal', callback, true)
+            ;
+          }
+        },
+
+        others: {
+          active: function() {
+            return ($otherModals.filter('.' + className.active).length > 0);
+          },
+          animating: function() {
+            return ($otherModals.filter('.' + className.animating).length > 0);
+          }
+        },
+
+
+        add: {
+          keyboardShortcuts: function() {
+            module.verbose('Adding keyboard shortcuts');
+            $document
+              .on('keyup' + eventNamespace, module.event.keyboard)
+            ;
+          }
+        },
+
+        save: {
+          focus: function() {
+            $focusedElement = $(document.activeElement).blur();
+          }
+        },
+
+        restore: {
+          focus: function() {
+            if($focusedElement && $focusedElement.length > 0) {
+              $focusedElement.focus();
+            }
+          }
+        },
+
+        remove: {
+          active: function() {
+            $module.removeClass(className.active);
+          },
+          clickaway: function() {
+            if(settings.closable) {
+              $dimmer
+                .off('click' + elementEventNamespace)
+              ;
+            }
+          },
+          bodyStyle: function() {
+            if($body.attr('style') === '') {
+              module.verbose('Removing style attribute');
+              $body.removeAttr('style');
+            }
+          },
+          screenHeight: function() {
+            module.debug('Removing page height');
+            $body
+              .css('height', '')
+            ;
+          },
+          keyboardShortcuts: function() {
+            module.verbose('Removing keyboard shortcuts');
+            $document
+              .off('keyup' + eventNamespace)
+            ;
+          },
+          scrolling: function() {
+            $dimmable.removeClass(className.scrolling);
+            $module.removeClass(className.scrolling);
+          }
+        },
+
+        cacheSizes: function() {
+          var
+            modalHeight = $module.outerHeight()
+          ;
+          if(module.cache === undefined || modalHeight !== 0) {
+            module.cache = {
+              pageHeight    : $(document).outerHeight(),
+              height        : modalHeight + settings.offset,
+              contextHeight : (settings.context == 'body')
+                ? $(window).height()
+                : $dimmable.height()
+            };
+          }
+          module.debug('Caching modal and container sizes', module.cache);
+        },
+
+        can: {
+          fit: function() {
+            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
+          }
+        },
+
+        is: {
+          active: function() {
+            return $module.hasClass(className.active);
+          },
+          animating: function() {
+            return $module.transition('is supported')
+              ? $module.transition('is animating')
+              : $module.is(':visible')
+            ;
+          },
+          scrolling: function() {
+            return $dimmable.hasClass(className.scrolling);
+          },
+          modernBrowser: function() {
+            // appName for IE11 reports 'Netscape' can no longer use
+            return !(window.ActiveXObject || "ActiveXObject" in window);
+          }
+        },
+
+        set: {
+          autofocus: function() {
+            var
+              $inputs    = $module.find('[tabindex], :input').filter(':visible'),
+              $autofocus = $inputs.filter('[autofocus]'),
+              $input     = ($autofocus.length > 0)
+                ? $autofocus.first()
+                : $inputs.first()
+            ;
+            if($input.length > 0) {
+              $input.focus();
+            }
+          },
+          clickaway: function() {
+            if(settings.closable) {
+              $dimmer
+                .on('click' + elementEventNamespace, module.event.click)
+              ;
+            }
+          },
+          screenHeight: function() {
+            if( module.can.fit() ) {
+              $body.css('height', '');
+            }
+            else {
+              module.debug('Modal is taller than page content, resizing page height');
+              $body
+                .css('height', module.cache.height + (settings.padding * 2) )
+              ;
+            }
+          },
+          active: function() {
+            $module.addClass(className.active);
+          },
+          scrolling: function() {
+            $dimmable.addClass(className.scrolling);
+            $module.addClass(className.scrolling);
+          },
+          type: function() {
+            if(module.can.fit()) {
+              module.verbose('Modal fits on screen');
+              if(!module.others.active() && !module.others.animating()) {
+                module.remove.scrolling();
+              }
+            }
+            else {
+              module.verbose('Modal cannot fit on screen setting to scrolling');
+              module.set.scrolling();
+            }
+          },
+          position: function() {
+            module.verbose('Centering modal on page', module.cache);
+            if(module.can.fit()) {
+              $module
+                .css({
+                  top: '',
+                  marginTop: -(module.cache.height / 2)
+                })
+              ;
+            }
+            else {
+              $module
+                .css({
+                  marginTop : '',
+                  top       : $document.scrollTop()
+                })
+              ;
+            }
+          },
+          undetached: function() {
+            $dimmable.addClass(className.undetached);
+          }
+        },
+
+        setting: function(name, value) {
+          module.debug('Changing setting', name, value);
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(!settings.silent && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.debug.apply(console, arguments);
+            }
+          }
+        },
+        verbose: function() {
+          if(!settings.silent && settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.verbose.apply(console, arguments);
+            }
+          }
+        },
+        error: function() {
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime;
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Element'        : element,
+                'Execution Time' : executionTime
+              });
+            }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 500);
+          },
+          display: function() {
+            var
+              title = settings.name + ':',
+              totalTime = 0
+            ;
+            time = false;
+            clearTimeout(module.performance.timer);
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
+            }
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
+          }
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            object = instance,
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && object !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
+              }
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
+                return false;
+              }
+              else {
+                return false;
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
+          }
+          else if(response !== undefined) {
+            returnedValue = response;
+          }
+          return found;
+        }
+      };
+
+      if(methodInvoked) {
+        if(instance === undefined) {
+          module.initialize();
+        }
+        module.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          instance.invoke('destroy');
+        }
+        module.initialize();
+      }
+    })
+  ;
+
+  return (returnedValue !== undefined)
+    ? returnedValue
+    : this
+  ;
+};
+
+$.fn.modal.settings = {
+
+  name           : 'Modal',
+  namespace      : 'modal',
+
+  silent         : false,
+  debug          : false,
+  verbose        : false,
+  performance    : true,
+
+  observeChanges : false,
+
+  allowMultiple  : false,
+  detachable     : true,
+  closable       : true,
+  autofocus      : true,
+
+  inverted       : false,
+  blurring       : false,
+
+  dimmerSettings : {
+    closable : false,
+    useCSS   : true
+  },
+
+  // whether to use keyboard shortcuts
+  keyboardShortcuts: true,
+
+  context    : 'body',
+
+  queue      : false,
+  duration   : 500,
+  offset     : 0,
+  transition : 'scale',
+
+  // padding with edge of page
+  padding    : 50,
+
+  // called before show animation
+  onShow     : function(){},
+
+  // called after show animation
+  onVisible  : function(){},
+
+  // called before hide animation
+  onHide     : function(){ return true; },
+
+  // called after hide animation
+  onHidden   : function(){},
+
+  // called after approve selector match
+  onApprove  : function(){ return true; },
+
+  // called after deny selector match
+  onDeny     : function(){ return true; },
+
+  selector    : {
+    close    : '> .close',
+    approve  : '.actions .positive, .actions .approve, .actions .ok',
+    deny     : '.actions .negative, .actions .deny, .actions .cancel',
+    modal    : '.ui.modal'
+  },
+  error : {
+    dimmer    : 'UI Dimmer, a required component is not included in this page',
+    method    : 'The method you called is not defined.',
+    notFound  : 'The element you specified could not be found'
+  },
+  className : {
+    active     : 'active',
+    animating  : 'animating',
+    blurring   : 'blurring',
+    scrolling  : 'scrolling',
+    undetached : 'undetached'
+  }
+};
+
+
+})( jQuery, window, document );
+
+/*!
+ * # Semantic UI 2.2.6 - Modal
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+!function(e,n,i,t){"use strict";n="undefined"!=typeof n&&n.Math==Math?n:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")(),e.fn.modal=function(o){var a,r=e(this),s=e(n),c=e(i),l=e("body"),d=r.selector||"",u=(new Date).getTime(),m=[],f=arguments[0],g="string"==typeof f,h=[].slice.call(arguments,1),v=n.requestAnimationFrame||n.mozRequestAnimationFrame||n.webkitRequestAnimationFrame||n.msRequestAnimationFrame||function(e){setTimeout(e,0)};return r.each(function(){var r,b,p,y,k,w,M,S,C,F=e.isPlainObject(o)?e.extend(!0,{},e.fn.modal.settings,o):e.extend({},e.fn.modal.settings),A=F.selector,D=F.className,H=F.namespace,T=F.error,x="."+H,z="module-"+H,O=e(this),q=e(F.context),E=O.find(A.close),j=this,P=O.data(z);C={initialize:function(){C.verbose("Initializing dimmer",q),C.create.id(),C.create.dimmer(),C.refreshModals(),C.bind.events(),F.observeChanges&&C.observeChanges(),C.instantiate()},instantiate:function(){C.verbose("Storing instance of modal"),P=C,O.data(z,P)},create:{dimmer:function(){var n={debug:F.debug,dimmerName:"modals",duration:{show:F.duration,hide:F.duration}},i=e.extend(!0,n,F.dimmerSettings);return F.inverted&&(i.variation=i.variation!==t?i.variation+" inverted":"inverted"),e.fn.dimmer===t?void C.error(T.dimmer):(C.debug("Creating dimmer with settings",i),y=q.dimmer(i),F.detachable?(C.verbose("Modal is detachable, moving content into dimmer"),y.dimmer("add content",O)):C.set.undetached(),F.blurring&&y.addClass(D.blurring),void(k=y.dimmer("get dimmer")))},id:function(){M=(Math.random().toString(16)+"000000000").substr(2,8),w="."+M,C.verbose("Creating unique id for element",M)}},destroy:function(){C.verbose("Destroying previous modal"),O.removeData(z).off(x),s.off(w),k.off(w),E.off(x),q.dimmer("destroy")},observeChanges:function(){"MutationObserver"in n&&(S=new MutationObserver(function(e){C.debug("DOM tree modified, refreshing"),C.refresh()}),S.observe(j,{childList:!0,subtree:!0}),C.debug("Setting up mutation observer",S))},refresh:function(){C.remove.scrolling(),C.cacheSizes(),C.set.screenHeight(),C.set.type(),C.set.position()},refreshModals:function(){b=O.siblings(A.modal),r=b.add(O)},attachEvents:function(n,i){var t=e(n);i=e.isFunction(C[i])?C[i]:C.toggle,t.length>0?(C.debug("Attaching modal events to element",n,i),t.off(x).on("click"+x,i)):C.error(T.notFound,n)},bind:{events:function(){C.verbose("Attaching events"),O.on("click"+x,A.close,C.event.close).on("click"+x,A.approve,C.event.approve).on("click"+x,A.deny,C.event.deny),s.on("resize"+w,C.event.resize)}},get:{id:function(){return(Math.random().toString(16)+"000000000").substr(2,8)}},event:{approve:function(){return F.onApprove.call(j,e(this))===!1?void C.verbose("Approve callback returned false cancelling hide"):void C.hide()},deny:function(){return F.onDeny.call(j,e(this))===!1?void C.verbose("Deny callback returned false cancelling hide"):void C.hide()},close:function(){C.hide()},click:function(n){var t=e(n.target),o=t.closest(A.modal).length>0,a=e.contains(i.documentElement,n.target);!o&&a&&(C.debug("Dimmer clicked, hiding all modals"),C.is.active()&&(C.remove.clickaway(),F.allowMultiple?C.hide():C.hideAll()))},debounce:function(e,n){clearTimeout(C.timer),C.timer=setTimeout(e,n)},keyboard:function(e){var n=e.which,i=27;n==i&&(F.closable?(C.debug("Escape key pressed hiding modal"),C.hide()):C.debug("Escape key pressed, but closable is set to false"),e.preventDefault())},resize:function(){y.dimmer("is active")&&v(C.refresh)}},toggle:function(){C.is.active()||C.is.animating()?C.hide():C.show()},show:function(n){n=e.isFunction(n)?n:function(){},C.refreshModals(),C.showModal(n)},hide:function(n){n=e.isFunction(n)?n:function(){},C.refreshModals(),C.hideModal(n)},showModal:function(n){n=e.isFunction(n)?n:function(){},C.is.animating()||!C.is.active()?(C.showDimmer(),C.cacheSizes(),C.set.position(),C.set.screenHeight(),C.set.type(),C.set.clickaway(),!F.allowMultiple&&C.others.active()?C.hideOthers(C.showModal):(F.onShow.call(j),F.transition&&e.fn.transition!==t&&O.transition("is supported")?(C.debug("Showing modal with css animations"),O.transition({debug:F.debug,animation:F.transition+" in",queue:F.queue,duration:F.duration,useFailSafe:!0,onComplete:function(){F.onVisible.apply(j),F.keyboardShortcuts&&C.add.keyboardShortcuts(),C.save.focus(),C.set.active(),F.autofocus&&C.set.autofocus(),n()}})):C.error(T.noTransition))):C.debug("Modal is already visible")},hideModal:function(n,i){return n=e.isFunction(n)?n:function(){},C.debug("Hiding modal"),F.onHide.call(j,e(this))===!1?void C.verbose("Hide callback returned false cancelling hide"):void((C.is.animating()||C.is.active())&&(F.transition&&e.fn.transition!==t&&O.transition("is supported")?(C.remove.active(),O.transition({debug:F.debug,animation:F.transition+" out",queue:F.queue,duration:F.duration,useFailSafe:!0,onStart:function(){C.others.active()||i||C.hideDimmer(),F.keyboardShortcuts&&C.remove.keyboardShortcuts()},onComplete:function(){F.onHidden.call(j),C.restore.focus(),n()}})):C.error(T.noTransition)))},showDimmer:function(){y.dimmer("is animating")||!y.dimmer("is active")?(C.debug("Showing dimmer"),y.dimmer("show")):C.debug("Dimmer already visible")},hideDimmer:function(){return y.dimmer("is animating")||y.dimmer("is active")?void y.dimmer("hide",function(){C.remove.clickaway(),C.remove.screenHeight()}):void C.debug("Dimmer is not visible cannot hide")},hideAll:function(n){var i=r.filter("."+D.active+", ."+D.animating);n=e.isFunction(n)?n:function(){},i.length>0&&(C.debug("Hiding all visible modals"),C.hideDimmer(),i.modal("hide modal",n))},hideOthers:function(n){var i=b.filter("."+D.active+", ."+D.animating);n=e.isFunction(n)?n:function(){},i.length>0&&(C.debug("Hiding other modals",b),i.modal("hide modal",n,!0))},others:{active:function(){return b.filter("."+D.active).length>0},animating:function(){return b.filter("."+D.animating).length>0}},add:{keyboardShortcuts:function(){C.verbose("Adding keyboard shortcuts"),c.on("keyup"+x,C.event.keyboard)}},save:{focus:function(){p=e(i.activeElement).blur()}},restore:{focus:function(){p&&p.length>0&&p.focus()}},remove:{active:function(){O.removeClass(D.active)},clickaway:function(){F.closable&&k.off("click"+w)},bodyStyle:function(){""===l.attr("style")&&(C.verbose("Removing style attribute"),l.removeAttr("style"))},screenHeight:function(){C.debug("Removing page height"),l.css("height","")},keyboardShortcuts:function(){C.verbose("Removing keyboard shortcuts"),c.off("keyup"+x)},scrolling:function(){y.removeClass(D.scrolling),O.removeClass(D.scrolling)}},cacheSizes:function(){var o=O.outerHeight();C.cache!==t&&0===o||(C.cache={pageHeight:e(i).outerHeight(),height:o+F.offset,contextHeight:"body"==F.context?e(n).height():y.height()}),C.debug("Caching modal and container sizes",C.cache)},can:{fit:function(){return C.cache.height+2*F.padding<C.cache.contextHeight}},is:{active:function(){return O.hasClass(D.active)},animating:function(){return O.transition("is supported")?O.transition("is animating"):O.is(":visible")},scrolling:function(){return y.hasClass(D.scrolling)},modernBrowser:function(){return!(n.ActiveXObject||"ActiveXObject"in n)}},set:{autofocus:function(){var e=O.find("[tabindex], :input").filter(":visible"),n=e.filter("[autofocus]"),i=n.length>0?n.first():e.first();i.length>0&&i.focus()},clickaway:function(){F.closable&&k.on("click"+w,C.event.click)},screenHeight:function(){C.can.fit()?l.css("height",""):(C.debug("Modal is taller than page content, resizing page height"),l.css("height",C.cache.height+2*F.padding))},active:function(){O.addClass(D.active)},scrolling:function(){y.addClass(D.scrolling),O.addClass(D.scrolling)},type:function(){C.can.fit()?(C.verbose("Modal fits on screen"),C.others.active()||C.others.animating()||C.remove.scrolling()):(C.verbose("Modal cannot fit on screen setting to scrolling"),C.set.scrolling())},position:function(){C.verbose("Centering modal on page",C.cache),C.can.fit()?O.css({top:"",marginTop:-(C.cache.height/2)}):O.css({marginTop:"",top:c.scrollTop()})},undetached:function(){y.addClass(D.undetached)}},setting:function(n,i){if(C.debug("Changing setting",n,i),e.isPlainObject(n))e.extend(!0,F,n);else{if(i===t)return F[n];e.isPlainObject(F[n])?e.extend(!0,F[n],i):F[n]=i}},internal:function(n,i){if(e.isPlainObject(n))e.extend(!0,C,n);else{if(i===t)return C[n];C[n]=i}},debug:function(){!F.silent&&F.debug&&(F.performance?C.performance.log(arguments):(C.debug=Function.prototype.bind.call(console.info,console,F.name+":"),C.debug.apply(console,arguments)))},verbose:function(){!F.silent&&F.verbose&&F.debug&&(F.performance?C.performance.log(arguments):(C.verbose=Function.prototype.bind.call(console.info,console,F.name+":"),C.verbose.apply(console,arguments)))},error:function(){F.silent||(C.error=Function.prototype.bind.call(console.error,console,F.name+":"),C.error.apply(console,arguments))},performance:{log:function(e){var n,i,t;F.performance&&(n=(new Date).getTime(),t=u||n,i=n-t,u=n,m.push({Name:e[0],Arguments:[].slice.call(e,1)||"",Element:j,"Execution Time":i})),clearTimeout(C.performance.timer),C.performance.timer=setTimeout(C.performance.display,500)},display:function(){var n=F.name+":",i=0;u=!1,clearTimeout(C.performance.timer),e.each(m,function(e,n){i+=n["Execution Time"]}),n+=" "+i+"ms",d&&(n+=" '"+d+"'"),(console.group!==t||console.table!==t)&&m.length>0&&(console.groupCollapsed(n),console.table?console.table(m):e.each(m,function(e,n){console.log(n.Name+": "+n["Execution Time"]+"ms")}),console.groupEnd()),m=[]}},invoke:function(n,i,o){var r,s,c,l=P;return i=i||h,o=j||o,"string"==typeof n&&l!==t&&(n=n.split(/[\. ]/),r=n.length-1,e.each(n,function(i,o){var a=i!=r?o+n[i+1].charAt(0).toUpperCase()+n[i+1].slice(1):n;if(e.isPlainObject(l[a])&&i!=r)l=l[a];else{if(l[a]!==t)return s=l[a],!1;if(!e.isPlainObject(l[o])||i==r)return l[o]!==t&&(s=l[o],!1);l=l[o]}})),e.isFunction(s)?c=s.apply(o,i):s!==t&&(c=s),e.isArray(a)?a.push(c):a!==t?a=[a,c]:c!==t&&(a=c),s}},g?(P===t&&C.initialize(),C.invoke(f)):(P!==t&&P.invoke("destroy"),C.initialize())}),a!==t?a:this},e.fn.modal.settings={name:"Modal",namespace:"modal",silent:!1,debug:!1,verbose:!1,performance:!0,observeChanges:!1,allowMultiple:!1,detachable:!0,closable:!0,autofocus:!0,inverted:!1,blurring:!1,dimmerSettings:{closable:!1,useCSS:!0},keyboardShortcuts:!0,context:"body",queue:!1,duration:500,offset:0,transition:"scale",padding:50,onShow:function(){},onVisible:function(){},onHide:function(){return!0},onHidden:function(){},onApprove:function(){return!0},onDeny:function(){return!0},selector:{close:"> .close",approve:".actions .positive, .actions .approve, .actions .ok",deny:".actions .negative, .actions .deny, .actions .cancel",modal:".ui.modal"},error:{dimmer:"UI Dimmer, a required component is not included in this page",method:"The method you called is not defined.",notFound:"The element you specified could not be found"},className:{active:"active",animating:"animating",blurring:"blurring",scrolling:"scrolling",undetached:"undetached"}}}(jQuery,window,document);
+
+Package.describe({
+  name    : 'semantic:ui-modal',
+  summary : 'Semantic UI - Modal: Single component release',
+  version : '2.2.6',
+  git     : 'git://github.com/Semantic-Org/UI-Modal.git',
+});
+
+Package.onUse(function(api) {
+  api.versionsFrom('1.0');
+  api.addFiles([
+    'modal.css',
+    'modal.js'
+  ], 'client');
+});
+
 $(".up-redq-follow-widgets").easytabs({
     animate: true,
     updateHash: false,

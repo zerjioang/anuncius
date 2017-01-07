@@ -36,6 +36,7 @@
                 <!-- OTHER BTNS -->
                 <div class="gl-extra-btns-wrapper">
                     <a href="#login" class="gl-add-post-btn" id="gl-side-menu-btn" style="background-color: #bababa; margin: 2px;">Mi cuenta</a>
+                    <a href="#logout" class="gl-add-post-btn" id="session-logout" style="background-color: #bababa; margin: 2px;">Cerrar sesión</a>
                     <a href="#publish" class="gl-add-post-btn" style="margin: 2px;">+ Publicar</a>
 
                     <!-- COMPARE BTN -->

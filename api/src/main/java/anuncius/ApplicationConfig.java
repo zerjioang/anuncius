@@ -13,9 +13,10 @@ import javax.ws.rs.core.Application;
  *
  * @author .local
  */
-@ApplicationPath("api/v1/public")
+@ApplicationPath("v1/public")
 public class ApplicationConfig extends Application {
 
+    public static final int API_VERSION = 1;
     
     @Override
     public Set<Class<?>> getClasses() {

@@ -43,7 +43,7 @@
             <s:param name="image" value="'https://static.anunci.us/img/google.image.png'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/css/minimum.css.jsp"/>
+        <s:include value="/templates/css/minimum.css.jsp"/>
 
         <link rel="shortcut icon" href="images/favicon.ico">
     </head>
@@ -146,6 +146,6 @@
 
         <s:include value="/templates/modules/footer/common.footer.jsp" />
 
-        <s:include value="/templates/modules/js/minimum.js.jsp"/>
+        <s:include value="/templates/js/minimum.js.jsp"/>
     </body>
 </html>

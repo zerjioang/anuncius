@@ -20,26 +20,26 @@ gulp.task('default', ['minjs', 'mincss']);
 
 //minjs
 gulp.task('minjs', function() {
-	gulp.src('../docker/volumes/nginx/html/static/theme/js/**/*.js')
+	gulp.src('../app/src/main/webapp/theme/**/*.js')
 	.pipe(concat('all.js'))
         .pipe(gulp.dest('dist/js'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('../docker/volumes/nginx/html/static/dist/js'));
 });
 
 //css min task
 gulp.task('mincss', function () {
-    gulp.src('../docker/volumes/nginx/html/static/theme/**/*.css')
+    gulp.src('../app/src/main/webapp/**/*.css')
         .pipe(concat('style.css'))
-	.pipe(gulp.dest('dist/css'))
-	.pipe(rename('style.min.css'))
-	.pipe(cssmin())
-        .pipe(gulp.dest('dist/css'));
+    	.pipe(gulp.dest('dist/css'))
+    	.pipe(rename('style.min.css'))
+    	.pipe(cssmin())
+        .pipe(gulp.dest('../docker/volumes/nginx/html/static/dist/css'));
 });
 
 gulp.task('cleancss', function () {
-    return gulp.src('../docker/volumes/nginx/html/static/theme/*.css')
+    return gulp.src('../app/src/main/webapp/**/*.css')
         .pipe(uncss())
         .pipe(gulp.dest('dist/css'));
 });

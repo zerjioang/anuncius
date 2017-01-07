@@ -44,7 +44,7 @@
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/css/minimum.css.jsp"/>
+        <s:include value="/templates/css/minimum.css.jsp"/>
         
         <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
     </head>
@@ -376,7 +376,7 @@
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
 
-        <s:include value="/templates/modules/js/minimum.js.jsp"/>
+        <s:include value="/templates/js/minimum.js.jsp"/>
         
         <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>

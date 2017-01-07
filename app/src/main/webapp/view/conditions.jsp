@@ -43,7 +43,7 @@
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/css/minimum.css.jsp"/>
+        <s:include value="/templates/css/minimum.css.jsp"/>
     </head>
 
     <body class="gl-realestate-template">
@@ -257,7 +257,7 @@
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
 
-        <s:include value="/templates/modules/js/minimum.js.jsp"/>
+        <s:include value="/templates/js/minimum.js.jsp"/>
 
     </body>
 </html>

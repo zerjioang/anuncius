@@ -43,7 +43,7 @@
             <s:param name="image" value="'https://static.anunci.us/image/image.jpg'"></s:param>
         </s:include>
 
-        <s:include value="/templates/modules/css/minimum.css.jsp"/>
+        <s:include value="/templates/css/minimum.css.jsp"/>
     </head>
 
     <body class="gl-realestate-template">
@@ -105,13 +105,59 @@
         <!-- DONATIONS END -->
         --%>
         
+        <!-- Modal -->
+        <div class="modal fade" id="newProductLandingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                           data-dismiss="modal">
+                               <span aria-hidden="true">&times;</span>
+                               <span class="sr-only">Cerrar</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Publicar anuncio gratis en Anuncius
+                        </h4>
+                    </div>
 
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+
+                        <form role="form">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Titulo del anuncio</label>
+                              <input type="text" name="title" class="form-control"
+                              id="exampleInputEmail1" placeholder="PS4 de segunda mano"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Descripcion del anuncio</label>
+                              <input type="text" name="description" class="form-control"
+                                  id="description" placeholder="Vendo PS4 muy bien cuidada..."/>
+                          </div>
+                          <button type="submit" class="btn btn-default">Publicar anuncio</button>
+                        </form>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                                    Cancelar publicación
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Guardar anuncio
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
 
-        <s:include value="/templates/modules/js/minimum.js.jsp"/>
+        <s:include value="/templates/js/minimum.js.jsp"/>
 
     </body>
 </html>

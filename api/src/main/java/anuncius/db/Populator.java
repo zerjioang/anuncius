@@ -5,6 +5,7 @@
  */
 package anuncius.db;
 
+import anuncius.singleton.MongoHandler;
 import java.util.ArrayList;
 
 /**
@@ -24,5 +25,9 @@ public class Populator {
         sentences.add("Tu tiempo es limitado, de modo que no lo malgastes viviendo la vida de alguien distinto. No quedes atrapado en el dogma, que es vivir como otros piensan que deberías vivir. No dejes que los ruidos de las opiniones de los demás acallen tu propia voz interior. Y, lo que es más importante, ten el coraje para hacer lo que te dice tu corazón y tu intuición.$Steve Jobs");
         sentences.add("No duermas para descansar, duerme para soñar. Porque los sueños están para cumplirse.$Walt Disney");
         sentences.add("Todos tus sueños pueden hacerse realidad si tienes el coraje de perseguirlos.$Walt Disney");
+    }
+    
+    public void createSchema(){
+        MongoHandler.getInstance("anuncius").createInitialSchema();
     }
 }

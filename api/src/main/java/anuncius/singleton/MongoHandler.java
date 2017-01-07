@@ -5,8 +5,9 @@
  */
 package anuncius.singleton;
 
+import anuncius.api.model.wrapper.UserOAuthDataRequest;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
-import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
@@ -16,6 +17,7 @@ import com.mongodb.client.MongoIterable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import org.bson.Document;
 
 /**
  *
@@ -27,7 +29,6 @@ public class MongoHandler {
     private static final String MONGO_HOST = "localhost";
     private static final Integer MONGO_PORT = 27017;
     
-    private final static String APP_DATABASE = "anuncius";
     private final static String USERNAME = "user";
     private final static String PASSWORD = "pass";
     
@@ -35,31 +36,19 @@ public class MongoHandler {
     private static MongoHandler instance;
     
     private boolean secureMode;
+    private final String database;
     private MongoDatabase mainDatabase;
     
-    public static MongoHandler getInstance(){
+    public static MongoHandler getInstance(String databaseName){
         if(instance==null){
-            instance = new MongoHandler();
+            instance = new MongoHandler(databaseName);
         }
         return instance;
     }
     
-    private MongoHandler(){
-        try{
-            if(secureMode){
-            //If MongoDB in secure mode, authentication is required.
-            //... missing procedure
-            MongoCredential credential = MongoCredential.createCredential(USERNAME, APP_DATABASE, PASSWORD.toCharArray());
-            mongo = new MongoClient(new ServerAddress(MONGO_HOST), Arrays.asList(credential));
-        }
-        else{
-            // Since 2.10.0, uses MongoClient
-            mongo = new MongoClient(MONGO_HOST, MONGO_PORT);
-        }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
+    private MongoHandler(String databaseName){
+        this.database = databaseName;
+        connect();
         if(mongo==null){
             //... missing procedure
         }
@@ -69,10 +58,30 @@ public class MongoHandler {
         }
     }
     
+    private MongoDatabase getDatabase(String name){
+        if(name!=null){
+            return mongo.getDatabase(name);
+        }
+        return null;
+    }
+    
+    private void connect() {
+        if(secureMode){
+            //If MongoDB in secure mode, authentication is required.
+            //... missing procedure
+            MongoCredential credential = MongoCredential.createCredential(USERNAME, database, PASSWORD.toCharArray());
+            mongo = new MongoClient(new ServerAddress(MONGO_HOST), Arrays.asList(credential));
+        }
+        else{
+            // Since 2.10.0, uses MongoClient
+            mongo = new MongoClient(MONGO_HOST, MONGO_PORT);
+        }
+    }
+    
     private MongoDatabase getMainDatabase(){
         if(mainDatabase==null){
             //If the database doesn’t exist, MongoDB will create it for you.
-            mainDatabase = mongo.getDatabase(APP_DATABASE);
+            mainDatabase = getDatabase(database);
         }
         return mainDatabase;
     }
@@ -106,6 +115,27 @@ public class MongoHandler {
             mongo.close();
             return false;
         }
+    }
+    
+    public void createCollection(String name){
+        if(name!=null){
+            mainDatabase.createCollection(name);
+        }
+    }
+
+    public void createInitialSchema() {
+        if(!isConnected()){
+            connect();
+        }
+        this.createCollection("user");
+        this.createCollection("advertisement");
+        this.createCollection("category");
+        this.createCollection("community");
+        this.createCollection("location");
+        this.createCollection("analytics");
+        this.createCollection("auth");
+        
+        this.createCollection("subscription");
     }
     
 }

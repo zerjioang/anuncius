@@ -1,6 +1,6 @@
 <!-- SECTION HEADINGS -->
 <div class="gl-section-headings">
-    <h1>Los más solicitados</h1>
-    <h2>Echa un vistazo rápido a los más vistos</h2>
+    <h1>${param.title}</h1>
+    <h2>${param.subtitle}</h2>
 </div>
 <!-- END -->
