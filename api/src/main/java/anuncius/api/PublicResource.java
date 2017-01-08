@@ -39,24 +39,6 @@ public class PublicResource {
     }
     
     @GET
-    @Path("/{token: [a-zA-Z0-9]{64}}/demo")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String secureDemo(@PathParam("token") String token) {
-        boolean tokenIsValid = true;
-        if(tokenIsValid){
-            return "{'token':'"+token+"', 'code':200}";
-        }
-        return "{'message':'authentication error', 'code':400}";
-    }
-    
-    @GET
-    @Path("/message/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getMessageId(@PathParam("id") int id) {
-        return "{}";
-    }
-    
-    @GET
     @Path("/messages/get/{id : \\d+}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getMessage(@PathParam("id") int id) {

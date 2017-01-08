@@ -7,11 +7,10 @@ package anuncius.api;
 
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -39,10 +38,16 @@ public class SearchResource {
     }
     
     @GET
-    @Path("/item")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String searchItem() {
-        return "{}";
+    @Path("/item/{query : .*}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String searchItem(@PathParam("query") String query) {
+        if(query!=null){
+            query = query.trim().toLowerCase();
+            return query;
+        }
+        else{
+            return "Invalid input";
+        }
     }
     
     @GET

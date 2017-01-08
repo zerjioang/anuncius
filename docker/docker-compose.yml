@@ -8,7 +8,8 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - './volumes/mongo/data:/data'
+      - './volumes/mongo/data/db:/data/db'
+      - './volumes/mongo/data/config:/data/configdb'
     networks:
       - backend
   cache:

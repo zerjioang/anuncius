@@ -19,7 +19,9 @@ public class SubscriptionRequest extends AbstractRequest{
         super();
     }
 
-    public SubscriptionRequest(String user_agent, String vendor, String platform, String language, String cookies, String location, String time, String email) {
+    public SubscriptionRequest(
+            String user_agent, String vendor, String platform, String language, String cookies, String location, String time,
+            String email) {
         super(user_agent, vendor, platform, language, cookies, location, time);
         this.email = email;
     }

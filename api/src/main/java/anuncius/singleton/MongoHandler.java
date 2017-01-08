@@ -5,8 +5,6 @@
  */
 package anuncius.singleton;
 
-import anuncius.api.model.wrapper.UserOAuthDataRequest;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
@@ -58,14 +56,21 @@ public class MongoHandler {
         }
     }
     
-    private MongoDatabase getDatabase(String name){
+    public MongoDatabase getDatabase(String name){
         if(name!=null){
             return mongo.getDatabase(name);
         }
         return null;
     }
     
-    private void connect() {
+    public boolean existsCollection(String name){
+        MongoCollection<Document> collection = mainDatabase.getCollection(name);
+        if(collection!=null)
+            return collection.count() > 0;
+        return false;
+    }
+    
+    public void connect() {
         if(secureMode){
             //If MongoDB in secure mode, authentication is required.
             //... missing procedure
@@ -122,20 +127,4 @@ public class MongoHandler {
             mainDatabase.createCollection(name);
         }
     }
-
-    public void createInitialSchema() {
-        if(!isConnected()){
-            connect();
-        }
-        this.createCollection("user");
-        this.createCollection("advertisement");
-        this.createCollection("category");
-        this.createCollection("community");
-        this.createCollection("location");
-        this.createCollection("analytics");
-        this.createCollection("auth");
-        
-        this.createCollection("subscription");
-    }
-    
 }

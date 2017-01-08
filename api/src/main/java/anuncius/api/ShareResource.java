@@ -13,6 +13,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
+import anuncius.api.model.wrapper.ContactFormRequest;
 import anuncius.api.model.wrapper.SubscriptionRequest;
 import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
@@ -78,10 +79,10 @@ public class ShareResource {
             
             AnunciusDAO.getInstance().saveUserEmailAsSubscription(request);
             
-            response = APIResponse.USER_SUBSCRIBED_SUCCESSFUL.getAPIResponse();
+            response = APIResponse.USER_SUBSCRIPTION_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){
-            response = APIResponse.INVALID_SUBSCRIPTION_MESSAGE.getAPIResponse();
+            response = APIResponse.USER_SUBSCRIPTION_FAILED.getAPIResponse();
         }
         return response;
     }
@@ -90,20 +91,46 @@ public class ShareResource {
     @Path("/contact")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage contact(
+            //context
+            @FormParam("user_agent") String user_agent,
+            @FormParam("vendor") String vendor,
+            @FormParam("platform") String platform,
+            @FormParam("language") String language,
+            @FormParam("cookies") String cookies,
+            @FormParam("loc") String location,
+            @FormParam("time") String time,
+            //useful
             @QueryParam("name") String name,
             @QueryParam("email") String email,
             @QueryParam("message") String message
     ) {
+        IAPIMessage response;
         try{
             SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_EMAIL_CRITERIA);
-            SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_NAME_CRITERIA);
-            SecureLayer.hasApproved(email, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
+            SecureLayer.hasApproved(name, SecureLayerCriteria.VALID_NAME_CRITERIA);
+            SecureLayer.hasApproved(message, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
             //todo save user in db
-            //AnunciusDAO.getInstance().saveUserEmailAsSubscription(email);
-            return APIResponse.USER_SUBSCRIBED_SUCCESSFUL.getAPIResponse();
+            //todo save user in db
+            ContactFormRequest request = new ContactFormRequest(
+                    user_agent,
+                    vendor,
+                    platform,
+                    language,
+                    cookies,
+                    location,
+                    time,
+                    name,
+                    email,
+                    message
+            );
+            
+            AnunciusDAO.getInstance().insertUserContactFormRequest(request);
+            
+            response = APIResponse.CONTACT_FORM_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){
-            return APIResponse.INVALID_SUBSCRIPTION_MESSAGE.getAPIResponse();
+            response = APIResponse.CONTACT_FORM_FAILED.getAPIResponse();
         }
+        return response;
     }
 }

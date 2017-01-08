@@ -5,6 +5,8 @@
  */
 package anuncius.api.base;
 
+import anuncius.api.model.ResponseContactForm;
+import anuncius.api.model.ResponseInvalidContactForm;
 import anuncius.api.model.ResponseInvalidEmail;
 import anuncius.api.model.ResponseUserSubscriptionDone;
 
@@ -14,15 +16,25 @@ import anuncius.api.model.ResponseUserSubscriptionDone;
  */
 public enum APIResponse {
     
-    INVALID_SUBSCRIPTION_MESSAGE {
+    USER_SUBSCRIPTION_FAILED {
         @Override
         public IAPIMessage getAPIResponse() {
             return new ResponseInvalidEmail();
         }
-    }, USER_SUBSCRIBED_SUCCESSFUL{
+    }, USER_SUBSCRIPTION_SUCCESS{
         @Override
         public IAPIMessage getAPIResponse() {
             return new ResponseUserSubscriptionDone();
+        }
+    }, CONTACT_FORM_SUCCESS{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            return new ResponseContactForm();
+        }
+    }, CONTACT_FORM_FAILED{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            return new ResponseInvalidContactForm();
         }
     };
     

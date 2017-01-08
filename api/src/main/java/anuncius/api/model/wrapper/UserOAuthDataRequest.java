@@ -12,7 +12,7 @@ import org.bson.Document;
  *
  * @author sanguita
  */
-public class UserOAuthDataRequest implements IMongoManipulable, Serializable{
+public class UserOAuthDataRequest extends AbstractRequest{
     
     private final String id;
     private final String name;
@@ -20,18 +20,17 @@ public class UserOAuthDataRequest implements IMongoManipulable, Serializable{
     private final String familyName;
     private final String imageUrl;
     private final String email;
-    private final String location;
-    private final String user_agent;
 
-    public UserOAuthDataRequest(String id, String name, String givenName, String familyName, String imageUrl, String email, String location, String user_agent) {
+    public UserOAuthDataRequest(
+            String user_agent, String vendor, String platform, String language, String cookies, String location, String time,
+            String id, String name, String givenName, String familyName, String imageUrl, String email) {
+        super(user_agent, vendor, platform, language, cookies, location, time);
         this.id = id;
         this.name = name;
         this.givenName = givenName;
         this.familyName = familyName;
         this.imageUrl = imageUrl;
         this.email = email;
-        this.location = location;
-        this.user_agent = user_agent;
     }
     
     public String getId() {
@@ -58,17 +57,9 @@ public class UserOAuthDataRequest implements IMongoManipulable, Serializable{
         return email;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public String getUser_agent() {
-        return user_agent;
-    }
-
     @Override
     public Document convertToMongoObject() {
-        Document document = new Document();
+        Document document = super.convertToMongoObject();
         String[] names = getColumnNames();
         document.put(names[0], this.id);
         document.put(names[1], this.name);
@@ -76,16 +67,12 @@ public class UserOAuthDataRequest implements IMongoManipulable, Serializable{
         document.put(names[3], this.familyName);
         document.put(names[4], this.imageUrl);
         document.put(names[5], this.email);
-        //add metadata
-        document.put(names[6], this.location);
-        document.put(names[7], this.user_agent);
-        document.put(names[8], System.currentTimeMillis());     
         return document;
     }
 
     @Override
     public int getColumnCount() {
-        return 9;
+        return 6;
     }
 
     @Override
@@ -96,10 +83,7 @@ public class UserOAuthDataRequest implements IMongoManipulable, Serializable{
             "given_name",
             "family_name",
             "image_url",
-            "email",
-            "location",
-            "user_agent",
-            "time"
+            "email"
         };
     }
 }
