@@ -43,6 +43,9 @@ public class ABFordwardFilter implements Filter {
             //enable redirects for opensearch queries
             return "/view/explore.jsp";
         }
+        else if(uriStr.equals("/new")){
+            return "/view/new.jsp";
+        }
         else if(uriStr.equals("/account") || uriStr.startsWith("/account/")){
             return "/view/account.jsp";
         }

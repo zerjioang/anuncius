@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <s:include value="/templates/modules/featured/featured.viewall.jsp">
-                <s:param name="url" value="#new"></s:param>
+                <s:param name="url" value="/new"></s:param>
                 <s:param name="text" value="'Crear anuncio'"></s:param>
                 <s:param name="id" value="'no-featured-items-btn'"></s:param>
             </s:include>
