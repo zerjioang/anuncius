@@ -4,8 +4,10 @@ var base = 'api/v1/public';
 var thisUrl = window.location.href;
 console.log(thisUrl);
 
-if(thisUrl.startsWith('http://localhost/')){
-    host = 'http://localhost/';
+var localDate = new Date();
+
+if(thisUrl.startsWith('http://localhost:8084')){
+    host = 'http://localhost:8084/';
 }
 
 function contactAPIviaGET(remotePath, payload, onSuccess, onError) {
@@ -29,6 +31,25 @@ function contactAPIviaDELETE(remotePath, payload, onSuccess, onError) {
 }
 
 function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
+    
+    //add context information before any request
+    
+    if(payload){
+        payload['time'] = localDate.getTime();
+        payload['user_agent'] = navigator.userAgent;
+        payload['cookies'] = navigator.cookieEnabled;
+        payload['language'] = navigator.language;
+        payload['platform'] = navigator.platform;
+        payload['vendor'] = navigator.vendor;
+    }
+    
+    if(isGoogleProfileInfo()){
+        payload['loc'] = sessionStorage.locationTag;
+    }
+    else{
+        payload['loc'] = "unknown";
+    }
+    
     $.ajax({
         method: requestType,
         url: remotePath,
@@ -36,12 +57,12 @@ function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
         data: payload,
         error: function (jqXHR, textStatus, errorThrown) {
             if (onError) {
-                onError();
+                onError(jqXHR, textStatus, errorThrown);
             }
         },
         success: function (data, textStatus, jqXHR) {
             if (onSuccess) {
-                onSuccess();
+                onSuccess(data, textStatus, jqXHR);
             }
         }
     });
