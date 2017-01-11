@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-  <ShortName>Buscar en Anuncius</ShortName>
+  <ShortName>Anuncius</ShortName>
   <Description>Búsqueda rápida en Anuncius</Description>
   <Tags>buscador elementos anuncius</Tags>
   <Image height="16" width="16" type="image/vnd.microsoft.icon">https://static.anunci.us/theme/favicon/favicon-16x16.png</Image>
