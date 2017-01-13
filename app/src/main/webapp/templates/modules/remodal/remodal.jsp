@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="remodal" data-remodal-id="copyright-modal">
+<div id="copyright-modal" class="remodal" data-remodal-id="copyright-modal">
     <button data-remodal-action="close" class="remodal-close"></button>
     <h1>Copyright © 2016 Anuncius. <br></h1>
     <h2>Todos los derechos reservados</h2>

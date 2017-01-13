@@ -3,7 +3,9 @@
 
 <footer>
     
+    <%--
     <s:include value="/templates/modules/remodal/remodal.jsp" />
+    --%>
     <s:include value="/templates/modules/dialog/publish.jsp" />
     
     <!-- FOOTER TOP -->

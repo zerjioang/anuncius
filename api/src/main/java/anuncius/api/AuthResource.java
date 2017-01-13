@@ -23,6 +23,13 @@ import javax.ws.rs.core.MediaType;
 @Path("/auth")
 public class AuthResource {
 
+    @GET
+    @Path("/demo")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String demo() {
+        return "{}";
+    }
+    
     @POST
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)

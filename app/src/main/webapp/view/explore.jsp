@@ -33,7 +33,7 @@
             <s:param name="site" value="'@anuncius'"></s:param>
             <s:param name="title" value="'Anuncius - La compra inteligente'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
-            <s:param name="author" value="'@anuncius.online'"></s:param>
+            <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/twitter.image.png'"></s:param>
         </s:include>
 
@@ -69,6 +69,12 @@
         <!-- PAGE CONTETNT -->
         <section class="gl-page-content-section">
             <div class="container">
+                <div class="gl-row">
+                    <form action="" class="gl-contact-form" id="explore-form" style="display: -webkit-box;">
+                        <input type="text" name="query" id="group-query" placeholder="Smart search" style="width: 80%;margin: 10px;">
+                        <input type="submit" value="Buscar" class="gl-btn" id="explore-form-btn" style="margin: 10px;">
+                    </form>
+                </div>
                 <div class="row">
                     <!-- PAGE CONTENT DETAILS -->
                     <div class="gl-page-content col-md-8 col-sm-8 col-xs-12">
@@ -161,53 +167,9 @@
                         <!-- SEARCH RESULT END -->
                     </div>
                     <!-- PAGE CONTENT DETAILS END -->
-
-                    <!-- SIDEBAR -->
-                    <div class="gl-sidebar gl-page-sidebar col-md-4 col-sm-4 col-xs-12">
-                        <!-- SIDEBAR WIDGET -->
-                        <div class="gl-sidebar-widget gl-search-filter-widget">
-                            <h3 class="gl-sidebar-title">Búsqueda avanzada</h3>
-
-                            <form action="/item/1">
-                                <div class="gl-filter-options gl-search-keyword">
-                                    <input type="text" name="gl-search-keyword" id="gl-search-keyword" placeholder="Keywords">
-                                </div>
-
-                                <div class="gl-filter-options gl-search-location">
-                                    <input type="text" name="location" id="gl-search-location" placeholder="Lugar">
-                                </div>
-
-                                <div class="gl-range-wrapper gl-job-filter-options">
-                                    <span class="gl-filter-inp-title">Precio</span>
-
-                                    <span class="gl-range-value"></span>
-                                    <div class="gl-range-slider">
-                                        <input type="text" id="gl-search-range" name="price"/>
-                                    </div>
-                                </div>
-
-                                <div class="gl-search-category gl-filter-options">
-                                    <select class="gl--search-category-selection">
-                                        <option>&nbsp;</option>
-                                        <option value="new">Nuevo</option>
-                                        <option value="used">Usado</option>
-                                        <option value="defective">Defectuoso</option>
-                                        <option value="broken">Roto</option>
-                                    </select>
-                                </div>
-
-                                <div class="gl-filter-options">
-                                    <input type="text" name="smart" id="gl-bed" placeholder="Smart search">
-                                </div>
-                            </form>
-                        </div>
-                        <!-- END -->
-                    </div>
-                    <!-- SIDEBAR END -->
                 </div>
             </div>
-        </section>
-        
+        </section>  
 
         
         <!-- PAGE CONTETNT END -->

@@ -8,6 +8,7 @@ package anuncius;
 import anuncius.util.Helper;
 import javax.ws.rs.core.Application;
 import anuncius.api.SearchResource;
+import anuncius.util.PlatformUtil;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
@@ -28,6 +29,11 @@ public class PublicResourceTest extends JerseyTest {
     
     //@Test
     public void testDemo() {
-        Helper.testSimpleGET(this, "/public/search/demo", 200, String.class, "{}");
+        if(PlatformUtil.isProduction()){
+            Helper.testSimpleGET(this, "/public/ads/demo", 200, String.class, "{}");
+            Helper.testSimpleGET(this, "/public/auth/demo", 200, String.class, "{}");
+            Helper.testSimpleGET(this, "/public/search/demo", 200, String.class, "{}");
+            Helper.testSimpleGET(this, "/public/share/demo", 200, String.class, "{}");
+        }
     }
 }

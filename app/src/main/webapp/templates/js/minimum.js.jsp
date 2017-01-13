@@ -4,16 +4,18 @@
     String host = System.getenv("HOSTNAME");
     if(host!=null && host.equals("orion")){
 %>
-    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/vendor/jquery/jquery.min.js"></script>
     <script src="/theme/js/plugins.js"></script>
     <script src="/theme/js/scripts.js"></script>
     <script src="/theme/js/main.js"></script>
 
     <!-- remodal js -->
+    <%--
     <script src="/theme/vendor/remodal/remodal.min.js"></script>
+    --%>
 
-    <!-- api handler -->
-    <script async defer src="/theme/vendor/mustache/mustache.min.js"></script>
+    <script async defer src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
+    <script async defer src="/theme/js/vendor/mustache/mustache.min.js"></script>
     <script async defer src="/theme/js/app/api.js"></script>
     <script async defer src="/theme/js/app/google.js"></script>
     <script async defer src="/theme/js/app/custom.js"></script>
@@ -26,16 +28,20 @@
 <% }else{ %>
     <%--<script src="https://static.anunci.us/dist/js/all.min.js"></script>--%>
     
-    <script src="https://static.anunci.us/theme/js/jquery.min.js"></script>
+    <script src="https://static.anunci.us/theme/js/vendro/jquery/jquery.min.js"></script>
     <script src="https://static.anunci.us/theme/js/plugins.js"></script>
     <script src="https://static.anunci.us/theme/js/scripts.js"></script>
     <script src="https://static.anunci.us/theme/js/main.js"></script>
 
     <!-- remodal js -->
+    <%--
     <script src="https://static.anunci.us/theme/vendor/remodal/remodal.min.js"></script>
+    --%>
+    
 
     <!-- api handler -->
-    <script async defer src="https://static.anunci.us/theme/vendor/mustache/mustache.min.js"></script>
+    <script async defer src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
+    <script async defer src="https://static.anunci.us/theme/js/vendor/mustache/mustache.min.js"></script>
     <script async defer src="https://static.anunci.us/theme/js/app/api.js"></script>
     <script async defer src="https://static.anunci.us/theme/js/app/google.js"></script>
     <script async defer src="https://static.anunci.us/theme/js/app/custom.js"></script>

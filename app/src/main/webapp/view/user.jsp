@@ -33,7 +33,7 @@ Perfil público de usuario. Contacta con otros usuarios y enviales mensajes priv
             <s:param name="site" value="'@anuncius'"></s:param>
             <s:param name="title" value="'Anuncius - Perfil de usuario'"></s:param>
             <s:param name="description" value="'Perfil público de usuario. Contacta con otros usuarios y enviales mensajes privados.'"></s:param>
-            <s:param name="author" value="'@anuncius.online'"></s:param>
+            <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
 

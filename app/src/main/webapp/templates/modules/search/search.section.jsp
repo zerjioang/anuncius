@@ -1,4 +1,4 @@
-<section class="gl-directory-searchbar-section">
+<section class="gl-directory-searchbar-section" id="search-section">
     <div class="container">
         <div class="row">
             <div class="gl-directory-searchbar gl-realestate-directory-searchbar collapsed">
@@ -48,10 +48,10 @@
                   </a>
                 </form>
                 --%>
-                <form id="search_item_for">
+                <form id="search-form">
                     <div class="gl-regular-search">
-                        <input type="text" name="item" id="search_box_item" class="gl-directory-input" placeholder="Buscar..." style="width: 73%;">
-                        <button type="submit" class="gl-icon-btn">Buscar</button>
+                        <input type="text" name="item" id="search-item" class="gl-directory-input" placeholder="Buscar..." required autofocus autocomplete>
+                        <button type="submit" id="search-form-submit" class="gl-icon-btn">Buscar</button>
                     </div>
                 </form>
             </div>

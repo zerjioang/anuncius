@@ -33,7 +33,7 @@
             <s:param name="site" value="'@anuncius'"></s:param>
             <s:param name="title" value="'Anuncius - Términos y condiciones'"></s:param>
             <s:param name="description" value="'Términos y condiciones de Anuncius.'"></s:param>
-            <s:param name="author" value="'@anuncius.online'"></s:param>
+            <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
 

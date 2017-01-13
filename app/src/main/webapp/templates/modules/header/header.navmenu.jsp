@@ -10,6 +10,9 @@
         </li>
         --%>
         <li>
+            <a href="/groups">Grupos</a>
+        </li>
+        <li>
             <a href="/blog">Blog</a>
         </li>
         <li>

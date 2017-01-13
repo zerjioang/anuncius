@@ -23,3 +23,20 @@ h2 {
     margin-left: auto;
     margin-right: auto;
 }
+.justify{
+    text-align: justify;
+}
+.fine-space{
+    padding: 10px;
+}
+.vertical-pad-header{
+    padding-top: 40px;
+    padding-bottom: 150px;
+}
+.logo-font{
+    font-size: 50pt;
+    font-family: 'Fredoka One', cursive;
+}
+.logo-white{
+    color:white;
+}

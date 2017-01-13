@@ -6,7 +6,7 @@
     <div class="gl-footer-widget-content">
         <p>Suscríbete al newsletter y entérate de qué esta pasando!</p>
 
-        <form id="subscribe">
+        <form id="subscription-form">
             <input type="email" name="email" id="subscription-form-email" placeholder="Tu email" required>
             <button type="submit" class="gl-btn" id="btn-suscribe-form">Suscribirse</button>
         </form>

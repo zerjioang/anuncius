@@ -82,6 +82,15 @@ public class ABFordwardFilter implements Filter {
         else if(uriStr.equals("/user") || uriStr.startsWith("/user/")){
             return "/view/user.jsp";
         }
+        else if(uriStr.equals("/jobs")){
+            return "/view/jobs.jsp";
+        }
+        else if(uriStr.equals("/docs") || uriStr.startsWith("/docs/")){
+            return "/view/docs.jsp";
+        }
+        else if(uriStr.equals("/groups") || uriStr.startsWith("/groups/")){
+            return "/view/groups.jsp";
+        }
         return null;
     }
 }

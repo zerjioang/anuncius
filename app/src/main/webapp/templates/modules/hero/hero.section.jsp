@@ -1,10 +1,10 @@
-<section class="gl-hero-img-wrapper gl-real-estate-hero"
-         style="background: url(${param.image}) center center no-repeat;background-size:cover">
+<section class="gl-hero-img-wrapper gl-real-estate-hero vertical-pad-header"
+         style="background: url(${param.image}) center center no-repeat;background-size:cover;">
     <div class="container">
         <div class="row">
             <div class="gl-elements-content-wrapper">
                 <div align="center">
-                    <h1 style="font-size: 50pt; color:white; font-family: 'Fredoka One', cursive;">Anuncius</h1>
+                    <h1 class="logo-font logo-white">Anuncius</h1>
                     <br>
                 </div>
                 <h2 class="gl-hero-text-heading">${param.normal}<span class="gl-color-text">${param.bold}</span></h2>

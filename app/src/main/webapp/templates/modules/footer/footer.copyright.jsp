@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <!-- COPYRIGHT INFO -->
-            <div class="gl-copyright-info-wrapper" data-remodal-target="copyright-modal">
+            <div class="gl-copyright-info-wrapper" id="modal-trigger">
                 <p>
                     <a href="" data-remodal-target="copyright-modal">Copyright &copy; 2016 Anuncius. Todos los derechos reservados</a>
                 </p>

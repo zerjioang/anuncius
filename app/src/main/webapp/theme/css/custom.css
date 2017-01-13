@@ -1,5 +1,5 @@
 iframe{
-	display: none;
+    display: none;
 }
 html, p, a, li, h3, h4 {
     font-family: 'Roboto', sans-serif;
@@ -22,4 +22,31 @@ h2 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.force-justify{
+    text-align: justify !important;
+}
+.fine-space{
+    padding: 10px;
+}
+.vertical-pad-header{
+    padding-top: 40px;
+    padding-bottom: 150px;
+}
+.logo-font{
+    font-size: 50pt;
+    font-family: 'Fredoka One', cursive;
+}
+.logo-white{
+    color:white;
+}
+.search-btn{
+    min-width: 150px;
+    width: auto;
+}
+.fine-all-padding{
+    padding: 5%;
+}
+.fine-top-padding{
+    padding: 50px;
 }

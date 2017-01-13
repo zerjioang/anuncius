@@ -1,7 +1,5 @@
-var footer_modal_template = '<div class="remodal" data-remodal-id="copyright-modal"><button data-remodal-action="close" class="remodal-close"></button><h1>{{title}}</h1><h2>{{message}}</h2>{{other}}<button data-remodal-action="confirm" class="remodal-confirm">Cerrar</button></div>';
-
-var featured_item_template = '\
-<div class="gl-featured-items col-md-4 col-sm-4 col-xs-12">\
+var item_template = '\
+<div class="gl-featured-items col-md-3 col-sm-3 col-xs-12">\
     <div class="gl-feat-items-img-wrapper">\
         <picture>\
             <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>\
@@ -57,6 +55,7 @@ var featured_item_template = '\
         </ul>\
     </div>\
 </div>';
+
 //generic on error message
 var onError = function (jqXHR, textStatus, errorThrown) {
     if(textStatus!==undefined && textStatus!==errorThrown){
@@ -85,21 +84,28 @@ $("#btn-suscribe-form").on("click", function (event) {
     contactAPIviaPOST('/share/subscribe/user', payload, onSuccess, onError);
 });
 
-$("#no-featured-items-btn").on("click", function (event) {
+//footer info a link event
+$("#modal-trigger").on("click", function (event) {
     event.preventDefault();
-    alert('no feature elements');
-    //$('#newProductLandingModal').modal('show');
-    BootstrapDialog.alert('I want banana!');
+    var htmlText = '\
+        <h1>Copyright © 2016 Anuncius. <br></h1>\
+        <img src="https://static.anunci.us/theme/images/deusto.jpg" width="350" alt="Logo oficial de la Universidad de Deusto"/>\
+        <h3>Plataforma desarrollada como proyecto en la Universidad de Deusto</h3>';
+    swal({
+        title: "Todos los derechos reservados",
+        text: htmlText,
+        html: true
+    });
 });
 
-$("#featured-items-btn").on("click", function (event) {
+$("#search-form").submit(function( event ) {
     event.preventDefault();
-    alert('yes feature elements');
+    validateQuery(query);
 });
 
-$("#session-logout").on("click", function (event) {
-    signOut();
-    removeLoggedUserElementsFromView(true);
+$("#search-form-submit").on("click", function (event) {
+    event.preventDefault();
+    validateQuery();
 });
 
 //search button event
@@ -220,22 +226,16 @@ $(document).ready(function(){
         removeLoggedUserElementsFromView(false);
     }
     
+    //set default view
+    $('#container-with-featured-items').hide();
+    $('#latest-items-section').hide();
+    $('#container-without-featured-items').show();
+    $('#feed-them-all').show();
+
     //ahora se piden los anuncios destacados
-    var featuredList = [];
-    
-    if(featuredList.length>0){
-        //render on screen
-        var destDiv = $('#featured_elements_block');
-        var data = {};
-        var html = Mustache.to_html(featured_item_template, data);
-        destDiv.html(html);
-        $('#container-with-featured-items').show();
-        $('#container-without-featured-items').hide();
-    }
-    else{
-        $('#container-with-featured-items').hide();
-        $('#container-without-featured-items').show();
-    }
+    getTopItems();
+    //ahora se piden los ultimos
+    getLatestItems();
 });
 
 function removeLoggedUserElementsFromView(showMessage){
@@ -258,4 +258,92 @@ function showLoggedUserElementsInView(showMessage){
 function isGoogleProfileInfo(){
     googleProfile = sessionStorage.googleProfile;
     return googleProfile!==undefined && googleProfile!=="undefined";
+}
+
+function validateQuery() {
+    var query = $('#search-item')[0].value;
+    if(query===undefined || query.trim().length==0){
+        swal("Sin resultados", "No se han encontrado resultados", "error");    
+    }
+    else if(query.trim().length>2){
+        //do query
+        doQuery(query.trim());
+    }
+    else{
+        swal("No se encontraron resultados", "No se encontraron resultados para la busqueda de "+query+".Por favor intentelo más tarde", "error");
+    }
+}
+
+function doQuery(query) {
+    //redirect
+    window.location.replace("https://anunci.us/search/item/demo&utm_source=webapp");
+}
+
+$("#session-logout").on("click", function (event) {
+    signOut();
+    removeLoggedUserElementsFromView(true);
+});
+
+function getLatestItems(){
+    var onSuccess = function (data, textStatus, jqXHR) {
+        if(data!==undefined){
+            var latestItemList = data;
+            //set status of the block depending on the data we have
+            if(latestItemList!==undefined && latestItemList.length>0){
+                var destDiv = $('#listing_elements_block');
+                for (var i = 0; i<latestItemList.length; i++) {
+                    var data = latestItemList[i];
+                    var html = Mustache.to_html(item_template, data);
+                    destDiv.append(html);
+                }
+                $('#feed-them-all').hide();
+                $('#latest-items-section').show();
+            }
+            else{
+                $('#feed-them-all').show();
+                $('#latest-items-section').hide();
+            }
+        }
+    };
+
+    var onError = function (jqXHR, textStatus, errorThrown) {
+        if(textStatus!==undefined && textStatus!==errorThrown){
+            //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
+        }
+    };
+
+    var payload = {};
+    contactAPIviaPOST('/ads/list/latest', payload, onSuccess, onError);
+}
+
+function getTopItems(){
+    var onSuccess = function (data, textStatus, jqXHR) {
+        if(data!==undefined){
+            var featuredList = [0, 1, 2, 3, 4];
+            if(featuredList!==undefined && featuredList.length>0){
+                //render on screen
+                var destDiv = $('#featured_elements_block');
+                for (var i = 0; i<featuredList.length; i++) {
+                    var data = {};
+                    var html = Mustache.to_html(item_template, data);
+                    destDiv.append(html);
+                }
+                $('#container-with-featured-items').show();
+                $('#container-without-featured-items').hide();
+            }
+            else{
+                $('#container-with-featured-items').hide();
+                $('#container-without-featured-items').show();
+            }
+        }
+    };
+
+    var onError = function (jqXHR, textStatus, errorThrown) {
+        if(textStatus!==undefined && textStatus!==errorThrown){
+            //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
+        }
+    };
+
+    var payload = {};
+    contactAPIviaPOST('/ads/list/best', payload, onSuccess, onError);
 }
