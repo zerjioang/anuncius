@@ -6,12 +6,12 @@
 
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
-            <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
-            <s:param name="author" value="'Sergio'"></s:param>
+            <s:param name="description" value="'Blog oficial de la plataforma anuncius. Descubre las últimas novedades y algunos de los secretos'"></s:param>
+            <s:param name="author" value="'anuncius development team'"></s:param>
         </s:include>
         
         <!-- PAGE TITLE -->
-        <title>Anuncius - Blog</title>
+        <title>Anuncius - Blog oficial</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 

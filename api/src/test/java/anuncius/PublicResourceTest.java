@@ -7,7 +7,7 @@ package anuncius;
 
 import anuncius.util.Helper;
 import javax.ws.rs.core.Application;
-import anuncius.api.PublicResource;
+import anuncius.api.SearchResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
@@ -23,11 +23,11 @@ public class PublicResourceTest extends JerseyTest {
     public Application configure() {
         enable(TestProperties.LOG_TRAFFIC);
         enable(TestProperties.DUMP_ENTITY);
-        return new ResourceConfig(PublicResource.class);
+        return new ResourceConfig(SearchResource.class);
     }
     
     //@Test
     public void testDemo() {
-        Helper.testSimpleGET(this, "/public/demo", 200, String.class, "{}");
+        Helper.testSimpleGET(this, "/public/search/demo", 200, String.class, "{}");
     }
 }

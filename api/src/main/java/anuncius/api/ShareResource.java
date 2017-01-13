@@ -13,8 +13,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
-import anuncius.api.model.wrapper.ContactFormRequest;
-import anuncius.api.model.wrapper.SubscriptionRequest;
+import anuncius.api.model.request.ContactFormRequest;
+import anuncius.api.model.request.SubscriptionRequest;
 import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
@@ -78,7 +78,6 @@ public class ShareResource {
             );
             
             AnunciusDAO.getInstance().saveUserEmailAsSubscription(request);
-            
             response = APIResponse.USER_SUBSCRIPTION_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){
@@ -88,7 +87,7 @@ public class ShareResource {
     }
     
     @POST
-    @Path("/contact")
+    @Path("/contact{team")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage contact(
             //context
@@ -125,7 +124,6 @@ public class ShareResource {
             );
             
             AnunciusDAO.getInstance().insertUserContactFormRequest(request);
-            
             response = APIResponse.CONTACT_FORM_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){

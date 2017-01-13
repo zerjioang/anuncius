@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anuncius.api.model;
+package anuncius.api.model.response;
 
 import anuncius.api.base.AbstractResponse;
 import anuncius.api.base.IAPIMessage;

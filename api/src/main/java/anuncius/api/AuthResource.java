@@ -10,45 +10,37 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 
 /**
  * REST Web Service
  *
- * @author .local
+ * @author sanguita
  */
-@Path("/demo")
-public class PublicResource {
+@Path("/auth")
+public class AuthResource {
 
-    @Context
-    private UriInfo context;
-
-    /**
-     * Creates a new instance of PublicResource
-     */
-    public PublicResource() {
+    @POST
+    @Path("/login")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String login() {
+        return "{}";
     }
     
-    @GET
-    @Path("/demo")
+    @POST
+    @Path("/logout")
     @Produces(MediaType.APPLICATION_JSON)
-    public String demo() {
+    public String logout() {
         return "{}";
     }
     
     @GET
-    @Path("/messages/get/{id : \\d+}")
+    @Path("/keepalive")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getMessage(@PathParam("id") int id) {
-        return "{}";
-    }
-    
-    @GET
-    @Path("/quit")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String closeUserSession() {
+    public String keepalive() {
         return "{}";
     }
 }

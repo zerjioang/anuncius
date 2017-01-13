@@ -6,12 +6,12 @@
 
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
-            <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
-            <s:param name="author" value="'Sergio'"></s:param>
+            <s:param name="description" value="'Perfil de usuario de Anuncius. Compra y vende lo que ya no usas. Facil, rápido y sencillo'"></s:param>
+            <s:param name="author" value="'anuncius development team'"></s:param>
         </s:include>
         
         <!-- PAGE TITLE -->
-        <title>Anuncius | Perfil de usuario</title>
+        <title>Anuncius - Mi cuenta</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
@@ -20,7 +20,7 @@
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'https://anunci.us/'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
-            <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
+            <s:param name="description" value="'Perfil de usuario de Anuncius. Compra y vende lo que ya no usas. Facil, rápido y sencillo'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
             <s:param name="region" value="'Bizkaia'"></s:param>
@@ -31,15 +31,15 @@
         <s:include value="/templates/metadata/metadata.twitter.jsp">
             <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
             <s:param name="site" value="'@anuncius'"></s:param>
-            <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
-            <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
+            <s:param name="title" value="'Anuncius - Perfil de usuario'"></s:param>
+            <s:param name="description" value="'Perfil de usuario de Anuncius. Compra y vende lo que ya no usas. Facil, rápido y sencillo'"></s:param>
             <s:param name="author" value="'@anuncius.online'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/twitter.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
-            <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
-            <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
+            <s:param name="name" value="'Anuncius - Perfil de usuario'"></s:param>
+            <s:param name="description" value="'Perfil de usuario de Anuncius. Compra y vende lo que ya no usas. Facil, rápido y sencillo'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
 
@@ -73,20 +73,20 @@
                                         <div class="gl-agent-img-wrapper">
                                             <picture>
                                                 <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                                <img src="https://static.anunci.us/theme/images/product.png" alt="Imagen de perfil de Maria">
+                                                <img src="https://static.anunci.us/theme/images/product.png" alt="Imagen de perfil de usuario">
                                             </picture>
                                         </div>
 
                                         <div class="gl-agent-infos">
                                             <ul>
                                                 <li class="gl-agent-name">
-                                                    <h3>Maria</h3>
+                                                    <h3>Usuario</h3>
                                                     <p>Mayormente vendedor</p>
                                                 </li>
 
                                                 <li><i class="ion-ios-telephone-outline"></i>082 856 310</li>
-                                                <li><i class="ion-ios-email-outline"></i>info@mail.com</li>
-                                                <li><i class="ion-link"></i>envato.com</li>
+                                                <li><i class="ion-ios-email-outline"></i>nombre@email.com</li>
+                                                <li><i class="ion-link"></i>paginapersonal.com</li>
                                                 <li class="gl-agent-social-icons">
                                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                                     <a href="#"><i class="fa fa-tumblr"></i></a>
@@ -102,9 +102,9 @@
                                         </div>
                                         <h3 class="gl-content-title">Contactar</h3>
                                         <form action="#">
-                                            <input type="text" name="gl-agent-name" id="gl-agent-name" placeholder="Nombre" required>
-                                            <input type="email" name="gl-agent-email" id="gl-agent-email" placeholder="Email">
-                                            <textarea name="gl-agent-msg" id="gl-agent-msg" cols="30" rows="3" placeholder="Mensaje" required></textarea>
+                                            <input type="text" name="name" id="gl-agent-name" placeholder="Nombre" required>
+                                            <input type="email" name="email" id="gl-agent-email" placeholder="Email">
+                                            <textarea name="message" id="gl-agent-msg" cols="30" rows="3" placeholder="Mensaje" required></textarea>
                                             <button type="submit" class="gl-btn">Enviar</button>
                                         </form>
                                     </div>

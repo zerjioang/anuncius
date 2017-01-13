@@ -7,11 +7,11 @@
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
-            <s:param name="author" value="'Sergio'"></s:param>
+            <s:param name="author" value="'anuncius development team'"></s:param>
         </s:include>
         
         <!-- PAGE TITLE -->
-        <title>Anuncius | La revolución de las tiendas online</title>
+        <title>Anuncius - Preguntas frecuentes</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 

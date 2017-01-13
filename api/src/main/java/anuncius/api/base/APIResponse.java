@@ -5,10 +5,10 @@
  */
 package anuncius.api.base;
 
-import anuncius.api.model.ResponseContactForm;
-import anuncius.api.model.ResponseInvalidContactForm;
-import anuncius.api.model.ResponseInvalidEmail;
-import anuncius.api.model.ResponseUserSubscriptionDone;
+import anuncius.api.model.response.ResponseContactForm;
+import anuncius.api.model.response.ResponseInvalidContactForm;
+import anuncius.api.model.response.ResponseInvalidEmail;
+import anuncius.api.model.response.ResponseUserSubscriptionDone;
 
 /**
  *

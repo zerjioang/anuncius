@@ -48,6 +48,7 @@ services:
     volumes:
       - ./volumes/nginx/html:/usr/share/nginx/html
       - ./volumes/nginx/config:/config
+      - ./volumes/nginx/cache:/tmp/nginx_cache
     networks:
       - backend
       - frontend

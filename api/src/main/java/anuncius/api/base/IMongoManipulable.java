@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anuncius.api.model;
+package anuncius.api.base;
 
-import anuncius.api.base.AbstractResponse;
+import org.bson.Document;
 
 /**
  *
  * @author sanguita
  */
-public class ResponseContactForm extends AbstractResponse {
-
-    public ResponseContactForm() {
-        this._request_completed = true;
-    }
+public interface IMongoManipulable {
     
+    Document convertToMongoObject();
+    int getColumnCount();
+    String[] getColumnNames();
 }

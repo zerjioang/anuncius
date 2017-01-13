@@ -5,7 +5,8 @@ FROM nginx:1.11.8-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy ssl files
-RUN mkdir /ssl
+RUN mkdir /ssl \
+	&& mkdir /tmp/nginx_cache
 
 #COPY ./ssl/fullchain.pem /ssl/fullchain.pem
 #COPY ./ssl/privkey.pem /ssl/privkey.pem
@@ -15,3 +16,4 @@ RUN mkdir /ssl
 #export volumes
 VOLUME /ssl
 VOLUME /usr/share/nginx
+VOLUME /tmp/nginx_cache

@@ -5,9 +5,9 @@
  */
 package anuncius.singleton;
 
-import anuncius.api.model.wrapper.ContactFormRequest;
-import anuncius.api.model.wrapper.SubscriptionRequest;
-import anuncius.api.model.wrapper.UserOAuthDataRequest;
+import anuncius.api.model.request.ContactFormRequest;
+import anuncius.api.model.request.SubscriptionRequest;
+import anuncius.api.model.request.UserOAuthDataRequest;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 

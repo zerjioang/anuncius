@@ -11,7 +11,7 @@
         </s:include>
         
         <!-- PAGE TITLE -->
-        <title>Anuncius | La compra inteligente</title>
+        <title>Anuncius, la compra inteligente</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
