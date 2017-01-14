@@ -81,32 +81,32 @@
                                 <h3 class="gl-sub-heading">Rellena tu ficha: <span id="anuncio_id"></span></h3>
                             </div>
 
-                            <form action="#" class="gl-review-submission-form">
+                            <form class="gl-review-submission-form" id="publish-form">
                                 <fieldset class="gl-form-fields">
                                     <div class="gl-input-area">
                                         <div>
                                             <label>Título de tu publicación</label>
-                                            <input style="width: 100%;" type="text" name="item_name" id="item_name" placeholder="PS4 Seminueva de 500Gb" required>
+                                            <input class="force-black-input" style="width: 100%;" type="text" name="name" id="item_name" placeholder="PS4 Seminueva de 500Gb" required>
                                         </div>
                                         <div>
                                             <label>Categoría</label>
-                                            <input style="width: 100%;" type="text" name="item_best_category" id="item_best_category" placeholder="Videoconsola" required>
+                                            <input class="force-black-input" style="width: 100%;" type="text" name="category" id="item_best_category" placeholder="Videoconsola" required>
                                         </div>
                                         <div>
                                             <label>Palabra clave que mejor lo define</label>
-                                            <input style="width: 100%;" type="text" name="item_best_name" id="item_best_name" placeholder="PS4" required>
+                                            <input class="force-black-input" style="width: 100%;" type="text" name="keyword" id="item_best_name" placeholder="PS4" required>
                                         </div>
                                         <div>
                                             <label>Acción que mejor lo define: vender, comprar, cambiar, comer, disfrutar, etc</label>
-                                            <input style="width: 100%;" type="text" name="item_action" id="item_action" placeholder="Vender" required>
+                                            <input class="force-black-input" style="width: 100%;" type="text" name="action" id="item_action" placeholder="Vender" required>
                                         </div>
                                         <div>
                                             <label>Precio publicación</label>
-                                            <input style="width: 100%;"  type="number" name="price" id="price" placeholder="110" required></input>
+                                            <input class="force-black-input" style="width: 100%;"  type="number" name="price" id="price" placeholder="110" required></input>
                                         </div>
                                         <div>
                                             <label>Descripción de tu publicación/evento</label>
-                                            <textarea name="description" id="description" cols="30" rows="5" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
+                                            <textarea class="force-black-input" name="description" id="description" cols="30" rows="5" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
                                         </div>
                                     </div>
 
@@ -117,7 +117,7 @@
                                 </fieldset>
 
                                 <fieldset class="gl-submit-wrapper">
-                                    <input type="submit" value="Publicar" class="gl-btn">
+                                    <input type="submit" value="Publicar" class="gl-btn" id="btn-publish-form">
                                 </fieldset>
                             </form>
                         </div>

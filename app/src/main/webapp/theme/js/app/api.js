@@ -35,21 +35,31 @@ function contactAPIviaDELETE(remotePath, payload, onSuccess, onError) {
 function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
     
     //add context information before any request
-    
-    if(payload){
-        payload['time'] = localDate.getTime();
-        payload['user_agent'] = navigator.userAgent;
-        payload['cookies'] = navigator.cookieEnabled;
-        payload['language'] = navigator.language;
-        payload['platform'] = navigator.platform;
-        payload['vendor'] = navigator.vendor;
+
+    if(payload==undefined){
+        payload = {};
     }
+
+    //add metadata
+    payload['time'] = localDate.getTime();
+    payload['user_agent'] = navigator.userAgent;
+    payload['cookies'] = navigator.cookieEnabled;
+    payload['language'] = navigator.language;
+    payload['platform'] = navigator.platform;
+    payload['vendor'] = navigator.vendor;
     
+    payload['lat'] = sessionStorage.latitude;
+    payload['lon'] = sessionStorage.longitude;
+    //add loc
     if(isGoogleProfileInfo()){
         payload['loc'] = sessionStorage.locationTag;
+        //add token
+        payload['token'] = getGoogleUserToken();
     }
     else{
         payload['loc'] = "unknown";
+        //add token
+        payload['token'] = "unknown";
     }
     
     $.ajax({

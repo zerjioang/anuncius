@@ -16,11 +16,14 @@ if(host!=null && host.equals("orion")){
 
         <script async defer src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
         <script async defer src="/theme/js/vendor/mustache/mustache.min.js"></script>
+        
+        <script async defer src="/theme/js/app/core.js"></script>
+        
         <script async defer src="/theme/js/app/api.js"></script>
-        <script async defer src="/theme/js/app/google.js"></script>
 
+        <script async defer src="/theme/js/app/google.js"></script>
+        
         <script async defer src="/theme/js/app/templates.js"></script>
-        <script async defer src="/theme/js/app/custom.js"></script>
         <script async defer src="/theme/js/app/events.js"></script>
     <%}%>
 <% }else{ %>
@@ -35,10 +38,12 @@ if(host!=null && host.equals("orion")){
         <!-- api handler -->
         <script async defer src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
         <script async defer src="https://static.anunci.us/theme/js/vendor/mustache/mustache.min.js"></script>
+        
+        <script async defer src="https://static.anunci.us/theme/js/app/core.js"></script>
+        
         <script async defer src="https://static.anunci.us/theme/js/app/api.js"></script>
-        <script async defer src="https://static.anunci.us/theme/js/app/google.js"></script>
         <script async defer src="https://static.anunci.us/theme/js/app/templates.js"></script>
-        <script async defer src="https://static.anunci.us/theme/js/app/custom.js"></script>
+        <script async defer src="https://static.anunci.us/theme/js/app/google.js"></script>
         <script async defer src="https://static.anunci.us/theme/js/app/events.js"></script>
     <%}%>
 <% } %>

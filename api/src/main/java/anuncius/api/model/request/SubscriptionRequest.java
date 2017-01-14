@@ -19,10 +19,7 @@ public class SubscriptionRequest extends AbstractRequest{
         super();
     }
 
-    public SubscriptionRequest(
-            String user_agent, String vendor, String platform, String language, String cookies, String location, String time,
-            String email) {
-        super(user_agent, vendor, platform, language, cookies, location, time);
+    public SubscriptionRequest(String email) {
         this.email = email;
     }
     
@@ -48,5 +45,10 @@ public class SubscriptionRequest extends AbstractRequest{
     @Override
     public int getColumnCount(){
         return 1;
+    }
+
+    @Override
+    public void convertFromMongoObject(Document document) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

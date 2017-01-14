@@ -13,92 +13,53 @@ import org.bson.Document;
  * @author sanguita
  */
 public abstract class AbstractRequest implements IMongoManipulable, Serializable{
- 
-    private String user_agent;
-    private String vendor;
-    private String platform;
-    private String language;
-    private String cookies;
-    private String location;
-    private String time;
 
+    private String id;
+    private boolean deleted;
+    
     public AbstractRequest(){
         
-    }    
+    }
     
-    public AbstractRequest(String user_agent, String vendor, String platform, String language, String cookies, String location, String time) {
-        this.user_agent = user_agent;
-        this.vendor = vendor;
-        this.platform = platform;
-        this.language = language;
-        this.cookies = cookies;
-        this.location = location;
-        this.time = time;
-    }
-
-    public String getUser_agent() {
-        return user_agent;
-    }
-
-    public String getVendor() {
-        return vendor;
-    }
-
-    public String getPlatform() {
-        return platform;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public String getCookies() {
-        return cookies;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getTime() {
-        return time;
+    public AbstractRequest(Document document) {
+        this.convertFromMongoObject(document);
     }
     
     @Override
     public Document convertToMongoObject() {
         Document document = new Document();
-        String[] names = this.getBaseColumnNames();
-        document.put(names[0], this.user_agent);
-        document.put(names[1], this.vendor);
-        document.put(names[2], this.platform);
-        document.put(names[3], this.language);
-        document.put(names[4], this.cookies);
-        document.put(names[5], this.location);
-        document.put(names[6], this.time);
-        document.put(names[7], System.currentTimeMillis());
+        String[] names = this.getThisColumnNames();
+        document.put(names[1], deleted);
         return document;
     }
     
-    @Override
-    public String[] getColumnNames() {
-        return this.getBaseColumnNames();
-    }
-    
-    public String[] getBaseColumnNames() {
+    public String[] getThisColumnNames() {
         return new String[]{
-            "user_agent",
-            "vendor",
-            "platform",
-            "language",
-            "cookies",
-            "location",
-            "time",
-            "server_time"
+            "id",
+            "deleted"
         };
     }
     
     @Override
     public int getColumnCount(){
-        return 8;
+        return 2;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+    
+    
 }

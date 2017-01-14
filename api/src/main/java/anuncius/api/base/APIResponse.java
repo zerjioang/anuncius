@@ -5,9 +5,12 @@
  */
 package anuncius.api.base;
 
+import anuncius.api.model.response.ResponseArrayList;
 import anuncius.api.model.response.ResponseContactForm;
 import anuncius.api.model.response.ResponseInvalidContactForm;
 import anuncius.api.model.response.ResponseInvalidEmail;
+import anuncius.api.model.response.ResponseNewPublishDone;
+import anuncius.api.model.response.ResponseNewPublishFailed;
 import anuncius.api.model.response.ResponseUserSubscriptionDone;
 
 /**
@@ -35,6 +38,21 @@ public enum APIResponse {
         @Override
         public IAPIMessage getAPIResponse() {
             return new ResponseInvalidContactForm();
+        }
+    }, NEW_PUBLISH_SUCCESS{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            return new ResponseNewPublishDone();
+        }
+    }, NEW_PUBLISH_FAILED{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            return new ResponseNewPublishFailed();
+        }
+    }, RETURN_ARRAYLIST{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            return new ResponseArrayList();
         }
     };
     

@@ -16,7 +16,7 @@ public enum SecureLayerCriteria {
 
     CONSUMER_KEY_CRITERIA {
         @Override
-        public void validate(String consumerKey) throws SecureLayerException {
+        public void validate(Object consumerKey) throws SecureLayerException {
             if(consumerKey == null){
                 logInvalidCriteria(this.name(), "Consumer key is null");
                 throw new SecureLayerException("Consumer key does not pass security validations. Please check input data");
@@ -25,7 +25,7 @@ public enum SecureLayerCriteria {
     },
     CONSUMER_SECRET_CRITERIA {
         @Override
-        public void validate(String consumerSecret) throws SecureLayerException {
+        public void validate(Object consumerSecret) throws SecureLayerException {
             if(consumerSecret == null){
                 logInvalidCriteria(this.name(), "Consumer secret is null");
                 throw new SecureLayerException("Consumer secret does not pass security validations. Please check input data");
@@ -34,7 +34,8 @@ public enum SecureLayerCriteria {
     },
     VALID_EMAIL_CRITERIA {
         @Override
-        public void validate(String email) throws SecureLayerException {
+        public void validate(Object data) throws SecureLayerException {
+            String email = data!=null && data.getClass().getSimpleName().equals("String") ? (String) data : null;
             if(email!=null){
                 if(!email.trim().isEmpty() && email.contains("@")){
                     Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
@@ -57,9 +58,10 @@ public enum SecureLayerCriteria {
         }
     }
     ,
-    VALID_NAME_CRITERIA{
+    VALID_PERSON_NAME_CRITERIA{
         @Override
-        public void validate(String name) throws SecureLayerException {
+        public void validate(Object data) throws SecureLayerException {
+            String name = data!=null && data.getClass().getSimpleName().equals("String") ? (String) data : null;
             if(name!=null){
                 if(!name.trim().isEmpty()){
                     Pattern pattern = Pattern.compile("[a-zA-ZñÇçáéíóúàèìòù]{2,}");
@@ -78,7 +80,8 @@ public enum SecureLayerCriteria {
     },
     VALID_MESSAGE_CRITERIA{
         @Override
-        public void validate(String message) throws SecureLayerException {
+        public void validate(Object data) throws SecureLayerException {
+            String message = data!=null && data.getClass().getSimpleName().equals("String") ? (String) data : null;
             if(message!=null){
                 if(!message.trim().isEmpty()){
                     message = message.toLowerCase();
@@ -104,6 +107,7 @@ public enum SecureLayerCriteria {
                     int index = 0;
                     while(!xssFound && index<xssKeywords.length){
                         xssFound = message.contains(xssKeywords[index]);
+                        index++;
                     }
                     if(xssFound){
                         throw new SecureLayerException("Inbound API received a potential XSS content ("+message+") and failed on security check for criteria "+name());
@@ -115,11 +119,30 @@ public enum SecureLayerCriteria {
                 throw new SecureLayerException("Inbound API received NULL message attribute and failed on security check for criteria "+name());
             }
         }
+    }, VALID_POSITIVE_NUMBER_CRITERIA{
+        @Override
+        public void validate(Object data) throws SecureLayerException {
+            int value = data!=null && data.getClass().getSimpleName().equals("Integer") ? (int) data : -1;
+            if(value<=0){
+                logInvalidCriteria(this.name(), "Invalid integer value detected. "+value);
+                throw new SecureLayerException("Inbound API received invalid value attribute and failed on security check for criteria "+name());
+            }
+        }
+    }
+    , VALID_DOUBLE_POSITIVE_NUMBER_CRITERIA{
+        @Override
+        public void validate(Object data) throws SecureLayerException {
+            double value = data!=null && data.getClass().getSimpleName().equals("Double") ? (double) data : -1;
+            if(value<=0){
+                logInvalidCriteria(this.name(), "Invalid double value detected. "+value);
+                throw new SecureLayerException("Inbound API received invalid value attribute and failed on security check for criteria "+name());
+            }
+        }
     };
     private static void logInvalidCriteria(String sourcename, String data){
         System.err.println("ALERT: "+sourcename+" criteria violation blocked: "+data);
     }
     
-    public abstract void validate(String data) throws SecureLayerException;
+    public abstract void validate(Object data) throws SecureLayerException;
     
 }

@@ -6,9 +6,13 @@
 package anuncius.singleton;
 
 import anuncius.api.model.request.ContactFormRequest;
+import anuncius.api.model.request.NewItemRequest;
 import anuncius.api.model.request.SubscriptionRequest;
 import anuncius.api.model.request.UserOAuthDataRequest;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 
 /**
@@ -32,6 +36,8 @@ public class AnunciusDAO {
     
     private MongoHandler mongo;
     private RedisHandler redis;
+    private static final int DESCENDING_ORDER = 1;
+    private static final int ASCENDING_ORDER = -1;
     
     private AnunciusDAO(){
         mongo = MongoHandler.getInstance(APP_DATABASE);
@@ -60,6 +66,14 @@ public class AnunciusDAO {
             authCollection.insertOne(dbObject);
         }
     }
+    
+    public void saveNewItem(NewItemRequest request) {
+        if(request!=null){
+            MongoCollection<Document> authCollection = mongo.getCollection(ADVERTISEMENT_COLLECTION_NAME);
+            Document dbObject = request.convertToMongoObject();
+            authCollection.insertOne(dbObject);
+        }
+    }
 
     public void insertUserContactFormRequest(ContactFormRequest request) {
         if(request!=null){
@@ -82,6 +96,32 @@ public class AnunciusDAO {
         mongo.createCollection(AUTH_COLLECTION_NAME);
         
         mongo.createCollection(SUBSCRIPTION_COLLECTION_NAME);
+    }
+
+    public List<NewItemRequest> getLatestItems() {
+        List<NewItemRequest> list = new ArrayList<>();
+        Document result = new Document();
+        result.put("deleted", false);
+        MongoCollection collection = this.mongo.getCollection(ADVERTISEMENT_COLLECTION_NAME);
+        List<Document> results = (List<Document>) collection
+                .find(result)
+                .limit(8)
+                .sort(new BasicDBObject("time", ASCENDING_ORDER))
+                .into(list);
+        return list;
+    }
+
+    public ArrayList<NewItemRequest> getBestItems() {
+        ArrayList<NewItemRequest> list = new ArrayList<>();
+        Document result = new Document();
+        result.put("deleted", false);
+        MongoCollection collection = this.mongo.getCollection(ADVERTISEMENT_COLLECTION_NAME);
+        List<Document> results = (List<Document>) collection
+                .find(result)
+                .limit(8)
+                .sort(new BasicDBObject("views", DESCENDING_ORDER))
+                .into(list);
+        return list;
     }
     
 }

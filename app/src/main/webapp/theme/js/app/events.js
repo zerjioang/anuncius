@@ -4,19 +4,14 @@ $("#btn-suscribe-form").on("click", function (event) {
     event.preventDefault();
 
     var onSuccess = function (data, textStatus, jqXHR) {
-        if(data!==undefined){
-            if(data.request_completed)
-                swal(data.title_es, data.message_es, "success")
-            else
-                swal(data.title_es, data.message_es, "warning");
-        }
+        showAutomaticApiResponseDialog(data);
     };
 
     var payload = {
         'email': $("#subscription-form-email").val()
     };
 
-    contactAPIviaPOST('/share/subscribe/user', payload, onSuccess, onError);
+    contactAPIviaPOST('/contact/subscribe/user', payload, onSuccess, onError);
 });
 
 //footer info a link event
@@ -33,14 +28,11 @@ $("#modal-trigger").on("click", function (event) {
     });
 });
 
+//SEARCH FORM
+
 $("#search-form").submit(function( event ) {
     event.preventDefault();
     validateQuery(query);
-});
-
-$("#search-form-submit").on("click", function (event) {
-    event.preventDefault();
-    validateQuery();
 });
 
 //search button event
@@ -56,6 +48,33 @@ $("#btn-search-form").on("click", function (event) {
     };
 
     contactAPIviaGET('/search', payload, onSuccess, onError);
+});
+
+//PUBLISH FORM
+
+$("#publish-form").submit(function( event ) {
+    event.preventDefault();
+    alert('error');
+});
+
+//search button event
+$("#btn-publish-form").on("click", function (event) {
+    event.preventDefault();
+
+    var onSuccess = function (data, textStatus, jqXHR) {
+        showAutomaticApiResponseDialog(data);
+    };
+
+    var payload = getFormDataAsJson($('#publish-form')[0]);
+
+    contactAPIviaPOST('/ads/new', payload, onSuccess, onError);
+});
+
+//SEARCH FORM
+
+$("#search-form-submit").on("click", function (event) {
+    event.preventDefault();
+    validateQuery();
 });
 
 //session logout event

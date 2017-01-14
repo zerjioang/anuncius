@@ -22,9 +22,7 @@ public class UserOAuthDataRequest extends AbstractRequest{
     private final String email;
 
     public UserOAuthDataRequest(
-            String user_agent, String vendor, String platform, String language, String cookies, String location, String time,
             String id, String name, String givenName, String familyName, String imageUrl, String email) {
-        super(user_agent, vendor, platform, language, cookies, location, time);
         this.id = id;
         this.name = name;
         this.givenName = givenName;
@@ -85,5 +83,10 @@ public class UserOAuthDataRequest extends AbstractRequest{
             "image_url",
             "email"
         };
+    }
+
+    @Override
+    public void convertFromMongoObject(Document document) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

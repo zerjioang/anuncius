@@ -2,7 +2,7 @@
 var onError = function (jqXHR, textStatus, errorThrown) {
     if(textStatus!==undefined && textStatus!==errorThrown){
         //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
-        swal(errorThrown, textStatus, "error");
+        swal("Problema de conexión", "Ocurrió un problema al procesar tu solicitud. Por favor, intentalo de nuevo mas tarde. Si el problema continua, ponte en contacto con nosotros.", "error");
     }
 };
 
@@ -12,7 +12,7 @@ function getNavigationLocation() {
     if (navigator.geolocation) {
         var options = {
             enableHighAccuracy: true,
-            timeout: 3000,
+            timeout: 3000,  
             maximumAge: 0
         };
         function error(err) {
@@ -110,7 +110,7 @@ function showLoggedUserElementsInView(showMessage){
     }
 }
 function isGoogleProfileInfo(){
-    googleProfile = sessionStorage.googleProfile;
+    googleProfile = getGoogleProfile();
     return googleProfile!==undefined && googleProfile!=="undefined";
 }
 
@@ -141,10 +141,13 @@ function getLatestItems(){
         if(data!==undefined){
             var latestItemList = data;
             //set status of the block depending on the data we have
-            if(latestItemList!==undefined && latestItemList.length>0){
+            if(latestItemList!==undefined 
+                && data.request_completed == true
+                && latestItemList.list!==undefined
+                && latestItemList.list.length>0){
                 var destDiv = $('#listing_elements_block');
-                for (var i = 0; i<latestItemList.length; i++) {
-                    var data = latestItemList[i];
+                for (var i = 0; i<latestItemList.list.length; i++) {
+                    var data = latestItemList.list[i];
                     var html = Mustache.to_html(item_template, data);
                     destDiv.append(html);
                 }
@@ -171,12 +174,15 @@ function getLatestItems(){
 function getTopItems(){
     var onSuccess = function (data, textStatus, jqXHR) {
         if(data!==undefined){
-            var featuredList = [0, 1, 2, 3, 4];
-            if(featuredList!==undefined && featuredList.length>0){
+            var featuredList = data;
+            if(featuredList!==undefined 
+                && data.request_completed == true
+                && featuredList.list!==undefined
+                && featuredList.list.length>0){
                 //render on screen
                 var destDiv = $('#featured_elements_block');
-                for (var i = 0; i<featuredList.length; i++) {
-                    var data = {};
+                for (var i = 0; i<featuredList.list.length; i++) {
+                    var data = featuredList.list[i];
                     var html = Mustache.to_html(item_template, data);
                     destDiv.append(html);
                 }
@@ -241,4 +247,22 @@ function secureString(data){
         return true;
     }
     return false;
+}
+
+function getFormDataAsJson(form) {
+    var data = {};
+    for(var i=0; i < form.elements.length; i++){
+        var e = form.elements[i];
+        data[e.name] = e.value;
+    }
+    return data;
+}
+
+function showAutomaticApiResponseDialog(data) {
+    if(data!==undefined){
+        if(data.request_completed!==undefined && data.request_completed==true)
+            swal(data.title_es, data.message_es, "success")
+        else
+            swal(data.title_es, data.message_es, "warning");
+    }
 }

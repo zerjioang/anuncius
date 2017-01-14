@@ -11,9 +11,11 @@ package anuncius.securelayer;
  */
 public final class SecureLayer {
 
-    public static void hasApproved(String data, SecureLayerCriteria criteria) throws SecureLayerException {
+    public static void hasApproved(Object data, SecureLayerCriteria...criteria) throws SecureLayerException {
         if(criteria!=null){
-            criteria.validate(data);
+            for(SecureLayerCriteria c : criteria){
+                c.validate(data);
+            }
         }
         else{
             //no criteria specified throw error

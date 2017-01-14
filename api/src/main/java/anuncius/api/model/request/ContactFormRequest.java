@@ -17,10 +17,7 @@ public class ContactFormRequest extends AbstractRequest{
     private String email;
     private String message;
 
-    public ContactFormRequest(
-            String user_agent, String vendor, String platform, String language, String cookies, String location, String time,
-            String name, String email, String message) {
-        super(user_agent, vendor, platform, language, cookies, location, time);
+    public ContactFormRequest(String name, String email, String message) {
         this.name = name;
         this.email = email;
         this.message = message;
@@ -48,5 +45,10 @@ public class ContactFormRequest extends AbstractRequest{
     @Override
     public int getColumnCount(){
         return 3;
+    }
+
+    @Override
+    public void convertFromMongoObject(Document document) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

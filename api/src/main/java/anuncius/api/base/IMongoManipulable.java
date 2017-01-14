@@ -14,6 +14,7 @@ import org.bson.Document;
 public interface IMongoManipulable {
     
     Document convertToMongoObject();
+    void convertFromMongoObject(Document document);
     int getColumnCount();
     String[] getColumnNames();
 }
