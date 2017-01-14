@@ -1,7 +1,7 @@
 var googleProfile = undefined;
 
 function onSuccess(googleUser) {
-    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    log('Logged in as: ' + googleUser.getBasicProfile().getName());
     var profile = onSignIn(googleUser);
     if(document.getElementsByTagName("body")[0].className.indexOf('gl-show-menu')!=-1){
         $("#gl-side-menu-close-button").click();
@@ -10,7 +10,8 @@ function onSuccess(googleUser) {
 }
 
 function onFailure(error) {
-  console.log(error);
+  log(error);
+  swal("Permiso denegado", "Por favor, inicia sesión correctamente con tu cuenta de Google para poder empezar. Para ello acepta los permisos basicos que la aplicación solicita.", "error");
 }
 
 function renderButton() {
@@ -27,21 +28,35 @@ function renderButton() {
 
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
+    log('ID: ' + profile.getId());
+    log('Full Name: ' + profile.getName());
+    log('Given Name: ' + profile.getGivenName());
+    log('Family Name: ' + profile.getFamilyName());
+    log('Image URL: ' + profile.getImageUrl());
+    log('Email: ' + profile.getEmail());
+    var id_token = googleUser.getAuthResponse().id_token;
     googleProfile = profile;
     sessionStorage.googleProfile = googleProfile;
+    sessionStorage.token = id_token;
     return profile;
   }
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-        console.log('User signed out.');
+        log('User signed out.');
     });
     googleProfile = undefined;
     sessionStorage.googleProfile = undefined;
+}
+
+function getGoogleProfile(){
+    return googleProfile;
+}
+
+function getGoogleUserToken() {
+    var profile = getGoogleProfile();
+    if(profile!==undefined && profile!=='undefined'){
+        return profile.getAuthResponse().id_token;
+    }
+    return undefined;
 }
