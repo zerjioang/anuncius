@@ -50,3 +50,19 @@ h2 {
 .fine-top-padding{
     padding: 50px;
 }
+.main-title{
+    width: auto;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 10px;
+    text-shadow:;
+}
+.main-subtitle{
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+}

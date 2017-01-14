@@ -64,29 +64,28 @@
             <div class="row">
                 <div class="gl-element-type-wrapper">
                     <div class="col-md-6" style="padding-left: 0px;">
-                        <h3 class="gl-element-title" style="font-weight: 400; padding-left: 15px;">Publicar tu anuncio es gratis</h3>
+                        <h1 class="gl-element-title" style="font-weight: 400; padding-left: 15px;">Nuevo anuncio</h1>
                     </div>
 
                     <div class="col-md-6">
-                        <h3 class="gl-element-title">Progreso de tu publicación: 
-                            <span>0%</span>
-                        </h3>
+                        <h2 class="gl-element-title">Progreso de tu publicación: 
+                            <span id="publish-progress">0%</span>
+                        </h2>
                     </div>
                 </div>
 
                 <div class="gl-element-type-wrapper" style="margin: 15px;">
                     <div class="gl-element-wrapper">
                         <div class="gl-row" style="padding: 15px;border-radius: 20px;background-color: #fdfdfd;">
-                            <h3 class="gl-sub-heading">Rellena tu ficha</h3>
-                            <h4 class="gl-sub-heading">Id. del anuncio</h4>
-                            <h5 class="gl-sub-heading" id="anuncio_id"></h5>
-
+                            <div>
+                                <h3 class="gl-sub-heading">Rellena tu ficha: <span id="anuncio_id"></span></h3>
+                            </div>
 
                             <form action="#" class="gl-review-submission-form">
                                 <fieldset class="gl-form-fields">
                                     <div class="gl-input-area">
                                         <div>
-                                            <label>Título del anuncio</label>
+                                            <label>Título de tu publicación</label>
                                             <input style="width: 100%;" type="text" name="item_name" id="item_name" placeholder="PS4 Seminueva de 500Gb" required>
                                         </div>
                                         <div>
@@ -98,16 +97,16 @@
                                             <input style="width: 100%;" type="text" name="item_best_name" id="item_best_name" placeholder="PS4" required>
                                         </div>
                                         <div>
-                                            <label>Acción que mejor lo define: vender, comprar, cambiar, regalar, donar, etc</label>
+                                            <label>Acción que mejor lo define: vender, comprar, cambiar, comer, disfrutar, etc</label>
                                             <input style="width: 100%;" type="text" name="item_action" id="item_action" placeholder="Vender" required>
                                         </div>
                                         <div>
-                                            <label>Precio</label>
+                                            <label>Precio publicación</label>
                                             <input style="width: 100%;"  type="number" name="price" id="price" placeholder="110" required></input>
                                         </div>
                                         <div>
-                                            <label>Descripción del anuncio</label>
-                                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
+                                            <label>Descripción de tu publicación/evento</label>
+                                            <textarea name="description" id="description" cols="30" rows="5" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
                                         </div>
                                     </div>
 
@@ -132,14 +131,7 @@
     <!-- FOOTER -->
     <s:include value="/templates/modules/footer/common.footer.jsp" />
     <!-- FOOTER END -->
-
     <s:include value="/templates/js/minimum.js.jsp" />
-    
-    <script>
-        $( window ).load(function() {
-            $('#anuncio_id').text('67548627393');
-        });
-    </script>
 </body>
 
 </html>

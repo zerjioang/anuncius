@@ -31,7 +31,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="${param.author}">
 
-<meta name="keywords" content="anuncius, inteligente, precio, comprar, anuncio, oferta, destacado, pro, nuevo, gratis">
+<meta name="keywords" content="anuncius, inteligente, precio, comprar, anuncio, oferta, destacado, nuevo, gratis">
 
 <meta name="robots" content="index, follow">
 <meta name="revisit" content="5 days">

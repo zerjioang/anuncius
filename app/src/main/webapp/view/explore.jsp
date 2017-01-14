@@ -80,11 +80,10 @@
                     <div class="gl-page-content col-md-8 col-sm-8 col-xs-12">
                         <!-- SEARCH META -->
                         <div class="gl-search-meta-wrapper">
-                            <p class="gl-search-number">1 Artículo encontrado</p>
+                            <p class="gl-search-number" id="found-article-count"></p>
                             <div class="gl-search-tags">
-                                <a href="/item/1" class="gl-tag-btn gl-duplex">tag 1</a>
-                                <a href="/item/1" class="gl-tag-btn gl-resort">tag 2</a>
-                                <a href="/item/1" class="gl-tag-btn gl-villa">tag 3</a>
+                                <div id="tags-block">
+                                </div>
                             </div>
 
                             <div class="gl-search-sorting">
@@ -107,62 +106,8 @@
                         <!-- SEARCH META END -->
 
                         <!-- SEARCH RESULT -->
-                        <div class="gl-search-result-wrapper">
-                            <!-- FEATURED ITEMS -->
-                            <div class="gl-featured-items gl-alt-search">
-                                <div class="gl-feat-items-img-wrapper">
-                                    <picture>
-                                        <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                        <img alt="Imagen del articulo" srcset=https://static.anunci.us/theme/images/product.png>
-                                    </picture>
-
-                                    <span class="gl-price-tag">$3,000</span>
-                                </div>
-
-                                <div class="gl-feat-details-meta">
-                                    <div class="gl-feat-item-details">
-                                        <h3>
-                                            <a href="/item/1">Nombre del articulo</a>
-                                        </h3>
-                                        <div class="gl-item-location">
-                                            <i class="ion-ios-location-outline"></i>
-                                            <span>Road 3, West Portland, USA</span>
-                                        </div>
-
-                                        <span class="gl-item-status-label gl-sold-label">Sold</span>
-                                    </div>
-
-                                    <div class="gl-feat-item-metas">
-                                        <ul class="gl-feature-info">
-                                            <li>Beds<span>3</span>
-                                            </li>
-                                            <li>Baths<span>2</span>
-                                            </li>
-                                            <li>Area<span>900 sqft</span>
-                                            </li>
-                                        </ul>
-
-                                        <ul class="gl-wishlist-compare-wrapper">
-                                            <li>
-                                                <a href="/item/1" class="gl-add-wishlist">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="/item/1" class="gl-add-compare">
-                                                    <div class="gl-compare-btn">
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                        <span class="icon-bar"></span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END -->
+                        <div class="gl-search-result-wrapper" id="search-results-block">
+                            <p>No se han encontrado resultados cerca de ti.</p>
                         </div>
                         <!-- SEARCH RESULT END -->
                     </div>
@@ -171,7 +116,6 @@
             </div>
         </section>  
 
-        
         <!-- PAGE CONTETNT END -->
         
         <!-- FOOTER -->
@@ -180,41 +124,7 @@
 
         <s:include value="/templates/js/minimum.js.jsp"/>
         
-        <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-        <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
-
-        <%--
-        <!-- Google Map -->
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBF0FPDHlurGkDKua7PfZjpD2fr2rQsRw0&libraries=places"></script>
-
-        <script src="../js/infobubble-richmarker.js+realestate-map,_google-searchmap-init.js+google-autocomplete.js.pagespeed.jc.EN7wnMfBGq.js">
-        --%>
-        
-        <script>
-        var map = /*new ol.Map({
-          interactions: ol.interaction.defaults().extend([
-            new ol.interaction.DragRotateAndZoom()
-          ]),*/
-        new ol.Map({
-          interactions: ol.interaction.defaults({mouseWheelZoom:false}),
-          layers: [
-            new ol.layer.Tile({
-              source: new ol.source.OSM()
-            })
-          ],
-          target: 'map',
-          view: new ol.View({
-            center: [0, 0],
-            zoom: 0
-          })
-        });
-        var lat = 43.270675;
-        var long = -2.937939;
-        console.log("Long: " + long + " Lat: " + lat);
-        map.getView().setCenter(ol.proj.transform([long, lat], 'EPSG:4326', 'EPSG:3857'));
-        map.getView().setZoom(13);
-      </script>
-      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.js"></script>
+        <script async defer src="/theme/js/app/map.js"></script>      
     </body>
 </html>

@@ -7,7 +7,7 @@
                     <h1 class="logo-font logo-white">Anuncius</h1>
                     <br>
                 </div>
-                <h2 class="gl-hero-text-heading">${param.normal}<span class="gl-color-text">${param.bold}</span></h2>
+                <h2 class="gl-hero-text-heading main-title">${param.normal}<span class="gl-color-text main-subtitle">${param.bold}</span></h2>
 
                 <div class="gl-scroll-down-wrapper">
                     <a href="#${param.block}" class="gl-scroll-down"><i class="ion-chevron-down"></i></a>

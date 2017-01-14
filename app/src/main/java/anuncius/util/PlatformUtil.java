@@ -29,4 +29,8 @@ public class PlatformUtil {
     public static boolean isDevelopment(){
         return dev;
     }
+    
+    public static boolean enableMinification(){
+        return false;
+    }
 }

@@ -6,7 +6,7 @@
 
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
-            <s:param name="description" value="'Anuncius - La nueva forma de comprar online. Vende lo que ya no te interesa y publica miles de anuncios de forma gratuita y segura.'"></s:param>
+            <s:param name="description" value="'Anuncius - La nueva forma de comprar online. Publica un anuncio destacado y empieza a comprar y vender gratis de forma gratuita y segura.'"></s:param>
             <s:param name="author" value="'Anuncius dev team'"></s:param>
         </s:include>
         

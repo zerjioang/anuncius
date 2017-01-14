@@ -41,6 +41,20 @@ public class AdsResource {
         return "{}";
     }
     
+    @GET
+    @Path("/list/latest")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getLatest() {
+        return "{}";
+    }
+    
+    @GET
+    @Path("/list/best")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTop() {
+        return "{}";
+    }
+    
     @POST
     @Path("/create")
     @Produces(MediaType.APPLICATION_JSON)

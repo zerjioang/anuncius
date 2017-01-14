@@ -1,6 +1,6 @@
 <!-- SECTION HEADINGS -->
 <div class="gl-section-headings">
-    <h1>${param.title}</h1>
-    <h2>${param.subtitle}</h2>
+    <h2>${param.title}</h2>
+    <h3>${param.subtitle}</h3>
 </div>
 <!-- END -->

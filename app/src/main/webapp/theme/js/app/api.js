@@ -5,9 +5,11 @@ var thisUrl = window.location.href;
 console.log(thisUrl);
 
 var localDate = new Date();
+var dev = false;
 
 if(thisUrl.startsWith('http://localhost:8084')){
     host = 'http://localhost:8084/';
+    dev = true;
 }
 
 function contactAPIviaGET(remotePath, payload, onSuccess, onError) {
