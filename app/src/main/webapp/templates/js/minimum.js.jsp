@@ -30,7 +30,7 @@ if(host!=null && host.equals("orion")){
     <%if(minified){%>
         <script src="https://static.anunci.us/dist/js/all.min.js">
     <%}else{%>
-        <script src="https://static.anunci.us/theme/js/vendro/jquery/jquery.min.js"></script>
+        <script src="https://static.anunci.us/theme/js/vendor/jquery/jquery.min.js"></script>
         <script src="https://static.anunci.us/theme/js/plugins.js"></script>
         <script src="https://static.anunci.us/theme/js/scripts.js"></script>
         <script src="https://static.anunci.us/theme/js/main.js"></script>
