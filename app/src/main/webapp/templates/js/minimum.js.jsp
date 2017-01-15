@@ -2,9 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-String host = System.getenv("HOSTNAME");
 boolean minified = PlatformUtil.enableMinification();
-if(host!=null && host.equals("orion")){
+if(PlatformUtil.isDevelopment()){
 %>
     <%if(minified){%>
         <script src="/dist/js/all.min.js"></script>
