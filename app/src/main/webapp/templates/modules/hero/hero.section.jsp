@@ -1,4 +1,4 @@
-<section class="gl-hero-img-wrapper gl-real-estate-hero vertical-pad-header bg-white"
+<section class="gl-hero-img-wrapper gl-real-estate-hero vertical-pad-header bg-white anuncius-head-margin"
          style="background: url(${param.image}) center center no-repeat;background-size:cover;">
     <div class="container">
         <div class="row">

@@ -59,7 +59,7 @@ Perfil público de usuario. Contacta con otros usuarios y enviales mensajes priv
         <!-- HEADER END -->
 
         <!-- PAGE CONTETNT -->
-        <section class="gl-page-content-section">
+        <section class="gl-page-content-section anuncius-head-margin">
             <div class="container">
                 
                 <!-- ASSIGNED PROPERTY -->

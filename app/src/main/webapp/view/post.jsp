@@ -62,8 +62,8 @@
         <!-- FEATURED IMAGE -->
         <section class="gl-featured-image-wrapper">
             <picture>
-                <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                <img alt="Featured Image" srcset=https://static.anunci.us/theme/images/product.png>
+                <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/blog/post/1/welcome.png>
+                <img alt="Featured Image" srcset=https://static.anunci.us/theme/images/blog/post/1/welcome.png>
             </picture>
         </section>
         <!-- FEATURED IMAGE END -->
@@ -78,23 +78,30 @@
                         <div class="gl-blog-heading-metas">
                             <h1 class="gl-blog-titles">Atención: Estrenamos anuncius!</h1>
                             <ul>
-                                <li class="gl-blog-post-date">March 21, 2016</li>
-                                <li class="gl-author"><a href="blog-details.html#">postman</a></li>
-                                <li class="gl-comments"><a href="blog-details.html#">3 Comentarios</a></li>
+                                <li class="gl-blog-post-date">1 Enero, 2016</li>
+                                <li class="gl-author"><a href="#">postman</a></li>
+                                <li class="gl-comments"><a href="#">0 Comentarios</a></li>
                             </ul>
                         </div>
                         <!-- END -->
 
                         <!-- POST DETAILS -->
                         <div class="gl-blog-post-details">
-                            <p>On the other hand, we denounce with righteous <strong>indignation</strong> and dislike men who are so begueled and demoralized by the of pleasur so blinded by desire, that they cannot foresee the pain and trouble that are bounds to ensure blame belongs to those who fail in their weakness of will, which is the same therefore always holds in these matters to this principle of selection: he rejects pleasures to On the other hand, we denounce with righteous indignation and dislike men who are so begueled and demoralized by the of pleasur so blinded by desire, that they cannot foresee the pain and trouble that are bounds to ensure blame belongs to those who fail in their weakness of will, which is the same therefore always holds in these matters to this principle of selection: he rejects pleasures to </p>
-
+                            <p align='justify'>
+                                Bienvenido a anuncius!
+                                <br/>
+                                <br/>
+                                Tu nueva ventana a Internet donde podrás postear tus necesidades, y encontrar las de otros, vender las cosas que ya no necesitas, comprar articulos que encuentres navegando, pedir una cena romantica a la luz de la luna, etc.
+                                Gracias a una compleja organizacion de los datos y a unos, cada vez mejores, algoritmos, en anuncius somos capaces de clasificar los 'items' publicados sin necesidade de tener que categorizar todo tal y como se realiza en la mayoria de páginas.
+                                Si que es cierto, que en estos primeros pasos, le damos la oportunidad al usuario de que escoja la categoria, por ejemplo, que mas desee. En un futuro cercano, las categoria asociada a un 'item' se detectara de manera automatica.
+                                Por eso, es ahora cuando necesitamos vuestra colaboración, para que dentro de un tiempo, todo funcione mejor, gracias a ti.
+                            </p>
+                            
                             <div class="gl-blockquote">
-                                <span>On the other hand, we denounce with righteous indignation goes weakness of will, which is the same therefore</span>
+                                <span>Escuchando a las personas desde sus propias necesidades, te atendemos y valoramos tus propuestas.</span>
                             </div>
-
-                            <p>On the other hand, we denounce with righteous indignation and dislike men who are so begueled and demoralized by the of pleasur so blinded by desire, that they cannot foresee the pain and trouble that are bounds to ensure blame belongs to those who fail in their weakness of will, which is the same therefore always holds in these </p>
-
+                            
+                            <%--
                             <div class="gl-blogpost-images">
                                 <div class="gl-post-img-wrapper">
                                     <img src="images/post-img-1.jpg" alt="Post Image" class="gl-lazy">
@@ -104,25 +111,30 @@
                                     <img src="images/post-img-2.jpg" alt="Post Image" class="gl-lazy">
                                 </div>
                             </div>
+                            --%>
 
-                            <p>blinded by desire, that they cannot foresee the pain and trouble that are bounds to ensure blame belongs to those who fail in their weakness of will, which is the same therefore always holds in these matters to this principle of selection: he rejects pleasures to On the other hand, we denounce with righteous indignation and dislike men who are so begueled and demoralized by the of pleasur so blinded by desire, that they cannot foresee the pain and trouble that are bounds to ensure blame belongs to those who fail in their weakness of will, which is the same therefore always holds in these matters to this principle of selection: he rejects pleasures to <br/>
-
-                                <br/>blinded by desire, that they cannot foresee the pain and trouble that are bounds to ensure blame belongs to those who fail in their weakness of will, which is the same therefore always holds in these matters to this principle of selection: he rejects pleasures to On the other hand, we denounce with righteous indignation</p>
+                            <p>
+                                Sabemos que esta primera entrada en el blog es corta, pero nos centramos en mejorar cada dia, junto a ti, para que entre todos tengamos la mejor experiencia posible en anuncius.
+                                <br/>
+                                <br/>
+                                De nuevo, bienvenido y gracias por formar parte de esta familia.
+                            </p>
                         </div>
                         <!-- END -->
 
                         <!-- POST METAS -->
                         <div class="gl-post-metas">
                             <div class="gl-tag-wrapper">
-                                <a href="blog-details.html#" class="gl-tags">design</a>
-                                <a href="blog-details.html#" class="gl-tags">travel</a>
-                                <a href="blog-details.html#" class="gl-tags">food</a>
+                                <a href="#" class="gl-tags">presentacion</a>
+                                <a href="#" class="gl-tags">anuncius</a>
+                                <a href="#" class="gl-tags">bienvenida</a>
                             </div>
 
-                            <a data-remodal-target="modal-share" class="gl-btn gl-share-btn">Share</a>
+                            <a data-remodal-target="modal-share" class="gl-btn gl-share-btn">Compartir</a>
                         </div>
                         <!-- END -->
 
+                        <%--
                         <!-- COMMENTS -->
                         <div class="gl-post-comments-wrapper">
                             <h3 class="gl-blog-sec-title">Comments</h3>
@@ -141,14 +153,16 @@
                                         <span class="gl-comments-date">23 March, 2016</span>
                                     </div>
                                     <p>On the other hand, we denounce with righteous indignation and dislike men who beguiled and demoralized by the of pleasure</p>
-                                    <a href="blog-details.html#" class="gl-reply">Responder</a>
+                                    <%--<a href="b" class="gl-reply">Responder</a>--%>
                                 </div>
                                 <!-- END -->
                             </div>
                             <!-- END -->
                         </div>
                         <!-- END -->
+                        --%>
 
+                        <%--
                         <!-- COMMENTS FORM -->
                         <div class="gl-comments-form-wrapper">
                             <h3 class="gl-blog-sec-title">5 Reviews</h3>
@@ -166,53 +180,12 @@
                         </div>
                         <!-- END -->
 
+                        --%>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- PAGE CONTETNT END -->
-        
-
-        
-        <!-- SHARE MODAL -->
-        <div class="remodal-bg">
-            <div class="gl-share-modal-wrapper" data-remodal-id="modal-share">
-                <button data-remodal-action="close" class="remodal-close"></button>
-
-                <div class="gl-share-opt-wrapper">
-                    <ul>
-                        <li class="gl-fb-share">
-                            <a href="blog-details.html#">
-                                <i class="fa fa-facebook"></i>
-                                <span>Facebook</span>
-                            </a>
-                        </li>
-
-                        <li class="gl-twitter-share">
-                            <a href="blog-details.html#">
-                                <i class="fa fa-twitter"></i>
-                                <span>Twitter</span>
-                            </a>
-                        </li>
-
-                        <li class="gl-gplus-share">
-                            <a href="blog-details.html#">
-                                <i class="fa fa-google-plus"></i>
-                                <span>Google+</span>
-                            </a>
-                        </li>
-
-                        <li class="gl-linkedin-share">
-                            <a href="blog-details.html#">
-                                <i class="fa fa-linkedin"></i>
-                                <span>Linkedin</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- SHARE MODAL END -->
+        <!-- PAGE CONTETNT END -->       
         
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <s:include value="/templates/js/minimum.js.jsp"/>

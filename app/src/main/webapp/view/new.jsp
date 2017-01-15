@@ -44,6 +44,7 @@
     </s:include>
 
     <s:include value="/templates/css/minimum.css.jsp" />
+    <link rel="stylesheet" href="/theme/css/vendor/imagepicker/image-picker.css">
 </head>
 
 <body class="gl-agent-profile-template gl-realestate-template">
@@ -59,67 +60,106 @@
     <!-- HEADER END -->
 
     <!-- PAGE CONTETNT -->
-    <section class="gl-page-content-section" style="padding-top: 5px;">
+    <section class="gl-page-content-section anuncius-head-margin" style="padding-top: 5px;">
         <div class="container">
             <div class="row">
                 <div class="gl-element-type-wrapper">
                     <div class="col-md-6" style="padding-left: 0px;">
                         <h1 class="gl-element-title" style="font-weight: 400; padding-left: 15px;">Nuevo anuncio</h1>
                     </div>
-
                     <div class="col-md-6">
-                        <h2 class="gl-element-title">Progreso de tu publicación: 
-                            <span id="publish-progress">0%</span>
-                        </h2>
+                        <h2 class="gl-sub-heading">Ficha: <span id="anuncio_id"></span></h2>
                     </div>
                 </div>
 
                 <div class="gl-element-type-wrapper" style="margin: 15px;">
                     <div class="gl-element-wrapper">
                         <div class="gl-row" style="padding: 15px;border-radius: 20px;background-color: #fdfdfd;">
-                            <div>
-                                <h3 class="gl-sub-heading">Rellena tu ficha: <span id="anuncio_id"></span></h3>
-                            </div>
-
-                            <form class="gl-review-submission-form" id="publish-form">
-                                <fieldset class="gl-form-fields">
-                                    <div class="gl-input-area">
-                                        <div>
-                                            <label>Título de tu publicación</label>
-                                            <input class="force-black-input" style="width: 100%;" type="text" name="name" id="item_name" placeholder="PS4 Seminueva de 500Gb" required>
-                                        </div>
-                                        <div>
-                                            <label>Categoría</label>
-                                            <input class="force-black-input" style="width: 100%;" type="text" name="category" id="item_best_category" placeholder="Videoconsola" required>
-                                        </div>
-                                        <div>
-                                            <label>Palabra clave que mejor lo define</label>
-                                            <input class="force-black-input" style="width: 100%;" type="text" name="keyword" id="item_best_name" placeholder="PS4" required>
-                                        </div>
-                                        <div>
-                                            <label>Acción que mejor lo define: vender, comprar, cambiar, comer, disfrutar, etc</label>
-                                            <input class="force-black-input" style="width: 100%;" type="text" name="action" id="item_action" placeholder="Vender" required>
-                                        </div>
-                                        <div>
-                                            <label>Precio publicación</label>
-                                            <input class="force-black-input" style="width: 100%;"  type="number" name="price" id="price" placeholder="110" required></input>
-                                        </div>
-                                        <div>
-                                            <label>Descripción de tu publicación/evento</label>
-                                            <textarea class="force-black-input" name="description" id="description" cols="30" rows="5" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
-                                        </div>
+                            <div class="container" style="width: 90%;">
+                                <form id="publish-form">
+                                  <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Titulo</label>
+                                    <div class="col-sm-10">
+                                      <input type="email" class="form-control" name="name" id="item_name" placeholder="PS4 Seminueva de 500Gb" required>
                                     </div>
-
-                                    <div class="gl-rating-wrapper" style="padding-top: 5px;padding-right: 15px;padding-left: 15px;padding-bottom: 20px;">
-                                        <h3>Añadir fotos</h3>
-                                        <h4>Próximamente</h4>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Categoría</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="category" id="item_best_category" placeholder="Videoconsola" required>
                                     </div>
-                                </fieldset>
-
-                                <fieldset class="gl-submit-wrapper">
-                                    <input type="submit" value="Publicar" class="gl-btn" id="btn-publish-form">
-                                </fieldset>
-                            </form>
+                                  </div>
+                                    <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Palabra clave que mejor lo define</label>
+                                    <div class="col-sm-10">
+                                      <input type="email" class="form-control" name="keyword" id="item_keyword" placeholder="PS4" required>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Objetivo: vender, comprar, regalar, etc</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="action" id="item_best_category" placeholder="vender" required>
+                                    </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Precio</label>
+                                        <div class="col-sm-10">
+                                          <input class="form-control" type="number" name="price" id="price" placeholder="110" required>
+                                        </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label"> </label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-price" class="image-picker show-html" name="visual-price">
+                                                <option data-img-src="/theme/images/free-icon.png" value="gratis">1</option>
+                                                <option selected data-img-src="/theme/images/money.png" value="money">2</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Tipo de publicación</label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-type" class="image-picker show-html" name="visual-type">
+                                                <option selected data-img-src="/theme/images/ads.png" value="anuncio">1</option>
+                                                <option data-img-src="/theme/images/calendar.png" value="evento">2</option>
+                                                <option data-img-src="/theme/images/service.png" value="servicio">2</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Características</label>
+                                        <div class="col-sm-10">
+                                            <select id="features-selector" multiple="multiple" class="image-picker show-html" name="features[]">
+                                                <option data-img-src="/theme/images/geo-icon.png" value="geolocalizado">1</option>
+                                                <option data-img-src="/theme/images/calendar.png" value="evento">2</option>
+                                                <option data-img-src="/theme/images/globe.png" value="global">3</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Descripción</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" name="description" id="description" cols="10" rows="5" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Imagen pricipal</label>
+                                    <div class="col-sm-10">
+                                        <label class="custom-file">
+                                            <input type="file" id="file" class="custom-file-input">
+                                            <span class="custom-file-control"></span>
+                                          </label>
+                                    </div>
+                                  </div>
+                                    
+                                  <div class="form-group row">
+                                    <div class="offset-sm-2 col-sm-10">
+                                      <button type="submit" class="btn btn-primary" id="btn-publish-form">Publicar</button>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -132,6 +172,12 @@
     <s:include value="/templates/modules/footer/common.footer.jsp" />
     <!-- FOOTER END -->
     <s:include value="/templates/js/minimum.js.jsp" />
+    <script src="/theme/js/vendor/imagepicker/image-picker.min.js"></script>
+    <script>
+        $("#visual-price").imagepicker();
+        $("#visual-type").imagepicker();
+        $("#features-selector").imagepicker();
+    </script>
 </body>
 
 </html>

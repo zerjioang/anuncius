@@ -15,15 +15,15 @@ function onFailure(error) {
 }
 
 function renderButton() {
-  gapi.signin2.render('my-signin2', {
-    'scope': 'profile email',
-    'width': 300,
-    'height': 42,
-    'longtitle': true,
-    'theme': 'dark',
-    'onsuccess': onSuccess,
-    'onfailure': onFailure
-  });
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email openid https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/user.addresses.read ', //https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/user.phonenumbers.read',
+      'width': 300,
+      'height': 42,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
 }
 
 function onSignIn(googleUser) {

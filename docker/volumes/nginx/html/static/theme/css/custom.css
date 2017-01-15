@@ -91,6 +91,9 @@ h2 {
     height: 45px;
 }
 
+.anuncius-head-margin{
+    margin-top: 45px;
+}
 .anuncius-bar{
     height: 15px;
     min-height: 15px;

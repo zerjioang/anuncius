@@ -59,7 +59,7 @@
         <!-- HEADER END -->
         
         <!-- PAGE CONTETNT -->
-        <section class="gl-page-content-section fine-space">
+        <section class="gl-page-content-section fine-space anuncius-head-margin">
             <div class="container">
                 <div class="row">
                     <h1 class="gl-element-title">Grupos públicos</h1>

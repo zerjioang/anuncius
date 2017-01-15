@@ -12,6 +12,7 @@ if(PlatformUtil.isDevelopment()){
         
         <link rel="stylesheet" href="/theme/css/vendor/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="/theme/css/vendor/cleanbar/clean.scrollbar.css">
+        <link rel="stylesheet" href="/theme/css/vendor/magnific-popup/magnific-popup.css">
 
         <!--sweetalert-->
         <link rel="stylesheet" href="/theme/css/vendor/sweetalert/sweetalert.css">
@@ -49,8 +50,11 @@ if(PlatformUtil.isDevelopment()){
     <% if(minified){%>
         <link rel="stylesheet" href="https://static.anunci.us/dist/css/style.min.css">
     <%}else{%>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
+
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/cleanbar/clean.scrollbar.css">
+        <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/magnific-popup/magnific-popup.css">
 
         <!--sweetalert-->
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/sweetalert/sweetalert.css">
@@ -72,17 +76,6 @@ if(PlatformUtil.isDevelopment()){
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/template.css">
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/style.css">
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
-
-        <%--
-        <!-- remodal css -->
-        <link async defer rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal.css">
-        <link async defer rel="stylesheet" href="https://static.anunci.us/theme/vendor/remodal/remodal-default-theme.css">
-        --%>
-
-        <%-- other fonts 
-        <link rel="stylesheet" href="https://static.anunci.us/theme/css/glyphicon.css">
-        <link rel="stylesheet" href="https://static.anunci.us/theme/css/mic-font.css">
-        --%>
         <% } %>    
 <% } %>
 

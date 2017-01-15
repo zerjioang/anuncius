@@ -375,7 +375,6 @@
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />
         <!-- FOOTER END -->
-
         <s:include value="/templates/js/minimum.js.jsp"/>
         
         <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->

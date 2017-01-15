@@ -61,7 +61,7 @@
         <!-- HEADER END -->
 
         <!-- SEARCH MAP -->
-        <section class="gl-realestate-search-map gl-search-map-section">
+        <section class="gl-realestate-search-map gl-search-map-section anuncius-head-margin">
             <div id="map" style="max-height: 500px"></div>
         </section>
         <!-- SEARCH MAP END -->

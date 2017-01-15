@@ -9,41 +9,52 @@ if(PlatformUtil.isDevelopment()){
         <script src="/dist/js/all.min.js"></script>
     <%}else{%>
         <script src="/theme/js/vendor/jquery/jquery.min.js"></script>
+        
+        <%--
         <script src="/theme/js/plugins.js"></script>
         <script src="/theme/js/scripts.js"></script>
         <script src="/theme/js/main.js"></script>
-
+        --%>
+        
+        <script async defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script async defer src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
-        <script async defer src="/theme/js/vendor/mustache/mustache.min.js"></script>
-        
-        <script async defer src="/theme/js/app/core.js"></script>
-        
-        <script async defer src="/theme/js/app/api.js"></script>
 
-        <script async defer src="/theme/js/app/google.js"></script>
+        <script src="/theme/js/vendor/mustache/mustache.min.js"></script>        
+        <script src="/theme/js/vendor/smoothscroll/2.1.1/jquery.smooth-scroll.min.js"></script>
+        <script src="/theme/js/vendor/magnific-popup/1.1.0/jquery.magnific-popup.js"></script>
+        <script src="/theme/js/vendor/classie/1.0.1/classie.js"></script>
         
-        <script async defer src="/theme/js/app/templates.js"></script>
-        <script async defer src="/theme/js/app/events.js"></script>
+        <script src="/theme/js/app/core.js"></script>
+        
+        <script src="/theme/js/app/api.js"></script>
+
+        <script src="/theme/js/app/google.js"></script>
+        
+        <script src="/theme/js/app/templates.js"></script>
+        <script src="/theme/js/app/events.js"></script>
     <%}%>
 <% }else{ %>
     <%if(minified){%>
         <script src="https://static.anunci.us/dist/js/all.min.js">
     <%}else{%>
         <script src="https://static.anunci.us/theme/js/vendor/jquery/jquery.min.js"></script>
-        <script src="https://static.anunci.us/theme/js/plugins.js"></script>
-        <script src="https://static.anunci.us/theme/js/scripts.js"></script>
-        <script src="https://static.anunci.us/theme/js/main.js"></script>
 
-        <!-- api handler -->
+        <script async defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script async defer src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
-        <script async defer src="https://static.anunci.us/theme/js/vendor/mustache/mustache.min.js"></script>
-        
-        <script async defer src="https://static.anunci.us/theme/js/app/core.js"></script>
-        
-        <script async defer src="https://static.anunci.us/theme/js/app/api.js"></script>
-        <script async defer src="https://static.anunci.us/theme/js/app/templates.js"></script>
-        <script async defer src="https://static.anunci.us/theme/js/app/google.js"></script>
-        <script async defer src="https://static.anunci.us/theme/js/app/events.js"></script>
+
+        <script src="https://static.anunci.us/theme/js/vendor/mustache/mustache.min.js"></script>        
+        <script src="https://static.anunci.us/theme/js/vendor/smoothscroll/2.1.1/jquery.smooth-scroll.min.js"></script>
+        <script src="https://static.anunci.us/theme/js/vendor/magnific-popup/1.1.0/jquery.magnific-popup.js"></script>
+        <script src="https://static.anunci.us/theme/js/vendor/classie/1.0.1/classie.js"></script>
+
+        <script src="https://static.anunci.us/theme/js/app/core.js"></script>
+
+        <script src="https://static.anunci.us/theme/js/app/api.js"></script>
+
+        <script src="https://static.anunci.us/theme/js/app/google.js"></script>
+
+        <script src="https://static.anunci.us/theme/js/app/templates.js"></script>
+        <script src="https://static.anunci.us/theme/js/app/events.js"></script>
     <%}%>
 <% } %>
 <!-- google oauth 2 script-->
