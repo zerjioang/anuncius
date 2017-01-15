@@ -1,11 +1,11 @@
-<section class="gl-hero-img-wrapper gl-real-estate-hero vertical-pad-header"
+<section class="gl-hero-img-wrapper gl-real-estate-hero vertical-pad-header bg-white"
          style="background: url(${param.image}) center center no-repeat;background-size:cover;">
     <div class="container">
         <div class="row">
             <div class="gl-elements-content-wrapper">
                 <div align="center">
-                    <h1 class="logo-font logo-white">Anuncius</h1>
-                    <br>
+                    <h1 class="logo-font logo-white font-big">anuncius</h1>
+                    
                 </div>
                 <h2 class="gl-hero-text-heading main-title">${param.normal}<span class="gl-color-text main-subtitle">${param.bold}</span></h2>
 
