@@ -1,5 +1,5 @@
 var host = 'https://api.anunci.us/';
-var base = 'api/v1/public';
+var base = 'v1/public';
 
 var thisUrl = window.location.href;
 console.log(thisUrl);
