@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<header class="gl-header">
+<header class="gl-header anuncius-header">
     <!-- TOPBAR -->
     <s:include value="header.topbar.jsp"/>
     <!-- END -->
@@ -8,22 +8,22 @@
     <!-- BOTTOM BAR/NAVIGATION -->
     <div class="gl-header-bottombar">
         <!-- Navigation Menu start-->
-        <nav class="navbar gl-header-main-menu" role="navigation">
-            <div class="container">
+        <nav class="navbar gl-header-main-menu anuncius-bar" role="navigation">
+            <div class="container bg-white">
 
                 <!-- Navbar Toggle -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="navbar-toggle aside-btn" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Logo -->
-                    <div>
-                        <div style="display: inline-block;margin: 0px;padding: 0px;">
-                            <img style="padding: 0px 0px 15px;" id="logo" alt="logo oficial de anuncius" src="https://static.anunci.us/theme/favicon/favicon-32x32.png"/>
-                            <a href="/">
-                                <h2 style="padding: 0px;margin: 0px;font-family: Fredoka One;">Anuncius</h2>
+                    <div class="bar-center">
+                        <div style="display: inline-block;">
+                            <img id="logo" alt="logo oficial de anuncius" src="https://static.anunci.us/theme/favicon/favicon-32x32.png"/>
+                            <a href="/" class="logo-padding nofit">
+                                <h2 class="logo-font nofit">anuncius</h2>
                             </a>
                         </div>
                     </div>

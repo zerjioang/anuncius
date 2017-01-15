@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div class="gl-header-contact-info">
     <ul>
         <li><i class="ion-ios-telephone-outline"></i>

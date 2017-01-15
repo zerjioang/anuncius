@@ -34,8 +34,24 @@ h2 {
     padding-bottom: 150px;
 }
 .logo-font{
+    font-family: 'Raleway', sans-serif;
+}
+
+.logo-padding{
+    padding-bottom: 0px;
+    padding-top: 9px;
+}
+
+.font-big{
     font-size: 50pt;
-    font-family: 'Fredoka One', cursive;
+}
+.nofit{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.bar-center{
+    padding-top: 8px;
 }
 .logo-white{
     color:white;
@@ -53,7 +69,7 @@ h2 {
 .main-title{
     width: auto;
     position: relative;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Assistant', sans-serif;
     font-size: 48px;
     font-weight: 100;
     color: #fff;
@@ -69,4 +85,20 @@ h2 {
 .force-black-input{
     font-size: 14pt !important;
     color: black !important;
+}
+
+.anuncius-header{
+    height: 45px;
+}
+
+.anuncius-bar{
+    height: 15px;
+    min-height: 15px;
+}
+.bg-white{
+    background-color: white;
+}
+
+.aside-btn{
+    padding-bottom: 0px;
 }

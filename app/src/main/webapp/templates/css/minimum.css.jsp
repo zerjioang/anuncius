@@ -9,6 +9,8 @@ if(host!=null && host.equals("orion")){
     <%if(minified){%>
         <script src="/dist/css/style.min.css"></script>
     <%}else{%>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
+        
         <link rel="stylesheet" href="/theme/css/vendor/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="/theme/css/vendor/cleanbar/clean.scrollbar.css">
 
