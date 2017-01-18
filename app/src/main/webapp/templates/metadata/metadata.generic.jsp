@@ -2,18 +2,18 @@
 
 <%--
 <!--
-                               _            
-                              (_)           
-  ____ ____  _   _ ____   ____ _ _   _  ___ 
+                               _
+                              (_)
+  ____ ____  _   _ ____   ____ _ _   _  ___
  / _  |  _ \| | | |  _ \ / ___) | | | |/___)
 ( ( | | | | | |_| | | | ( (___| | |_| |___ |
- \_||_|_| |_|\____|_| |_|\____)_|\____(___/ 
-                                            
+ \_||_|_| |_|\____|_| |_|\____)_|\____(___/
+
 
 	Now hiring @ https://anunci.us/jobs
 
 	Want to help build the home page? https://anunci.us/jobs
-	
+
 -->
 --%>
 
@@ -38,7 +38,16 @@
 
 <meta name="google-site-verification" content="3CCWLw7ljS55o_Wd13IvKsiIs9lbpfYDBIVVp0Ipqac" />
 
-<script type='application/ld+json'> 
+<!-- dns prefetch -->
+<link rel=”dns-prefetch” href=”//static.anunci.us”>
+<link rel=”dns-prefetch” href=”//api.anunci.us”>
+<link rel=”dns-prefetch” href=”//anunci.us”>
+<link rel=”dns-prefetch” href=”//fonts.gstatic.com”>
+<link rel=”dns-prefetch” href=”//fonts.googleapis.com”>
+<link rel=”dns-prefetch” href=”//apis.google.com”>
+<link rel=”dns-prefetch” href=”//www.google-analytics.com”>
+
+<script type='application/ld+json'>
     {
       "@context": "https://www.schema.org",
       "@type": "LocalBusiness",
