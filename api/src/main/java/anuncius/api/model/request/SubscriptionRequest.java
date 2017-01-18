@@ -5,6 +5,7 @@
  */
 package anuncius.api.model.request;
 
+import anuncius.singleton.AnunciusDAO;
 import org.bson.Document;
 
 /**
@@ -49,6 +50,10 @@ public class SubscriptionRequest extends AbstractRequest{
 
     @Override
     public void convertFromMongoObject(Document document) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getCollectionName() {
+        return AnunciusDAO.SUBSCRIPTION_COLLECTION_NAME;
     }
 }

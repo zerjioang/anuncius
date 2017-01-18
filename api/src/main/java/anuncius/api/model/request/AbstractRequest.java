@@ -61,5 +61,5 @@ public abstract class AbstractRequest implements IMongoManipulable, Serializable
         this.deleted = deleted;
     }
     
-    
+    public abstract String getCollectionName();
 }

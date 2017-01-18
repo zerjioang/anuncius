@@ -6,11 +6,8 @@ import static junit.framework.Assert.assertNotNull;
 import anuncius.singleton.MongoHandler;
 import anuncius.singleton.RedisHandler;
 import anuncius.util.PlatformUtil;
-import com.mongodb.DBCursor;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import java.util.List;
-import junit.framework.TestResult;
 import org.bson.Document;
 import org.junit.Test;
 

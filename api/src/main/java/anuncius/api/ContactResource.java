@@ -60,7 +60,7 @@ public class ContactResource {
             //todo save user in db
             SubscriptionRequest request = new SubscriptionRequest(email);
             
-            AnunciusDAO.getInstance().saveUserEmailAsSubscription(request);
+            AnunciusDAO.getInstance().save(request);
             response = APIResponse.USER_SUBSCRIPTION_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){
@@ -91,7 +91,7 @@ public class ContactResource {
                     message
             );
             
-            AnunciusDAO.getInstance().insertUserContactFormRequest(request);
+            AnunciusDAO.getInstance().save(request);
             response = APIResponse.CONTACT_FORM_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){

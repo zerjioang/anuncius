@@ -5,16 +5,21 @@
  */
 package anuncius.singleton;
 
+import anuncius.api.model.request.NewItemRequest;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
+import com.mongodb.client.result.DeleteResult;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import org.bson.Document;
 
 /**
@@ -127,4 +132,36 @@ public class MongoHandler {
             mainDatabase.createCollection(name);
         }
     }
+    
+    public boolean delete(int id, String collectionName) {
+        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+        Document document = new Document();
+        document.put("_id", id);
+        DeleteResult result = collection.deleteOne(document);
+        return result.getDeletedCount()>=1;
+    }
+
+    public List<Document> getList(String collectionName, int limit, int sort) {
+        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+        List<Document> results = (List<Document>) collection
+                .find()
+                .limit(limit)
+                .sort(new BasicDBObject("views", sort));
+        return results;
+    }
+    
+    public List<Document> getList(String collectionName, int limit, int sort, Document result, String sortParam) {
+        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+        List<Document> results = (List<Document>) collection
+                .find(result)
+                .limit(limit)
+                .sort(new BasicDBObject(sortParam, sort));
+        return results;
+    }
+
+    boolean isUserAlreadyRegistered(String token) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

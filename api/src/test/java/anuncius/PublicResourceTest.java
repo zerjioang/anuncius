@@ -5,15 +5,14 @@
  */
 package anuncius;
 
-import anuncius.util.Helper;
 import javax.ws.rs.core.Application;
 import anuncius.api.SearchResource;
 import anuncius.util.PlatformUtil;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
-import org.junit.Test;
-
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 /**
  *
  * @author sanguita

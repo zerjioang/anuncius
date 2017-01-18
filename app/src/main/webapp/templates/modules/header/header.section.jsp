@@ -21,7 +21,7 @@
                     <!-- Logo -->
                     <div class="bar-center">
                         <div style="display: inline-block;">
-                            <img id="logo" alt="logo oficial de anuncius" src="https://static.anunci.us/theme/favicon/favicon-32x32.png"/>
+                            <%--<img id="logo" alt="logo oficial de anuncius" src="https://static.anunci.us/theme/favicon/favicon-32x32.png"/> --%>
                             <a href="/" class="logo-padding nofit">
                                 <h2 class="logo-font nofit">anuncius</h2>
                             </a>

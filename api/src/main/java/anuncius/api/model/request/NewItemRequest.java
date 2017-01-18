@@ -5,6 +5,7 @@
  */
 package anuncius.api.model.request;
 
+import anuncius.singleton.AnunciusDAO;
 import java.util.ArrayList;
 import org.bson.Document;
 
@@ -183,5 +184,10 @@ public class NewItemRequest extends AbstractRequest{
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    @Override
+    public String getCollectionName() {
+        return AnunciusDAO.ADVERTISEMENT_COLLECTION_NAME;
     }
 }

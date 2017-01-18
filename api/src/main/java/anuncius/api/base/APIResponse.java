@@ -54,6 +54,18 @@ public enum APIResponse {
         public IAPIMessage getAPIResponse() {
             return new ResponseArrayList();
         }
+    }, DELETE_AD_FAILED{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            //todo finish
+            return null;
+        }
+    }, DELETE_AD_SUCCESS{
+        @Override
+        public IAPIMessage getAPIResponse() {
+            //todo finish
+            return null;
+        }
     };
     
     public abstract IAPIMessage getAPIResponse();

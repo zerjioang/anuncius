@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anuncius.util;
+package anuncius;
 
 import java.util.HashMap;
 import java.util.Map;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
+import org.glassfish.jersey.test.JerseyTest;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import org.glassfish.jersey.test.JerseyTest;
 
 /**
  *

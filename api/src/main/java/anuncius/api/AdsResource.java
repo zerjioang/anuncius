@@ -84,7 +84,7 @@ public class AdsResource {
         @FormParam("price") double price,
         @FormParam("description") String description
     ) {
-        IAPIMessage response = null;
+        IAPIMessage response;
         try {
             SecureLayer.hasApproved(name, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
             SecureLayer.hasApproved(category, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
@@ -102,7 +102,7 @@ public class AdsResource {
                     description,
                     System.currentTimeMillis()
             );
-            AnunciusDAO.getInstance().saveNewItem(newItem);
+            AnunciusDAO.getInstance().save(newItem);
             response = APIResponse.NEW_PUBLISH_SUCCESS.getAPIResponse();
         } catch (SecureLayerException ex) {
             Logger.getLogger(AdsResource.class.getName()).log(Level.SEVERE, null, ex);
@@ -133,7 +133,18 @@ public class AdsResource {
     @GET
     @Path("/delete/{id : .*}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String delete(@PathParam("id") int id) {
-        return "{}";
+    public IAPIMessage delete(@PathParam("id") int id) {
+        IAPIMessage response = APIResponse.DELETE_AD_FAILED.getAPIResponse();
+        if(id>=0){
+            //delete
+            boolean deleted = AnunciusDAO.getInstance().delete(id, AnunciusDAO.ADVERTISEMENT_COLLECTION_NAME);
+            if(deleted){
+                response = APIResponse.DELETE_AD_SUCCESS.getAPIResponse();
+            }
+            else{
+                
+            }
+        }
+        return response;
     }
 }

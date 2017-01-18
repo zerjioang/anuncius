@@ -33,4 +33,8 @@ public class PlatformUtil {
     public static boolean isProduction(){
         return !dev;
     }
+
+    public static boolean isRedisCacheEnabled() {
+        return true;
+    }
 }

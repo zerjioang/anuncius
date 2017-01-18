@@ -5,6 +5,7 @@
  */
 package anuncius.api.model.request;
 
+import anuncius.singleton.AnunciusDAO;
 import java.io.Serializable;
 import org.bson.Document;
 
@@ -87,6 +88,10 @@ public class UserOAuthDataRequest extends AbstractRequest{
 
     @Override
     public void convertFromMongoObject(Document document) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getCollectionName() {
+        return AnunciusDAO.AUTH_COLLECTION_NAME;
     }
 }
