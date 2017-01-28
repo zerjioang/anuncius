@@ -1,12 +1,14 @@
 <%@page import="anuncius.util.PlatformUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%
 boolean minified = PlatformUtil.enableMinification();
 if(PlatformUtil.isDevelopment()){
 %>
     <%if(minified){%>
-        <script src="/dist/css/style.min.css"></script>
+        <script src="dist/css/style.min.css"></script>
     <%}else{%>
         <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
         
@@ -78,5 +80,3 @@ if(PlatformUtil.isDevelopment()){
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/custom.css">
         <% } %>    
 <% } %>
-
-

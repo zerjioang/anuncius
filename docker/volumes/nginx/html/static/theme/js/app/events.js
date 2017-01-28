@@ -223,6 +223,11 @@ $(document).ready(function(){
         }
     }
     else if(thisUrl === "/new"){
+        //activate image pickers
+        $("#visual-price").imagepicker();
+        $("#visual-type").imagepicker();
+        $("#features-selector").imagepicker();
+        
         var time = localDate.getTime();
         $('#anuncio_id').text('#'+time);
     }

@@ -6,16 +6,18 @@ boolean minified = PlatformUtil.enableMinification();
 if(PlatformUtil.isDevelopment()){
 %>
     <%if(minified){%>
-        <script src="/dist/js/all.min.js"></script>
+        <script src="dist/js/all.min.js"></script>
     <%}else{%>
         
         <script async src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
-        <script async src="/theme/js/vendor/smoothscroll/2.1.1/jquery.smooth-scroll.min.js"></script>
-        <script async src="/theme/js/vendor/magnific-popup/1.1.0/jquery.magnific-popup.js"></script>
         <script async src="/theme/js/vendor/atmosphere/jquery.atmosphere.min.js"></script>
         
         <script src="/theme/js/vendor/jquery/jquery.min.js"></script>
+        <script src="/theme/js/vendor/smoothscroll/2.1.1/jquery.smooth-scroll.min.js"></script>
+        <script src="/theme/js/vendor/magnific-popup/1.1.0/jquery.magnific-popup.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <script src="/theme/js/vendor/imagepicker/image-picker.min.js"></script>
         
         <script src="/theme/js/vendor/mustache/mustache.min.js"></script>
         <script src="/theme/js/vendor/classie/1.0.1/classie.js"></script>
@@ -35,13 +37,15 @@ if(PlatformUtil.isDevelopment()){
     <%}else{%>
         
         <script async src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
-        <script async src="https://static.anunci.us/theme/js/vendor/smoothscroll/2.1.1/jquery.smooth-scroll.min.js"></script>
-        <script async src="https://static.anunci.us/theme/js/vendor/magnific-popup/1.1.0/jquery.magnific-popup.js"></script>
         <script async src="https://static.anunci.us/theme/js/vendor/atmosphere/jquery.atmosphere.min.js"></script>
         
         <script src="https://static.anunci.us/theme/js/vendor/jquery/jquery.min.js"></script>
+        <script src="https://static.anunci.us/theme/js/vendor/smoothscroll/2.1.1/jquery.smooth-scroll.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://static.anunci.us/theme/js/vendor/magnific-popup/1.1.0/jquery.magnific-popup.js"></script>
 
+        <script src="https://static.anunci.us/theme/js/vendor/imagepicker/image-picker.min.js"></script>
+        
         <script src="https://static.anunci.us/theme/js/vendor/mustache/mustache.min.js"></script>        
         <script src="https://static.anunci.us/theme/js/vendor/classie/1.0.1/classie.js"></script>
 

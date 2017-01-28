@@ -8,7 +8,7 @@ var localDate = new Date();
 var dev = false;
 
 if(thisUrl.startsWith('http://localhost:8084')){
-    host = 'http://localhost:8084/';
+    host = 'http://localhost:8084/anuncius/api/';
     dev = true;
 }
 

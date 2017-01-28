@@ -10,6 +10,7 @@ package anuncius.filter;
  * @author .local
  */
 // Import required java libraries
+import anuncius.util.PlatformUtil;
 import java.util.*;
 import org.glassfish.jersey.server.ContainerRequest;
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class LogApiFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext containerRequest) throws IOException {
         //GET, POST, PUT, DELETE, ...
+        //log
         String method = containerRequest.getMethod();
         //api path called
         ContainerRequest request = (ContainerRequest) containerRequest.getRequest();
@@ -52,11 +54,17 @@ public class LogApiFilter implements ContainerRequestFilter {
         // Get the IP address of client machine
 
         // Log the IP address and current timestamp.
-        System.out.println(
-                "Time " + new Date().toString() +
-                ", Port " + port +
-                ", URL " + path
-        );
+        logRequest(method, port, path);
+        
+        if(!PlatformUtil.isDevelopment()){
+            if(PlatformUtil.isAPIHardeningEnabled()){
+                harden(containerRequest);
+            }
+        }
+    }
+    
+    private void harden(ContainerRequestContext containerRequest) {        
+        ContainerRequest request = (ContainerRequest) containerRequest.getRequest();
         MultivaluedMap<String, String> queryParams = request.getUriInfo().getQueryParameters();
         MultivaluedMap<String, String> pathParams = request.getUriInfo().getPathParameters();
         MultivaluedMap<String, String> formParams = null;
@@ -69,10 +77,8 @@ public class LogApiFilter implements ContainerRequestFilter {
         }
         boolean valid = checkRequestValidity(formParams, queryParams, pathParams);
         if(!valid){
-            ResponseBuilder responseBuilder = null;
-            Response response = null;
-            responseBuilder = Response.serverError();
-            response = responseBuilder.status(Status.BAD_REQUEST).build();
+            ResponseBuilder responseBuilder = Response.serverError();
+            Response response = responseBuilder.status(Status.BAD_REQUEST).build();
             containerRequest.abortWith(response);
         }
     }
@@ -108,5 +114,14 @@ public class LogApiFilter implements ContainerRequestFilter {
             return validTime && browserCheck;
         }
         return false;
+    }
+
+    private void logRequest(String method, int port, String path) {
+        System.out.println(
+                "Method" + method +
+                "Time " + new Date().toString() +
+                ", Port " + port +
+                ", URL " + path
+        );
     }
 }

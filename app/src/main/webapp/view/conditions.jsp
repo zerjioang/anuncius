@@ -69,15 +69,10 @@
 
         <section id="conditions">
             <div class="container" style='padding-top: 5%;padding-bottom: 5%;'>
-                <div class="jumbotron">
-                    <h1 class="display-3">Términos y condiciones</h1>
-                </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-                            <h1>Condiciones generales de uso
-                            </h1>
+                            <h1>Condiciones generales de uso, términos y condiciones</h1>
                             <h2>CONDICIONES GENERALES DE USO
                             </h2>
                             <p align="justify">
@@ -86,7 +81,7 @@
                             <h3>1. Datos identificativos
                             </h3>
                             <p align="justify">
-                                anunci.us es un grupo independiente de profesionales especializados en las TIC que actuan como asesores en diversos proyectos para clientes de todo tipo.
+                                anunci.us es una plataforma online para la gestión y mejora de los intereses de las personas orientada a la innovación, mejora de la economia, ocio, cultura y deporte.
                             </p>
                             <h3>2. Descripción del servicio
                             </h3>
@@ -132,11 +127,23 @@
                             <p align="justify">
                                 No puedes intentar causar ningún daño a la web o al servicio de anunci.us. Por ejemplo, y sin ser esta lista completa ni exhaustiva, no puedes
                             </p>
-                            a)    Entorpecer el servicio de <b>ANUNCIUS</b> usando malware u otros programas diseñados para causar daño a cualquier software o hardware.
-                            b)    Modificar o crear versiones de cualquier tecnología usada en <b>ANUNCIUS</b> sin previa autorización por los responsables.
-                            c)    Usar cualquier tipo de script, robot o tecnología para monitorizar la web, a excepción de contadores o servicios tipo “Google Analytics”.
-                            d)    Recolectar emails u otra información a través del servicio de <b>ANUNCIUS</b>.
-                            e)    Hacerte pasar por otra persona o entidad.
+                            <ul>
+                                <li>
+                                    a)    Entorpecer el servicio de <b>ANUNCIUS</b> usando malware u otros programas diseñados para causar daño a cualquier software o hardware.
+                                </li>
+                                <li>
+                                    b)    Modificar o crear versiones de cualquier tecnología usada en <b>ANUNCIUS</b> sin previa autorización por los responsables.
+                                </li>
+                                <li>
+                                    c)    Usar cualquier tipo de script, robot o tecnología para monitorizar la web, a excepción de contadores o servicios tipo “Google Analytics”.
+                                </li>
+                                <li>
+                                    d)    Recolectar emails u otra información a través del servicio de <b>ANUNCIUS</b>.
+                                </li>
+                                <li>
+                                    e)    Hacerte pasar por otra persona o entidad.
+                                </li>
+                            </ul>
                             <h4>4.2 Privacidad y protección de datos
                             </h4>
                             <p align="justify">
@@ -156,34 +163,34 @@
                             <p align="justify">
                                 De conformidad con lo dispuesto en la Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal (LOPD) y su normativa de desarrollo, el responsable del sitio web, en cumplimiento de lo dispuesto en el art. 5 y 6 de la LOPD, informa a todos los usuarios del sitio web que faciliten o vayan a facilitar sus datos personales, que estos serán incorporados en un fichero automatizado que se encuentra debidamente inscrito en la Agencia Española de Protección de Datos
                             </p>
-                            Los usuarios, mediante la marcación de la casilla habilitada en los formularios de alta habilitados en el sitio web aceptan expresamente y de forma libre e inequívoca que sus datos personales sean tratados por parte de <b>ANUNCIUS</b> para realizar las siguientes finalidades: 
-                            Cursar su solicitud de usuario registrado y/o su pedido de productos ofrecidos por <b>ANUNCIUS</b>. Una vez confirmada y aceptada su solicitud, el usuario recibirá un correo electrónico de confirmación en la dirección indicada al momento de completar el formulario de registro. 
-                            Remisión de comunicaciones comerciales publicitarias por e-mail. Dichas comunicaciones comerciales estarán relacionadas con productos o servicios ofrecidos por <b>ANUNCIUS</b>. 
-                            Realizar estudios estadísticos. 
-                            Tramitar encargos, solicitudes o responder a las peticiones que sean realizadas por el usuario a través de cualquiera de las formas de contacto que se ponen a disposición del usuario en el sitio web de <b>ANUNCIUS</b>. 
-                            Remitir el boletín de noticias o newsletter de <b>ANUNCIUS</b>. 
-                            <b>ANUNCIUS</b> informa y garantiza expresamente a los usuarios que sus datos personales no serán cedidos en ningún caso a terceras compañías, y que siempre que fuera a realizarse algún tipo de cesión de datos personales, de forma previa, se solicitaría el consentimiento expreso, informado, e inequívoco por parte de los titulares. 
-                            Todos los datos solicitados a través del sitio web son obligatorios, ya que son necesarios para la prestación de un servicio óptimo al usuario. En caso de que no sean facilitados todos los datos, <b>ANUNCIUS</b> no garantiza que la información y servicios facilitados sean completamente ajustados a sus necesidades. 
-                            <b>ANUNCIUS</b> garantiza en todo caso al usuario el ejercicio de los derechos de acceso, rectificación, cancelación, información y oposición, en los términos dispuestos en la legislación vigente. Por ello, de conformidad con lo dispuesto en la Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal (LOPD) podrá ejercer sus derechos remitiendo una solicitud expresa, junto a una copia de su DNI, a la dirección de correo electrónico: contact@anunci.us
-                            <h4>4.3 Condiciones de compra
-                            </h4>
-                            <h5>Sistema de venta
-                            </h5>
+                            <p align="justify">
+                                Los usuarios, mediante la marcación de la casilla habilitada en los formularios de alta habilitados en el sitio web aceptan expresamente y de forma libre e inequívoca que sus datos personales sean tratados por parte de <b>ANUNCIUS</b> para realizar las siguientes finalidades: 
+                                Cursar su solicitud de usuario registrado y/o su pedido de productos ofrecidos por <b>ANUNCIUS</b>. Una vez confirmada y aceptada su solicitud, el usuario recibirá un correo electrónico de confirmación en la dirección indicada al momento de completar el formulario de registro. 
+                                Remisión de comunicaciones comerciales publicitarias por e-mail. Dichas comunicaciones comerciales estarán relacionadas con productos o servicios ofrecidos por <b>ANUNCIUS</b>. 
+                                Realizar estudios estadísticos. 
+                                Tramitar encargos, solicitudes o responder a las peticiones que sean realizadas por el usuario a través de cualquiera de las formas de contacto que se ponen a disposición del usuario en el sitio web de <b>ANUNCIUS</b>. 
+                                Remitir el boletín de noticias o newsletter de <b>ANUNCIUS</b>. 
+                                <b>ANUNCIUS</b> informa y garantiza expresamente a los usuarios que sus datos personales no serán cedidos en ningún caso a terceras compañías, y que siempre que fuera a realizarse algún tipo de cesión de datos personales, de forma previa, se solicitaría el consentimiento expreso, informado, e inequívoco por parte de los titulares. 
+                                Todos los datos solicitados a través del sitio web son obligatorios, ya que son necesarios para la prestación de un servicio óptimo al usuario. En caso de que no sean facilitados todos los datos, <b>ANUNCIUS</b> no garantiza que la información y servicios facilitados sean completamente ajustados a sus necesidades. 
+                                <b>ANUNCIUS</b> garantiza en todo caso al usuario el ejercicio de los derechos de acceso, rectificación, cancelación, información y oposición, en los términos dispuestos en la legislación vigente. Por ello, de conformidad con lo dispuesto en la Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal (LOPD) podrá ejercer sus derechos remitiendo una solicitud expresa, junto a una copia de su DNI, a la dirección de correo electrónico: contact@anunci.us
+                            </p>
+                            <h4>4.3 Condiciones de compra</h4>
+                            <h5>Sistema de venta</h5>
                             <p align="justify">
                                 Para realizar una compra, el usuario puede hacernos llegar su pedido por Internet a través del sistema implementado en nuestro sitio web anunci.us o a traves de contacto directo por email o teléfono
                             </p>
-                            <h5>Impuestos aplicables
-                            </h5>
-                            Los precios de los productos expuestos en la página web de anunci.us, incluyen el Impuesto sobre el Valor Añadido (IVA) que, en su caso, sea procedente aplicar.
-                            Las compras que vayan a ser entregadas dentro del territorio de cualquiera de los estados miembros de la Unión Europea estarán sujetas a IVA.
-                            Las compras que deban ser entregadas en territorios de Estados no miembros de la Unión Europea, Ceuta o Melilla estarán exentas del IVA.
-                            <h5>Forma de pago
-                            </h5>
-                            Al formular el pedido, el cliente puede elegir libremente abonar las compras que realice mediante tarjeta (American Express, MasterCard, Visa, Visa Electrón, etc); contra-reembolso (sólo en España y algunos países de la Unión Europea), mediante transferencia bancaria y mediante PayPal. En determinados casos y para prevenir posibles fraudes anunci.us se reserva la posibilidad de solicitar a un cliente una forma de pago concreta.
-                            <h3>5. Garantía legal, devoluciones y cambios
-                            </h3>
-                            <h4>5.1. Garantía legal
-                            </h4>
+                            <h5>Impuestos aplicables</h5>
+                            <p align="justify">
+                                Los precios de los productos expuestos en la página web de anunci.us, incluyen el Impuesto sobre el Valor Añadido (IVA) que, en su caso, sea procedente aplicar.
+                                Las compras que vayan a ser entregadas dentro del territorio de cualquiera de los estados miembros de la Unión Europea estarán sujetas a IVA.
+                                Las compras que deban ser entregadas en territorios de Estados no miembros de la Unión Europea, Ceuta o Melilla estarán exentas del IVA.
+                            </p>
+                            <h5>Forma de pago</h5>
+                            <p align="justify">
+                                Al formular el pedido, el cliente puede elegir libremente abonar las compras que realice mediante tarjeta (American Express, MasterCard, Visa, Visa Electrón, etc); contra-reembolso (sólo en España y algunos países de la Unión Europea), mediante transferencia bancaria y mediante PayPal. En determinados casos y para prevenir posibles fraudes anunci.us se reserva la posibilidad de solicitar a un cliente una forma de pago concreta.
+                            </p>
+                            <h3>5. Garantía legal, devoluciones y cambios</h3>
+                            <h4>5.1. Garantía legal</h4>
                             <p align="justify">
                                 En caso de producto defectuoso, anunci.us procederá, según corresponda, a la reparación, sustitución, rebaja del precio o resolución del contrato, gestiones que serán gratuitas para el cliente. anunci.us responde de las faltas de conformidad que se manifiesten en un plazo de 2 años desde la entrega. El cliente deberá informar a anunci.us de la falta de conformidad en el plazo de 2 meses desde que tuvo conocimiento de ella.
                             </p>

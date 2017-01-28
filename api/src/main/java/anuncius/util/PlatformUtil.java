@@ -26,6 +26,7 @@ public class PlatformUtil {
     
     private static final String DEFAULT_DEVELOPMENT_API_PATH = "/api/";
     private static final String DEFAULT_PRODUCTION_API_PATH = "/";
+    private static boolean ENABLE_API_HARDENING = true;
     
     private static boolean initValues() {
         if(env!=null && env.get("HOSTNAME")!=null){
@@ -66,5 +67,9 @@ public class PlatformUtil {
             return DEFAULT_DEVELOPMENT_API_PATH;
         }
         return DEFAULT_PRODUCTION_API_PATH;
+    }
+
+    public static boolean isAPIHardeningEnabled() {
+        return ENABLE_API_HARDENING;
     }
 }

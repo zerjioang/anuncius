@@ -17,6 +17,7 @@ public class PlatformUtil {
     
     private static boolean init = initValues();
     private static boolean dev;
+    public static final String CONTEXT_PATH = "";
     
     private static boolean initValues() {
         if(env!=null && env.get("HOSTNAME")!=null){
@@ -32,5 +33,16 @@ public class PlatformUtil {
     
     public static boolean enableMinification(){
         return false;
+    }
+
+    public static String cleanUrl(String uriStr) {
+        if(isDevelopment()){
+            return uriStr.replace(getContextPath(), "");
+        }
+        return uriStr;
+    }
+
+    public static String getContextPath() {
+        return CONTEXT_PATH;
     }
 }

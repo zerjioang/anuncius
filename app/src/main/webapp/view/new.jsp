@@ -172,12 +172,6 @@
     <s:include value="/templates/modules/footer/common.footer.jsp" />
     <!-- FOOTER END -->
     <s:include value="/templates/js/minimum.js.jsp" />
-    <script src="/theme/js/vendor/imagepicker/image-picker.min.js"></script>
-    <script>
-        $("#visual-price").imagepicker();
-        $("#visual-type").imagepicker();
-        $("#features-selector").imagepicker();
-    </script>
 </body>
 
 </html>

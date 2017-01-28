@@ -5,6 +5,7 @@ package anuncius.filter;
  * @author .local
  */
 // Import required java libraries
+import anuncius.util.PlatformUtil;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -39,57 +40,67 @@ public class ABFordwardFilter implements Filter {
     }
 
     private String requiresFordward(String uriStr) {
-        if(uriStr.startsWith("/search/item/")){
-            //enable redirects for opensearch queries
-            return "/view/explore.jsp";
+        uriStr = cleanURL(uriStr);
+        if(uriStr!=null){
+            if(uriStr.startsWith("/search/item/")){
+                //enable redirects for opensearch queries
+                return "/view/explore.jsp";
+            }
+            else if(uriStr.equals("/new")){
+                return "/view/new.jsp";
+            }
+            else if(uriStr.equals("/account") || uriStr.startsWith("/account/")){
+                return "/view/account.jsp";
+            }
+            else if(uriStr.equals("/blog") || uriStr.startsWith("/blog/")){
+                return "/view/blog.jsp";
+            }
+            else if(uriStr.equals("/conditions") || uriStr.startsWith("/conditions/")){
+                return "/view/conditions.jsp";
+            }
+            else if(uriStr.equals("/contact") || uriStr.startsWith("/contact/")){
+                return "/view/contact.jsp";
+            }
+            else if(uriStr.equals("/explore") || uriStr.startsWith("/explore/")){
+                return "/view/explore.jsp";
+            }
+            else if(uriStr.equals("/item") || uriStr.startsWith("/item/")){
+                return "/view/item.jsp";
+            }
+            else if(uriStr.equals("/landing") || uriStr.startsWith("/landing/")){
+                return "/view/landing.jsp";
+            }
+            else if(uriStr.equals("/post") || uriStr.startsWith("/post/")){
+                return "/view/post.jsp";
+            }
+            else if(uriStr.equals("/privacy") || uriStr.startsWith("/privacy/")){
+                return "/view/privacy.jsp";
+            }
+            else if(uriStr.equals("/questions") || uriStr.startsWith("/questions/")){
+                return "/view/questions.jsp";
+            }
+            else if(uriStr.equals("/ranking") || uriStr.startsWith("/ranking/")){
+                return "/view/ranking.jsp";
+            }
+            else if(uriStr.equals("/user") || uriStr.startsWith("/user/")){
+                return "/view/user.jsp";
+            }
+            else if(uriStr.equals("/jobs")){
+                return "/view/jobs.jsp";
+            }
+            else if(uriStr.equals("/docs") || uriStr.startsWith("/docs/")){
+                return "/view/docs.jsp";
+            }
+            else if(uriStr.equals("/groups") || uriStr.startsWith("/groups/")){
+                return "/view/groups.jsp";
+            }
         }
-        else if(uriStr.equals("/new")){
-            return "/view/new.jsp";
-        }
-        else if(uriStr.equals("/account") || uriStr.startsWith("/account/")){
-            return "/view/account.jsp";
-        }
-        else if(uriStr.equals("/blog") || uriStr.startsWith("/blog/")){
-            return "/view/blog.jsp";
-        }
-        else if(uriStr.equals("/conditions") || uriStr.startsWith("/conditions/")){
-            return "/view/conditions.jsp";
-        }
-        else if(uriStr.equals("/contact") || uriStr.startsWith("/contact/")){
-            return "/view/contact.jsp";
-        }
-        else if(uriStr.equals("/explore") || uriStr.startsWith("/explore/")){
-            return "/view/explore.jsp";
-        }
-        else if(uriStr.equals("/item") || uriStr.startsWith("/item/")){
-            return "/view/item.jsp";
-        }
-        else if(uriStr.equals("/landing") || uriStr.startsWith("/landing/")){
-            return "/view/landing.jsp";
-        }
-        else if(uriStr.equals("/post") || uriStr.startsWith("/post/")){
-            return "/view/post.jsp";
-        }
-        else if(uriStr.equals("/privacy") || uriStr.startsWith("/privacy/")){
-            return "/view/privacy.jsp";
-        }
-        else if(uriStr.equals("/questions") || uriStr.startsWith("/questions/")){
-            return "/view/questions.jsp";
-        }
-        else if(uriStr.equals("/ranking") || uriStr.startsWith("/ranking/")){
-            return "/view/ranking.jsp";
-        }
-        else if(uriStr.equals("/user") || uriStr.startsWith("/user/")){
-            return "/view/user.jsp";
-        }
-        else if(uriStr.equals("/jobs")){
-            return "/view/jobs.jsp";
-        }
-        else if(uriStr.equals("/docs") || uriStr.startsWith("/docs/")){
-            return "/view/docs.jsp";
-        }
-        else if(uriStr.equals("/groups") || uriStr.startsWith("/groups/")){
-            return "/view/groups.jsp";
+        return null;
+    }
+
+    private String cleanURL(String uriStr) {
+        if(uriStr!=null && !uriStr.isEmpty()){
+            return PlatformUtil.cleanUrl(uriStr);
         }
         return null;
     }

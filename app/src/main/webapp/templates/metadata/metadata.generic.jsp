@@ -39,13 +39,15 @@
 <meta name="google-site-verification" content="3CCWLw7ljS55o_Wd13IvKsiIs9lbpfYDBIVVp0Ipqac" />
 
 <!-- dns prefetch -->
-<link rel=”dns-prefetch” href=”//static.anunci.us”>
-<link rel=”dns-prefetch” href=”//api.anunci.us”>
-<link rel=”dns-prefetch” href=”//anunci.us”>
-<link rel=”dns-prefetch” href=”//fonts.gstatic.com”>
-<link rel=”dns-prefetch” href=”//fonts.googleapis.com”>
-<link rel=”dns-prefetch” href=”//apis.google.com”>
-<link rel=”dns-prefetch” href=”//www.google-analytics.com”>
+<link rel="dns-prefetch" href="//static.anunci.us">
+<link rel="dns-prefetch" href="//anunci.us">
+<link rel="dns-prefetch" href="//api.anunci.us">
+<link rel="dns-prefetch" href="//swagger.anunci.us">
+<link rel="dns-prefetch" href="//dashboard.anunci.us">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//apis.google.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
 
 <script type='application/ld+json'>
     {
@@ -53,7 +55,7 @@
       "@type": "LocalBusiness",
       "name": "Anuncius",
       "url": "https://anunci.us/",
-      "logo": "https://static.anunci.us/img/metadata/json.ld.logo.png",
+      "logo": "thtps://static.anunci.us/img/metadata/json.ld.logo.png",
       "image": "https://static.anunci.us/img/metadata/json.ld.image.png",
       "description": "Anuncius - La nueva forma de comprar online. Vende lo que ya no te interesa y publica miles de anuncios de forma gratuita y segura.",
       "address": {

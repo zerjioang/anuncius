@@ -81,71 +81,29 @@
                     <div class="gl-blog-content gl-blog-grid-wrapper">
 
                         <!-- BLOG ITEMS -->
-                        <div class="gl-blog-items gl-image-post col-md-4 col-sm-4 col-xs-12">
-                            <div class="gl-blog-img-wrapper">
-                                <picture>
-                                    <amp-img
-                                        src="https://static.anunci.us/theme/images/blog/welcome.jpg"
-                                        alt="Imagen de bienvenida al blog"
-                                        class="gl-lazy"
-                                        width=360
-                                        height=240
-                                        layout=responsive>
-                                    </amp-img>
-                                </picture>
-                                <picture>
-                                    <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                    <img alt="Category Image" srcset=https://static.anunci.us/theme/images/product.png>
-                                </picture>
-                                <div class="gl-blog-cat-icon">
-                                    <i class="ion-ios-musical-notes"></i>
-                                </div>
-                            </div>
-
-                            <div class="gl-blog-item-details">
-                                <h3>
-                                    <a href="/post/1">Atención: Estrenamos Anuncius!</a>
-                                </h3>
-                                <p>Estamos deseando darte la bienvenida oficial</p>
-                                <span class="gl-blog-post-date">1 de Enero, 2017</span>
-                            </div>
-                        </div>
-                        <!-- BLOG ITEMS END -->
-
-                        <!-- BLOG ITEMS -->
-                        <div class="gl-blog-items gl-quote-post col-md-4 col-sm-4 col-xs-12">
-                            <div class="gl-blog-img-wrapper">
-                                <div class="gl-blog-cat-icon">
-                                    <i class="ion-quote"></i>
-                                </div>
-
-                                <div class="gl-blog-item-details">
-                                    <h3>
-                                        <a href="#">Bienvenido al blog de Anunci.us</a>
-                                    </h3>
-                                    <a href="#" class="gl-post-author"><b>El equipo de anunci.us</b></a>
-                                </div>
-                            </div>
-                        </div>
+                        <s:include value="/templates/modules/blog/blog.item.jsp" >
+                            <s:param name="image" value="'https://static.anunci.us/theme/images/blog/post/1/welcome.jpg'" />
+                            <s:param name="alt" value="'Imagen de bienvenida al blog'" />
+                            <s:param name="href" value="'/post/1'" />
+                            <s:param name="title" value="'Atención: Estrenamos Anuncius!'" />
+                            <s:param name="subtitle" value="'Estamos deseando darte la bienvenida oficial'" />
+                            <s:param name="date" value="'1 de Enero, 2017'" />
+                        </s:include>
+                        
+                        <s:include value="/templates/modules/blog/blog.block.item.jsp"/>
                         <!-- BLOG ITEMS END -->
 
                         <div id="gl-blog-next-page-nav">
                             <a href="next"></a>
                         </div>
-
-
                     </div>
                     <!-- PAGE CONTENT DETAILS END -->
                 </div>
             </div>
         </section>
-        
-
-        
-        <!-- PAGE CONTETNT END -->
+        <!-- PAGE CONTENT END -->
 
         <s:include value="/templates/modules/footer/common.footer.jsp" />
-
         <s:include value="/templates/js/minimum.js.jsp"/>
     </body>
 </html>
