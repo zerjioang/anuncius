@@ -26,7 +26,7 @@ public class PlatformUtil {
     
     private static final String CONTEXT_PATH = "";
     private static final boolean ENABLE_MINIFICATION_DEV = false;
-    private static final boolean ENABLE_MINIFICATION_PROD = true;
+    private static final boolean ENABLE_MINIFICATION_PROD = false;
     
     private static final boolean DEFAULT_DEVELOPMENT_REDIS_CACHE_ENABLED = false;
     private static final boolean DEFAULT_PRODUCTION_REDIS_CACHE_ENABLED = true;
