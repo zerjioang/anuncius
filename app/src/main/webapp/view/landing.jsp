@@ -11,7 +11,7 @@
         </s:include>
         
         <!-- PAGE TITLE -->
-        <title>Anuncius, la compra inteligente</title>
+        <title>Anuncius, Tu ventana digital</title>
 
         <s:include value="/templates/metadata/metadata.favicon.jsp" />
 
@@ -31,14 +31,14 @@
         <s:include value="/templates/metadata/metadata.twitter.jsp">
             <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
             <s:param name="site" value="'@anunci.us'"></s:param>
-            <s:param name="title" value="'Anuncius - La compra inteligente'"></s:param>
+            <s:param name="title" value="'Anuncius - Tu ventana digital'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/twitter.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
-            <s:param name="name" value="'Anuncius - La compra inteligente'"></s:param>
+            <s:param name="name" value="'Anuncius - Tu ventana digital'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
@@ -60,8 +60,8 @@
 
         <!-- HERO IMAGE -->
         <s:include value="/templates/modules/hero/hero.section.jsp">
-            <s:param name="normal" value="'La compra '" />
-            <s:param name="bold" value="'inteligente'"/>
+            <s:param name="normal" value="'Tu ventana '" />
+            <s:param name="bold" value="'digital'"/>
             <s:param name="block" value="'featured'" />
             <s:param name="image" value="'https://static.anunci.us/img/hero/landing/hero.jpg'" />
         </s:include>
@@ -103,6 +103,8 @@
         <s:include value="/templates/modules/donation/donation.section.jsp" />
         <!-- DONATIONS END -->
         --%>
+        
+        <s:include value="/templates/modules/stats/stats.section.jsp" />
         
         <!-- FOOTER -->
         <s:include value="/templates/modules/footer/common.footer.jsp" />

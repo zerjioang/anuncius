@@ -44,6 +44,7 @@ public class MongoHandler {
     
     public static MongoHandler getInstance(String databaseName){
         if(instance==null){
+            System.out.println("NEW mongo handler created");
             instance = new MongoHandler(databaseName);
         }
         return instance;
@@ -51,7 +52,7 @@ public class MongoHandler {
     
     private MongoHandler(String databaseName){
         this.database = databaseName;
-        connect();
+        this.connect();
         if(mongo==null){
             //... missing procedure
         }
@@ -140,28 +141,39 @@ public class MongoHandler {
         DeleteResult result = collection.deleteOne(document);
         return result.getDeletedCount()>=1;
     }
-
-    public List<Document> getList(String collectionName, int limit, int sort) {
-        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
-        List<Document> results = (List<Document>) collection
-                .find()
-                .limit(limit)
-                .sort(new BasicDBObject("views", sort));
-        return results;
-    }
     
     public List<Document> getList(String collectionName, int limit, int sort, Document result, String sortParam) {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
-        List<Document> results = (List<Document>) collection
-                .find(result)
-                .limit(limit)
-                .sort(new BasicDBObject(sortParam, sort));
-        return results;
+        if(collection!=null){
+            FindIterable<Document> iterable;
+            if(result!=null){
+                iterable = collection.find(result);
+            }
+            else{
+                iterable = collection.find();
+            }
+            if(limit > 0){
+                iterable = iterable.limit(limit);
+            }
+            if(sortParam!=null){
+                iterable = iterable.sort(new BasicDBObject(sortParam, sort));
+            }
+            return iterable.into(new ArrayList<>());
+        }
+        return new ArrayList<>();
     }
 
     boolean isUserAlreadyRegistered(String token) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
-    
+    public String countEntries(String collectionName) {
+        if(collectionName!=null){
+            MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+            if(collection!=null){
+                return ""+collection.count();
+            }
+        }
+        return "0";
+    }
 }

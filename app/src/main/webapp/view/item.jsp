@@ -379,7 +379,6 @@
         
         <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-        <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
         
         <script>
         var map = new ol.Map({

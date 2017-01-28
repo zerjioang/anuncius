@@ -75,7 +75,6 @@ h2 {
     color: #fff;
     text-align: center;
     margin: 0 0 10px;
-    text-shadow:;
 }
 .main-subtitle{
     font-weight: 700;
@@ -104,4 +103,15 @@ h2 {
 
 .aside-btn{
     padding-bottom: 0px;
+}
+
+.animated-fade-in{
+    visibility: visible;
+    animation-duration: 0.5s;
+    animation-delay: 0.3s;
+    animation-name: fadeIn;
+}
+
+.stats-block{
+    margin-top: 75px;
 }

@@ -50,7 +50,7 @@
                 --%>
                 <form id="search-form">
                     <div class="gl-regular-search">
-                        <input type="text" name="item" id="search-item" class="gl-directory-input" placeholder="Estoy buscando...una bicicleta roja de aluminio" required autofocus autocomplete>
+                        <input type="text" name="item" id="search-item" class="gl-directory-input" placeholder="Estoy buscando...una bicicleta roja de aluminio" required autocomplete>
                         <button type="submit" id="search-form-submit" class="gl-icon-btn">Buscar</button>
                     </div>
                 </form>

@@ -13,7 +13,6 @@ import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
 import anuncius.singleton.AnunciusDAO;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +26,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import org.bson.Document;
 
 /**
  * REST Web Service
@@ -56,7 +56,7 @@ public class AdsResource {
     @Path("/list/latest")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage getLatest() {
-        List<NewItemRequest> itemList = AnunciusDAO.getInstance().getLatestItems();
+        List<Document> itemList = AnunciusDAO.getInstance().getLatestItems();
         IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
         ((ResponseArrayList)response).setList(itemList);
         return response;
@@ -66,7 +66,7 @@ public class AdsResource {
     @Path("/list/best")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage getTop() {
-        ArrayList<NewItemRequest> itemList = AnunciusDAO.getInstance().getBestItems();
+        List<Document> itemList = AnunciusDAO.getInstance().getBestItems();
         IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
         ((ResponseArrayList)response).setList(itemList);
         return response;

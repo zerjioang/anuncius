@@ -51,18 +51,15 @@ $("#btn-search-form").on("click", function (event) {
 });
 
 //PUBLISH FORM
-
-$("#publish-form").submit(function( event ) {
-    event.preventDefault();
-    alert('error');
-});
-
-//search button event
+//publish button event
 $("#btn-publish-form").on("click", function (event) {
     event.preventDefault();
 
     var onSuccess = function (data, textStatus, jqXHR) {
-        showAutomaticApiResponseDialog(data);
+        var callback = function (){
+            alert('hi');
+        }
+        showAutomaticApiResponseDialog(data, callback);
     };
 
     var payload = getFormDataAsJson($('#publish-form')[0]);
@@ -162,8 +159,8 @@ g.imagesLoaded(function () {
 //page load event
 $(document).ready(function(){
     
-    //hide loader
-    $('#gl-circle-loader-wrapper').fadeOut('slow');
+    //enable notification
+    enableNotifications();
     
     //get source
     var thisUrl = getSourcePath();
@@ -186,6 +183,9 @@ $(document).ready(function(){
         removeLoggedUserElementsFromView(false);
     }
 
+    //hide loader
+    $('#gl-circle-loader-wrapper').fadeOut('slow');
+    
     //state-diagram
     if(thisUrl==='/'){
         log('landing');
@@ -196,9 +196,11 @@ $(document).ready(function(){
         $('#feed-them-all').show();
         $('#session-logout').hide();
 
+        //get usage stats
+        getStats();
         //ahora se piden los anuncios destacados
         getTopItems();
-        //ahora se piden los ultimos
+        //ahora se piden los ultimos anuncios publicados
         getLatestItems();
     }
     else if(thisUrl.startsWith('/search/item/')){
@@ -206,7 +208,7 @@ $(document).ready(function(){
         thisUrl = thisUrl.replace('/search/item/', "");
         log(thisUrl);
         var idx = thisUrl.lastIndexOf("&");
-        if(idx!=-1){
+        if(idx!==-1){
             var query = thisUrl.substring(0, idx);
             log(query);
             //decode query
@@ -223,77 +225,19 @@ $(document).ready(function(){
         }
     }
     else if(thisUrl === "/new"){
+        if(getGoogleUserToken()===undefined){
+            //user is not registered. show notification
+            showNotification("Inicia sesion", "Inicia sesion para poder completar el proceso", "icon", "error");
+        }
         //activate image pickers
         $("#visual-price").imagepicker();
         $("#visual-type").imagepicker();
-        $("#features-selector").imagepicker();
+        $("#visual-scope").imagepicker();
+        $("#visual-features").imagepicker();
+        $("#visual-pay").imagepicker();
+        $("#visual-pegi").imagepicker();
         
         var time = localDate.getTime();
         $('#anuncio_id').text('#'+time);
     }
 });
-
-
-//ASIDE FUNCTIONS
-
- function addEvents(input, checkBox, perm, elem) {
-    var revisionCheckbox = $(".gl-side-menu-wrap");
-    if (revisionCheckbox.length) {
-        if (perm) {
-            classie.remove(elem, "gl-show-menu");
-        } else {
-            classie.add(elem, "gl-show-menu");
-        }
-        /*input.addEventListener("click", change(perm, elem));
-            if (checkBox) {
-                checkBox.addEventListener("click", change(perm, elem));
-            }
-         */
-    }
-}
-
-function change(perm, elem) {
-    if (perm) {
-        classie.remove(elem, "gl-show-menu");
-    } else {
-        classie.add(elem, "gl-show-menu");
-    }
-    perm = !perm;
-}
-
-function showAside(status){
-    status = !status;
-    var elem = document.body;
-    var input = (
-        document.querySelector("body"),
-        document.getElementById("gl-side-menu-btn")
-    );
-    var checkBox = document.getElementById("gl-side-menu-close-button");
-    var perm = status;
-    addEvents(input, checkBox, perm, elem);
-    var iBoxHack = $(".gl-header").height();
-    $(".gl-side-menu-wrap").height($(window).height() - iBoxHack);
-    $(window).resize(function() {
-      $(".gl-side-menu-wrap").height($(window).height() - iBoxHack);
-    });
-    $(window).trigger("resize");
-    /*
-     var tref;
-    var current = $(".gl-header");
-    current.after('<section class="gl-fake-div"></section>');
-    var textareaEl = current.next();
-    var dialogHeight = current.outerHeight();
-    textareaEl.css({
-      height : dialogHeight
-    });
-    $(window).on("resize", function(dataAndEvents) {
-      clearTimeout(tref);
-      tref = setTimeout(function() {
-        var dialogHeight = current.outerHeight();
-        textareaEl.css({
-          height : dialogHeight
-        });
-      }, 250);
-    });
-     */
-}

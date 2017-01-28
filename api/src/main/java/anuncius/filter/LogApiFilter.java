@@ -5,11 +5,6 @@
  */
 package anuncius.filter;
 
-/**
- *
- * @author .local
- */
-// Import required java libraries
 import anuncius.util.PlatformUtil;
 import java.util.*;
 import org.glassfish.jersey.server.ContainerRequest;

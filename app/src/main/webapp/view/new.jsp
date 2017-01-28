@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="gl-element-type-wrapper">
                     <div class="col-md-6" style="padding-left: 0px;">
-                        <h1 class="gl-element-title" style="font-weight: 400; padding-left: 15px;">Nuevo anuncio</h1>
+                        <h1 class="gl-element-title" style="font-weight: 400; padding-left: 15px;">Nueva publicacion</h1>
                     </div>
                     <div class="col-md-6">
                         <h2 class="gl-sub-heading">Ficha: <span id="anuncio_id"></span></h2>
@@ -77,79 +77,107 @@
                             <div class="container" style="width: 90%;">
                                 <form id="publish-form">
                                   <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Titulo</label>
+                                    <label class="col-sm-2 col-form-label">Titulo</label>
                                     <div class="col-sm-10">
                                       <input type="email" class="form-control" name="name" id="item_name" placeholder="PS4 Seminueva de 500Gb" required>
                                     </div>
                                   </div>
                                   <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Categoría</label>
+                                    <label class="col-sm-2 col-form-label">Categoría</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="category" id="item_best_category" placeholder="Videoconsola" required>
                                     </div>
                                   </div>
                                     <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Palabra clave que mejor lo define</label>
+                                    <label class="col-sm-2 col-form-label">Palabra clave que mejor lo define</label>
                                     <div class="col-sm-10">
                                       <input type="email" class="form-control" name="keyword" id="item_keyword" placeholder="PS4" required>
                                     </div>
                                   </div>
                                   <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Objetivo: vender, comprar, regalar, etc</label>
+                                    <label class="col-sm-2 col-form-label">Objetivo: vender, comer, jugar, etc</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="action" id="item_best_category" placeholder="vender" required>
                                     </div>
                                   </div>
                                     <div class="form-group row">
-                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Precio</label>
+                                        <label class="col-sm-2 col-form-label">Precio</label>
                                         <div class="col-sm-10">
                                           <input class="form-control" type="number" name="price" id="price" placeholder="110" required>
                                         </div>
                                   </div>
                                     <div class="form-group row">
-                                        <label for="inputPassword3" class="col-sm-2 col-form-label"> </label>
-                                        <div class="col-sm-10">
-                                            <select id="visual-price" class="image-picker show-html" name="visual-price">
-                                                <option data-img-src="/theme/images/free-icon.png" value="gratis">1</option>
-                                                <option selected data-img-src="/theme/images/money.png" value="money">2</option>
-                                            </select>
-                                        </div>
-                                  </div>
-                                    <div class="form-group row">
-                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Tipo de publicación</label>
-                                        <div class="col-sm-10">
-                                            <select id="visual-type" class="image-picker show-html" name="visual-type">
-                                                <option selected data-img-src="/theme/images/ads.png" value="anuncio">1</option>
-                                                <option data-img-src="/theme/images/calendar.png" value="evento">2</option>
-                                                <option data-img-src="/theme/images/service.png" value="servicio">2</option>
-                                            </select>
-                                        </div>
-                                  </div>
-                                    <div class="form-group row">
-                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Características</label>
-                                        <div class="col-sm-10">
-                                            <select id="features-selector" multiple="multiple" class="image-picker show-html" name="features[]">
-                                                <option data-img-src="/theme/images/geo-icon.png" value="geolocalizado">1</option>
-                                                <option data-img-src="/theme/images/calendar.png" value="evento">2</option>
-                                                <option data-img-src="/theme/images/globe.png" value="global">3</option>
-                                            </select>
-                                        </div>
-                                  </div>
-                                    <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Descripción</label>
+                                    <label class="col-sm-2 col-form-label">Descripción</label>
                                     <div class="col-sm-10">
                                         <textarea class="form-control" name="description" id="description" cols="10" rows="5" placeholder="Se vende Ps4 seminueva de color..." required></textarea>
                                     </div>
                                   </div>
                                   
                                   <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Imagen pricipal</label>
+                                    <label class="col-sm-2 col-form-label">Imagen pricipal</label>
                                     <div class="col-sm-10">
                                         <label class="custom-file">
                                             <input type="file" id="file" class="custom-file-input">
                                             <span class="custom-file-control"></span>
                                           </label>
                                     </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Alcance</label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-scope" class="image-picker show-html" name="visual-type" required>
+                                                <option selected data-img-src="https://static.anunci.us/theme/images/new/scope/global.png" value="global">1</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/scope/local.png" value="local">2</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Tipo de publicación</label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-type" class="image-picker show-html" name="visual-type" required>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/tipo/servicio/.png" value="service">1</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/tipo/evento.png" value="event">2</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/tipo/anuncio.png" value="ad">3</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    <%--
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Características</label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-features" multiple="multiple" class="image-picker show-html" name="features[]" required>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/features/" value="geolocalizado">1</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/calendar.png" value="evento">2</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/globe.png" value="global">3</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    --%>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Pegi</label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-pegi" class="image-picker show-html" name="pegi" required>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/pegi/3.png" value="3">1</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/pegi/7.png" value="7">2</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/pegi/12.png" value="8">3</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/pegi/16.png" value="16">4</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/pegi/18.png" value="18">5</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/pegi/21.png" value="21">6</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Metodo de pago</label>
+                                        <div class="col-sm-10">
+                                            <select id="visual-pay" multiple class="image-picker show-html" name="payment">
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/payment/free.png" value="free">0</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/payment/banco.png" value="bank">1</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/payment/transferencia.png" value="transfer">2</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/payment/paypal.png" value="paypal">3</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/payment/tienda.png" value="local">4</option>
+                                                <option data-img-src="https://static.anunci.us/theme/images/new/payment/en-mano.png" value="hand">5</option>
+                                            </select>
+                                        </div>
                                   </div>
                                     
                                   <div class="form-group row">

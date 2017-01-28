@@ -3,7 +3,6 @@
 
 <!doctype html>
 <html lang="es">
-
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
             <s:param name="description" value="'Anuncius - La nueva forma de comprar online. Vende lo que ya no te interesa y publica miles de anuncios de forma gratuita y segura.'"></s:param>
@@ -31,20 +30,19 @@
         <s:include value="/templates/metadata/metadata.twitter.jsp">
             <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
             <s:param name="site" value="'@anuncius'"></s:param>
-            <s:param name="title" value="'Anuncius - La compra inteligente'"></s:param>
+            <s:param name="title" value="'Anuncius - Tu ventana digital'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/twitter.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
-            <s:param name="name" value="'Anuncius - La compra inteligente'"></s:param>
+            <s:param name="name" value="'Anuncius - Tu ventana digital'"></s:param>
             <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/css/minimum.css.jsp"/>
-        <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
     </head>
 
     <body class="gl-realestate-template">
@@ -85,6 +83,7 @@
                                 </div>
                             </div>
 
+                            <%--
                             <div class="gl-search-sorting">
                                 <span>Sort by</span>
 
@@ -96,32 +95,25 @@
                                         </select>
                                     </div>
 
-                                    <a href="/item/1" class="gl-sorting-btn gl-grid-view">
+                                    <a href="#" class="gl-sorting-btn gl-grid-view">
                                         <i class="fa fa-list-ul"></i>
                                     </a>
                                 </div>
                             </div>
+                            --%>
                         </div>
                         <!-- SEARCH META END -->
 
                         <!-- SEARCH RESULT -->
                         <div class="gl-search-result-wrapper" id="search-results-block">
-                            <p>No se han encontrado resultados cerca de ti.</p>
                         </div>
                         <!-- SEARCH RESULT END -->
                     </div>
                     <!-- PAGE CONTENT DETAILS END -->
                 </div>
             </div>
-        </section>  
-
-        <!-- PAGE CONTETNT END -->
-        
-        <!-- FOOTER -->
+        </section>
         <s:include value="/templates/modules/footer/common.footer.jsp" />
-        <!-- FOOTER END -->
-
         <s:include value="/templates/js/minimum.js.jsp"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.js"></script>
     </body>
 </html>

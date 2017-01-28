@@ -5,6 +5,8 @@
  */
 package anuncius.api;
 
+import anuncius.singleton.AnunciusDAO;
+import anuncius.util.PlatformUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -15,12 +17,15 @@ import io.swagger.annotations.License;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 import java.net.HttpURLConnection;
+import java.util.HashMap;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -66,6 +71,28 @@ public class SearchResource {
     )
     public String demo() {
         return "{}";
+    }
+    
+    @POST
+    @Path("/stats")
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Tag(name = "/demo", description = "Demo method for endpoint working test")
+    @ApiOperation(value = "Returns basic population statistics")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
+    public String getStats(
+            //useful
+            @QueryParam("name") String token
+            ) {
+        HashMap<String, String> data = new HashMap<>();
+        data.put("users", AnunciusDAO.getInstance().getUserCount());
+        data.put("clients", AnunciusDAO.getInstance().getClientCount());
+        data.put("items", AnunciusDAO.getInstance().getItemCount());
+        return PlatformUtil.toJsonString(data);
     }
     
     @GET

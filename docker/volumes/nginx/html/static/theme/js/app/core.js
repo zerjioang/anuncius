@@ -1,3 +1,5 @@
+/* global notificationsEnabled */
+
 //generic on error message
 var onError = function (jqXHR, textStatus, errorThrown) {
     if(textStatus!==undefined && textStatus!==errorThrown){
@@ -116,8 +118,11 @@ function isGoogleProfileInfo(){
 
 function validateQuery() {
     var query = $('#search-item')[0].value;
-    if(query===undefined || query.trim().length==0){
-        swal("Sin resultados", "No se han encontrado resultados", "error");    
+    if(query===undefined || query.trim().length===0){
+        //swal("Sin resultados", "No se han encontrado resultados", "error");    
+        //instead of showing an error, redirect to explore
+        window.location.replace("/explore");
+        
     }
     else if(query.trim().length>2){
         //do query
@@ -172,7 +177,7 @@ function getLatestItems(){
 }
 
 function getTopItems(){
-    var onSuccess = function (data, textStatus, jqXHR) {
+    var onSuccess = function (data, textStatus, jqXHR) {              
         if(data!==undefined){
             var featuredList = data;
             if(featuredList!==undefined 
@@ -204,6 +209,25 @@ function getTopItems(){
 
     var payload = {};
     contactAPIviaPOST('/ads/list/best', payload, onSuccess, onError);
+}
+
+function getStats(){
+    var onSuccess = function (data, textStatus, jqXHR) {              
+        if(data!==undefined){
+            $('#num_clientes_actuales').text(data.clients);
+            $('#num_prod_actuales').text(data.items);
+            $('#num_usuarios').text(data.users);
+        }
+    };
+
+    var onError = function (jqXHR, textStatus, errorThrown) {
+        if(textStatus!==undefined && textStatus!==errorThrown){
+            //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
+        }
+    };
+
+    var payload = {};
+    contactAPIviaPOST('/search/stats', payload, onSuccess, onError);
 }
 
 function getSourcePath() {
@@ -258,11 +282,109 @@ function getFormDataAsJson(form) {
     return data;
 }
 
-function showAutomaticApiResponseDialog(data) {
+function showAutomaticApiResponseDialog(data, callback) {
     if(data!==undefined){
-        if(data.request_completed!==undefined && data.request_completed==true)
-            swal(data.title_es, data.message_es, "success")
-        else
-            swal(data.title_es, data.message_es, "warning");
+        var messageType = "warning";
+        var buttonColor = "#DD6B55";
+        if(data.request_completed!==undefined && data.request_completed===true){
+            messageType = "success";
+            buttonColor = '#337ab7';
+        }
+        
+        swal({
+            title: data.title_es,
+            text: data.message_es,
+            type: messageType,
+            showCancelButton: false,
+            confirmButtonColor: buttonColor,
+            confirmButtonText: "Aceptar",
+            closeOnConfirm: true
+          },
+          function(){
+            if(callback){
+                callback();
+            }
+          });
+    }
+}
+
+//ASIDE FUNCTIONS
+
+ function addEvents(input, checkBox, perm, elem) {
+    var revisionCheckbox = $(".gl-side-menu-wrap");
+    if (revisionCheckbox.length) {
+        if (perm) {
+            classie.remove(elem, "gl-show-menu");
+        } else {
+            classie.add(elem, "gl-show-menu");
+        }
+        /*input.addEventListener("click", change(perm, elem));
+            if (checkBox) {
+                checkBox.addEventListener("click", change(perm, elem));
+            }
+         */
+    }
+}
+
+function change(perm, elem) {
+    if (perm) {
+        classie.remove(elem, "gl-show-menu");
+    } else {
+        classie.add(elem, "gl-show-menu");
+    }
+    perm = !perm;
+}
+
+function showAside(status){
+    status = !status;
+    var elem = document.body;
+    var input = (
+        document.querySelector("body"),
+        document.getElementById("gl-side-menu-btn")
+    );
+    var checkBox = document.getElementById("gl-side-menu-close-button");
+    var perm = status;
+    addEvents(input, checkBox, perm, elem);
+    var iBoxHack = $(".gl-header").height();
+    $(".gl-side-menu-wrap").height($(window).height() - iBoxHack);
+    $(window).resize(function() {
+      $(".gl-side-menu-wrap").height($(window).height() - iBoxHack);
+    });
+    $(window).trigger("resize");
+    /*
+     var tref;
+    var current = $(".gl-header");
+    current.after('<section class="gl-fake-div"></section>');
+    var textareaEl = current.next();
+    var dialogHeight = current.outerHeight();
+    textareaEl.css({
+      height : dialogHeight
+    });
+    $(window).on("resize", function(dataAndEvents) {
+      clearTimeout(tref);
+      tref = setTimeout(function() {
+        var dialogHeight = current.outerHeight();
+        textareaEl.css({
+          height : dialogHeight
+        });
+      }, 250);
+    });
+     */
+}
+
+function showNotification(title, body, icon, style){
+    if(notificationsEnabled){
+        //send native notification
+        var options = {
+                body: body,
+                icon: icon, 
+                dir : "ltr"
+             };
+        var notification = new Notification("anuncius", options);
+    }
+    else{
+        //send html based notification
+        var content = title+". "+body;
+        $.notify(content, style);
     }
 }

@@ -7,32 +7,82 @@ package anuncius.util;
 
 import java.util.Map;
 
-/**
- *
- * @author sanguita
- */
 public class PlatformUtil {
     
-    private static final Map<String, String> env = System.getenv();
+    private static boolean DEVELOPMENT_ENV;
     
-    private static boolean init = initValues();
-    private static boolean dev;
-    public static final String CONTEXT_PATH = "";
+    private static final Map<String, String> ENV_VARS = System.getenv();
+    private static final boolean INIT = initValues();
+    
+    private static final String DEFAULT_DEVELOPMENT_PORT = "8084";
+    private static final String DEFAULT_PRODUCTION_PORT = "8080";
+    
+    private static final String DEFAULT_PRODUCTION_HOSTNAME = "anunci.us";
+    private static final String DEFAULT_DEVELOPMENT_HOSTNAME = "localhost";
+    
+    private static final String DEFAULT_DEVELOPMENT_API_PATH = "/api/";
+    private static final String DEFAULT_PRODUCTION_API_PATH = "/";
+    private static final boolean ENABLE_API_HARDENING = false;
+    
+    private static final String CONTEXT_PATH = "";
+    private static final boolean ENABLE_MINIFICATION_DEV = false;
+    private static final boolean ENABLE_MINIFICATION_PROD = true;
+    
+    private static final boolean DEFAULT_DEVELOPMENT_REDIS_CACHE_ENABLED = false;
+    private static final boolean DEFAULT_PRODUCTION_REDIS_CACHE_ENABLED = true;
     
     private static boolean initValues() {
-        if(env!=null && env.get("HOSTNAME")!=null){
-            String name = env.get("HOSTNAME");
-            dev = name.equals("orion");
+        if(ENV_VARS!=null && ENV_VARS.get("HOSTNAME")!=null){
+            String name = ENV_VARS.get("HOSTNAME");
+            DEVELOPMENT_ENV = name!=null && name.equals("orion");
         }
         return true;
     }
     
     public static boolean isDevelopment(){
-        return dev;
+        return DEVELOPMENT_ENV;
+    }
+    
+    public static boolean isProduction(){
+        return !DEVELOPMENT_ENV;
+    }
+
+    public static boolean isRedisCacheEnabled() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_REDIS_CACHE_ENABLED;
+        }
+        return DEFAULT_PRODUCTION_REDIS_CACHE_ENABLED;
+    }
+
+    public static String getHostName() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_HOSTNAME;
+        }
+        return DEFAULT_PRODUCTION_HOSTNAME;
+    }
+
+    public static String getRunningPortAsString() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_PORT;
+        }
+        return DEFAULT_PRODUCTION_PORT;
+    }
+
+    public static String getApiPath() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_API_PATH;
+        }
+        return DEFAULT_PRODUCTION_API_PATH;
+    }
+
+    public static boolean isAPIHardeningEnabled() {
+        return ENABLE_API_HARDENING;
     }
     
     public static boolean enableMinification(){
-        return false;
+        if(isDevelopment())
+            return ENABLE_MINIFICATION_DEV;
+        return ENABLE_MINIFICATION_PROD;
     }
 
     public static String cleanUrl(String uriStr) {

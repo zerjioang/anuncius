@@ -9,7 +9,6 @@ import anuncius.api.model.request.AbstractRequest;
 import anuncius.api.model.request.AbstractRequestList;
 import anuncius.api.model.request.NewItemRequest;
 import anuncius.util.PlatformUtil;
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +34,8 @@ public class AnunciusDAO {
     public final static String SUBSCRIPTION_COLLECTION_NAME = "subscription";
     public final static String CONTACT_COLLECTION_NAME = "contact";
     
-    private MongoHandler mongo;
-    private RedisHandler redis;
+    private final MongoHandler mongo;
+    private final RedisHandler redis;
     private static final int DESCENDING_ORDER = 1;
     private static final int ASCENDING_ORDER = -1;
     
@@ -117,21 +116,36 @@ public class AnunciusDAO {
         mongo.createCollection(SUBSCRIPTION_COLLECTION_NAME);
     }
 
-    public List<NewItemRequest> getLatestItems() {
+    public List<Document> getLatestItems() {
         List<NewItemRequest> list = new ArrayList<>();
         Document result = new Document();
         result.put("deleted", false);
-        MongoCollection collection = this.mongo.getCollection(ADVERTISEMENT_COLLECTION_NAME);
-        this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER);
-        return list;
+        List<Document> documentList = this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER, result, "creationDate");
+        //todo convert
+        /*if(documentList!=null && documentList.size()>0){
+            list = NewItemRequest.parse(documentList);
+        }*/
+        return documentList;
     }
 
-    public ArrayList<NewItemRequest> getBestItems() {
+    public List<Document> getBestItems() {
         ArrayList<NewItemRequest> list = new ArrayList<>();
         Document result = new Document();
         result.put("deleted", false);
         List<Document> documentList = this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER, result, "views");
         //todo convert
-        return list;
+        return documentList;
     }   
+
+    public String getUserCount() {
+        return this.mongo.countEntries(USER_COLLECTION_NAME);
+    }
+
+    public String getClientCount() {
+        return this.mongo.countEntries(USER_COLLECTION_NAME);
+    }
+
+    public String getItemCount() {
+        return this.mongo.countEntries(ADVERTISEMENT_COLLECTION_NAME);
+    }
 }

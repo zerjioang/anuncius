@@ -7,6 +7,7 @@ package anuncius.api.model.request;
 
 import anuncius.singleton.AnunciusDAO;
 import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 
 /**
@@ -14,6 +15,11 @@ import org.bson.Document;
  * @author sanguita
  */
 public class NewItemRequest extends AbstractRequest{
+
+    public static List<NewItemRequest> parse(List<Document> documentList) {
+        List<NewItemRequest> list = new ArrayList<>();
+        return list;
+    }
     
     private String name;
     private String category;

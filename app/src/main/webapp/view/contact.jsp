@@ -74,19 +74,9 @@
                     <div class="gl-about-company-image gl-left-side col-md-6 col-sm-6 col-xs-12">
                         <div class="gl-page-img-wrapper">
                             <picture>
-                                <amp-img
-                                    src="https://static.anunci.us/theme/images/working.jpg"
-                                    alt="Imagen acerca de anuncius"
-                                    class="gl-lazy"
-                                    width=900
-                                    height=600
-                                    layout=responsive>
-                                </amp-img>
-                                <picture>
-                                    <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/product.png>
-                                    <img alt="Imagen sobre en producto en venta" srcset=https://static.anunci.us/theme/images/product.png>
+                                    <source media="(min-width: 768px)" srcset=https://static.anunci.us/theme/images/contact/about.us.jpg>
+                                    <img alt="Acerca del equipo de anuncius" srcset=https://static.anunci.us/theme/images/contact/about.us.jpg>
                                 </picture>
-                            </picture>
                         </div>
                     </div>
                     <!-- END -->
@@ -204,7 +194,7 @@
                     <!-- End -->
                     <div class="gl-element-wrapper">
                       <div class="gl-row">
-                        <form action="#" class="gl-contact-form" id="contact-form">
+                        <form class="gl-contact-form" id="contact-form">
                           <input type="text" name="name" id="gl-contact-name" placeholder="Nombre" required>
                           <input type="email" name="email" id="gl-contact-email" placeholder="Email" required>
                           <textarea name="message" id="gl-contact-message" cols="30" rows="10" placeholder="Mensaje" required>

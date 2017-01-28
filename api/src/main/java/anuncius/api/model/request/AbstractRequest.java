@@ -25,6 +25,8 @@ public abstract class AbstractRequest implements IMongoManipulable, Serializable
         this.convertFromMongoObject(document);
     }
     
+    public abstract void convertFromMongoObject(Document document);
+    
     @Override
     public Document convertToMongoObject() {
         Document document = new Document();

@@ -5,18 +5,16 @@
  */
 package anuncius.util;
 
+import com.google.gson.Gson;
+import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author sanguita
- */
 public class PlatformUtil {
     
-    private static final Map<String, String> env = System.getenv();
+    private static boolean DEVELOPMENT_ENV;
     
-    private static boolean init = initValues();
-    private static boolean dev;
+    private static final Map<String, String> ENV_VARS = System.getenv();
+    private static final boolean INIT = initValues();
     
     private static final String DEFAULT_DEVELOPMENT_PORT = "8084";
     private static final String DEFAULT_PRODUCTION_PORT = "8080";
@@ -26,26 +24,36 @@ public class PlatformUtil {
     
     private static final String DEFAULT_DEVELOPMENT_API_PATH = "/api/";
     private static final String DEFAULT_PRODUCTION_API_PATH = "/";
-    private static boolean ENABLE_API_HARDENING = true;
+    private static final boolean ENABLE_API_HARDENING = false;
+    
+    private static final String CONTEXT_PATH = "";
+    private static final boolean ENABLE_MINIFICATION_DEV = false;
+    private static final boolean ENABLE_MINIFICATION_PROD = true;
+    
+    private static final boolean DEFAULT_DEVELOPMENT_REDIS_CACHE_ENABLED = false;
+    private static final boolean DEFAULT_PRODUCTION_REDIS_CACHE_ENABLED = true;
     
     private static boolean initValues() {
-        if(env!=null && env.get("HOSTNAME")!=null){
-            String name = env.get("HOSTNAME");
-            dev = name.equals("orion");
+        if(ENV_VARS!=null && ENV_VARS.get("HOSTNAME")!=null){
+            String name = ENV_VARS.get("HOSTNAME");
+            DEVELOPMENT_ENV = name!=null && name.equals("orion");
         }
         return true;
     }
     
     public static boolean isDevelopment(){
-        return dev;
+        return DEVELOPMENT_ENV;
     }
     
     public static boolean isProduction(){
-        return !dev;
+        return !DEVELOPMENT_ENV;
     }
 
     public static boolean isRedisCacheEnabled() {
-        return true;
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_REDIS_CACHE_ENABLED;
+        }
+        return DEFAULT_PRODUCTION_REDIS_CACHE_ENABLED;
     }
 
     public static String getHostName() {
@@ -71,5 +79,30 @@ public class PlatformUtil {
 
     public static boolean isAPIHardeningEnabled() {
         return ENABLE_API_HARDENING;
+    }
+    
+    public static boolean enableMinification(){
+        if(isDevelopment())
+            return ENABLE_MINIFICATION_DEV;
+        return ENABLE_MINIFICATION_PROD;
+    }
+
+    public static String cleanUrl(String uriStr) {
+        if(isDevelopment()){
+            return uriStr.replace(getContextPath(), "");
+        }
+        return uriStr;
+    }
+
+    public static String getContextPath() {
+        return CONTEXT_PATH;
+    }
+
+    public static String toJsonString(Object data) {
+        if(data!=null){
+            Gson gson = new Gson();
+            return gson.toJson(data);
+        }
+        return "{}";
     }
 }

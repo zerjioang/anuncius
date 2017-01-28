@@ -34,6 +34,10 @@ if(PlatformUtil.isDevelopment()){
 
         <!-- imagepicker -->
         <link rel="stylesheet" href="/theme/css/vendor/imagepicker/image-picker.css">
+        
+        <!-- maps -->
+        <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+        
         <!-- other styles -->
         <link rel="stylesheet" href="/theme/css/template.css">
         <link rel="stylesheet" href="/theme/css/style.css">
@@ -78,6 +82,9 @@ if(PlatformUtil.isDevelopment()){
         
         <!-- imagepicker -->
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/imagepicker/image-picker.css">
+        
+        <!-- maps -->
+        <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
 
         <!-- other styles -->
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/template.css">
