@@ -18,6 +18,15 @@ public class PlatformUtil {
     private static boolean init = initValues();
     private static boolean dev;
     
+    private static final String DEFAULT_DEVELOPMENT_PORT = "8084";
+    private static final String DEFAULT_PRODUCTION_PORT = "8080";
+    
+    private static final String DEFAULT_PRODUCTION_HOSTNAME = "anunci.us";
+    private static final String DEFAULT_DEVELOPMENT_HOSTNAME = "localhost";
+    
+    private static final String DEFAULT_DEVELOPMENT_API_PATH = "/api/";
+    private static final String DEFAULT_PRODUCTION_API_PATH = "/";
+    
     private static boolean initValues() {
         if(env!=null && env.get("HOSTNAME")!=null){
             String name = env.get("HOSTNAME");
@@ -36,5 +45,26 @@ public class PlatformUtil {
 
     public static boolean isRedisCacheEnabled() {
         return true;
+    }
+
+    public static String getHostName() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_HOSTNAME;
+        }
+        return DEFAULT_PRODUCTION_HOSTNAME;
+    }
+
+    public static String getRunningPortAsString() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_PORT;
+        }
+        return DEFAULT_PRODUCTION_PORT;
+    }
+
+    public static String getApiPath() {
+        if(isDevelopment()){
+            return DEFAULT_DEVELOPMENT_API_PATH;
+        }
+        return DEFAULT_PRODUCTION_API_PATH;
     }
 }
