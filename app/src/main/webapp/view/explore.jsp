@@ -44,7 +44,6 @@
         </s:include>
 
         <s:include value="/templates/css/minimum.css.jsp"/>
-        
         <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
     </head>
 
@@ -123,8 +122,6 @@
         <!-- FOOTER END -->
 
         <s:include value="/templates/js/minimum.js.jsp"/>
-        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.js"></script>
-        <script async defer src="/theme/js/app/map.js"></script>      
     </body>
 </html>

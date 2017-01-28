@@ -44,7 +44,6 @@
     </s:include>
 
     <s:include value="/templates/css/minimum.css.jsp" />
-    <link rel="stylesheet" href="/theme/css/vendor/imagepicker/image-picker.css">
 </head>
 
 <body class="gl-agent-profile-template gl-realestate-template">

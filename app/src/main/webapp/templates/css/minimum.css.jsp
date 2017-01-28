@@ -32,6 +32,8 @@ if(PlatformUtil.isDevelopment()){
         <link rel="stylesheet" href="/theme/css/vendor/typo/fontawesome.css">
         <link rel="stylesheet" href="/theme/css/vendor/typo/ion-font.css">
 
+        <!-- imagepicker -->
+        <link rel="stylesheet" href="/theme/css/vendor/imagepicker/image-picker.css">
         <!-- other styles -->
         <link rel="stylesheet" href="/theme/css/template.css">
         <link rel="stylesheet" href="/theme/css/style.css">
@@ -73,6 +75,9 @@ if(PlatformUtil.isDevelopment()){
         <!-- icon fonts -->
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/typo/fontawesome.css">
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/typo/ion-font.css">
+        
+        <!-- imagepicker -->
+        <link rel="stylesheet" href="https://static.anunci.us/theme/css/vendor/imagepicker/image-picker.css">
 
         <!-- other styles -->
         <link rel="stylesheet" href="https://static.anunci.us/theme/css/template.css">
