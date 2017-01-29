@@ -23,7 +23,7 @@
     <!-- swagger filter mapping -->
     <filter-mapping>
         <filter-name>jersey</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </filter-mapping>
    
     <welcome-file-list>
