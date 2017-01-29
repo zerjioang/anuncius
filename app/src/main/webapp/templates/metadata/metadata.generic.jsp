@@ -1,22 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<%--
-<!--
-                               _
-                              (_)
-  ____ ____  _   _ ____   ____ _ _   _  ___
- / _  |  _ \| | | |  _ \ / ___) | | | |/___)
-( ( | | | | | |_| | | | ( (___| | |_| |___ |
- \_||_|_| |_|\____|_| |_|\____)_|\____(___/
-
-
-	Now hiring @ https://anunci.us/jobs
-
-	Want to help build the home page? https://anunci.us/jobs
-
--->
---%>
-
 <meta charset="utf-8">
 <link rel="canonical" href=".">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -37,6 +20,11 @@
 <meta name="revisit" content="5 days">
 
 <meta name="google-site-verification" content="3CCWLw7ljS55o_Wd13IvKsiIs9lbpfYDBIVVp0Ipqac" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+<meta http-equiv="cleartype" content="on">
 
 <!-- dns prefetch -->
 <link rel="dns-prefetch" href="//static.anunci.us">
