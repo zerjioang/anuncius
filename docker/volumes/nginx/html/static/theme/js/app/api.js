@@ -48,11 +48,11 @@ function contactAPI(remotePath, payload, onSuccess, onError, requestType) {
     payload['platform'] = navigator.platform;
     payload['vendor'] = navigator.vendor;
     
-    payload['lat'] = sessionStorage.latitude;
-    payload['lon'] = sessionStorage.longitude;
+    payload['lat'] = localStorage.latitude;
+    payload['lon'] = localStorage.longitude;
     //add loc
     if(isGoogleProfileInfo()){
-        payload['loc'] = sessionStorage.locationTag;
+        payload['loc'] = localStorage.locationTag;
         //add token
         payload['token'] = getGoogleUserToken();
     }

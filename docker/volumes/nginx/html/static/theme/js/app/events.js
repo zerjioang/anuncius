@@ -1,4 +1,13 @@
-  
+//subscribe button event
+$("#btn-dashboard").on("click", function (event) {
+    event.preventDefault();
+    var profile = localStorage.googleProfile;
+    if(profile!==undefined){
+        profile = JSON.parse(profile);
+        document.location = "https://dashboard.anunci.us/user/"+profile.id;
+    }
+});
+
 //subscribe button event
 $("#btn-suscribe-form").on("click", function (event) {
     event.preventDefault();
@@ -167,9 +176,9 @@ $(document).ready(function(){
 
     //generic behaviour
     //lozalizar al usuario
-    if(sessionStorage.userLocated){
+    if(localStorage.userLocated){
         console.log("user already pin point");
-        $('#listing-title').text("Mira los últimos anuncios publicados en "+sessionStorage.itemLocality);
+        $('#listing-title').text("Mira los últimos anuncios publicados en "+localStorage.itemLocality);
     }
     else{
         getNavigationLocation();

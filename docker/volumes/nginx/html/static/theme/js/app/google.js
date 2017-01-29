@@ -27,11 +27,11 @@ function renderButton() {
 }
 
 function onSignIn(googleUser) {
-    sessionStorage.googleUser = JSON.stringify(googleUser);
+    localStorage.googleUser = JSON.stringify(googleUser);
     var profile = googleUser.getBasicProfile();
     /*
      var id_token = googleUser.getAuthResponse().id_token;
-     sessionStorage.token = id_token;
+     localStorage.token = id_token;
      */
     
     var data = {
@@ -44,7 +44,7 @@ function onSignIn(googleUser) {
     };
     log(data);
     googleProfile = JSON.stringify(data);
-    sessionStorage.googleProfile = googleProfile;
+    localStorage.googleProfile = googleProfile;
     
     notifySignIn();
     
@@ -56,16 +56,16 @@ function signOut() {
         log('User signed out.');
         notifySignOut();
         googleProfile = undefined;
-        sessionStorage.googleProfile = undefined;
-        sessionStorage.googleUser = undefined;
+        localStorage.googleProfile = undefined;
+        localStorage.googleUser = undefined;
         //full clear
-        //sessionStorage.clear();
+        //localStorage.clear();
     });
 }
 
 function getGoogleProfile(){
     if(googleProfile===undefined){
-        googleProfile = sessionStorage.googleProfile;
+        googleProfile = localStorage.googleProfile;
     }
     return googleProfile;
 }

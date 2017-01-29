@@ -78,18 +78,18 @@ function resolveAddress(position){
             var locCountryNameCount = locItemCount - 1;
             var locCountryName = results[locCountryNameCount].formatted_address;
             console.log("Resolved country name: "+locCountryName);
-            sessionStorage.locationTag = itemCountry+" "+itemLocality+" "+itemRoute+" "+itemPc+" "+itemSnumber;
-            console.log("User location at: "+sessionStorage.locationTag);
+            localStorage.locationTag = itemCountry+" "+itemLocality+" "+itemRoute+" "+itemPc+" "+itemSnumber;
+            console.log("User location at: "+localStorage.locationTag);
             //save info on local storage and avoid multiple request on page reloading
-            sessionStorage.arrAddress = arrAddress;
-            sessionStorage.itemRoute = itemRoute;
-            sessionStorage.itemLocality = itemLocality;
-            sessionStorage.itemCountry = itemCountry;
-            sessionStorage.itemPc = itemPc;
-            sessionStorage.itemSnumber = itemSnumber;
-            sessionStorage.userLocated = true;   
-            sessionStorage.latitude = position.coords.latitude;
-            sessionStorage.longitude = position.coords.longitude;         
+            localStorage.arrAddress = arrAddress;
+            localStorage.itemRoute = itemRoute;
+            localStorage.itemLocality = itemLocality;
+            localStorage.itemCountry = itemCountry;
+            localStorage.itemPc = itemPc;
+            localStorage.itemSnumber = itemSnumber;
+            localStorage.userLocated = true;   
+            localStorage.latitude = position.coords.latitude;
+            localStorage.longitude = position.coords.longitude;         
             $('#listing-title').text("Mira los últimos anuncios publicados en "+itemLocality);
     });
 }

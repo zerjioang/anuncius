@@ -34,6 +34,11 @@
         </li>
         <li id="header-menu-account">
             <a href="/account">Mi cuenta</a>
+            <ul class="gl-sub-menu">
+                <li>
+                    <a id="btn-dashboard" href="">Panel de control</a>
+                </li>
+            </ul>
         </li>
     </ul>
 </div>
