@@ -10363,6 +10363,8 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     }
     .gl-featured-image-wrapper img {
         position: relative
+        width: 100%
+        padding: 20%
     }
 }
 .gl-blog-heading-metas,
