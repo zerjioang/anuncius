@@ -153,7 +153,7 @@
                                         <span class="gl-comments-date">23 March, 2016</span>
                                     </div>
                                     <p>On the other hand, we denounce with righteous indignation and dislike men who beguiled and demoralized by the of pleasure</p>
-                                    <%--<a href="b" class="gl-reply">Responder</a>--%>
+                                    <a href="b" class="gl-reply">Responder</a>
                                 </div>
                                 <!-- END -->
                             </div>

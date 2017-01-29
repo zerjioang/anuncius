@@ -55,7 +55,7 @@
       "@type": "LocalBusiness",
       "name": "Anuncius",
       "url": "https://anunci.us/",
-      "logo": "thtps://static.anunci.us/img/metadata/json.ld.logo.png",
+      "logo": "https://static.anunci.us/img/metadata/json.ld.logo.png",
       "image": "https://static.anunci.us/img/metadata/json.ld.image.png",
       "description": "Anuncius - La nueva forma de comprar online. Vende lo que ya no te interesa y publica miles de anuncios de forma gratuita y segura.",
       "address": {
