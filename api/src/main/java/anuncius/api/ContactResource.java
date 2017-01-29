@@ -13,6 +13,10 @@ import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
 import anuncius.singleton.AnunciusDAO;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import java.net.HttpURLConnection;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -43,6 +47,14 @@ public class ContactResource {
     @GET
     @Path("/demo")
     @Produces(MediaType.APPLICATION_JSON)
+    
+    @ApiOperation(value = "Demo method for working test")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
     public String demo() {
         return "{}";
     }
@@ -75,9 +87,9 @@ public class ContactResource {
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage contact(
             //useful
-            @QueryParam("name") String name,
-            @QueryParam("email") String email,
-            @QueryParam("message") String message
+            @FormParam("name") String name,
+            @FormParam("email") String email,
+            @FormParam("message") String message
     ) {
         IAPIMessage response;
         try{

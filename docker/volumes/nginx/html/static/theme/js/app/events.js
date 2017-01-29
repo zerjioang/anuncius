@@ -186,6 +186,12 @@ $(document).ready(function(){
     //hide loader
     $('#gl-circle-loader-wrapper').fadeOut('slow');
     
+    //clean url. remove #href
+    var index = thisUrl.indexOf('#');
+    if(index!==-1){
+        //clean url
+        thisUrl = thisUrl.substring(0, index);
+    }
     //state-diagram
     if(thisUrl==='/'){
         log('landing');

@@ -6,7 +6,6 @@
 package anuncius.api.model.request;
 
 import anuncius.singleton.AnunciusDAO;
-import java.io.Serializable;
 import org.bson.Document;
 
 /**
@@ -58,7 +57,7 @@ public class UserOAuthDataRequest extends AbstractRequest{
 
     @Override
     public Document convertToMongoObject() {
-        Document document = super.convertToMongoObject();
+        Document document = super.parentConvertToMongoObject();
         String[] names = getColumnNames();
         document.put(names[0], this.id);
         document.put(names[1], this.name);
@@ -93,5 +92,10 @@ public class UserOAuthDataRequest extends AbstractRequest{
     @Override
     public String getCollectionName() {
         return AnunciusDAO.AUTH_COLLECTION_NAME;
+    }
+    
+    @Override
+    public boolean hasValidData() {
+        return true;
     }
 }

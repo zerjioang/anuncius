@@ -13,6 +13,10 @@ import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
 import anuncius.singleton.AnunciusDAO;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +52,14 @@ public class AdsResource {
     @GET
     @Path("/demo")
     @Produces(MediaType.APPLICATION_JSON)
+    
+    @ApiOperation(value = "Demo method for working test")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
     public String demo() {
         return "{}";
     }

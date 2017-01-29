@@ -30,7 +30,7 @@ public class SubscriptionRequest extends AbstractRequest{
     
     @Override
     public Document convertToMongoObject() {
-        Document document = super.convertToMongoObject();
+        Document document = super.parentConvertToMongoObject();
         String[] names = this.getColumnNames();
         document.put(names[0], this.email);
         return document;
@@ -55,5 +55,10 @@ public class SubscriptionRequest extends AbstractRequest{
     @Override
     public String getCollectionName() {
         return AnunciusDAO.SUBSCRIPTION_COLLECTION_NAME;
+    }
+    
+    @Override
+    public boolean hasValidData() {
+        return true;
     }
 }

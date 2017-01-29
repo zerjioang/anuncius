@@ -15,6 +15,8 @@ public interface IMongoManipulable {
     
     Document convertToMongoObject();
     void convertFromMongoObject(Document document);
+    boolean hasValidData();
     int getColumnCount();
     String[] getColumnNames();
+    String getCollectionName();
 }

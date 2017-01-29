@@ -18,6 +18,7 @@ import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -86,7 +87,7 @@ public class SearchResource {
     )
     public String getStats(
             //useful
-            @QueryParam("name") String token
+            @FormParam("token") String token
             ) {
         HashMap<String, String> data = new HashMap<>();
         data.put("users", AnunciusDAO.getInstance().getUserCount());

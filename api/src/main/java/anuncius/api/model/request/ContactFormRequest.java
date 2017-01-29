@@ -26,7 +26,7 @@ public class ContactFormRequest extends AbstractRequest{
     
     @Override
     public Document convertToMongoObject() {
-        Document document = super.convertToMongoObject();
+        Document document = super.parentConvertToMongoObject();
         String[] names = this.getColumnNames();
         document.put(names[0], this.name);
         document.put(names[1], this.email);
@@ -55,5 +55,10 @@ public class ContactFormRequest extends AbstractRequest{
     @Override
     public String getCollectionName() {
         return AnunciusDAO.CONTACT_COLLECTION_NAME;
+    }
+
+    @Override
+    public boolean hasValidData() {
+        return true;
     }
 }

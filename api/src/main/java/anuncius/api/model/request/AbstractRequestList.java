@@ -5,7 +5,6 @@
  */
 package anuncius.api.model.request;
 
-import anuncius.api.base.IMongoManipulable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

@@ -16,35 +16,32 @@ public abstract class AbstractRequest implements IMongoManipulable, Serializable
 
     private String id;
     private boolean deleted;
+    private long date;
     
     public AbstractRequest(){
-        
+        this.deleted = false;
+        this.date = System.currentTimeMillis();
     }
     
     public AbstractRequest(Document document) {
         this.convertFromMongoObject(document);
     }
     
-    public abstract void convertFromMongoObject(Document document);
-    
-    @Override
-    public Document convertToMongoObject() {
+    public Document parentConvertToMongoObject() {
         Document document = new Document();
         String[] names = this.getThisColumnNames();
+        document.put(names[0], id);
         document.put(names[1], deleted);
+        document.put(names[2], date);
         return document;
     }
     
     public String[] getThisColumnNames() {
         return new String[]{
             "id",
-            "deleted"
+            "deleted",
+            "creation_date"
         };
-    }
-    
-    @Override
-    public int getColumnCount(){
-        return 2;
     }
 
     public String getId() {
@@ -62,6 +59,12 @@ public abstract class AbstractRequest implements IMongoManipulable, Serializable
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
-    
-    public abstract String getCollectionName();
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
 }

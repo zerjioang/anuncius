@@ -7,10 +7,8 @@ package anuncius.singleton;
 
 import anuncius.api.model.request.AbstractRequest;
 import anuncius.api.model.request.AbstractRequestList;
-import anuncius.api.model.request.NewItemRequest;
 import anuncius.util.PlatformUtil;
 import com.mongodb.client.MongoCollection;
-import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 
@@ -72,23 +70,27 @@ public class AnunciusDAO {
     /*
     Save one item
     */
-    public void save(AbstractRequest request) {
-        if(request!=null){
+    public boolean save(AbstractRequest request) {
+        if(request!=null && request.hasValidData()){
             MongoCollection<Document> authCollection = mongo.getCollection(request.getCollectionName());
             Document dbObject = request.convertToMongoObject();
             authCollection.insertOne(dbObject);
+            return true;
         }
+        return false;
     }
     
     /*
     Save many items
     */
-    public void save(AbstractRequestList requestList) {
+    public boolean save(AbstractRequestList requestList) {
         if(requestList!=null && requestList.hasContent()){
             MongoCollection<Document> authCollection = mongo.getCollection(requestList.getCollectionName());
             List<Document> objectList = requestList.convertToMongoObject();
             authCollection.insertMany(objectList);
+            return true;
         }
+        return false;
     }
     
     /*
@@ -136,7 +138,7 @@ public class AnunciusDAO {
     }   
 
     public String getUserCount() {
-        return this.mongo.countEntries(USER_COLLECTION_NAME);
+        return this.mongo.countEntries(AUTH_COLLECTION_NAME);
     }
 
     public String getClientCount() {

@@ -27,36 +27,106 @@ function renderButton() {
 }
 
 function onSignIn(googleUser) {
+    sessionStorage.googleUser = JSON.stringify(googleUser);
     var profile = googleUser.getBasicProfile();
-    log('ID: ' + profile.getId());
-    log('Full Name: ' + profile.getName());
-    log('Given Name: ' + profile.getGivenName());
-    log('Family Name: ' + profile.getFamilyName());
-    log('Image URL: ' + profile.getImageUrl());
-    log('Email: ' + profile.getEmail());
-    var id_token = googleUser.getAuthResponse().id_token;
-    googleProfile = profile;
+    /*
+     var id_token = googleUser.getAuthResponse().id_token;
+     sessionStorage.token = id_token;
+     */
+    
+    var data = {
+        'id' : profile.getId(),
+        'full_name': profile.getName(),
+        'given_name': profile.getGivenName(),
+        'family_name': profile.getFamilyName(),
+        'image': profile.getImageUrl(),
+        'email' : profile.getEmail()
+    };
+    log(data);
+    googleProfile = JSON.stringify(data);
     sessionStorage.googleProfile = googleProfile;
-    sessionStorage.token = id_token;
+    
+    notifySignIn();
+    
     return profile;
   }
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         log('User signed out.');
+        notifySignOut();
+        googleProfile = undefined;
+        sessionStorage.googleProfile = undefined;
+        sessionStorage.googleUser = undefined;
+        //full clear
+        //sessionStorage.clear();
     });
-    googleProfile = undefined;
-    sessionStorage.googleProfile = undefined;
 }
 
 function getGoogleProfile(){
+    if(googleProfile===undefined){
+        googleProfile = sessionStorage.googleProfile;
+    }
     return googleProfile;
 }
 
 function getGoogleUserToken() {
     var profile = getGoogleProfile();
     if(profile!==undefined && profile!=='undefined'){
-        return profile.getAuthResponse().id_token;
+        /*return profile.getAuthResponse().id_token; // not a function */
+        return profile.id;
     }
     return undefined;
+}
+
+//ajax
+
+function notifySignIn(){
+    var onSuccess = function (data, textStatus, jqXHR) {              
+        if(data!==undefined){
+        }
+    };
+
+    var onError = function (jqXHR, textStatus, errorThrown) {
+        if(textStatus!==undefined && textStatus!==errorThrown){
+        }
+    };
+    
+    var p = getGoogleProfile();
+    if(p!==undefined){
+        p = JSON.parse(p);
+        var payload = {
+            "id" : p.id,
+            "fullname" : p.full_name,
+            "givenname" : p.given_name,
+            "familiyname" : p.family_name,
+            "image" : p.image,
+            "email" : p.email,
+            /*"token" : p.getAuthResponse().id_token, this is not a function*/
+        };
+        contactAPIviaPOST('/auth/login', payload, onSuccess, onError);
+    }
+}
+
+function notifySignOut(){
+    var onSuccess = function (data, textStatus, jqXHR) {              
+        if(data!==undefined){
+        }
+    };
+
+    var onError = function (jqXHR, textStatus, errorThrown) {
+        if(textStatus!==undefined && textStatus!==errorThrown){
+        }
+    };
+    
+    var p = getGoogleProfile();
+    if(p!==undefined){
+        p = JSON.parse(p);
+        var payload = {
+            "id" : p.id,
+            "token" : p.id,
+            /*"token" : p.getAuthResponse().id_token, this is not a function*/
+        };
+        contactAPIviaPOST('/auth/logout', payload, onSuccess, onError);
+    }
 }
