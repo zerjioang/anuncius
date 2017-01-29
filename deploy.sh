@@ -4,9 +4,9 @@
 sudo git pull
 
 cd docker
-docker-compose up -d cache
+docker-compose up -d redis
 docker-compose up -d mongodb
-docker-compose up -d balancer
+docker-compose up -d nginx
 
 cd ..
 
@@ -37,5 +37,5 @@ mv ./app/target/*.war ./docker/Dockerfile/tomcat/apps/
 #run docker
 cd docker
 
-docker-compose build web
-docker-compose up web
+docker-compose build tomcat
+docker-compose up tomcat

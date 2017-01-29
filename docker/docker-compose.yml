@@ -2,7 +2,7 @@ version: '2'
 services:
   mongodb:
     image: mongo:latest
-    hostname: "mongodb"
+    hostname: "mongo.anunci.us"
     container_name: mongodb
     restart: always
     ports:
@@ -15,6 +15,7 @@ services:
         ipv4_address: 10.5.0.2
   redis:
     image: redis:3.2.6-alpine
+    hostname: "redis.anunci.us"
     container_name: redis
     ports:
       - '6379:6379'
@@ -41,6 +42,7 @@ services:
         ipv4_address: 10.5.0.4
   nginx:
     build: ./Dockerfile/nginx
+    hostname : "nginx.anunci.us"
     container_name: nginx
     ports:
       - '80:80'
