@@ -3,6 +3,13 @@
 #update
 sudo git pull
 
+cd docker
+docker-compose up -d cache
+docker-compose up -d mongodb
+docker-compose up -d balancer
+
+cd ..
+
 #go to api
 cd api
 
@@ -31,4 +38,4 @@ mv ./app/target/*.war ./docker/Dockerfile/tomcat/apps/
 cd docker
 
 docker-compose build web
-docker-compose up
+docker-compose up web

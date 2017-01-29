@@ -47,4 +47,4 @@ docker/Dockerfile/tomcat/apps/app-1.0-SNAPSHOT.war
 docker/Dockerfile/tomcat/apps/api-1.0-SNAPSHOT.war
 
 #do not track mongo
-volumes/mongo/*
+docker/volumes/mongo/*

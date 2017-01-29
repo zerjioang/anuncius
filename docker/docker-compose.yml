@@ -12,7 +12,7 @@ services:
       - './volumes/mongo/data/config:/data/configdb'
     networks:
       - backend
-  cache:
+  redis:
     image: redis:3.2.6-alpine
     container_name: redis
     ports:
@@ -23,32 +23,33 @@ services:
       - './volumes/redis/data:/data'
     networks:
       - backend
-  web:
+  tomcat:
     build: ./Dockerfile/tomcat
-    container_name: web
+    container_name: tomcat
     environment:
       - JAVA_OPTS=-Djava.awt.headless=true -server -Xms48m -Xmx1024M -XX:MaxPermSize=512m
     ports:
       - '8080:8080'
     links:
-      - mongodb:mongodb
-      - cache:cache
+      - mongodb:mongo.anunci.us
+      - redis:redis.anunci.us
     restart: always
     networks:
       - backend
-  balancer:
+  nginx:
     build: ./Dockerfile/nginx
-    container_name: balancer
+    container_name: nginx
     ports:
       - '80:80'
       - '443:443'
     links:
-      - web:web
+      - tomcat:web
     restart: always
     volumes:
       - ./volumes/nginx/html:/usr/share/nginx/html
       - ./volumes/nginx/config:/config
       - ./volumes/nginx/cache:/tmp/nginx_cache
+      - ./volumes/nginx/logs:/nginx_logs
     networks:
       - backend
       - frontend
