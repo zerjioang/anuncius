@@ -48,3 +48,6 @@ docker/Dockerfile/tomcat/apps/api-1.0-SNAPSHOT.war
 
 #do not track mongo
 docker/volumes/mongo/*
+
+#ignore redis dump
+docker/volumes/redis/*
