@@ -44,6 +44,10 @@ public class PlatformUtil {
         return DEVELOPMENT_ENV;
     }
     
+    private static void setDevelopment(boolean b){
+        DEVELOPMENT_ENV = b;
+    }
+    
     public static boolean isProduction(){
         return !DEVELOPMENT_ENV;
     }
@@ -117,5 +121,9 @@ public class PlatformUtil {
             return "10.5.0.2";
         }
         return "mongo.anunci.us";
+    }
+
+    public static void forceDevelopmentMode(boolean b) {
+        setDevelopment(b);
     }
 }

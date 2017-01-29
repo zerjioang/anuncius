@@ -21,34 +21,42 @@ public class ConnectionTest {
     //@Test
     public void redisConnectionTest(){
         if(PlatformUtil.isProduction()){
+            //allow us to access sevices via static ips
+            PlatformUtil.forceDevelopmentMode(true);
             RedisHandler redisHandler = RedisHandler.getInstance();
             assertNotNull("Redis handler valid", redisHandler);
             assertNotNull("Redis ping data", redisHandler.ping());
+            PlatformUtil.forceDevelopmentMode(false);
         }
     }
     
     //@Test
     public void redisUsageConnectionTest(){
         if(PlatformUtil.isProduction()){
+            PlatformUtil.forceDevelopmentMode(true);
             RedisHandler redisHandler = RedisHandler.getInstance(); 
             redisHandler.addSet("test", "success");
             String data = redisHandler.getSet("test");
             assertEquals("success", data);
+            PlatformUtil.forceDevelopmentMode(false);
         }
     }
     
     @Test
     public void mongoConnectionTest(){
         if(PlatformUtil.isProduction()){
+            PlatformUtil.forceDevelopmentMode(true);
             MongoHandler mongoHandler = MongoHandler.getInstance();
             assertNotNull("Mongo handler valid", mongoHandler);
             assertEquals("Mongo handler", true, mongoHandler.isConnected());
+            PlatformUtil.forceDevelopmentMode(false);
         }
     }
     
     @Test
     public void mongoHelloWorld(){
         if(PlatformUtil.isProduction()){
+            PlatformUtil.forceDevelopmentMode(true);
             MongoHandler mongoHandler = MongoHandler.getInstance();
             assertNotNull("Mongo handler", mongoHandler);
             if(!mongoHandler.existsCollection("demo")){
@@ -74,6 +82,7 @@ public class ConnectionTest {
             });
 
             assertEquals(true, documents.size()>=1);
+            PlatformUtil.forceDevelopmentMode(false);
         }
     }
 }
