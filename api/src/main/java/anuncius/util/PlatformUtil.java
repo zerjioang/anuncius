@@ -16,9 +16,9 @@ public class PlatformUtil {
     private static final boolean INIT = initValues();
     
     private static final String DEFAULT_DEVELOPMENT_PORT = "8084";
-    private static final String DEFAULT_PRODUCTION_PORT = "8080";
+    private static final String DEFAULT_PRODUCTION_PORT = "443";
     
-    private static final String DEFAULT_PRODUCTION_HOSTNAME = "anunci.us";
+    private static final String DEFAULT_PRODUCTION_HOSTNAME = "api.anunci.us";
     private static final String DEFAULT_DEVELOPMENT_HOSTNAME = "localhost";
     
     private static final String DEFAULT_DEVELOPMENT_API_PATH = "/api/";

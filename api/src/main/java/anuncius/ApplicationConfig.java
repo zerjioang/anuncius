@@ -43,7 +43,7 @@ public class ApplicationConfig extends Application {
 
     private void initializeSwaggerBeanConfig() {
         BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setVersion("1.0.2");
+        beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http", "https"});
         
         String host = PlatformUtil.getHostName();
