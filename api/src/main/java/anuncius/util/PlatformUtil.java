@@ -6,7 +6,6 @@
 package anuncius.util;
 
 import com.google.gson.Gson;
-import java.util.HashMap;
 import java.util.Map;
 
 public class PlatformUtil {
@@ -104,5 +103,19 @@ public class PlatformUtil {
             return gson.toJson(data);
         }
         return "{}";
+    }
+
+    public static String getRedisHost() {
+        if(isDevelopment()){
+            return "10.5.0.3";
+        }
+        return "redis.anunci.us";
+    }
+    
+    public static String getMongosHost() {
+        if(isDevelopment()){
+            return "10.5.0.2";
+        }
+        return "mongo.anunci.us";
     }
 }

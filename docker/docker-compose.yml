@@ -11,7 +11,8 @@ services:
       - './volumes/mongo/data/db:/data/db'
       - './volumes/mongo/data/config:/data/configdb'
     networks:
-      - backend
+      backend:
+        ipv4_address: 10.5.0.2
   redis:
     image: redis:3.2.6-alpine
     container_name: redis
@@ -22,7 +23,8 @@ services:
       - './volumes/redis/redis.conf:/usr/local/etc/redis/redis.conf'
       - './volumes/redis/data:/data'
     networks:
-      - backend
+      backend:
+        ipv4_address: 10.5.0.3
   tomcat:
     build: ./Dockerfile/tomcat
     container_name: tomcat
@@ -35,7 +37,8 @@ services:
       - redis:redis.anunci.us
     restart: always
     networks:
-      - backend
+      backend:
+        ipv4_address: 10.5.0.4
   nginx:
     build: ./Dockerfile/nginx
     container_name: nginx
@@ -51,11 +54,13 @@ services:
       - ./volumes/nginx/cache:/tmp/nginx_cache
       - ./volumes/nginx/logs:/nginx_logs
     networks:
-      - backend
-      - frontend
+      backend:
+        ipv4_address: 10.5.0.5
 
 networks:
-  frontend:
-    driver: bridge
   backend:
     driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

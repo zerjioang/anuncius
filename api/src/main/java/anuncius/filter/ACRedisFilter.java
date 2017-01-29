@@ -9,7 +9,6 @@ import anuncius.singleton.RedisHandler;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.WebFilter;
 
 // Implements Filter class
 public class ACRedisFilter implements Filter {

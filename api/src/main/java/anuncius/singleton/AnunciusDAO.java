@@ -40,7 +40,7 @@ public class AnunciusDAO {
     private static final int ASCENDING_ORDER = -1;
     
     private AnunciusDAO(){
-        mongo = MongoHandler.getInstance(APP_DATABASE);
+        mongo = MongoHandler.getInstance();
         redis = RedisHandler.getInstance();
     }
     
@@ -103,7 +103,7 @@ public class AnunciusDAO {
     
     public void createInitialSchema() {
         if(!mongo.isConnected()){
-            mongo.connect();
+            mongo.connectToDatabase();
         }
         mongo.createCollection(USER_COLLECTION_NAME);
         mongo.createCollection(ADVERTISEMENT_COLLECTION_NAME);
@@ -117,7 +117,6 @@ public class AnunciusDAO {
     }
 
     public List<Document> getLatestItems() {
-        List<NewItemRequest> list = new ArrayList<>();
         Document result = new Document();
         result.put("deleted", false);
         List<Document> documentList = this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER, result, "creationDate");
@@ -129,7 +128,6 @@ public class AnunciusDAO {
     }
 
     public List<Document> getBestItems() {
-        ArrayList<NewItemRequest> list = new ArrayList<>();
         Document result = new Document();
         result.put("deleted", false);
         List<Document> documentList = this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER, result, "views");

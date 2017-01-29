@@ -59,12 +59,13 @@ public class ContactResource {
             
             //todo save user in db
             SubscriptionRequest request = new SubscriptionRequest(email);
-            
             AnunciusDAO.getInstance().save(request);
+            //return success reponse if no errors
             response = APIResponse.USER_SUBSCRIPTION_SUCCESS.getAPIResponse();
         }
         catch(SecureLayerException e){
             response = APIResponse.USER_SUBSCRIPTION_FAILED.getAPIResponse();
+            response.sendException(e);
         }
         return response;
     }

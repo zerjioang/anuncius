@@ -3,7 +3,6 @@ package anuncius.filter;
 import anuncius.util.PlatformUtil;
 import anuncius.compress.CharResponseWrapper;
 import anuncius.compress.HtmlCompressor;
-import anuncius.singleton.RedisHandler;
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -16,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ADCompressResponseFilter implements Filter {
-
-    private static final RedisHandler redis = RedisHandler.getInstance();
     
     private HtmlCompressor compressor;
     
@@ -35,12 +32,12 @@ public class ADCompressResponseFilter implements Filter {
         String servletResponse = responseWrapper.toString();
         String compressedResponse = compressor.compress(servletResponse);
         if(compressedResponse!=null && !compressedResponse.isEmpty()){
-            double amount = (servletResponse.length()-compressedResponse.length())/servletResponse.length();
+            double amount = (servletResponse.length()-compressedResponse.length())/((double)servletResponse.length())*100.00;
             System.out.println("Saving "+amount+ " %");
             //add response to redis
             resp.getWriter().flush();
             resp.getWriter().write(compressedResponse);
-            saveRequestOnRedis(uriStr, compressedResponse);
+            //saveRequestOnRedis(uriStr, compressedResponse);
         }
     }
 
@@ -52,6 +49,7 @@ public class ADCompressResponseFilter implements Filter {
         compressor.setDevelopment(
                 PlatformUtil.isDevelopment()
         );
+        compressor.setDevelopment(false);
         System.out.println("Compression enabled: "+!this.compressor.isDevelopment());
     }
 
@@ -59,11 +57,16 @@ public class ADCompressResponseFilter implements Filter {
     public void destroy() {
         System.out.println("Compress filter destroyed");
     }
+    
+    /*
 
+    Not used by now
+    
     private void saveRequestOnRedis(String key, String value) {
         new Thread(() -> {
             redis.addSet(key, value);
         }).start();
     }
+    */
 
 }

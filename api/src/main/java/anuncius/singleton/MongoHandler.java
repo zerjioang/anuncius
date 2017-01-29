@@ -5,7 +5,7 @@
  */
 package anuncius.singleton;
 
-import anuncius.api.model.request.NewItemRequest;
+import anuncius.util.PlatformUtil;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
@@ -26,10 +26,10 @@ import org.bson.Document;
  *
  * @author sanguita
  */
-public class MongoHandler {
+public final class MongoHandler {
     
     //address of your redis server
-    private static final String MONGO_HOST = "localhost";
+    private static final String MONGO_HOST = PlatformUtil.getMongosHost();
     private static final Integer MONGO_PORT = 27017;
     
     private final static String USERNAME = "user";
@@ -38,21 +38,22 @@ public class MongoHandler {
     private static MongoClient mongo;
     private static MongoHandler instance;
     
-    private boolean secureMode;
+    private final boolean secureMode;
     private final String database;
     private MongoDatabase mainDatabase;
     
-    public static MongoHandler getInstance(String databaseName){
+    public static MongoHandler getInstance(){
         if(instance==null){
             System.out.println("NEW mongo handler created");
-            instance = new MongoHandler(databaseName);
+            instance = new MongoHandler("anuncius");
         }
         return instance;
     }
     
     private MongoHandler(String databaseName){
         this.database = databaseName;
-        this.connect();
+        this.secureMode = false;
+        this.connectToDatabase();
         if(mongo==null){
             //... missing procedure
         }
@@ -76,17 +77,20 @@ public class MongoHandler {
         return false;
     }
     
-    public void connect() {
+    public final MongoClient connectToDatabase() {
         if(secureMode){
             //If MongoDB in secure mode, authentication is required.
             //... missing procedure
+            System.out.println("Connecting to Mongo DB instance on "+MONGO_HOST+" at "+MONGO_PORT+" using user "+USERNAME);
             MongoCredential credential = MongoCredential.createCredential(USERNAME, database, PASSWORD.toCharArray());
             mongo = new MongoClient(new ServerAddress(MONGO_HOST), Arrays.asList(credential));
         }
         else{
             // Since 2.10.0, uses MongoClient
+            System.out.println("Connecting to Mongo DB instance on "+MONGO_HOST+" at "+MONGO_PORT);
             mongo = new MongoClient(MONGO_HOST, MONGO_PORT);
         }
+        return mongo;
     }
     
     private MongoDatabase getMainDatabase(){

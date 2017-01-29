@@ -40,7 +40,7 @@ public class ConnectionTest {
     @Test
     public void mongoConnectionTest(){
         if(PlatformUtil.isProduction()){
-            MongoHandler mongoHandler = MongoHandler.getInstance("anuncius");
+            MongoHandler mongoHandler = MongoHandler.getInstance();
             assertNotNull("Mongo handler valid", mongoHandler);
             assertEquals("Mongo handler", true, mongoHandler.isConnected());
         }
@@ -49,7 +49,7 @@ public class ConnectionTest {
     @Test
     public void mongoHelloWorld(){
         if(PlatformUtil.isProduction()){
-            MongoHandler mongoHandler = MongoHandler.getInstance("anuncius");
+            MongoHandler mongoHandler = MongoHandler.getInstance();
             assertNotNull("Mongo handler", mongoHandler);
             if(!mongoHandler.existsCollection("demo")){
                 mongoHandler.createCollection("demo");

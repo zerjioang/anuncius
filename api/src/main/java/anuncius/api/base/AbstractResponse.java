@@ -19,6 +19,7 @@ public abstract class AbstractResponse implements IAPIMessage, Serializable{
     private int _api_version;
     protected String _status_code;
     protected boolean _request_completed;
+    protected String error_details;
 
     public AbstractResponse() {
         this._time = System.currentTimeMillis();
@@ -40,12 +41,20 @@ public abstract class AbstractResponse implements IAPIMessage, Serializable{
     public boolean isRequest_completed() {
         return _request_completed;
     }
-    
-    
+
+    public String getError_details() {
+        return error_details;
+    }
+
+    public void setError_details(String error_details) {
+        this.error_details = error_details;
+    }
     
     @Override
     public IAPIMessage sendException(SecureLayerException e) {
-        return null;
+        if(e!=null){
+            this.setError_details(e.getLocalizedMessage());
+        }
+        return this;
     }
-    
 }

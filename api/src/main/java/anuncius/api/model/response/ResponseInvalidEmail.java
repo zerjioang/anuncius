@@ -5,10 +5,7 @@
  */
 package anuncius.api.model.response;
 
-import anuncius.ApplicationConfig;
 import anuncius.api.base.AbstractResponse;
-import anuncius.api.base.IAPIMessage;
-import anuncius.securelayer.SecureLayerException;
 
 /**
  *
@@ -42,10 +39,4 @@ public class ResponseInvalidEmail extends AbstractResponse{
     public String getMessage_es() {
         return message_es;
     }
-    
-    @Override
-    public IAPIMessage sendException(SecureLayerException e) {
-        return null;
-    }
-    
 }
