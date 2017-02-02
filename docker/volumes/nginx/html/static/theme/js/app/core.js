@@ -371,20 +371,3 @@ function showAside(status){
     });
      */
 }
-
-function showNotification(title, body, icon, style){
-    if(notificationsEnabled){
-        //send native notification
-        var options = {
-                body: body,
-                icon: icon, 
-                dir : "ltr"
-             };
-        var notification = new Notification("anuncius", options);
-    }
-    else{
-        //send html based notification
-        var content = title+". "+body;
-        $.notify(content, style);
-    }
-}
