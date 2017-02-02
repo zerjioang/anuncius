@@ -36,21 +36,18 @@ public final class MongoHandler {
     private final static String PASSWORD = "pass";
     
     private static MongoClient mongo;
-    private static MongoHandler instance;
+    private static MongoHandler instance = new MongoHandler("anuncius");;
     
     private final boolean secureMode;
     private final String database;
     private MongoDatabase mainDatabase;
     
     public static MongoHandler getInstance(){
-        if(instance==null){
-            System.out.println("NEW mongo handler created");
-            instance = new MongoHandler("anuncius");
-        }
         return instance;
     }
     
     private MongoHandler(String databaseName){
+        System.out.println("Building new mongo instance...");
         this.database = databaseName;
         this.secureMode = false;
         this.connectToDatabase();

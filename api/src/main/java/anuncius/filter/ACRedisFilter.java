@@ -13,18 +13,20 @@ import javax.servlet.http.*;
 // Implements Filter class
 public class ACRedisFilter implements Filter {
 
-    private static RedisHandler redis = RedisHandler.getInstance();
+    private static final RedisHandler redis = RedisHandler.getInstance();
     
+    @Override
     public void init(FilterConfig config) throws ServletException {
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String uriStr = httpRequest.getRequestURI();
        
         String data = gotHit(uriStr);
-        if(false && data!=null && data.startsWith("<!doctype html>")){
+        if(data!=null && data.startsWith("<!doctype html>")){
             System.out.println("Redis filter hit");
             response.getWriter().flush();
             response.getWriter().write(data);
@@ -36,6 +38,7 @@ public class ACRedisFilter implements Filter {
         }
     }
 
+    @Override
     public void destroy() {
         /* Called before the Filter instance is removed 
         from service by the web container*/
@@ -43,6 +46,9 @@ public class ACRedisFilter implements Filter {
     }
 
     private String gotHit(String uriStr) {
-        return redis.getSet(uriStr);
+        if(redis!=null){
+            return redis.getSet(uriStr);
+        }
+        return null;
     }
 }

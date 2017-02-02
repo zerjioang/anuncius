@@ -23,17 +23,15 @@ public class RedisHandler {
     //the jedis connection pool..
     private static JedisPool pool = null;
     
-    private static RedisHandler instance;
+    private static final RedisHandler instance = new RedisHandler();
 
     public static RedisHandler getInstance() {
-        if(instance==null){
-            instance = new RedisHandler();
-        }
         return instance;
     }
     
     private RedisHandler(){
         try{
+            System.out.println("Building new redis instance...");
             //configure our pool connection
             pool = new JedisPool(REDIS_HOST, REDIS_PORT);
             //Connecting to Redis server on localhost

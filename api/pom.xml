@@ -20,26 +20,18 @@
     </properties>
     
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
-        <dependency>
-            <groupId>com.google.oauth-client</groupId>
-            <artifactId>google-oauth-client</artifactId>
-            <version>1.21.0</version>
-        </dependency>
         
-        <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
+        <!-- push -->
         <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>1.21.0</version>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-runtime</artifactId>
+            <version>${atmosphere.version}</version>
         </dependency>
         
         <dependency>
-            <groupId>com.google.api.client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>1.4.1-beta</version>
-            <type>jar</type>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-jersey</artifactId>
+            <version>${atmosphere.version}</version>
         </dependency>
         
         <dependency>
@@ -114,7 +106,7 @@
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jersey2-jaxrs</artifactId>
-            <version>1.5.12</version>
+            <version>1.5.0</version>
         </dependency>
 
         <!-- testing -->
@@ -130,6 +122,30 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
+        <dependency>
+            <groupId>com.google.oauth-client</groupId>
+            <artifactId>google-oauth-client</artifactId>
+            <version>1.21.0</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.21.0</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.google.api.client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.4.1-beta</version>
+            <scope>test</scope>
+            <type>jar</type>
         </dependency>
 
     </dependencies>

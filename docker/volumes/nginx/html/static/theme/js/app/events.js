@@ -242,7 +242,12 @@ $(document).ready(function(){
     else if(thisUrl === "/new"){
         if(getGoogleUserToken()===undefined){
             //user is not registered. show notification
-            showNotification("Inicia sesion", "Inicia sesion para poder completar el proceso", "icon", "error");
+            showNotification(
+                "Inicia sesion",
+                "Inicia sesion para poder completar el proceso",
+                "https://static.anunci.us/theme/images/notification/icon.png",
+                "error"
+            );
         }
         //activate image pickers
         $("#visual-price").imagepicker();

@@ -23,8 +23,16 @@
     <!-- swagger filter mapping -->
     <filter-mapping>
         <filter-name>jersey</filter-name>
-        <url-pattern>/api/*</url-pattern>
+        <url-pattern>/api/v1/public/*</url-pattern>
     </filter-mapping>
+    
+    <!-- ensure swagger servlet initialization -->
+    <servlet>
+        <servlet-name>SwaggerBootstrap</servlet-name>
+        <servlet-class>anuncius.Bootstrap</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+   
    
     <welcome-file-list>
         <welcome-file>push.html</welcome-file>

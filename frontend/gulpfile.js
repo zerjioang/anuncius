@@ -20,22 +20,21 @@ gulp.task('default', ['minjs', 'mincss']);
 
 //minjs
 gulp.task('minjs', function() {
-	gulp.src('../app/src/main/webapp/theme/**/*.js')
-	.pipe(concat('all.js'))
-        .pipe(gulp.dest('dist/js'))
-        .pipe(rename('all.min.js'))
+	gulp.src('../app/src/main/webapp/theme/js/**/*.js')
+	.pipe(concat('vendor.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('../docker/volumes/nginx/html/static/dist/js'));
+        .pipe(rename('vendor.min.js'))
+        .pipe(gulp.dest('../docker/volumes/nginx/html/static/dist/app/js'));
 });
 
 //css min task
 gulp.task('mincss', function () {
-    gulp.src('../app/src/main/webapp/**/*.css')
+    gulp
+	.src('../app/src/main/webapp/theme/css/**/*.css')
         .pipe(concat('style.css'))
-    	.pipe(gulp.dest('dist/css'))
-    	.pipe(rename('style.min.css'))
     	.pipe(cssmin())
-        .pipe(gulp.dest('../docker/volumes/nginx/html/static/dist/css'));
+    	.pipe(rename('style.min.css'))
+        .pipe(gulp.dest('../docker/volumes/nginx/html/static/dist/app/css'));
 });
 
 gulp.task('cleancss', function () {

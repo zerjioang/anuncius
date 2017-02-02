@@ -6,7 +6,7 @@ boolean minified = PlatformUtil.enableMinification();
 if(PlatformUtil.isDevelopment()){
 %>
     <%if(minified){%>
-        <script src="dist/js/all.min.js"></script>
+        <script src="theme/dist/app/js/vendor.min.js"></script>
     <%}else{%>
         <script async src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
         
@@ -39,7 +39,7 @@ if(PlatformUtil.isDevelopment()){
     <%}%>
 <% }else{ %>
     <%if(minified){%>
-        <script src="https://static.anunci.us/dist/js/all.min.js">
+        <script src="https://static.anunci.us/theme/dist/app/js/vendor.min.js">
     <%}else{%>
         <script async src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
         

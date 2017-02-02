@@ -8,7 +8,7 @@ boolean minified = PlatformUtil.enableMinification();
 if(PlatformUtil.isDevelopment()){
 %>
     <%if(minified){%>
-        <script src="dist/css/style.min.css"></script>
+        <script src="theme/dist/app/css/style.min.css"></script>
     <%}else{%>
         <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
         
@@ -33,7 +33,7 @@ if(PlatformUtil.isDevelopment()){
         <link rel="stylesheet" href="/theme/css/vendor/typo/ion-font.css">
 
         <!-- imagepicker -->
-        <link rel="stylesheet" href="/theme/css/vendor/imagepicker/image-picker.css">
+        <link rel="stylesheet" href="/theme/css/vedor/imagepicker/image-picker.css">
         
         <!-- maps -->
         <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
@@ -56,7 +56,7 @@ if(PlatformUtil.isDevelopment()){
         <% } %>
 <% }else{ %>
     <% if(minified){%>
-        <link rel="stylesheet" href="https://static.anunci.us/dist/css/style.min.css">
+        <link rel="stylesheet" href="https://static.anunci.us/theme/dist/app/css/style.min.css">
     <%}else{%>
         <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
 
