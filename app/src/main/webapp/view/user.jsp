@@ -19,7 +19,7 @@ Perfil público de usuario. Contacta con otros usuarios y enviales mensajes priv
             <s:param name="title" value="'Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'https://anunci.us/'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
             <s:param name="description" value="'Perfil público de usuario. Contacta con otros usuarios y enviales mensajes privados.'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@ Perfil público de usuario. Contacta con otros usuarios y enviales mensajes priv
             <s:param name="title" value="'Anuncius - Perfil de usuario'"></s:param>
             <s:param name="description" value="'Perfil público de usuario. Contacta con otros usuarios y enviales mensajes privados.'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - Perfil de usuario'"></s:param>
             <s:param name="description" value="'Perfil público de usuario. Contacta con otros usuarios y enviales mensajes privados.'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/css/minimum.css.jsp"/>

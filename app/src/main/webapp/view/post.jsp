@@ -19,7 +19,7 @@
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'https://www.anunci.us/blog'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Blog de Anuncius'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/twitter.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/twitter.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Blog de Anuncius'"></s:param>
             <s:param name="description" value="'Blog oficial de la plataforma anuncius'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/css/minimum.css.jsp"/>

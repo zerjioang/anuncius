@@ -19,7 +19,7 @@
             <s:param name="title" value="'Anuncius - Términos y condiciones'"></s:param>
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'https://anunci.us/'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
             <s:param name="description" value="'Términos y condiciones de Anuncius'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
@@ -34,13 +34,13 @@
             <s:param name="title" value="'Anuncius - Términos y condiciones'"></s:param>
             <s:param name="description" value="'Términos y condiciones de Anuncius.'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - Términos y condiciones'"></s:param>
             <s:param name="description" value="'Términos y condiciones de Anuncius.'"></s:param>
-            <s:param name="image" value="'https://static.anunci.us/img/metadata/google.image.png'"></s:param>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/css/minimum.css.jsp"/>
@@ -62,7 +62,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Términos y condiciones'" />
             <s:param name="bold" value=""/>
-            <s:param name="image" value="'https://static.anunci.us/img/hero/conditions/hero.jpg'" />
+            <s:param name="image" value="'https://static.anunci.us/theme/images/hero/conditions/hero.jpg'" />
             <s:param name="block" value="'conditions'" />
         </s:include>
         <!-- HERO IMAGE END -->

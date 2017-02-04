@@ -19,6 +19,21 @@
             </param-value>
         </init-param>
     </filter>
+    
+    <!-- add atmosphere servlet -->
+    <servlet>
+        <description>AtmosphereServlet</description>
+        <servlet-name>AtmosphereServlet</servlet-name>
+        <servlet-class>org.atmosphere.cpr.AtmosphereServlet</servlet-class>
+        <!-- If you want to use Servlet 3.0 -->
+        <async-supported>true</async-supported>
+        <!-- List of init-param --> 
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AtmosphereServlet</servlet-name>
+        <!-- Any mapping -->
+        <url-pattern>/push/*</url-pattern>
+    </servlet-mapping>
 
     <!-- swagger filter mapping -->
     <filter-mapping>

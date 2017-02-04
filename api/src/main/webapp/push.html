@@ -18,33 +18,60 @@
 	<h1>push server example</h1>
 	<p>info</p>
         <div id="header"><h3>Comet push service</h3></div>
-            <input type="button" caption="name" onclick="ajax('http://localhost:8084/push', '', testFunction);">
+        <input type="button" caption="name" value="Make push request" id="btn">
         </div>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!--
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.atmosphere/2.1.2/jquery.atmosphere.js"></script>
         <script>
             // A $( document ).ready() block.
-            $( document ).ready(function() {
-                console.log( "ready!" );
-                ajax('http://localhost:8084/push', '', testFunction);
-            });
-            function ajax(url, vars, callbackFunction) {
-              var request =  new XMLHttpRequest();
-              request.open("POST", url, true);
-              request.setRequestHeader("Content-Type","application/x-javascript;");
-
-              request.onreadystatechange = function() {
-                if (request.readyState === 4 && request.status === 200) {
-                  if (request.responseText) {
-                    callbackFunction(request.responseText);
-                  }
+            $(document).ready(function() {
+                var logged = false;
+                var socket = $.atmosphere;
+                var request = { url: 'http://localhost:8084/anuncius/api/push',
+                                contentType : "application/json",
+                                logLevel : 'debug',
+                                transport : 'websocket' , //sse
+                                fallbackTransport: 'long-polling'
+                            };
+                request.onOpen = function(response) {
+                    console.log('Atmosphere connected using ' + response.transport);
+                };
+                request.onMessage = function (response) {
+                    var message = response.responseBody;
+                    try {
+                        var json = JSON.parse(message);
+                    } catch (e) {
+                        console.log('This does not look like a valid JSON: ', message.data);
+                        return;
+                    }
+                    if (!logged) {
+                        logged = true;
+                        console.log(json);
+                    } else {
+                        console.log(json);
+                    }
+                };
+                request.onClose = function(response) {
+                    logged = false;
+                };
+                
+                request.onError = function(response) {
+                    console.log('Sorry, but there is some problem with your socket or the server is down')
+                };
+                if(socket!==undefined){
+                    var subSocket = socket.subscribe(request);
                 }
-              };
-              request.send(vars);
-            }
-
-            function testFunction(receivedMessage) {
-                    alert(receivedMessage);
-            }
+               
+               $('#btn').on('click', function() {
+                   var author = "demo-autor";
+                   var message = "demo-message";
+                   subSocket.push(JSON.stringify({ author: author, message: message }));
+                });
+                
+            });
 	</script>
 </body>
 </html>

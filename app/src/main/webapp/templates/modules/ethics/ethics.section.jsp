@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<section class="gl-custom-section gl-section-wrapper" id="feed-them-all" style="background: url('https://static.anunci.us/img/hero/landing/hero.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover">
+<section class="gl-custom-section gl-section-wrapper" id="feed-them-all" style="background: url('https://static.anunci.us/theme/images/hero/landing/hero.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover">
     <div class="container">
         <div class="row fine-all-padding">
             <h3>Bienvenido a anuncius</h3>

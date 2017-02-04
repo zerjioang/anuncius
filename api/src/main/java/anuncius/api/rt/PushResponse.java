@@ -5,12 +5,8 @@
  */
 package anuncius.api.rt;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
