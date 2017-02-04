@@ -46,6 +46,9 @@ public class ABFordwardFilter implements Filter {
                 //enable redirects for opensearch queries
                 return "/view/explore.jsp";
             }
+            else if(uriStr.startsWith("/explore/")){
+                return "/view/explore.jsp";
+            }
             else if(uriStr.equals("/new")){
                 return "/view/new.jsp";
             }
@@ -58,7 +61,7 @@ public class ABFordwardFilter implements Filter {
             else if(uriStr.equals("/sitemap") || uriStr.equals("/sitemap/")){
                 return "/view/sitemap.jsp";
             }
-            else if(uriStr.startsWith("/sitemap/provincia/")){
+            else if(uriStr.startsWith("/sitemap/")){
                 return "/view/sitemap.provincia.jsp";
             }
             else if(uriStr.equals("/faq") || uriStr.equals("/faq/")){
@@ -81,9 +84,6 @@ public class ABFordwardFilter implements Filter {
             }
             else if(uriStr.equals("/contact") || uriStr.startsWith("/contact/")){
                 return "/view/contact.jsp";
-            }
-            else if(uriStr.equals("/explore") || uriStr.startsWith("/explore/")){
-                return "/view/explore.jsp";
             }
             else if(uriStr.equals("/item") || uriStr.startsWith("/item/")){
                 return "/view/item.jsp";
