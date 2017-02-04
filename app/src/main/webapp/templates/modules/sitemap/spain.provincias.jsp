@@ -1,10 +1,5 @@
-<%-- 
-    Document   : sitemap
-    Created on : Feb 4, 2017, 1:23:22 PM
-    Author     : sanguita
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<h3>Listado de provincias</h3>
 <div class="container container-sitemap">
     <div class="sitemap-section">
         <div class="sitemap-subsection">

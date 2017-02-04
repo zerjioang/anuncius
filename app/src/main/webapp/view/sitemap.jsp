@@ -71,8 +71,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div>
-                            <h3>Listado de provincias</h3>
-                            <s:include value="/templates/modules/sitemap/sitemap.jsp"/>
+                            <s:include value="/templates/modules/sitemap/sitemap.country.list.jsp"/>
+                            <s:include value="/templates/modules/sitemap/spain.provincias.jsp"/>
                         </div>
                     </div>
                 </div>

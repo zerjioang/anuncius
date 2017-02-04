@@ -14,7 +14,7 @@
                     <li class="gl-feat-prop-price">Rent / Month<span>$450</span></li>
                 </ul>
 
-                <a href="index.html#" class="gl-btn">Details</a>
+                <a href="#" class="gl-btn">Details</a>
             </div>
         </div>
     </div>

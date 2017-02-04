@@ -3,7 +3,7 @@
         <div class="row">
             <div class="gl-directory-searchbar gl-realestate-directory-searchbar collapsed">
                 <%--
-                <form action="index.html#" id="gl-bz-directory-form">
+                <form action="3#" id="gl-bz-directory-form">
                   <div class="gl-regular-search">
                       <input type="text" name="gl-realestate-keyword" id="gl-realestate-keyword" class="gl-directory-input" placeholder="Keywords">
 
@@ -43,7 +43,7 @@
                           </div>
                   </div>
 
-                  <a href="index.html#" class="gl-advanced-search-btn">
+                  <a href="#" class="gl-advanced-search-btn">
                     <i class="ion-grid"></i>
                   </a>
                 </form>
