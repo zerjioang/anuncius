@@ -57,11 +57,11 @@
                                 </div>
 
                                 <div class="gl-compare-item-name">
-                                    <a href="index.html">temp</a>
+                                    <a href="#">temp</a>
                                 </div>
 
                                 <div class="gl-compare-del-btn">
-                                    <a href="index.html">
+                                    <a href="#">
                                         <i class="ion-android-close"></i>
                                     </a>
                                 </div>
