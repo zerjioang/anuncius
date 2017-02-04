@@ -47,7 +47,6 @@
             p, li{
                 padding: 10px;
                 text-align: justify;
-                color: black !important;
             }
         </style>
     </head>
@@ -83,17 +82,17 @@
                             <div class="gl-tab-style-2 gl-right-side-col"id="docs">
                                 <div class="gl-tab-nav-btns">
                                   <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#tab-style2-1" aria-controls="tab-style2-1" role="tab" data-toggle="tab">Ayuda</a></li>
-                                    <li role="presentation"><a href="#tab-style2-2" aria-controls="tab-style2-2" role="tab" data-toggle="tab">Documentación tecnica</a></li>
+                                    <li role="presentation" class="active"><a href="#help" aria-controls="help" role="tab" data-toggle="tab">Ayuda</a></li>
+                                    <li role="presentation"><a href="#docs" aria-controls="docs" role="tab" data-toggle="tab">Documentación tecnica</a></li>
                                   </ul>
                                 </div>
 
                                 <div class="gl-tab-nav-contents tab-content">
-                                  <div role="tabpanel" class="tab-pane fade in active" id="tab-style2-1">
+                                  <div role="tabpanel" class="tab-pane fade in active" id="help">
                                     <s:include value="/templates/modules/docs/help.jsp"/>
                                   </div>
 
-                                  <div role="tabpanel" class="tab-pane fade" id="tab-style2-2">
+                                  <div role="tabpanel" class="tab-pane fade" id="docs">
                                       <s:include value="/templates/modules/docs/manual.jsp"/>
                                   </div>
                                 </div>

@@ -58,7 +58,7 @@ public class ABFordwardFilter implements Filter {
             else if(uriStr.equals("/sitemap") || uriStr.equals("/sitemap/")){
                 return "/view/sitemap.jsp";
             }
-            else if(uriStr.equals("/sitemap/provincina") || uriStr.equals("/sitemap/provincia/")){
+            else if(uriStr.startsWith("/sitemap/provincia/")){
                 return "/view/sitemap.provincia.jsp";
             }
             else if(uriStr.equals("/faq") || uriStr.equals("/faq/")){

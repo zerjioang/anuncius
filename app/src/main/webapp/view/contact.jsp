@@ -67,8 +67,8 @@
         </s:include>
         <!-- HERO IMAGE END -->
 
-        <div class="container" style='padding-top: 5%;padding-bottom: 5%;'>
-            <section id="top">
+        <div class="container" style="padding-top: 5%;padding-bottom: 5%;" id="top">
+            <section>
                 <div class="row">
                     <!-- Image -->
                     <div class="gl-about-company-image gl-left-side col-md-6 col-sm-6 col-xs-12">

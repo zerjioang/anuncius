@@ -62,8 +62,8 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Política de '" />
             <s:param name="bold" value="'cookies'"/>
-            <s:param name="image" value="'https://static.anunci.us/theme/images/hero/privacy/hero.jpg'" />
-            <s:param name="block" value="'privacy'" />
+            <s:param name="image" value="'https://static.anunci.us/theme/images/hero/cookies/hero.jpg'" />
+            <s:param name="block" value="'cookies'" />
         </s:include>
         <!-- HERO IMAGE END -->
         

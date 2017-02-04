@@ -71,7 +71,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Reglas de '" />
             <s:param name="bold" value="'convivencia'"/>
-            <s:param name="image" value="'https://static.anunci.us/theme/images/docs/hero/code.min.jpg'" />
+            <s:param name="image" value="'https://static.anunci.us/theme/images/rules/hero/hero.jpg'" />
             <s:param name="block" value="'rules'" />
         </s:include>
         <!-- HERO IMAGE END -->
@@ -86,14 +86,14 @@
                             <div class="container container-static">
                                 <p><br><br></p>
                                 <h2><strong>1. REGLAS GENERALES DE CONVIVENCIA</strong></h2>
-                                <p>wallapop es una gran comunidad de personas que compran y venden como tú. Y como en todas las comunidades a veces es necesario marcar unas normas de convivencia para que todo el mundo esté a gusto.</p>
-                                <p>Wallapop utiliza mecanismos para detectar y retirar los productos que supuestamente incumplan con estas prohibiciones.</p>
-                                <p><strong>Todo el contenido (incluyendo fotos, títulos, textos) que vaya contra disposiciones legales, buenas costumbres, y/o nuestros términos de uso o que ofenda otros usuarios está sujeto a la eliminación por parte de wallapop.</strong></p>
+                                <p>anuncius es una gran comunidad de personas que compran y venden como tú. Y como en todas las comunidades a veces es necesario marcar unas normas de convivencia para que todo el mundo esté a gusto.</p>
+                                <p>Anuncius utiliza mecanismos para detectar y retirar los productos que supuestamente incumplan con estas prohibiciones.</p>
+                                <p><strong>Todo el contenido (incluyendo fotos, títulos, textos) que vaya contra disposiciones legales, buenas costumbres, y/o nuestros términos de uso o que ofenda otros usuarios está sujeto a la eliminación por parte de anuncius.</strong></p>
                                 <p>¿Qué se puede vender?</p>
-                                <p>En wallapop se puede vender prácticamente de todo. Creemos en las segundas vidas y nos gustan las frikadas, pero hay ciertos límites legales que debemos respetar.<br> Vender a tu primo o una colilla del suelo puede ser gracioso, pero preferimos reservar nuestro espacio a ofertas reales ;)</p>
+                                <p>En anuncius se puede vender prácticamente de todo. Creemos en las segundas vidas y nos gustan las frikadas, pero hay ciertos límites legales que debemos respetar.<br> Vender a tu primo o una colilla del suelo puede ser gracioso, pero preferimos reservar nuestro espacio a ofertas reales ;)</p>
                                 <ul>
                                 <li>No está permitido publicar imágenes o descripciones que no se correspondan con el artículo realmente ofrecido.</li>
-                                <li>Ten en cuenta que no se puede publicar varias veces el mismo producto o subir el mismo en varios anuncios. wallapop no es una plataforma para uso publicitario, por lo que cualquier anuncio con dicha finalidad será retirado.</li>
+                                <li>Ten en cuenta que no se puede publicar varias veces el mismo producto o subir el mismo en varios anuncios. anuncius no es una plataforma para uso publicitario, por lo que cualquier anuncio con dicha finalidad será retirado.</li>
                                 <li>Aunque tengas muchos productos molones en tu perfil, no está permitido publicar un anuncio dirigiendo a tu perfil, solo un producto por cada anuncio.</li>
                                 <li>En todos los anuncios que publiques es necesario asignar la categoría correcta a cada producto y, por supuesto, debe coincidir con el producto anunciado.</li>
                                 <li>No está permitido el uso indiscriminado de etiquetas o palabras clave que no se correspondan con el artículo ofertado.</li>
@@ -135,7 +135,7 @@
                                 <li>Contenido que infrinja la propiedad intelectual o los derechos industriales, incluyendo patentes, marcas registradas, copyrights o secretos comerciales.</li>
                                 <li>Falsificaciones.</li>
                                 <li>Contenido que infrinja la privacidad de información personal de cualquier tipo.</li>
-                                <li>Contenido que infrinja los derechos de privacidad de cualquiera, sea o no usuario de wallapop.</li>
+                                <li>Contenido que infrinja los derechos de privacidad de cualquiera, sea o no usuario de anuncius.</li>
                                 <li>Contenido que pertenezca a terceros, como pueden ser fotografías, imágenes extraídas de internet o de catálogo.</li>
                                 <li>Venta de documentos originales y/o falsificados o duplicados (carnet de conducir, documentos de identidad, diplomas, o cualquier otro documento emitido desde entidades gubernamentales).</li>
                                 <li>etc</li>

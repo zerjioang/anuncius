@@ -22,12 +22,6 @@
                     <a href="/contact">Contacto</a>
                 </li>
                 <li>
-                    <a href="/privacy">Política de privacidad</a>
-                </li>
-                <li>
-                    <a href="/conditions">Términos y condiciones</a>
-                </li>
-                <li>
                     <a href="/docs">Ayuda y documentación</a>
                 </li>
             </ul>

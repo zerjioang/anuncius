@@ -43,13 +43,6 @@
         </s:include>
 
         <s:include value="/templates/css/minimum.css.jsp"/>
-        <style>
-            p, li{
-                padding: 10px;
-                text-align: justify;
-                color: black;
-            }
-        </style>
     </head>
 
     <body class="gl-realestate-template">
@@ -66,19 +59,19 @@
 
         <!-- HERO IMAGE -->
         <s:include value="/templates/modules/hero/hero.section.jsp">
-            <s:param name="normal" value="'Documentación '" />
-            <s:param name="bold" value="'técnica'"/>
-            <s:param name="image" value="'https://static.anunci.us/theme/images/docs/hero/code.min.jpg'" />
-            <s:param name="block" value="'docs'" />
+            <s:param name="normal" value="'Mapa del  '" />
+            <s:param name="bold" value="'sitio'"/>
+            <s:param name="image" value="'https://static.anunci.us/theme/images/sitemap/hero/hero.jpg'" />
+            <s:param name="block" value="'sitemap'" />
         </s:include>
         <!-- HERO IMAGE END -->
 
-        <section id="docs">
+        <section id="sitemap">
             <div class="container" style='padding-top: 5%;padding-bottom: 5%;'>
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-                            <h1>Mapa del sitio</h1>
+                            <h3>Ciudades de provincia</h3>
                             <div id="sitemap-block"></div>
                         </div>
                     </div>
