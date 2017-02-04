@@ -71,7 +71,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Reglas de '" />
             <s:param name="bold" value="'convivencia'"/>
-            <s:param name="image" value="'https://static.anunci.us/theme/images/docs/hero/code.min.jpg'" />
+            <s:param name="image" value="'https://static.anunci.us/theme/images/hero/security/hero.jpg'" />
             <s:param name="block" value="'rules'" />
         </s:include>
         <!-- HERO IMAGE END -->

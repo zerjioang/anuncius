@@ -53,7 +53,7 @@
         <br> - Medicamentos
         <br> - Armas
         <br> - Cosas que puedan herir psicológica o emocionalmente, o penalizadas por la ley</p>
-    <p>Consulta el listado completo <a href="http://es.anuncius.com/rules">aquí</a>.&nbsp;</p>
+    <p>Consulta el listado completo <a href="http://anunci.us/rules">aquí</a>.&nbsp;</p>
     <p>Nuestra intención es dar una nueva vida a los productos que ya no necesitas, pero hay que tener sentido común. Vender a tu primo o una colilla del suelo puede ser gracioso, pero preferimos reservar nuestro espacio a ofertas reales ;)</p>
     <p><strong>10.&nbsp;MARCAR COMO VENDIDO/RESERVADO</strong>
     </p>
