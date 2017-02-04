@@ -115,3 +115,16 @@ h2 {
 .stats-block{
     margin-top: 75px;
 }
+
+.title-sitemap-main{
+    display: block;
+    line-height: 3.2rem;
+    font-size: 1.6rem;
+    border-bottom: 1px dashed #d7d7d7;
+}
+.sitemap-item{
+    display: inline-block;
+    width: 32.9%;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}

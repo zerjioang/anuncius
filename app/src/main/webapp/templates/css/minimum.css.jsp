@@ -33,7 +33,7 @@ if(PlatformUtil.isDevelopment()){
         <link rel="stylesheet" href="/theme/css/vendor/typo/ion-font.css">
 
         <!-- imagepicker -->
-        <link rel="stylesheet" href="/theme/css/vedor/imagepicker/image-picker.css">
+        <link rel="stylesheet" href="/theme/css/vendor/imagepicker/image-picker.css">
         
         <!-- maps -->
         <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
