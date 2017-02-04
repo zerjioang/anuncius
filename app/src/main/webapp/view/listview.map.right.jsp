@@ -196,13 +196,13 @@
                                     <a href="../elements/elements.html">Elements</a>
                                 </li>
                                 <li>
-                                    <a href="blog-grid.html">Blog</a>
+                                    <a href="#">Blog</a>
                                     <ul class="gl-sub-menu">
                                         <li>
-                                            <a href="blog-default.html">Blog Default</a>
+                                            <a href="#">Blog Default</a>
                                         </li>
                                         <li>
-                                            <a href="blog-details.html">Blog Details</a>
+                                            <a href="#">Blog Details</a>
                                         </li>
                                     </ul>
                                 </li>

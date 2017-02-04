@@ -248,7 +248,7 @@
                                 <div class="gl-agent-infos">
                                     <ul>
                                         <li class="gl-agent-name">
-                                            <h3><a href="agent_profile.html">Nombre vendedor</a></h3>
+                                            <h3><a href="#">Publicado por</a></h3>
                                             <p>Nombre Apellido1 Apellido2</p>
                                         </li>
 
