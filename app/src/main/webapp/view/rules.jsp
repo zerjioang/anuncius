@@ -71,7 +71,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Reglas de '" />
             <s:param name="bold" value="'convivencia'"/>
-            <s:param name="image" value="'https://static.anunci.us/theme/images/rules/hero/hero.jpg'" />
+            <s:param name="image" value="'https://static.anunci.us/theme/images/hero/rules/hero.jpg'" />
             <s:param name="block" value="'rules'" />
         </s:include>
         <!-- HERO IMAGE END -->
@@ -107,7 +107,7 @@
                                 <li>Cosas que puedan herir psicológica o emocionalmente, o penalizadas por la ley. Cualquier anuncio de estas características podrá ser bloqueado.</li>
                                 <li>Productos recibidos por asistencia del Gobierno.</li>
                                 <li>Equipamiento propiedad del Estado (uniformes policiales, extintores, placas de policía, etc).</li>
-                                <li>Medicamentos (<a href="app/toc#anchor3">ver Términos de uso 3.X</a>).</li>
+                                <li>Medicamentos (<a href="#">ver Términos de uso 3.X</a>).</li>
                                 <li>Productos que deben ser estériles.</li>
                                 <li>Comida, bebida o cualquier cosa que se pueda ingerir y de la que no se pueda asegurar calidad, estado ni fecha de caducidad.</li>
                                 <li>Cosméticos o artículos de perfumería desprecintados y/o usados.</li>

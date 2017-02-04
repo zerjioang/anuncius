@@ -61,7 +61,7 @@
         <s:include value="/templates/modules/hero/hero.section.jsp">
             <s:param name="normal" value="'Mapa del  '" />
             <s:param name="bold" value="'sitio'"/>
-            <s:param name="image" value="'https://static.anunci.us/theme/images/sitemap/hero/hero.jpg'" />
+            <s:param name="image" value="'https://static.anunci.us/theme/images/hero/sitemap/hero.jpg'" />
             <s:param name="block" value="'sitemap'" />
         </s:include>
         <!-- HERO IMAGE END -->
