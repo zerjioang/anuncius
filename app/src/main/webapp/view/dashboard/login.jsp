@@ -41,11 +41,11 @@
 
     <form action="#" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" placeholder="Email" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Contraseña">
+        <input type="password" class="form-control" placeholder="Contraseña" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -65,7 +65,7 @@
     </form>
 
     <div class="social-auth-links text-center">
-      <p>- OR -</p>
+      <p> O también</p>
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i>Iniciar sesión usando Google</a>
     </div>
     <!-- /.social-auth-links -->

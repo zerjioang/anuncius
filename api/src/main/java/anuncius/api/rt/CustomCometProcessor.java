@@ -32,7 +32,7 @@ public class CustomCometProcessor {
             case BEGIN:{
                 System.out.println("Begin for session: " + request.getSession(true).getId());
                 PrintWriter writer = response.getWriter();
-                PushResponse responsePayload = new PushResponse("Demo");
+                PushResponse responsePayload = new PushResponse("connection suspended");
                 writer.print(PushResponse.getJson(responsePayload));
                 writer.flush();
                 synchronized(connections) {
@@ -69,6 +69,14 @@ public class CustomCometProcessor {
                         return;
                     }
                 } while (is.available() > 0);
+                //after read, send answer to each client
+                for(HttpServletResponse r : connections){
+                    PrintWriter writer = response.getWriter();
+                    PushResponse responsePayload = new PushResponse("sending push event with payload");
+                    
+                    writer.print(PushResponse.getJson(responsePayload));
+                    writer.flush();
+                }
                 break;
             default:
                 break;

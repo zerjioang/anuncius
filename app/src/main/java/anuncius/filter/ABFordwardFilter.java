@@ -49,6 +49,24 @@ public class ABFordwardFilter implements Filter {
             else if(uriStr.equals("/new")){
                 return "/view/new.jsp";
             }
+            else if(uriStr.equals("/rules") || uriStr.startsWith("/rules/")){
+                return "/view/rules.jsp";
+            }
+            else if(uriStr.equals("/security") || uriStr.startsWith("/security/")){
+                return "/view/security.jsp";
+            }
+            else if(uriStr.equals("/sitemap") || uriStr.equals("/sitemap/")){
+                return "/view/sitemap.jsp";
+            }
+            else if(uriStr.equals("/sitemap/provincina") || uriStr.equals("/sitemap/provincia/")){
+                return "/view/sitemap.provincia.jsp";
+            }
+            else if(uriStr.equals("/faq") || uriStr.equals("/faq/")){
+                return "/view/faq.jsp";
+            }
+            else if(uriStr.equals("/cookies") || uriStr.equals("/cookies/")){
+                return "/view/cookies.jsp";
+            }
             else if(uriStr.equals("/account") || uriStr.startsWith("/account/")){
                 return "/view/account.jsp";
             }
