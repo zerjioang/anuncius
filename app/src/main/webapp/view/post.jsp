@@ -167,7 +167,7 @@
                         <div class="gl-comments-form-wrapper">
                             <h3 class="gl-blog-sec-title">5 Reviews</h3>
 
-                            <form action="blog-details.html#">
+                            <form action="#">
                                 <fieldset>
                                     <input type="text" name="gl-comment-name" id="gl-comment-name" placeholder="Nombre" required>
                                     <input type="email" name="gl-comment-email" id="gl-comment-email" placeholder="Email" required>
