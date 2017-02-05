@@ -41,7 +41,7 @@ import javax.ws.rs.core.MediaType;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="public/search")
+@Api(value="Search")
 @Path("public/search")
 public class SearchResource extends IAnunciusAPI{
 
@@ -60,8 +60,8 @@ public class SearchResource extends IAnunciusAPI{
     
     @ApiOperation(value = "Demo method for working test")
     @ApiResponses(value = {
-        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
-        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )

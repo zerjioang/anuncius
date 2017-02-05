@@ -37,7 +37,7 @@
 
     <filter-mapping>
         <filter-name>swagger</filter-name>
-        <url-pattern>/api/v1/*</url-pattern>
+        <url-pattern>/v1/*</url-pattern>
     </filter-mapping>
    
     <welcome-file-list>

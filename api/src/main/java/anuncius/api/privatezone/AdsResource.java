@@ -56,7 +56,7 @@ import org.bson.Document;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="private/ads")
+@Api(value="Advertisement")
 @Path("private/ads")
 public class AdsResource extends IAnunciusAPI{
 
@@ -142,7 +142,7 @@ public class AdsResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    @Path("/delete/id/{:.*}/token/{token:.*}")
+    @Path("/delete/id/{id:.*}/token/{token:.*}")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage delete(
         @PathParam("id") int id,

@@ -50,7 +50,7 @@ import org.bson.Document;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="/public/show")
+@Api(value="Web")
 @Path("/public/show")
 public class WebResource extends IAnunciusAPI{
 
@@ -69,8 +69,8 @@ public class WebResource extends IAnunciusAPI{
     //@Tag(name = "/demo", description = "Demo method for endpoint working test")
     @ApiOperation(value = "Returns basic population statistics")
     @ApiResponses(value = {
-        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
-        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
@@ -85,6 +85,12 @@ public class WebResource extends IAnunciusAPI{
     @GET
     @Path("/list/latest")
     @ApiOperation(value = "Returns the maximum established latest items created. Maximum item count is 6.")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage getLatest() {
         List<Document> itemList = AnunciusDAO.getInstance().getLatestItems();
@@ -96,6 +102,12 @@ public class WebResource extends IAnunciusAPI{
     @GET
     @Path("/list/best")
     @ApiOperation(value = "Returns the maximum established best items published. Maximum item count is 6.")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage getTop() {
         List<Document> itemList = AnunciusDAO.getInstance().getBestItems();

@@ -50,7 +50,7 @@ import javax.ws.rs.core.MediaType;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="public/contact")
+@Api(value="Contact")
 @Path("public/contact")
 public class ContactResource extends IAnunciusAPI{
 

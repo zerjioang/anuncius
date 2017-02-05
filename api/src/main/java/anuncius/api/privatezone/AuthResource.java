@@ -47,7 +47,7 @@ import javax.ws.rs.core.MediaType;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="private/auth")
+@Api(value="Authorization")
 @Path("private/auth")
 public class AuthResource extends IAnunciusAPI {
     
