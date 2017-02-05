@@ -13,22 +13,27 @@ import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
 import anuncius.singleton.AnunciusDAO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Contact;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.License;
+import io.swagger.annotations.SwaggerDefinition;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import org.bson.Document;
 
@@ -37,8 +42,22 @@ import org.bson.Document;
  *
  * @author sanguita
  */
+@SwaggerDefinition(
+    info = @Info(
+            description = "anuncius public API",
+            version = "V1.0",
+            title = "anuncius API",
+            termsOfService = "share and care",
+            contact = @Contact(name = "zerjioang", email = "zerjioang", url = "https://github.com/zerjioang/anuncius"),
+            license = @License(name = "GPLv3", url = "https://www.gnu.org/licenses/gpl-3.0.odt")
+    ),
+    consumes = {"application/json" },
+    produces = {"application/json" },
+    schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
+)
+@Api(value="/ads")
 @Path("/ads")
-public class AdsResource {
+public class AdsResource implements IAnunciusAPI{
 
     @Context
     private UriInfo context;
@@ -52,7 +71,6 @@ public class AdsResource {
     @GET
     @Path("/demo")
     @Produces(MediaType.APPLICATION_JSON)
-    
     @ApiOperation(value = "Demo method for working test")
     @ApiResponses(value = {
         @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
@@ -64,27 +82,7 @@ public class AdsResource {
         return "{}";
     }
     
-    @POST
-    @Path("/list/latest")
-    @Produces(MediaType.APPLICATION_JSON)
-    public IAPIMessage getLatest() {
-        List<Document> itemList = AnunciusDAO.getInstance().getLatestItems();
-        IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
-        ((ResponseArrayList)response).setList(itemList);
-        return response;
-    }
-    
-    @POST
-    @Path("/list/best")
-    @Produces(MediaType.APPLICATION_JSON)
-    public IAPIMessage getTop() {
-        List<Document> itemList = AnunciusDAO.getInstance().getBestItems();
-        IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
-        ((ResponseArrayList)response).setList(itemList);
-        return response;
-    }
-    
-    @POST
+    @PUT
     @Path("/new")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage create(
@@ -123,26 +121,7 @@ public class AdsResource {
         return response;
     }
     
-    @GET
-    @Path("/get/{id : .*}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String recover(@PathParam("id") int id) {
-        return "{}";
-    }
-    
-    @POST
-    @Path("/update")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String update(
-        //useful
-        @QueryParam("name") String name,
-        @QueryParam("description") String description,
-        @QueryParam("category") String category
-    ) {
-        return "{}";
-    }
-    
-    @GET
+    @DELETE
     @Path("/delete/{id : .*}")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage delete(@PathParam("id") int id) {

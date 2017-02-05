@@ -13,9 +13,14 @@ import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
 import anuncius.singleton.AnunciusDAO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Contact;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.License;
+import io.swagger.annotations.SwaggerDefinition;
 import java.net.HttpURLConnection;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -32,8 +37,22 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sanguita
  */
+@SwaggerDefinition(
+    info = @Info(
+            description = "anuncius public API",
+            version = "V1.0",
+            title = "anuncius API",
+            termsOfService = "share and care",
+            contact = @Contact(name = "zerjioang", email = "zerjioang", url = "https://github.com/zerjioang/anuncius"),
+            license = @License(name = "GPLv3", url = "https://www.gnu.org/licenses/gpl-3.0.odt")
+    ),
+    consumes = {"application/json" },
+    produces = {"application/json" },
+    schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
+)
+@Api(value="/contact")
 @Path("/contact")
-public class ContactResource {
+public class ContactResource implements IAnunciusAPI{
 
     @Context
     private UriInfo context;

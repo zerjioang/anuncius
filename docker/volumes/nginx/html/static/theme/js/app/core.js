@@ -371,3 +371,97 @@ function showAside(status){
     });
      */
 }
+
+function parseUrl(url) {
+    var minimum_state_name_length = 2;
+    var minimum_city_name_length = 2;
+    var minimum_neigh_name_length = 2;
+    var data = [];
+    var valid_structure = false;
+    if(url!==undefined){
+        var items = url.split("/");
+        //remove first item
+        items.splice(0, 1);
+        if(items!==undefined && items.length>0){
+            //parse url items
+            //specification
+            /*
+                item 0: 'explore'(constant)
+                item 1: country_code: es, fr, ch, us, etc (variable)
+                item 2: 'place' (constant)
+                item 3: state (variable)
+                item 4: city (variable, if exists)
+                item 5: neighbourd (variable, if exists)
+            */
+            if(items.length === 2){
+                //only country defined
+                valid_structure = items[0] === 'explore' && items[1].length == 2;
+                data['country'] = items[1].replace('-', ' ');
+            }
+            else if(items.length === 4){
+                //country + state defined
+                valid_structure = items[0] === 'explore' && items[1].length == 2 && items[2] === 'place' && items[3].length > minimum_state_name_length;
+                data['country'] = items[1].replace('-', ' ');
+                data['state'] = items[3].replace('-', ' ');
+            }
+            else if (items.length === 5){
+                //country + state + city defined
+                valid_structure = items[0] === 'explore' && items[1].length == 2 && items[2] === 'place' && items[3].length > minimum_state_name_length && items[4].length > minimum_city_name_length;
+                data['country'] = items[1].replace('-', ' ');
+                data['state'] = items[3].replace('-', ' ');
+                data['city'] = items[4].replace('-', ' ');
+            }
+            else if(items.length === 6){
+                //country + state + city + neighbourd
+                valid_structure = items[0] === 'explore' && items[1].length == 2 && items[2] === 'place' && items[3].length > minimum_state_name_length && items[4].length > minimum_city_name_length && items[5].length > minimum_neigh_name_length;
+                data['country'] = items[1].replace('-', ' ');
+                data['state'] = items[3].replace('-', ' ');
+                data['city'] = items[4].replace('-', ' ');
+                data['district'] = items[5].replace('-', ' ');
+            }
+        }
+    }
+    return data;
+}
+
+function showQueryResults(query) {
+    //show message while requesting data
+    swal({
+      title: "Buscando coincidencias",
+      text: "Explorando entre nuestros ficheros empolvados...",
+      type: "info",
+      showCancelButton: false,
+      closeOnConfirm: true,
+      showLoaderOnConfirm: true,
+      confirmButtonText: "Ver resultados",
+      timer: 2400
+    });
+}
+
+function publishNewProduct(){
+    swal({
+      title: "Confirmar publicación",
+      text: "Pulse continuar para finalizar el proceso de publicación",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Publicar",
+      closeOnConfirm: true
+    },
+    function(){
+      //ejecutar llamada ajax y luego el popup
+      swal("Finalizado", "Publicación realizada correctamente", "success");
+    });
+}
+
+function showQueryError(query){
+    swal({
+      title: "Sin resultados",
+      text: "No se han encontrado resultados para lo que nos has pedido buscar. Ni siquiera hemos encontrado cosas parecidas.",
+      type: "error",
+      showCancelButton: false,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Lo entiendo",
+      closeOnConfirm: true
+    });
+}
