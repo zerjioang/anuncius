@@ -8,7 +8,7 @@
                 La defición y especificación de la API pública se encuentra detallada mediante Swagger. Su fichero <tt>json</tt> de definición se encuentra en la siguiente URL:
                 </br>
                 <code>
-                    https://api.anunci.us/api/swagger.json
+                    https://api.anunci.us/v1/swagger.json
                 </code>
                 </br>
                 La especificación se puede consultar en el siguiente enlace:

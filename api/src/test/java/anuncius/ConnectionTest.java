@@ -25,7 +25,9 @@ public class ConnectionTest {
             PlatformUtil.forceDevelopmentMode(true);
             RedisHandler redisHandler = RedisHandler.getInstance();
             assertNotNull("Redis handler valid", redisHandler);
-            assertNotNull("Redis ping data", redisHandler.ping());
+            String data = redisHandler.ping();
+            assertNotNull("Redis ping data", data);
+            assertEquals("PONG", data);
             PlatformUtil.forceDevelopmentMode(false);
         }
     }
@@ -82,6 +84,8 @@ public class ConnectionTest {
             });
 
             assertEquals(true, documents.size()>=1);
+            //drop database
+            collection.drop();
             PlatformUtil.forceDevelopmentMode(false);
         }
     }
