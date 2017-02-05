@@ -16,7 +16,7 @@ import javax.ws.rs.core.Application;
  *
  * @author .local
  */
-@ApplicationPath("v1")
+@ApplicationPath("api/v1")
 public class ApplicationConfig extends Application {
 
     public static final int API_VERSION = 1;

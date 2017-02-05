@@ -37,13 +37,14 @@
 
     <filter-mapping>
         <filter-name>swagger</filter-name>
-        <url-pattern>/v1/*</url-pattern>
+        <url-pattern>/definition/*</url-pattern>
     </filter-mapping>
    
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     
+    <!--
     <error-page>
         <error-code>400</error-code>
         <location>/errors/400.html</location>
@@ -72,5 +73,6 @@
         <error-code>503</error-code>
         <location>/errors/503.html</location>
     </error-page>
+    -->
     
 </web-app>
