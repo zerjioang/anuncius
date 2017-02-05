@@ -38,4 +38,4 @@ mv ./app/target/*.war ./docker/Dockerfile/tomcat/apps/
 cd docker
 
 docker-compose build tomcat
-docker-compose up tomcat
+docker-compose up

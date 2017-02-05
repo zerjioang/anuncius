@@ -58,33 +58,7 @@ services:
     networks:
       backend:
         ipv4_address: 10.5.0.5
-  elasticsearch:
-    image: "elasticsearch:2"
-    container_name: elasticsearch
-    command: "elasticsearch -Des.cluster.name='graylog'"
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    networks:
-      backend:
-        ipv4_address: 10.5.0.6
-  graylog:
-    image: graylog2/server:2.1.1-1
-    container_name: graylog
-    environment:
-      GRAYLOG_PASSWORD_SECRET: somepasswordpepper
-      GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
-      GRAYLOG_WEB_ENDPOINT_URI: http://127.0.0.1:9000/api
-    links:
-      - mongodb:mongo
-      - elasticsearch:elasticsearch
-    ports:
-      - "9000:9000"
-      - "12201/udp:12201/udp"
-      - "1514/udp:1514/udp"
-    networks:
-      backend:
-        ipv4_address: 10.5.0.7
+
 networks:
   backend:
     driver: bridge
