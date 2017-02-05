@@ -143,6 +143,23 @@ public final class MongoHandler {
         return result.getDeletedCount()>=1;
     }
     
+    public Document read(int id, String collectionName) {
+        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+        Document document = new Document();
+        document.put("_id", id);
+        ArrayList<Document> result = collection.find(document).limit(1).into(new ArrayList<>());
+        if(result!=null && result.size()==1){
+            return result.get(0);
+        }
+        return null;
+    }
+
+    public Document update(String id, String collectionName, Document document) {
+        //read first, then save
+        Document recoveredDocument = this.read(document.getInteger("_id"), collectionName);
+        return recoveredDocument;
+    }
+    
     public List<Document> getList(String collectionName, int limit, int sort, Document result, String sortParam) {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
         if(collection!=null){

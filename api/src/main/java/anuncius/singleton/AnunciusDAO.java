@@ -7,6 +7,7 @@ package anuncius.singleton;
 
 import anuncius.api.model.request.AbstractRequest;
 import anuncius.api.model.request.AbstractRequestList;
+import anuncius.api.model.request.NewItemRequest;
 import anuncius.util.PlatformUtil;
 import com.mongodb.client.MongoCollection;
 import java.util.List;
@@ -92,6 +93,26 @@ public class AnunciusDAO {
     /*
     Generic delete based on ID
     */
+    public Document read(int id, String collectionName) {
+        if(collectionName!=null && id>=0){
+            return mongo.read(id, collectionName);
+        }
+        return null;
+    }
+    
+    /*
+    Generic delete based on ID
+    */
+    public Document update(String id, String collectionName, Document document) {
+        if(collectionName!=null && id!=null){
+            return mongo.update(id, collectionName, document);
+        }
+        return null;
+    }
+    
+    /*
+    Generic delete based on ID
+    */
     public boolean delete(int id, String collectionName) {
         if(collectionName!=null && id>=0){
             return mongo.delete(id, collectionName);
@@ -143,5 +164,13 @@ public class AnunciusDAO {
 
     public String getItemCount() {
         return this.mongo.countEntries(ADVERTISEMENT_COLLECTION_NAME);
+    }
+
+    public Document update(AbstractRequest request) {
+        return this.update(
+                request.getId(),
+                request.getCollectionName(),
+                request.convertToMongoObject()
+        );
     }
 }

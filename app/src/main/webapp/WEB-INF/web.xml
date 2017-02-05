@@ -105,6 +105,7 @@
         <error-code>503</error-code>
         <location>/errors/503.html</location>
     </error-page>
+    
     <welcome-file-list>
         <welcome-file>pages/index.jsp</welcome-file>
     </welcome-file-list>

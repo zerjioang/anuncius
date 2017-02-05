@@ -6,7 +6,7 @@
 package anuncius;
 
 import javax.ws.rs.core.Application;
-import anuncius.api.SearchResource;
+import anuncius.api.publiczone.SearchResource;
 import anuncius.util.PlatformUtil;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;

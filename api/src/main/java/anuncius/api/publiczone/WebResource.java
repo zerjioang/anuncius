@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anuncius.api;
+package anuncius.api.publiczone;
 
+import anuncius.api.IAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.response.ResponseArrayList;
@@ -21,7 +22,6 @@ import io.swagger.annotations.SwaggerDefinition;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.List;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -50,32 +50,17 @@ import org.bson.Document;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="/search")
-@Path("/search")
-public class SearchResource implements IAnunciusAPI{
+@Api(value="/public/show")
+@Path("/public/show")
+public class WebResource extends IAnunciusAPI{
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of SearchResource
+     * Creates a new instance of AdsResource
      */
-    public SearchResource() {
-    }
-    
-    @GET
-    @Path("/demo")
-    @Produces(MediaType.APPLICATION_JSON)
-    //@Tag(name = "/demo", description = "Demo method for endpoint working test")
-    @ApiOperation(value = "Demo method for endpoint working test")
-    @ApiResponses(value = {
-        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "test success"),
-        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
-        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
-        }
-    )
-    public String demo() {
-        return "{}";
+    public WebResource() {
     }
     
     @POST
@@ -89,10 +74,7 @@ public class SearchResource implements IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    public String getStats(
-            //useful
-            @FormParam("token") String token
-            ) {
+    public String getStats() {
         HashMap<String, String> data = new HashMap<>();
         data.put("users", AnunciusDAO.getInstance().getUserCount());
         data.put("clients", AnunciusDAO.getInstance().getClientCount());
@@ -120,25 +102,5 @@ public class SearchResource implements IAnunciusAPI{
         IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
         ((ResponseArrayList)response).setList(itemList);
         return response;
-    }
-    
-    @GET
-    @Path("/item/{query : .*}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String searchItem(@PathParam("query") String query) {
-        if(query!=null){
-            query = query.trim().toLowerCase();
-            return query;
-        }
-        else{
-            return "Invalid input";
-        }
-    }
-    
-    @GET
-    @Path("/user")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String searchUser() {
-        return "{}";
     }
 }

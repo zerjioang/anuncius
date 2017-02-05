@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anuncius.api;
+package anuncius.api.privatezone;
 
+import anuncius.api.IAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.request.NewItemRequest;
-import anuncius.api.model.response.ResponseArrayList;
+import anuncius.api.model.response.ResponseDocumentWrapper;
 import anuncius.securelayer.SecureLayer;
 import anuncius.securelayer.SecureLayerCriteria;
 import anuncius.securelayer.SecureLayerException;
@@ -22,7 +23,6 @@ import io.swagger.annotations.Info;
 import io.swagger.annotations.License;
 import io.swagger.annotations.SwaggerDefinition;
 import java.net.HttpURLConnection;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.DELETE;
@@ -31,6 +31,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -55,9 +56,9 @@ import org.bson.Document;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="/ads")
-@Path("/ads")
-public class AdsResource implements IAnunciusAPI{
+@Api(value="private/ads")
+@Path("private/ads")
+public class AdsResource extends IAnunciusAPI{
 
     @Context
     private UriInfo context;
@@ -67,23 +68,16 @@ public class AdsResource implements IAnunciusAPI{
      */
     public AdsResource() {
     }
-
+    
     @GET
-    @Path("/demo")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(value = "Demo method for working test")
+    @Path("/create")
+    @ApiOperation(value = "Create a new publication")
     @ApiResponses(value = {
-        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
-        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    public String demo() {
-        return "{}";
-    }
-    
-    @PUT
-    @Path("/new")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage create(
         //useful
@@ -92,7 +86,8 @@ public class AdsResource implements IAnunciusAPI{
         @FormParam("keyword") String keyword,
         @FormParam("action") String action,
         @FormParam("price") double price,
-        @FormParam("description") String description
+        @FormParam("description") String description,
+        @FormParam("token") String token
     ) {
         IAPIMessage response;
         try {
@@ -121,10 +116,38 @@ public class AdsResource implements IAnunciusAPI{
         return response;
     }
     
-    @DELETE
-    @Path("/delete/{id : .*}")
+    @GET
+    @ApiOperation(value = "Obtain an already existing publication")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
+    @Path("/read/id/{:.*}/token/{token:.*}")
     @Produces(MediaType.APPLICATION_JSON)
-    public IAPIMessage delete(@PathParam("id") int id) {
+    public IAPIMessage read(
+        @PathParam("id") int id,
+        @PathParam("token") String token
+    ) {
+        Document document = AnunciusDAO.getInstance().read(id, AnunciusDAO.ADVERTISEMENT_COLLECTION_NAME);
+        return new ResponseDocumentWrapper(document);
+    }
+    
+    @DELETE
+    @ApiOperation(value = "Delete already existing publication")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
+    @Path("/delete/id/{:.*}/token/{token:.*}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public IAPIMessage delete(
+        @PathParam("id") int id,
+        @PathParam("token") String token
+    ) {
         IAPIMessage response = APIResponse.DELETE_AD_FAILED.getAPIResponse();
         if(id>=0){
             //delete
@@ -132,9 +155,53 @@ public class AdsResource implements IAnunciusAPI{
             if(deleted){
                 response = APIResponse.DELETE_AD_SUCCESS.getAPIResponse();
             }
-            else{
-                
-            }
+        }
+        return response;
+    }
+    
+    @POST
+    @Path("/update")
+    @ApiOperation(value = "Update an existing publication")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
+    @Produces(MediaType.APPLICATION_JSON)
+    public IAPIMessage update(
+        //useful
+        @FormParam("name") String name,
+        @FormParam("category") String category,
+        @FormParam("keyword") String keyword,
+        @FormParam("action") String action,
+        @FormParam("price") double price,
+        @FormParam("description") String description,
+        @FormParam("token") String token
+    ) {
+        IAPIMessage response;
+        try {
+            SecureLayer.hasApproved(name, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
+            SecureLayer.hasApproved(category, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
+            SecureLayer.hasApproved(keyword, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
+            SecureLayer.hasApproved(action, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
+            SecureLayer.hasApproved(price, SecureLayerCriteria.VALID_DOUBLE_POSITIVE_NUMBER_CRITERIA);
+            SecureLayer.hasApproved(description, SecureLayerCriteria.VALID_MESSAGE_CRITERIA);
+            
+            NewItemRequest newItem = new NewItemRequest(
+                    name,
+                    category,
+                    keyword,
+                    action,
+                    price,
+                    description,
+                    System.currentTimeMillis()
+            );
+            AnunciusDAO.getInstance().update(newItem);
+            response = APIResponse.NEW_PUBLISH_SUCCESS.getAPIResponse();
+        } catch (SecureLayerException ex) {
+            Logger.getLogger(AdsResource.class.getName()).log(Level.SEVERE, null, ex);
+            response = APIResponse.NEW_PUBLISH_FAILED.getAPIResponse();
         }
         return response;
     }

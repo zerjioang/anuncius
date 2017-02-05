@@ -15,8 +15,8 @@ import java.io.Serializable;
  */
 public abstract class AbstractResponse implements IAPIMessage, Serializable{
 
-    private long _time;
-    private int _api_version;
+    private final long _time;
+    private final int _api_version;
     protected String _status_code;
     protected boolean _request_completed;
     protected String error_details;

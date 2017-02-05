@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anuncius.api;
+package anuncius.api.publiczone;
 
+import anuncius.api.IAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.request.ContactFormRequest;
@@ -27,9 +28,8 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -50,9 +50,9 @@ import javax.ws.rs.core.MediaType;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-@Api(value="/contact")
-@Path("/contact")
-public class ContactResource implements IAnunciusAPI{
+@Api(value="public/contact")
+@Path("public/contact")
+public class ContactResource extends IAnunciusAPI{
 
     @Context
     private UriInfo context;
@@ -62,24 +62,16 @@ public class ContactResource implements IAnunciusAPI{
      */
     public ContactResource() {
     }
-
-    @GET
-    @Path("/demo")
-    @Produces(MediaType.APPLICATION_JSON)
     
-    @ApiOperation(value = "Demo method for working test")
+    @PUT
+    @Path("/subscribe/user")
+    @ApiOperation(value = "Add new user to subscrition list via provided email")
     @ApiResponses(value = {
-        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Success"),
-        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    public String demo() {
-        return "{}";
-    }
-    
-    @POST
-    @Path("/subscribe/user")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage subscribe(
             @FormParam("email") String email
@@ -101,8 +93,15 @@ public class ContactResource implements IAnunciusAPI{
         return response;
     }
     
-    @POST
+    @PUT
     @Path("/team")
+    @ApiOperation(value = "Send a message to anuncius kernel team")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage contact(
             //useful
