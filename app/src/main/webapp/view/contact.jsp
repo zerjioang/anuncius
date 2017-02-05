@@ -6,7 +6,7 @@
 
     <head>
         <s:include value="/templates/metadata/metadata.generic.jsp">
-            <s:param name="description" value="'Formulario de contacto oficial de Anuncius'"></s:param>
+            <s:param name="description" value="'Formulario de contacto oficial de Anuncius. Ponte en contacto con nosotros para cualquier duda.'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
         </s:include>
         
@@ -20,7 +20,7 @@
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'https://anunci.us/'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
-            <s:param name="description" value="'La revolución de las tiendas online'"></s:param>
+            <s:param name="description" value="'Formulario de contacto oficial de Anuncius. Ponte en contacto con nosotros para cualquier duda.'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
             <s:param name="region" value="'Bizkaia'"></s:param>
@@ -31,15 +31,15 @@
         <s:include value="/templates/metadata/metadata.twitter.jsp">
             <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
             <s:param name="site" value="'@anuncius'"></s:param>
-            <s:param name="title" value="'Anuncius - La revolución de las tiendas online'"></s:param>
-            <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
+            <s:param name="title" value="'Anuncius - Tu ventana a Internet. Revolucionando el comercio. Desde Bilbao al Mundo'"></s:param>
+            <s:param name="description" value="'Formulario de contacto oficial de Anuncius. Ponte en contacto con nosotros para cualquier duda.'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
-            <s:param name="name" value="'Anuncius - La revolución de las tiendas online'"></s:param>
-            <s:param name="description" value="'Bienvenido a anuncius. La tienda online donde encontrarás lo que quieras.'"></s:param>
+            <s:param name="name" value="'Anuncius - Tu ventana a Internet. Revolucionando el comercio. Desde Bilbao al Mundo'"></s:param>
+            <s:param name="description" value="'Formulario de contacto oficial de Anuncius. Ponte en contacto con nosotros para cualquier duda.'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 

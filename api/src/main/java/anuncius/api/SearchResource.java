@@ -5,6 +5,9 @@
  */
 package anuncius.api;
 
+import anuncius.api.base.APIResponse;
+import anuncius.api.base.IAPIMessage;
+import anuncius.api.model.response.ResponseArrayList;
 import anuncius.singleton.AnunciusDAO;
 import anuncius.util.PlatformUtil;
 import io.swagger.annotations.Api;
@@ -15,9 +18,9 @@ import io.swagger.annotations.Contact;
 import io.swagger.annotations.Info;
 import io.swagger.annotations.License;
 import io.swagger.annotations.SwaggerDefinition;
-import io.swagger.annotations.Tag;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
+import java.util.List;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -26,8 +29,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import org.bson.Document;
 
 /**
  * REST Web Service
@@ -36,9 +39,9 @@ import javax.ws.rs.core.MediaType;
  */
 @SwaggerDefinition(
     info = @Info(
-            description = "anuncius public search API",
+            description = "anuncius public API",
             version = "V1.0",
-            title = "anuncius search API",
+            title = "anuncius API",
             termsOfService = "share and care",
             contact = @Contact(name = "zerjioang", email = "zerjioang", url = "https://github.com/zerjioang/anuncius"),
             license = @License(name = "GPLv3", url = "https://www.gnu.org/licenses/gpl-3.0.odt")
@@ -47,8 +50,9 @@ import javax.ws.rs.core.MediaType;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
+@Api(value="/search")
 @Path("/search")
-public class SearchResource {
+public class SearchResource implements IAnunciusAPI{
 
     @Context
     private UriInfo context;
@@ -94,6 +98,28 @@ public class SearchResource {
         data.put("clients", AnunciusDAO.getInstance().getClientCount());
         data.put("items", AnunciusDAO.getInstance().getItemCount());
         return PlatformUtil.toJsonString(data);
+    }
+    
+    @GET
+    @Path("/list/latest")
+    @ApiOperation(value = "Returns the maximum established latest items created. Maximum item count is 6.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public IAPIMessage getLatest() {
+        List<Document> itemList = AnunciusDAO.getInstance().getLatestItems();
+        IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
+        ((ResponseArrayList)response).setList(itemList);
+        return response;
+    }
+    
+    @GET
+    @Path("/list/best")
+    @ApiOperation(value = "Returns the maximum established best items published. Maximum item count is 6.")
+    @Produces(MediaType.APPLICATION_JSON)
+    public IAPIMessage getTop() {
+        List<Document> itemList = AnunciusDAO.getInstance().getBestItems();
+        IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
+        ((ResponseArrayList)response).setList(itemList);
+        return response;
     }
     
     @GET

@@ -7,19 +7,6 @@
     
     <display-name>anuncius api</display-name>
     
-    <!-- add swagger filter -->
-    <filter>
-        <filter-name>jersey</filter-name>
-        <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
-        <init-param>
-            <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>
-                io.swagger.jaxrs.listing,
-                anuncius.api
-            </param-value>
-        </init-param>
-    </filter>
-    
     <!-- add atmosphere servlet -->
     <servlet>
         <description>AtmosphereServlet</description>
@@ -27,27 +14,31 @@
         <servlet-class>org.atmosphere.cpr.AtmosphereServlet</servlet-class>
         <!-- If you want to use Servlet 3.0 -->
         <async-supported>true</async-supported>
-        <!-- List of init-param --> 
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>AtmosphereServlet</servlet-name>
         <!-- Any mapping -->
         <url-pattern>/push/*</url-pattern>
     </servlet-mapping>
-
-    <!-- swagger filter mapping -->
-    <filter-mapping>
-        <filter-name>jersey</filter-name>
-        <url-pattern>/api/v1/public/*</url-pattern>
-    </filter-mapping>
     
-    <!-- ensure swagger servlet initialization -->
-    <servlet>
-        <servlet-name>SwaggerBootstrap</servlet-name>
-        <servlet-class>anuncius.Bootstrap</servlet-class>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-   
+    <filter>
+        <filter-name>swagger</filter-name>
+        <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>
+                io.swagger.jaxrs.listing.ApiListingResource,
+                io.swagger.jaxrs.listing.SwaggerSerializers,
+                anuncius.api.AdsResource
+            </param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>swagger</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
    
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

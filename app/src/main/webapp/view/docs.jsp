@@ -79,11 +79,15 @@
                         <div>
                             <h1>Documentación técnica y ayuda</h1>
                             
-                            <div class="gl-tab-style-2 gl-right-side-col"id="docs">
+                            <div class="gl-tab-style-2 gl-right-side-col" id="docs">
                                 <div class="gl-tab-nav-btns">
                                   <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#help" aria-controls="help" role="tab" data-toggle="tab">Ayuda</a></li>
-                                    <li role="presentation"><a href="#docs" aria-controls="docs" role="tab" data-toggle="tab">Documentación tecnica</a></li>
+                                    <li role="presentation" class="active">
+                                        <a href="#help" aria-controls="help" role="tab" data-toggle="tab">Ayuda</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab">Documentación tecnica</a>
+                                    </li>
                                   </ul>
                                 </div>
 
@@ -92,7 +96,7 @@
                                     <s:include value="/templates/modules/docs/help.jsp"/>
                                   </div>
 
-                                  <div role="tabpanel" class="tab-pane fade" id="docs">
+                                  <div role="tabpanel" class="tab-pane fade in" id="documentation">
                                       <s:include value="/templates/modules/docs/manual.jsp"/>
                                   </div>
                                 </div>

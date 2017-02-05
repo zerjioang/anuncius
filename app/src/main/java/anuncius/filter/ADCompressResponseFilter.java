@@ -20,11 +20,10 @@ public class ADCompressResponseFilter implements Filter {
     
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-
-        System.out.println("Compress filter");
-        
         HttpServletRequest httpRequest = (HttpServletRequest) req;
         String uriStr = httpRequest.getRequestURI();
+        
+        System.out.println("Compress filter"+uriStr);
         
         CharResponseWrapper responseWrapper = new CharResponseWrapper((HttpServletResponse) resp);
         chain.doFilter(req, responseWrapper);

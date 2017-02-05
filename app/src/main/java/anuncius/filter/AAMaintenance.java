@@ -24,7 +24,7 @@ public class AAMaintenance implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         
-        System.out.println("Maintenance filter");
+        System.out.println("Maintenance filter:\t"+httpRequest.getRequestURI());
         if(MAINTENANCE_ENABLED){
             response.getWriter().write(updatingMessage);
         }

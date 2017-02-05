@@ -6,7 +6,7 @@
 
     <head>        
         <s:include value="/templates/metadata/metadata.generic.jsp">
-            <s:param name="description" value="'Términos y condiciones de Anuncius'"></s:param>
+            <s:param name="description" value="'Términos de uso, condiciones y acuerdo de licencia de anuncius'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
         </s:include>
         
@@ -20,7 +20,7 @@
             <s:param name="sitename" value="'Anuncius'"></s:param>
             <s:param name="url" value="'https://anunci.us/'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
-            <s:param name="description" value="'Términos y condiciones de Anuncius'"></s:param>
+            <s:param name="description" value="'Términos de uso, condiciones y acuerdo de licencia de anuncius'"></s:param>
             <s:param name="address" value="'Avenida de las universidades'"></s:param>
             <s:param name="locality" value="'Bilbao'"></s:param>
             <s:param name="region" value="'Bizkaia'"></s:param>
@@ -32,14 +32,14 @@
             <s:param name="alt" value="'Imagen de bienvenida de Anuncius'"></s:param>
             <s:param name="site" value="'@anuncius'"></s:param>
             <s:param name="title" value="'Anuncius - Términos y condiciones'"></s:param>
-            <s:param name="description" value="'Términos y condiciones de Anuncius.'"></s:param>
+            <s:param name="description" value="'Términos de uso, condiciones y acuerdo de licencia de anuncius'"></s:param>
             <s:param name="author" value="'anuncius development team'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 
         <s:include value="/templates/metadata/metadata.google.jsp">
             <s:param name="name" value="'Anuncius - Términos y condiciones'"></s:param>
-            <s:param name="description" value="'Términos y condiciones de Anuncius.'"></s:param>
+            <s:param name="description" value="'Términos de uso, condiciones y acuerdo de licencia de anuncius'"></s:param>
             <s:param name="image" value="'https://static.anunci.us/theme/images/metadata/google.image.png'"></s:param>
         </s:include>
 

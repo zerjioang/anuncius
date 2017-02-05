@@ -21,8 +21,8 @@ public class PlatformUtil {
     private static final String DEFAULT_PRODUCTION_HOSTNAME = "api.anunci.us";
     private static final String DEFAULT_DEVELOPMENT_HOSTNAME = "localhost";
     
-    private static final String DEFAULT_DEVELOPMENT_API_PATH = "/anuncius/api/v1/public";
-    private static final String DEFAULT_PRODUCTION_API_PATH = "/api/v1/public";
+    private static final String DEFAULT_DEVELOPMENT_API_PATH = "/v1/public";
+    private static final String DEFAULT_PRODUCTION_API_PATH = "/v1/public";
     private static final boolean ENABLE_API_HARDENING = false;
     
     private static final String CONTEXT_PATH = "";
@@ -74,12 +74,10 @@ public class PlatformUtil {
     }
 
     public static String getApiPath() {
-        return DEFAULT_PRODUCTION_API_PATH;
-        /*if(isDevelopment()){
+        if(isDevelopment()){
             return DEFAULT_DEVELOPMENT_API_PATH;
         }
         return DEFAULT_PRODUCTION_API_PATH;
-        */
     }
 
     public static boolean isAPIHardeningEnabled() {

@@ -21,7 +21,7 @@
     
     <dependencies>
         
-        <!-- push -->
+        <!--
         <dependency>
             <groupId>org.atmosphere</groupId>
             <artifactId>atmosphere-runtime</artifactId>
@@ -33,6 +33,16 @@
             <artifactId>atmosphere-jersey</artifactId>
             <version>${atmosphere.version}</version>
         </dependency>
+        -->
+        
+        <!-- push service -->     
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>7.0.29</version>
+            <type>jar</type>
+        </dependency>
+        
         
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
@@ -80,20 +90,13 @@
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
+        <!--
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.25</version>
         </dependency>
-        
-        <!-- push service -->     
-        <dependency>
-		<groupId>org.apache.tomcat</groupId>
-		<artifactId>tomcat-catalina</artifactId>
-		<version>7.0.29</version>
-		
-            <type>jar</type>
-        </dependency>
+        -->
         
         <!-- json converter for push -->
         <dependency>
@@ -109,7 +112,7 @@
             <version>1.5.0</version>
         </dependency>
 
-        <!-- testing -->
+        <!-- to create temporaly server to test api calls -->
         <dependency>
             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
             <artifactId>jersey-test-framework-provider-jetty</artifactId>
@@ -122,30 +125,6 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
-        <dependency>
-            <groupId>com.google.oauth-client</groupId>
-            <artifactId>google-oauth-client</artifactId>
-            <version>1.21.0</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
-        <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>1.21.0</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.google.api.client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>1.4.1-beta</version>
-            <scope>test</scope>
-            <type>jar</type>
         </dependency>
 
     </dependencies>

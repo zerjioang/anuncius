@@ -36,7 +36,7 @@ public final class MongoHandler {
     private final static String PASSWORD = "pass";
     
     private static MongoClient mongo;
-    private static MongoHandler instance = new MongoHandler("anuncius");;
+    private static final MongoHandler instance = new MongoHandler("anuncius");
     
     private final boolean secureMode;
     private final String database;
