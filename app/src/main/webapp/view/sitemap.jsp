@@ -45,7 +45,7 @@
         <s:include value="/templates/css/minimum.css.jsp"/>
     </head>
 
-    <body class="gl-realestate-template">
+    <body class="anuncius-body">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
 

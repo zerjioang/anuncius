@@ -96,7 +96,7 @@ function resolveAddress(position){
 
 function removeLoggedUserElementsFromView(showMessage){
     $('#header-menu-account').hide();
-    $('#gl-side-menu-btn').show();
+    $('#btn-header-login').show();
     $('#session-logout').hide();
     if(showMessage){
         swal("Desconectado", "Ha finalizado sesión correctamente.", "success");
@@ -105,7 +105,7 @@ function removeLoggedUserElementsFromView(showMessage){
 
 function showLoggedUserElementsInView(showMessage){
     $('#header-menu-account').show();
-    $('#gl-side-menu-btn').hide();
+    $('#btn-header-login').hide();
     $('#session-logout').show();
     if(showMessage){
         swal("Sesión iniciada", "Ha iniciado sesión correctamente.", "success");
@@ -308,70 +308,6 @@ function showAutomaticApiResponseDialog(data, callback) {
     }
 }
 
-//ASIDE FUNCTIONS
-
- function addEvents(input, checkBox, perm, elem) {
-    var revisionCheckbox = $(".gl-side-menu-wrap");
-    if (revisionCheckbox.length) {
-        if (perm) {
-            classie.remove(elem, "gl-show-menu");
-        } else {
-            classie.add(elem, "gl-show-menu");
-        }
-        /*input.addEventListener("click", change(perm, elem));
-            if (checkBox) {
-                checkBox.addEventListener("click", change(perm, elem));
-            }
-         */
-    }
-}
-
-function change(perm, elem) {
-    if (perm) {
-        classie.remove(elem, "gl-show-menu");
-    } else {
-        classie.add(elem, "gl-show-menu");
-    }
-    perm = !perm;
-}
-
-function showAside(status){
-    status = !status;
-    var elem = document.body;
-    var input = (
-        document.querySelector("body"),
-        document.getElementById("gl-side-menu-btn")
-    );
-    var checkBox = document.getElementById("gl-side-menu-close-button");
-    var perm = status;
-    addEvents(input, checkBox, perm, elem);
-    var iBoxHack = $(".gl-header").height();
-    $(".gl-side-menu-wrap").height($(window).height() - iBoxHack);
-    $(window).resize(function() {
-      $(".gl-side-menu-wrap").height($(window).height() - iBoxHack);
-    });
-    $(window).trigger("resize");
-    /*
-     var tref;
-    var current = $(".gl-header");
-    current.after('<section class="gl-fake-div"></section>');
-    var textareaEl = current.next();
-    var dialogHeight = current.outerHeight();
-    textareaEl.css({
-      height : dialogHeight
-    });
-    $(window).on("resize", function(dataAndEvents) {
-      clearTimeout(tref);
-      tref = setTimeout(function() {
-        var dialogHeight = current.outerHeight();
-        textareaEl.css({
-          height : dialogHeight
-        });
-      }, 250);
-    });
-     */
-}
-
 function parseUrl(url) {
     var minimum_state_name_length = 2;
     var minimum_city_name_length = 2;
@@ -464,4 +400,9 @@ function showQueryError(query){
       confirmButtonText: "Lo entiendo",
       closeOnConfirm: true
     });
+}
+
+function hideLoader(){
+    //hide loader
+    $('#gl-circle-loader-wrapper').fadeOut('slow');
 }

@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="css/A.real-estate.style.css.pagespeed.cf.-k6RXTcXpm.css">
     </head>
 
-    <body class="gl-search-style-map-left gl-realestate-template">
+    <body class="gl-search-style-map-left anuncius-body">
 
         <div id="gl-circle-loader-wrapper">
             <div id="gl-circle-loader-center">

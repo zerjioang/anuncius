@@ -49,13 +49,9 @@
         <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
     </head>
 
-    <body class="gl-realestate-template">
+    <body class="anuncius-body">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
-        
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
 
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp" />

@@ -48,13 +48,9 @@
         <link rel="shortcut icon" href="images/favicon.ico">
     </head>
 
-    <body class="gl-blog-page gl-blog-grid gl-realestate-template">
+    <body class="gl-blog-page gl-blog-grid anuncius-body">
 
         <s:include value="/templates/modules/loader/loader.section.jsp"/>
-        
-        <!-- SIDE MENU-->
-        <s:include value="/templates/modules/aside/login/login.section.jsp" />
-        <!-- SIDE MENU END -->
 
         <!-- HEADER -->
         <s:include value="/templates/modules/header/header.section.jsp" />

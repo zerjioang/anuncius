@@ -46,13 +46,9 @@
     <s:include value="/templates/css/minimum.css.jsp" />
 </head>
 
-<body class="gl-agent-profile-template gl-realestate-template">
+<body class="gl-agent-profile-template anuncius-body">
 
     <s:include value="/templates/modules/loader/loader.section.jsp" />
-
-    <!-- SIDE MENU-->
-    <s:include value="/templates/modules/aside/login/login.section.jsp" />
-    <!-- SIDE MENU END -->
 
     <!-- HEADER -->
     <s:include value="/templates/modules/header/header.section.jsp" />

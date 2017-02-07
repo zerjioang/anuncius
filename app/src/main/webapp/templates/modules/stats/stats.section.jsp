@@ -30,7 +30,7 @@
       <div class="gl-iconimg-text-wrapper col-md-4 col-sm-4 col-xs-12 appear fadeIn animated-fade-in"
            data-wow-duration=".9s" data-wow-delay="1.1s">
         <div class="gl-icon-wrapper">
-          <img src="/theme/images/landing/stats/user.png" alt="Numero total de usuarios activos de la plataforma anuncius">
+          <img src="https://static.anunci.us/theme/images/landing/stats/user.png" alt="Numero total de usuarios activos de la plataforma anuncius">
         </div>
 
         <h3>Usuarios comprometidos</h3>

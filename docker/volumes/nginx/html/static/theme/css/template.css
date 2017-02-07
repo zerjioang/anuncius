@@ -3790,8 +3790,8 @@ ul.gl-gallery li .gl-more-img-text span {
     margin-bottom: 15px
 }
 .gl-review-details .gl-reviews .gl-review-text span.gl-item-rating,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li ul.gl-sub-menu li a,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a {
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li ul.gl-sub-menu li a,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a {
     color: #888
 }
 form.gl-review-submission-form fieldset.gl-form-fields {
@@ -7215,7 +7215,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .gl-icon-text-alt-section {
     background-color: #fff
 }
-.gl-realestate-template {
+.anuncius-body {
     background-color: #f9f9f9
 }
 .gl-featured-items .gl-feat-item-details h3 a:hover,
@@ -7310,52 +7310,52 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     opacity: 1
 }
 @media only screen and (max-width: 767px) {
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .icon-bar {
+    body.anuncius-body header.gl-header .gl-header-bottombar .icon-bar {
         background-color: #7233b7
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .icon-bar {
+    body.anuncius-body header.gl-header .gl-header-bottombar .icon-bar {
         background-color: #7233b7
     }
 }
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul {
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul {
     padding-right: 100px
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul,
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul {
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul,
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul {
         padding-right: 60px
     }
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li,
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li {
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li,
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li {
         margin-right: 25px
     }
 }
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li a:focus,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li a:hover,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li ul.gl-sub-menu li a:focus,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li ul.gl-sub-menu li a:hover,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:focus,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:hover,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a:focus,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a:hover {
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li a:focus,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li a:hover,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li ul.gl-sub-menu li a:focus,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li ul.gl-sub-menu li a:hover,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:focus,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li a:hover,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a:focus,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li ul.gl-sub-menu li a:hover {
     color: #7233b7
 }
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li.active:after,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active:after,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li.active:after,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active:after,
 header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active:after {
     content: '';
     background-color: #7233b7
 }
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li.active a,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active a {
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-menu-wrapper ul li.active a,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-menu-wrapper ul li.active a {
     color: #7233b7
 }
 @media only screen and (max-width: 380px) {
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper,
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper {
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper,
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper {
         display: block;
         overflow: hidden;
         padding-bottom: 10px;
@@ -7364,13 +7364,13 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
         top: auto
     }
 }
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-login-btn,
-body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-login-btn {
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-login-btn,
+body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-login-btn {
     margin-right: 20px
 }
 @media only screen and (max-width: 380px) {
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-login-btn,
-    body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-login-btn {
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container .gl-extra-btns-wrapper .gl-login-btn,
+    body.anuncius-body header.gl-header .gl-header-bottombar .gl-header-main-menu .container-fluid .gl-extra-btns-wrapper .gl-login-btn {
         margin-right: 35px
     }
 }
@@ -7876,7 +7876,7 @@ body.gl-realestate-template header.gl-header .gl-header-bottombar .gl-header-mai
     background-color: #7233b7
 }
 .gl-custom-prop-section .gl-custom-prop-features .gl-btn:hover,
-.gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form input.gl-btn:hover {
+.anuncius-body .gl-cta-section .gl-cta-content-wrapper form input.gl-btn:hover {
     background-color: #4f1e84
 }
 .gl-feat-properties-section,
@@ -8152,26 +8152,26 @@ footer .gl-footer-top-wrapper .gl-footer-widget.gl-subscribe-widget form button:
     opacity: 1;
     background: #7233b7
 }
-.gl-realestate-template .gl-cta-section,
+.anuncius-body .gl-cta-section,
 body.gl-realestate-search-template .gl-cta-section {
     background-color: #fff
 }
-.gl-realestate-template .gl-cta-section .gl-cta-content-wrapper {
+.anuncius-body .gl-cta-section .gl-cta-content-wrapper {
     padding: 0 100px
 }
 @media only screen and (max-width: 767px),
 only screen and (min-width: 480px) and (max-width: 767px),
 only screen and (min-width: 768px) and (max-width: 991px),
 only screen and (min-width: 992px) and (max-width: 1199px) {
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper {
         padding: 0 15px
     }
 }
-.gl-realestate-template .gl-cta-section .gl-cta-content-wrapper p {
+.anuncius-body .gl-cta-section .gl-cta-content-wrapper p {
     padding-top: 7px
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper p {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper p {
         width: 100%;
         display: block;
         text-align: center;
@@ -8180,38 +8180,38 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper p {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper p {
         padding-top: 5px;
         float: left
     }
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper {
         padding: 0
     }
 }
-.gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form {
+.anuncius-body .gl-cta-section .gl-cta-content-wrapper form {
     float: right
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper form {
         display: block;
         text-align: center;
         float: none
     }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper form {
         float: right
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form input:not([type=submit]) {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper form input:not([type=submit]) {
         float: none
     }
-    .gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form .gl-location-dropdown {
+    .anuncius-body .gl-cta-section .gl-cta-content-wrapper form .gl-location-dropdown {
         float: none
     }
 }
-.gl-realestate-template .gl-cta-section .gl-cta-content-wrapper form input.gl-btn {
+.anuncius-body .gl-cta-section .gl-cta-content-wrapper form input.gl-btn {
     background-color: #7233b7
 }
 .gl-compare-table-section {

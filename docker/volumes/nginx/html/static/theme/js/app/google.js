@@ -3,32 +3,35 @@ var googleProfile = undefined;
 function onSuccess(googleUser) {
     log('Logged in as: ' + googleUser.getBasicProfile().getName());
     var profile = onSignIn(googleUser);
-    if(document.getElementsByTagName("body")[0].className.indexOf('gl-show-menu')!=-1){
-        $("#gl-side-menu-close-button").click();
-    }
     showLoggedUserElementsInView(false);
+    //close modal view
+    $('#modal-login-btn-close').click();
 }
 
 function onFailure(error) {
   log(error);
-  swal("Permiso denegado", "Por favor, inicia sesión correctamente con tu cuenta de Google para poder empezar. Para ello acepta los permisos basicos que la aplicación solicita.", "error");
+  swal(
+    "Permiso denegado",
+    "Por favor, inicia sesión correctamente con tu cuenta de Google para poder empezar. Para ello acepta los permisos basicos que la aplicación solicita.", "error");
 }
 
 function renderButton() {
-    gapi.signin2.render('my-signin2', {
-      'scope': 'profile email openid https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/user.addresses.read ', //https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/user.phonenumbers.read',
-      'width': 300,
-      'height': 42,
-      'longtitle': true,
-      'theme': 'dark',
-      'onsuccess': onSuccess,
-      'onfailure': onFailure
+    gapi.signin2.render(
+        'my-signin2', {
+        'scope': 'profile email openid https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/user.addresses.read ', //https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/user.phonenumbers.read',
+        'width': 300,
+        'height': 42,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
     });
 }
 
 function onSignIn(googleUser) {
     localStorage.googleUser = JSON.stringify(googleUser);
     var profile = googleUser.getBasicProfile();
+
     /*
      var id_token = googleUser.getAuthResponse().id_token;
      localStorage.token = id_token;
@@ -77,6 +80,10 @@ function getGoogleUserToken() {
         return profile.id;
     }
     return undefined;
+}
+
+function hasGoogleProfile(){
+    return getGoogleUserToken()!==undefined;
 }
 
 //ajax

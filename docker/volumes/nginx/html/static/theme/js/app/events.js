@@ -1,3 +1,10 @@
+//login-btn
+//subscribe button event
+$("#btn-header-login").on("click", function (event) {
+    event.preventDefault();
+   $('#loginModal').modal('show');
+});
+
 //subscribe button event
 $("#btn-dashboard").on("click", function (event) {
     event.preventDefault();
@@ -88,85 +95,19 @@ $("#session-logout").on("click", function (event) {
     signOut();
     removeLoggedUserElementsFromView(true);
 });
-
-//show login aside event
-$("#gl-side-menu-btn").on("click", function (event) {
-    showAside(true);
-});
-
-//hide login aside event
-$("#gl-side-menu-close-button").on("click", function (event) {
-    showAside(false);
-});
-
-//scroll down event
-$("a.gl-scroll-down").smoothScroll();
-
-//maginify-popup event
-$(".gl-lightbox-img").magnificPopup({
-    type: "image",
-    gallery: {
-        enabled: !0
-    }
-});
-
-//TEMPLATE EVENTS
-/*
-var b = $(".gl-range-value"),
-    c = function (a) {
-        b.html("$" + a.from + " - $" + a.to)
-    };
-$("#gl-search-range").ionRangeSlider({
-    type: "double",
-    min: 50,
-    max: 1e4,
-    step: 50,
-    from: 500,
-    to: 7e3,
-    hide_min_max: !0,
-    hide_from_to: !0,
-    grid: !1,
-    onStart: c,
-    onChange: c
-});
-var d = $(".gl-blog-grid-wrapper");
-$(".gl-blog-content");
-d.imagesLoaded(function () {
-    d.isotope({
-        itemSelector: ".gl-blog-items",
-        masonry: {
-            columnWidth: 1
-        }
-    })
-});
-var f = $(".gl-listing-categories-wrapper");
-f.imagesLoaded(function () {
-    f.isotope({
-        itemSelector: ".gl-listing-cat-item",
-        percentPosition: !0,
-        masonry: {
-            columnWidth: 1
-        }
-    })
-});
-var g = $(".gl-popular-cat-wrapper");
-g.imagesLoaded(function () {
-    g.isotope({
-        itemSelector: ".gl-popular-cat-item",
-        percentPosition: !0,
-        masonry: {
-            columnWidth: 1
-        }
-    })
-}), $(window).resize(function () {
-    $(".gl-landing-page-template .gl-hero-img-wrapper").height($(window).height())
-}), $(window).trigger("resize"), $(window).on("scroll", function () {
-    $(window).scrollTop() > $(window).height() ? $(".gl-transparent-header").addClass("minified") : $(".gl-transparent-header").removeClass("minified")
-});
-*/
-
 //page load event
 $(document).ready(function(){
+
+    //scroll down event
+    $("a.gl-scroll-down").smoothScroll();
+
+    //maginify-popup event
+    $(".gl-lightbox-img").magnificPopup({
+        type: "image",
+        gallery: {
+            enabled: !0
+        }
+    });
     
     //enable notification
     enableNotifications();
@@ -191,9 +132,6 @@ $(document).ready(function(){
     else{
         removeLoggedUserElementsFromView(false);
     }
-
-    //hide loader
-    $('#gl-circle-loader-wrapper').fadeOut('slow');
     
     //clean url. remove #href
     var index = thisUrl.indexOf('#');
@@ -209,7 +147,6 @@ $(document).ready(function(){
         $('#latest-items-section').hide();
         $('#container-without-featured-items').show();
         $('#feed-them-all').show();
-        $('#session-logout').hide();
 
         //get usage stats
         getStats();
@@ -217,6 +154,7 @@ $(document).ready(function(){
         getTopItems();
         //ahora se piden los ultimos anuncios publicados
         getLatestItems();
+        hideLoader();
     }
     else if(thisUrl.startsWith('/search/item/')){
         log('search');
@@ -240,6 +178,7 @@ $(document).ready(function(){
             //error in url specification. user error
             showQueryError(query);
         }
+        hideLoader();
     }
     else if(thisUrl === "/new"){
         if(getGoogleUserToken()===undefined){
@@ -261,15 +200,27 @@ $(document).ready(function(){
         
         var time = localDate.getTime();
         $('#anuncio_id').text('#'+time);
+        hideLoader();
     }
     else if(thisUrl === "/explore"){
         //it automatically load the map of your area around
+        hideLoader();
     }
-    else if(thisUrl.indexOf("/explore/")!==-1){
+    else if(thisUrl.indexOf("/explore/")==0){
         //an explore url selected
         //example: /explore/es, /explore/es/place/a-coruna/a-pallota
         //force map to show selected city location.
         var data = parseUrl(thisUrl);
         codeAddress(data);
+        hideLoader();
+    }
+    else if(thisUrl === "/account"){
+        var p = hasGoogleProfile();
+        if(p){
+            hideLoader();
+        }
+    }
+    else if(thisUrl.indexOf("/item/")==0){
+        hideLoader();
     }
 });

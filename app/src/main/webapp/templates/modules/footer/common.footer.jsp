@@ -3,26 +3,42 @@
 
 <footer>
     
-    <style>
-        .footer-ballon-block{
-            padding-top: 3.2rem;
-            padding-bottom: 1.4em;
-            text-align: center;
-            border-bottom: 1px solid #f6f6f6;
-            background-color: lightgray;
-        }
-        .footer-ballon{
-            padding: 0 2rem;
-            line-height: 3.2rem;
-            height: 3.2rem;
-            margin-right: 1.2rem;
-            margin-bottom: 1.2rem;
-            background-color: #bababa;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-        }
-    </style>
+    <div id="loginModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Inicia sesión en anuncius</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Actualmente tenemos los siguientes métodos disponibles:</p>
+                    <div class="centered padding-all-small" id="my-signin2"></div>
+                    <p class="reminder-subtitle">Has perdido tu contraseña? Quieres una nueva cuenta?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-login-btn-close">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="google-block" class="hidden">
+        <!-- Modal -->
+        <div id="googleModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Modal header</h3>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+                <div class="centered" id="my-signin2"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
     
     <nav class="footer-ballon-block">
         <a class="footer-ballon" href="/conditions" title="Condiciones de uso">Condiciones de uso</a>

@@ -128,3 +128,44 @@ h2 {
     font-size: 1.1rem;
     line-height: 2rem;
 }
+
+.visible{
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+.footer-ballon-block{
+    padding-top: 3.2rem;
+    padding-bottom: 1.4em;
+    text-align: center;
+    border-bottom: 1px solid #f6f6f6;
+    background-color: lightgray;
+}
+.footer-ballon{
+    padding: 0 2rem;
+    line-height: 3.2rem;
+    height: 3.2rem;
+    margin-right: 1.2rem;
+    margin-bottom: 1.2rem;
+    background-color: #bababa;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.centered{
+    text-align: -webkit-center;
+    display: table;
+    margin: auto;
+}
+.padding-all-small{
+    padding: 6%;
+}
+.reminder-subtitle{
+    font-size: 9pt;
+    padding-top: 15px;
+    color: gray;
+}
