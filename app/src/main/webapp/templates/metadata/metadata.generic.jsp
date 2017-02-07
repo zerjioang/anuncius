@@ -1,7 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <meta charset="utf-8">
-<link rel="canonical" href=".">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

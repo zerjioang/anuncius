@@ -48,7 +48,6 @@ public class ADCompressResponseFilter implements Filter {
         compressor.setDevelopment(
                 PlatformUtil.isDevelopment()
         );
-        compressor.setDevelopment(false);
         System.out.println("Compression enabled: "+!this.compressor.isDevelopment());
     }
 
