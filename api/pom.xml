@@ -90,13 +90,12 @@
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
-        <!--
+        <!-- needded to transalte java interfaces to json -->
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.25</version>
         </dependency>
-        -->
         
         <!-- json converter for push -->
         <dependency>
