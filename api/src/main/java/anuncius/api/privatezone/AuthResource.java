@@ -5,7 +5,7 @@
  */
 package anuncius.api.privatezone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.api.model.request.LoginRequest;
 import anuncius.api.model.request.LogoutRequest;
 import anuncius.singleton.AnunciusDAO;
@@ -24,7 +24,6 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -49,7 +48,7 @@ import javax.ws.rs.core.MediaType;
 )
 @Api(value="Authorization")
 @Path("private/auth")
-public class AuthResource extends IAnunciusAPI {
+public class AuthResource extends AbstractAnunciusAPI {
     
     @POST
     @Path("/login")

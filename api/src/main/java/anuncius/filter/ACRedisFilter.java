@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 // Implements Filter class
 public class ACRedisFilter implements Filter {
 
-    private static final RedisHandler redis = RedisHandler.getInstance();
+    private static final RedisHandler REDIS = RedisHandler.getInstance();
     
     @Override
     public void init(FilterConfig config) throws ServletException {
@@ -46,8 +46,8 @@ public class ACRedisFilter implements Filter {
     }
 
     private String gotHit(String uriStr) {
-        if(redis!=null){
-            return redis.getSet(uriStr);
+        if(REDIS!=null){
+            return REDIS.getSet(uriStr);
         }
         return null;
     }

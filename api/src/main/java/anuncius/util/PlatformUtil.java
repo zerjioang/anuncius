@@ -35,7 +35,13 @@ public class PlatformUtil {
     private static boolean initValues() {
         if(ENV_VARS!=null && ENV_VARS.get("HOSTNAME")!=null){
             String name = ENV_VARS.get("HOSTNAME");
-            DEVELOPMENT_ENV = name!=null && name.equals("orion");
+            System.out.println("HOST: "+name);
+            DEVELOPMENT_ENV = name!=null && (
+                    name.equals("orion") || name.equals("irontec-dev")
+                    );
+        }
+        else{
+            //DEVELOPMENT_ENV = ENV_VARS.get("APPLICATION_ENV").equals("development");
         }
         return true;
     }

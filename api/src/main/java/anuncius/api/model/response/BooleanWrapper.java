@@ -6,31 +6,26 @@
 package anuncius.api.model.response;
 
 import anuncius.api.base.AbstractResponse;
-import org.bson.Document;
 
 /**
  *
  * @author sanguita
  */
-public class ResponseDocumentWrapper extends AbstractResponse{
+public class BooleanWrapper extends AbstractResponse{
 
-    private Document data;
+    private boolean data;
 
-    public ResponseDocumentWrapper() {
-        this._status_code = "DOC_WRP";
+    public BooleanWrapper(boolean data) {
+        this._status_code = "BOL_WRP";
         this._request_completed = true;
+        this.data = data;
     }
 
-    public ResponseDocumentWrapper(Document document) {
-        this();
-        this.data = document;
-    }
-
-    public Document getData() {
+    public boolean isData() {
         return data;
     }
 
-    public void setData(Document data) {
+    public void setData(boolean data) {
         this.data = data;
-    }
+    }    
 }

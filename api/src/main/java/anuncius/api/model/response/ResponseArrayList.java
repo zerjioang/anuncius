@@ -7,6 +7,7 @@ package anuncius.api.model.response;
 
 import anuncius.api.base.AbstractResponse;
 import java.util.List;
+import org.bson.Document;
 
 /**
  *
@@ -18,6 +19,10 @@ public class ResponseArrayList extends AbstractResponse {
     
     public ResponseArrayList() {
         this._request_completed = true;
+    }
+
+    public ResponseArrayList(List dataList) {
+        this.list = dataList;
     }
 
     public List getList() {

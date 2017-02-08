@@ -5,7 +5,7 @@
  */
 package anuncius.api.privatezone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.request.NewItemRequest;
@@ -58,7 +58,7 @@ import org.bson.Document;
 )
 @Api(value="Advertisement")
 @Path("private/ads")
-public class AdsResource extends IAnunciusAPI{
+public class AdsResource extends AbstractAnunciusAPI{
 
     @Context
     private UriInfo context;
@@ -124,7 +124,7 @@ public class AdsResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    @Path("/read/id/{:.*}/token/{token:.*}")
+    @Path("/read/{id:.*}/{token:.*}")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage read(
         @PathParam("id") int id,
@@ -142,7 +142,7 @@ public class AdsResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    @Path("/delete/id/{id:.*}/token/{token:.*}")
+    @Path("/delete/{id:.*}/{token:.*}")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage delete(
         @PathParam("id") int id,

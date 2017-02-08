@@ -35,7 +35,7 @@ import javax.ws.rs.core.MediaType;
     produces = {"application/json" },
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
-public abstract class IAnunciusAPI {
+public abstract class AbstractAnunciusAPI {
     
     @GET
     @Path("/")

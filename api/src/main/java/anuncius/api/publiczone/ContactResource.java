@@ -5,7 +5,7 @@
  */
 package anuncius.api.publiczone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.request.ContactFormRequest;
@@ -53,7 +53,7 @@ import javax.ws.rs.core.MediaType;
 )
 @Api(value="Contact")
 @Path("public/contact")
-public class ContactResource extends IAnunciusAPI{
+public class ContactResource extends AbstractAnunciusAPI{
 
     @Context
     private UriInfo context;

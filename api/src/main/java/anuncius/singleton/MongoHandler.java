@@ -16,6 +16,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -135,41 +136,76 @@ public final class MongoHandler {
         }
     }
     
+    public Document save(Document d, String collectionName) {
+        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+        d.put("deleted", false);
+        collection.insertOne(d);
+        return d;
+    }
+    
+    public UpdateResult delete(Document filter, Document newValue, String collectionName) {
+        newValue.put("deleted", true);
+        Document updateOperationDocument = new Document("$set", newValue);
+        UpdateResult result = this.getCollection(collectionName).updateMany(filter, updateOperationDocument);
+        return result;
+    }
+    
+    
     public boolean delete(int id, String collectionName) {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
         Document document = new Document();
         document.put("_id", id);
-        DeleteResult result = collection.deleteOne(document);
-        return result.getDeletedCount()>=1;
+        document.put("deleted", true);
+        UpdateResult result = collection.updateOne(document, document);
+        return result.getModifiedCount()>=1;
     }
     
     public Document read(int id, String collectionName) {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
         Document document = new Document();
         document.put("_id", id);
+        document.put("deleted", false);
         ArrayList<Document> result = collection.find(document).limit(1).into(new ArrayList<>());
         if(result!=null && result.size()==1){
             return result.get(0);
         }
         return null;
     }
+    
+    public Document read(Document document, String collectionName) {
+        MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
+        document.put("deleted", false);
+        ArrayList<Document> result = collection.find(document).limit(1).into(new ArrayList<>());
+        if(result!=null && result.size()==1){
+            return result.get(0);
+        }
+        return null;
+    }
+    
 
     public Document update(String id, String collectionName, Document document) {
         //read first, then save
-        Document recoveredDocument = this.read(document.getInteger("_id"), collectionName);
-        return recoveredDocument;
+        Document recoveredDocument = this.read(document, collectionName);
+        if(recoveredDocument!=null){
+            this.update(recoveredDocument, document, collectionName);
+        }
+        return null;
+    }
+    
+    public UpdateResult update(Document filter, Document newValue, String collectionName) {
+        Document updateOperationDocument = new Document("$set", newValue);
+        UpdateResult result = this.getCollection(collectionName).updateMany(filter, updateOperationDocument);
+        return result;
     }
     
     public List<Document> getList(String collectionName, int limit, int sort, Document result, String sortParam) {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
         if(collection!=null){
             FindIterable<Document> iterable;
-            if(result!=null){
-                iterable = collection.find(result);
+            if(result==null){
+                result = new Document();
             }
-            else{
-                iterable = collection.find();
-            }
+            iterable = collection.find(result);
             if(limit > 0){
                 iterable = iterable.limit(limit);
             }
@@ -179,6 +215,10 @@ public final class MongoHandler {
             return iterable.into(new ArrayList<>());
         }
         return new ArrayList<>();
+    }
+    
+    public List<Document> getList(String collectionName, int sort, Document result) {
+        return this.getList(collectionName, 0, sort, result, null);
     }
 
     boolean isUserAlreadyRegistered(String token) {
@@ -193,5 +233,10 @@ public final class MongoHandler {
             }
         }
         return "0";
+    }
+
+    public boolean dropCollection(String collection) {
+        this.getCollection(collection).drop();
+        return true;
     }
 }

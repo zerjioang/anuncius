@@ -61,10 +61,10 @@ $(document).ready(function(){
             enabled: !0
         }
     });
-    
+
     //enable notification
     enableNotifications();
-    
+
     //get source
     var thisUrl = getSourcePath();
 
@@ -77,7 +77,7 @@ $(document).ready(function(){
     else{
         getNavigationLocation();
     }
-    
+
     //mostrar cosas solo si esta logeado
     if(isGoogleProfileInfo()){
         showLoggedUserElementsInView(false);
@@ -85,7 +85,7 @@ $(document).ready(function(){
     else{
         removeLoggedUserElementsFromView(false);
     }
-    
+
     //clean url. remove #href
     var index = thisUrl.indexOf('#');
     if(index!==-1){
@@ -146,7 +146,7 @@ $(document).ready(function(){
         $("#visual-features").imagepicker();
         $("#visual-pay").imagepicker();
         $("#visual-pegi").imagepicker();
-        
+
         var time = localDate.getTime();
         $('#anuncio_id').text('#'+time);
         hideLoader();
@@ -187,6 +187,9 @@ $(document).ready(function(){
         }
     }
     else if(thisUrl.indexOf("/item/")==0){
+        hideLoader();
+    }
+    else{
         hideLoader();
     }
 });
