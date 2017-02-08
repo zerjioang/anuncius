@@ -28,6 +28,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
@@ -63,7 +64,7 @@ public class ContactResource extends IAnunciusAPI{
     public ContactResource() {
     }
     
-    @PUT
+    @POST
     @Path("/subscribe/user")
     @ApiOperation(value = "Add new user to subscrition list via provided email")
     @ApiResponses(value = {
@@ -93,7 +94,7 @@ public class ContactResource extends IAnunciusAPI{
         return response;
     }
     
-    @PUT
+    @POST
     @Path("/team")
     @ApiOperation(value = "Send a message to anuncius kernel team")
     @ApiResponses(value = {

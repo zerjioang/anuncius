@@ -26,9 +26,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import org.bson.Document;
 
@@ -63,7 +61,25 @@ public class WebResource extends IAnunciusAPI{
     public WebResource() {
     }
     
-    @POST
+    @GET
+    @Path("/landing")
+    @ApiOperation(value = "Returns all neccesary information to show landing page properly")
+    @ApiResponses(value = {
+        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),
+        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Endpoint not found"),
+        @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
+        }
+    )
+    @Produces(MediaType.APPLICATION_JSON)
+    public String landing() {
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("best",this.getBest());
+        data.put("latest",this.getLatest());
+        data.put("stats",this.getStats());
+        return PlatformUtil.toJsonString(data);
+    }
+    
+    @GET
     @Path("/stats")
     @Produces(MediaType.APPLICATION_JSON)
     //@Tag(name = "/demo", description = "Demo method for endpoint working test")
@@ -74,12 +90,12 @@ public class WebResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    public String getStats() {
+    public HashMap getStats() {
         HashMap<String, String> data = new HashMap<>();
         data.put("users", AnunciusDAO.getInstance().getUserCount());
         data.put("clients", AnunciusDAO.getInstance().getClientCount());
         data.put("items", AnunciusDAO.getInstance().getItemCount());
-        return PlatformUtil.toJsonString(data);
+        return data;
     }
     
     @GET
@@ -109,7 +125,7 @@ public class WebResource extends IAnunciusAPI{
         }
     )
     @Produces(MediaType.APPLICATION_JSON)
-    public IAPIMessage getTop() {
+    public IAPIMessage getBest() {
         List<Document> itemList = AnunciusDAO.getInstance().getBestItems();
         IAPIMessage response = APIResponse.RETURN_ARRAYLIST.getAPIResponse();
         ((ResponseArrayList)response).setList(itemList);

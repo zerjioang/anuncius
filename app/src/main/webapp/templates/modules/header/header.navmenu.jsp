@@ -30,7 +30,7 @@
             <a href="/account">Mi cuenta</a>
             <ul class="gl-sub-menu">
                 <li>
-                    <a id="btn-dashboard" href="">Panel de control</a>
+                    <a id="a-btn-dashboard" href="/dashboard">Panel de control</a>
                 </li>
             </ul>
         </li>

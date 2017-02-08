@@ -51,7 +51,7 @@ import javax.ws.rs.core.MediaType;
 @Path("private/auth")
 public class AuthResource extends IAnunciusAPI {
     
-    @PUT
+    @POST
     @Path("/login")
     @ApiOperation(value = "Register when a user is logged in after oauth verification")
     @ApiResponses(value = {
@@ -77,7 +77,7 @@ public class AuthResource extends IAnunciusAPI {
         return PlatformUtil.toJsonString(data);
     }
     
-    @PUT
+    @POST
     @ApiOperation(value = "Register when a user is successfully logged out after oauth logged out")
     @ApiResponses(value = {
         @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),

@@ -69,8 +69,8 @@ public class AdsResource extends IAnunciusAPI{
     public AdsResource() {
     }
     
-    @GET
-    @Path("/create")
+    @POST
+    @Path("/new")
     @ApiOperation(value = "Create a new publication")
     @ApiResponses(value = {
         @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Request completed"),

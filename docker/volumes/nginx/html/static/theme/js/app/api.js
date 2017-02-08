@@ -1,4 +1,4 @@
-var host = 'https://api.anunci.us/';
+var host = 'https://api.anunci.us/api/';
 var base = 'v1';
 
 var thisUrl = window.location.href;

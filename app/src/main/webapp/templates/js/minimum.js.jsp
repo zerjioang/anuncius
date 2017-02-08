@@ -10,7 +10,7 @@ if(PlatformUtil.isDevelopment()){
     <%}else{%>
         <script src="/theme/js/vendor/jquery/jquery.min.js"></script>
         
-        <script async src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
+        <script src="/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
         <script async src="/theme/js/vendor/atmosphere/jquery.atmosphere.min.js"></script>
         
         <script src="/theme/js/vendor/bootstrap/3.3.7/bootstrap.min.js"></script>
@@ -45,7 +45,7 @@ if(PlatformUtil.isDevelopment()){
     <%}else{%>        
         <script src="https://static.anunci.us/theme/js/vendor/jquery/jquery.min.js"></script>
 
-        <script async src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
+        <script src="https://static.anunci.us/theme/js/vendor/sweetalert/sweetalert.min.js"></script>
         <script async src="https://static.anunci.us/theme/js/vendor/atmosphere/jquery.atmosphere.min.js"></script>
         
         <script src="https://static.anunci.us/theme/js/vendor/bootstrap/3.3.7/bootstrap.min.js"></script>

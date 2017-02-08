@@ -22,7 +22,7 @@ public class PlatformUtil {
     private static final String DEFAULT_DEVELOPMENT_HOSTNAME = "localhost";
     
     private static final String DEFAULT_DEVELOPMENT_API_PATH = "/v1";
-    private static final String DEFAULT_PRODUCTION_API_PATH = "/v1";
+    private static final String DEFAULT_PRODUCTION_API_PATH = "/api/v1";
     private static final boolean ENABLE_API_HARDENING = false;
     
     private static final String CONTEXT_PATH = "";

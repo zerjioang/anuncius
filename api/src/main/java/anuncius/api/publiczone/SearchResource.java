@@ -6,6 +6,7 @@
 package anuncius.api.publiczone;
 
 import anuncius.api.IAnunciusAPI;
+import anuncius.singleton.AnunciusDAO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -15,6 +16,7 @@ import io.swagger.annotations.Info;
 import io.swagger.annotations.License;
 import io.swagger.annotations.SwaggerDefinition;
 import java.net.HttpURLConnection;
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -22,6 +24,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.bson.Document;
 
 /**
  * REST Web Service
@@ -65,11 +68,11 @@ public class SearchResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    public String searchForItems(
-        @PathParam("query") int query,
-        @PathParam("token") String token
+    public List<Document> searchForItems(
+        @PathParam("query") String query
     ) {
-        return "{}";
+        List<Document> results = AnunciusDAO.getInstance().search(query);
+        return results;
     }
     
     

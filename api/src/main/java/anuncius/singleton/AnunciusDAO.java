@@ -9,9 +9,15 @@ import anuncius.api.model.request.AbstractRequest;
 import anuncius.api.model.request.AbstractRequestList;
 import anuncius.api.model.request.NewItemRequest;
 import anuncius.util.PlatformUtil;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import org.bson.Document;
+import static org.glassfish.hk2.utilities.reflection.Pretty.collection;
 
 /**
  *
@@ -172,5 +178,17 @@ public class AnunciusDAO {
                 request.getCollectionName(),
                 request.convertToMongoObject()
         );
+    }
+
+    public List<Document> search(String query) {
+        Document result = new Document();
+        result.put("deleted", false);
+        MongoCollection collection = this.mongo.getCollection(ADVERTISEMENT_COLLECTION_NAME);
+        
+        BasicDBObject document = new BasicDBObject("$text", 
+                        new BasicDBObject("$search", query)
+                );
+        Collection data = collection.find(document).into(new ArrayList<>());
+        return new ArrayList(data);
     }
 }
