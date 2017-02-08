@@ -33,7 +33,7 @@ if(PlatformUtil.isDevelopment()){
         
         <script src="/theme/js/app/templates.js"></script>
         <script src="/theme/js/app/events.js"></script>
-        
+        <script async src="/theme/js/app/push.js"></script>
         <script async src="/theme/js/app/map.js"></script>
         <%--
         <script async src="/theme/js/app/reverser.js"></script>
@@ -69,7 +69,7 @@ if(PlatformUtil.isDevelopment()){
 
         <script src="https://static.anunci.us/theme/js/app/templates.js"></script>
         <script src="https://static.anunci.us/theme/js/app/events.js"></script>
-        
+        <script async src="https://static.anunci.us/theme/js/app/push.js"></script>
         <script async src="https://static.anunci.us/theme/js/app/map.js"></script>
         <%--
         <script src="https://static.anunci.us/theme/js/app/reverser.js"></script>
@@ -89,3 +89,4 @@ if(PlatformUtil.isDevelopment()){
 </script>
 <!-- atmosphere js -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/atmosphere/2.2.12/atmosphere.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.atmosphere/2.1.2/jquery.atmosphere.js"></script>
