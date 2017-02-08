@@ -7,17 +7,13 @@ package anuncius.singleton;
 
 import anuncius.api.model.request.AbstractRequest;
 import anuncius.api.model.request.AbstractRequestList;
-import anuncius.api.model.request.NewItemRequest;
 import anuncius.util.PlatformUtil;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBCursor;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.bson.Document;
-import static org.glassfish.hk2.utilities.reflection.Pretty.collection;
 
 /**
  *
@@ -143,7 +139,6 @@ public class AnunciusDAO {
 
     public List<Document> getLatestItems() {
         Document result = new Document();
-        result.put("deleted", false);
         List<Document> documentList = this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER, result, "creationDate");
         //todo convert
         /*if(documentList!=null && documentList.size()>0){
@@ -154,11 +149,31 @@ public class AnunciusDAO {
 
     public List<Document> getBestItems() {
         Document result = new Document();
-        result.put("deleted", false);
         List<Document> documentList = this.mongo.getList(ADVERTISEMENT_COLLECTION_NAME, 6, ASCENDING_ORDER, result, "views");
         //todo convert
         return documentList;
     }   
+    
+    public List<Document> getQuestionlist() {
+        Document result = new Document();
+        List<Document> documentList = this.mongo.getList(CONTACT_COLLECTION_NAME, ASCENDING_ORDER, result);
+        //todo convert
+        return documentList;
+    }  
+    
+    public List<Document> getSubscriptionlist() {
+        Document result = new Document();
+        List<Document> documentList = this.mongo.getList(SUBSCRIPTION_COLLECTION_NAME, ASCENDING_ORDER, result);
+        //todo convert
+        return documentList;
+    }  
+    
+    public List<Document> getUserList() {
+        Document result = new Document();
+        List<Document> documentList = this.mongo.getList(AUTH_COLLECTION_NAME, ASCENDING_ORDER, result);
+        //todo convert
+        return documentList;
+    }
 
     public String getUserCount() {
         return this.mongo.countEntries(AUTH_COLLECTION_NAME);
@@ -170,6 +185,18 @@ public class AnunciusDAO {
 
     public String getItemCount() {
         return this.mongo.countEntries(ADVERTISEMENT_COLLECTION_NAME);
+    }
+    
+    public String subscriptionCount() {
+        return this.mongo.countEntries(SUBSCRIPTION_COLLECTION_NAME);
+    }
+    
+    public String questionCount() {
+        return this.mongo.countEntries(CONTACT_COLLECTION_NAME);
+    }
+    
+    public Object usersCount() {
+        return this.mongo.countEntries(AUTH_COLLECTION_NAME);
     }
 
     public Document update(AbstractRequest request) {

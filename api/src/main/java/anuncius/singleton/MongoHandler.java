@@ -16,6 +16,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -139,14 +140,16 @@ public final class MongoHandler {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
         Document document = new Document();
         document.put("_id", id);
-        DeleteResult result = collection.deleteOne(document);
-        return result.getDeletedCount()>=1;
+        document.put("deleted", true);
+        UpdateResult result = collection.updateOne(document, document);
+        return result.getModifiedCount()>=1;
     }
     
     public Document read(int id, String collectionName) {
         MongoCollection<Document> collection = mainDatabase.getCollection(collectionName);
         Document document = new Document();
         document.put("_id", id);
+        document.put("deleted", false);
         ArrayList<Document> result = collection.find(document).limit(1).into(new ArrayList<>());
         if(result!=null && result.size()==1){
             return result.get(0);
@@ -165,6 +168,7 @@ public final class MongoHandler {
         if(collection!=null){
             FindIterable<Document> iterable;
             if(result!=null){
+                result.put("deleted", false);
                 iterable = collection.find(result);
             }
             else{
@@ -179,6 +183,10 @@ public final class MongoHandler {
             return iterable.into(new ArrayList<>());
         }
         return new ArrayList<>();
+    }
+    
+    public List<Document> getList(String collectionName, int sort, Document result) {
+        return this.getList(collectionName, 0, sort, result, null);
     }
 
     boolean isUserAlreadyRegistered(String token) {

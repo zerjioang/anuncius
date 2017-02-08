@@ -124,7 +124,7 @@ public class AdsResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    @Path("/read/id/{:.*}/token/{token:.*}")
+    @Path("/read/{id:.*}/{token:.*}")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage read(
         @PathParam("id") int id,
@@ -142,7 +142,7 @@ public class AdsResource extends IAnunciusAPI{
         @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems")
         }
     )
-    @Path("/delete/id/{id:.*}/token/{token:.*}")
+    @Path("/delete/{id:.*}/{token:.*}")
     @Produces(MediaType.APPLICATION_JSON)
     public IAPIMessage delete(
         @PathParam("id") int id,

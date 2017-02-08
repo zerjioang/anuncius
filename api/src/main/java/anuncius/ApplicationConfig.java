@@ -58,6 +58,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(anuncius.api.privatezone.AdsResource.class);
         resources.add(anuncius.api.privatezone.AuthResource.class);
+        resources.add(anuncius.api.privatezone.ManagementResource.class);
         resources.add(anuncius.api.publiczone.ContactResource.class);
         resources.add(anuncius.api.publiczone.SearchResource.class);
         resources.add(anuncius.api.publiczone.WebResource.class);
