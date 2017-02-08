@@ -5,7 +5,7 @@
  */
 package anuncius.api.publiczone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.response.ResponseArrayList;
@@ -50,7 +50,7 @@ import org.bson.Document;
 )
 @Api(value="Web")
 @Path("/public/show")
-public class WebResource extends IAnunciusAPI{
+public class WebResource extends AbstractAnunciusAPI{
 
     @Context
     private UriInfo context;

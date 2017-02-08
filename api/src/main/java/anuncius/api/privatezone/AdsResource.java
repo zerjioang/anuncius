@@ -5,7 +5,7 @@
  */
 package anuncius.api.privatezone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.api.base.APIResponse;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.request.NewItemRequest;
@@ -58,7 +58,7 @@ import org.bson.Document;
 )
 @Api(value="Advertisement")
 @Path("private/ads")
-public class AdsResource extends IAnunciusAPI{
+public class AdsResource extends AbstractAnunciusAPI{
 
     @Context
     private UriInfo context;

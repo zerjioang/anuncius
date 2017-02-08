@@ -5,7 +5,7 @@
  */
 package anuncius.api.publiczone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.singleton.AnunciusDAO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,7 +46,7 @@ import org.bson.Document;
 )
 @Api(value="Search")
 @Path("public/search")
-public class SearchResource extends IAnunciusAPI{
+public class SearchResource extends AbstractAnunciusAPI{
 
     @Context
     private UriInfo context;

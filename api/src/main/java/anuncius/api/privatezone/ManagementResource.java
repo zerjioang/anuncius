@@ -5,7 +5,7 @@
  */
 package anuncius.api.privatezone;
 
-import anuncius.api.IAnunciusAPI;
+import anuncius.api.AbstractAnunciusAPI;
 import anuncius.api.base.IAPIMessage;
 import anuncius.api.model.request.LoginRequest;
 import anuncius.api.model.request.LogoutRequest;
@@ -57,7 +57,7 @@ import org.bson.Document;
 )
 @Api(value="Management")
 @Path("private/manage")
-public class ManagementResource extends IAnunciusAPI {
+public class ManagementResource extends AbstractAnunciusAPI {
     
     @GET
     @ApiOperation(value = "Obtain an already existing subscription list sent by users via contact form")
