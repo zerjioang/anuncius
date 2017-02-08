@@ -1,8 +1,10 @@
-worker_processes 1;
+worker_processes 4;
 
-events { worker_connections 512; }
+events { worker_connections 1024; }
 
 http {
+
+	server_names_hash_bucket_size 64;
 
 	###########
 	# GENERAL C
@@ -12,8 +14,7 @@ http {
 	include /etc/nginx/mime.types;
 
 	#enable cache
-	proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m max_size=1g
-                 inactive=60m use_temp_path=off;
+	proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m max_size=1g inactive=60m use_temp_path=off;
 	
 	#server load balancer using least connection method
         upstream anuncius_app {
@@ -33,6 +34,7 @@ http {
 
 	#save error logs
 	error_log /nginx_logs/nginx.error.log warn;
+
 	#save access logs
 	access_log /nginx_logs/nginx.access.log compression;
 
@@ -40,21 +42,21 @@ http {
 	# GENERAL HARDENING #
 	#####################
 
-	#include /config/general_hardening.conf;
+	include /config/general_hardening.conf;
 
 	###########
 	# REDIRECTS
 	###########
 
 	#if someone attempts to access using server IP, redirect to domain
-        server {
-                server_name 52.212.54.13;
+	server {
+		server_name 52.212.54.13;
 		return 301 https://anunci.us$request_uri;
-        }
+	}
 
 	#if someones attemps to access to amazon dns, redirect to domain
 	server {
-		server_name ec2-52-212-54-13.eu-west 1.compute.amazonaws.com;
+		server_name ec2-52-212-54-13.eu-west-1.compute.amazonaws.com;
 		return 301 https://anunci.us$request_uri;
 	}
 
@@ -67,33 +69,27 @@ http {
 	}
 
 	# redirect from http://anunci.us to https://anunci.us
-        server {
-                # Redirect any http requests to https
+	server {
+		# Redirect any http requests to https
 		listen 80;
-                server_name anunci.us;
-                return 301 https://anunci.us$request_uri;
-        }
+		server_name anunci.us;
+		return 301 https://anunci.us$request_uri;
+	}
 
 	# redirect from https://www.anunci.us to https://anunci.us
-        server {
-                # Redirect any http requests to https
-                listen 443;
-                server_name www.anunci.us;
-                return 301 https://anunci.us$request_uri;
-        }
+	server {
+		# Redirect any http requests to https
+		listen 443;
+		server_name www.anunci.us;
+		return 301 https://anunci.us$request_uri;
+	}
 
 	###########
 	# SERVICES
 	###########
 
-	server {
-		listen 443;
-		server_name cpanel.anunci.us webmail.anunci.us;
-		return 404;
-	}
-
 	#server: https://anunci.us
-        server {
+	server {
 		listen 443 default http2 ssl;
 		server_name anunci.us;
 
@@ -101,12 +97,15 @@ http {
 		include /config/ssl.conf;
 
 		location /robots.txt {
-                        return 301 https://static.anunci.us$request_uri;
-                }
+			return 301 https://static.anunci.us$request_uri;
+		}
 
 		location /sitemap.xml {
-                        return 301 https://static.anunci.us$request_uri;
-                }
+			return 301 https://static.anunci.us$request_uri;
+		}
+
+		#block unusual request
+		include /config/block.weird.conf;
 
 		location / {
 
@@ -117,7 +116,7 @@ http {
 			gzip_types text/html application/rss+xml;
 
 			#enable cors
-                        include /config/cors.conf;
+			include /config/cors.conf;
 
 			#cache server
 			proxy_cache my_cache;
@@ -137,17 +136,20 @@ http {
         }
 
 	# static.anunci.us
-        server {
-                listen 443 http2 ssl;
-                server_name static.anunci.us;
+	server {
+		listen 443 http2 ssl;
+		server_name static.anunci.us;
+		root /usr/share/nginx/html/;
+
+		#block unusual request
+		include /config/block.weird.conf;
 
 		location / {
-
 			#compression
-                        include /config/compression.conf;
-			
+			include /config/compression.conf;
+
 			#types
-                        gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml  text/javascript application/javascript text/x-js image/png image/jpg image/jpeg image/bmp image/gif;
+			gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml  text/javascript application/javascript text/x-js image/png image/jpg image/jpeg image/bmp image/gif;
 
 			#cache server
 			proxy_cache my_cache;
@@ -156,20 +158,23 @@ http {
 			include /config/cache.conf;
 
 			#enable cors
-                        include /config/cors.conf;
+			include /config/cors.conf;
 
 			#optimize file send
-	
-                        sendfile on;
+
+			sendfile on;
 			sendfile_max_chunk 1m;
 			root /usr/share/nginx/html/static;
-                }
-        }
+		}
+	}
 
 	# api.anunci.us
 	server {
 		listen 443 http2 ssl;
 		server_name api.anunci.us;
+
+		#block unusual request
+		#include /config/block.weird.conf;
 
 		location / {
 
@@ -185,31 +190,54 @@ http {
 	server {
 		listen 443 http2 ssl;
 		server_name swagger.anunci.us;
+		root /usr/share/nginx/html/swagger;
+
+		#block unusual request
+		include /config/block.weird.conf;
+
 		location / {
+			#compression
+			include /config/compression.conf;
+
+			#types
+			gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml  text/javascript application/javascript text/x-js image/png image/jpg image/jpeg image/bmp image/gif;
+
+			#cache server
+			proxy_cache my_cache;
+
+			#cache client
+			include /config/cache.conf;
 			root /usr/share/nginx/html/swagger;
 		}
 	}
 
 	# status.anunci.us
-        server {
+	server {
 		listen 443 http2 ssl;
-                server_name status.anunci.us;
-                location / {
-                        proxy_pass http://anuncius_app/status$request_uri;
-                        proxy_set_header Host status.anunci.us;
-                }
-        }
+		server_name status.anunci.us;
+
+		#block unusual request
+		include /config/block.weird.conf;
+
+		location / {
+			proxy_pass http://anuncius_app/status$request_uri;
+			proxy_set_header Host status.anunci.us;
+		}
+	}
 
 	# dashboard.anunci.us
-        server {
-                listen 443 http2 ssl;
-                server_name dashboard.anunci.us;
+	server {
+		listen 443 http2 ssl;
+		server_name dashboard.anunci.us;
+
+		#block unusual request
+		include /config/block.weird.conf;
+		
 		location / {
 			proxy_pass http://anuncius_app/dashboard$request_uri;
 			proxy_set_header Host dashboard.anunci.us;
 		}
-        }
-
+	}
 
 	##########
 	# UNUSED #
@@ -244,5 +272,4 @@ http {
                         proxy_set_header Host admin.anunci.us;
                 }
         }
-
 }
