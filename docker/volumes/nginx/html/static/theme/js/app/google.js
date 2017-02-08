@@ -70,6 +70,11 @@ function getGoogleProfile(){
     if(googleProfile===undefined){
         googleProfile = localStorage.googleProfile;
     }
+    if(googleProfile!==undefined && googleProfile!=='undefined'){
+        if(typeof googleProfile == "string"){
+            googleProfile = JSON.parse(googleProfile);
+        }
+    }
     return googleProfile;
 }
 
@@ -84,56 +89,4 @@ function getGoogleUserToken() {
 
 function hasGoogleProfile(){
     return getGoogleUserToken()!==undefined;
-}
-
-//ajax
-
-function notifySignIn(){
-    var onSuccess = function (data, textStatus, jqXHR) {              
-        if(data!==undefined){
-        }
-    };
-
-    var onError = function (jqXHR, textStatus, errorThrown) {
-        if(textStatus!==undefined && textStatus!==errorThrown){
-        }
-    };
-    
-    var p = getGoogleProfile();
-    if(p!==undefined){
-        p = JSON.parse(p);
-        var payload = {
-            "id" : p.id,
-            "fullname" : p.full_name,
-            "givenname" : p.given_name,
-            "familiyname" : p.family_name,
-            "image" : p.image,
-            "email" : p.email,
-            /*"token" : p.getAuthResponse().id_token, this is not a function*/
-        };
-        contactAPIviaPOST('/auth/login', payload, onSuccess, onError);
-    }
-}
-
-function notifySignOut(){
-    var onSuccess = function (data, textStatus, jqXHR) {              
-        if(data!==undefined){
-        }
-    };
-
-    var onError = function (jqXHR, textStatus, errorThrown) {
-        if(textStatus!==undefined && textStatus!==errorThrown){
-        }
-    };
-    
-    var p = getGoogleProfile();
-    if(p!==undefined){
-        p = JSON.parse(p);
-        var payload = {
-            "id" : p.id,
-            "token" : p.id,
-            /*"token" : p.getAuthResponse().id_token, this is not a function*/
-        };
-        contactAPIviaPOST('/auth/logout', payload, onSuccess, onError);
-    }
 }

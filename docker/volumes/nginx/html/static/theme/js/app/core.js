@@ -133,84 +133,6 @@ function validateQuery() {
     }
 }
 
-function doQuery(query) {
-    //encode uri
-    query = escape(query);
-    query = encodeURI(query);
-    //redirect
-    window.location.replace("/search/item/"+query+"&utm_source=webapp");
-}
-
-function getLatestItems(){
-    var onSuccess = function (data, textStatus, jqXHR) {
-        if(data!==undefined){
-            var latestItemList = data;
-            //set status of the block depending on the data we have
-            if(latestItemList!==undefined 
-                && data.request_completed == true
-                && latestItemList.list!==undefined
-                && latestItemList.list.length>0){
-                var destDiv = $('#listing_elements_block');
-                for (var i = 0; i<latestItemList.list.length; i++) {
-                    var data = latestItemList.list[i];
-                    var html = Mustache.to_html(item_template, data);
-                    destDiv.append(html);
-                }
-                $('#feed-them-all').hide();
-                $('#latest-items-section').show();
-            }
-            else{
-                $('#feed-them-all').show();
-                $('#latest-items-section').hide();
-            }
-        }
-    };
-
-    var onError = function (jqXHR, textStatus, errorThrown) {
-        if(textStatus!==undefined && textStatus!==errorThrown){
-            //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
-        }
-    };
-
-    var payload = {};
-    contactAPIviaPOST('/ads/list/latest', payload, onSuccess, onError);
-}
-
-function getTopItems(){
-    var onSuccess = function (data, textStatus, jqXHR) {              
-        if(data!==undefined){
-            var featuredList = data;
-            if(featuredList!==undefined 
-                && data.request_completed == true
-                && featuredList.list!==undefined
-                && featuredList.list.length>0){
-                //render on screen
-                var destDiv = $('#featured_elements_block');
-                for (var i = 0; i<featuredList.list.length; i++) {
-                    var data = featuredList.list[i];
-                    var html = Mustache.to_html(item_template, data);
-                    destDiv.append(html);
-                }
-                $('#container-with-featured-items').show();
-                $('#container-without-featured-items').hide();
-            }
-            else{
-                $('#container-with-featured-items').hide();
-                $('#container-without-featured-items').show();
-            }
-        }
-    };
-
-    var onError = function (jqXHR, textStatus, errorThrown) {
-        if(textStatus!==undefined && textStatus!==errorThrown){
-            //swal("Ups!", "Ocurrió un error al procesar la solicitud. Por favor, intentelo más tarde", "error");
-        }
-    };
-
-    var payload = {};
-    contactAPIviaPOST('/ads/list/best', payload, onSuccess, onError);
-}
-
 function getStats(){
     var onSuccess = function (data, textStatus, jqXHR) {              
         if(data!==undefined){
@@ -229,6 +151,58 @@ function getStats(){
     var payload = {};
     contactAPIviaPOST('/search/stats', payload, onSuccess, onError);
 }
+
+function processBest(data){
+    var featuredList = data;
+    if(featuredList!==undefined 
+        && data.request_completed == true
+        && featuredList.list!==undefined
+        && featuredList.list.length>0){
+        //render on screen
+        var destDiv = $('#featured_elements_block');
+        for (var i = 0; i<featuredList.list.length; i++) {
+            var data = featuredList.list[i];
+            var html = Mustache.to_html(item_template, data);
+            destDiv.append(html);
+        }
+        $('#container-with-featured-items').show();
+        $('#container-without-featured-items').hide();
+    }
+    else{
+        $('#container-with-featured-items').hide();
+        $('#container-without-featured-items').show();
+    }
+}
+
+function processLatest(data){
+    var latestItemList = data;
+    //set status of the block depending on the data we have
+    if(latestItemList!==undefined 
+        && data.request_completed == true
+        && latestItemList.list!==undefined
+        && latestItemList.list.length>0){
+        var destDiv = $('#listing_elements_block');
+        for (var i = 0; i<latestItemList.list.length; i++) {
+            var data = latestItemList.list[i];
+            var html = Mustache.to_html(item_template, data);
+            destDiv.append(html);
+        }
+        $('#feed-them-all').hide();
+        $('#latest-items-section').show();
+    }
+    else{
+        $('#feed-them-all').show();
+        $('#latest-items-section').hide();
+    }
+}
+
+function processStats(data) {
+    $('#num_clientes_actuales').text(data.clients);
+    $('#num_prod_actuales').text(data.items);
+    $('#num_usuarios').text(data.users);
+}
+
+
 
 function getSourcePath() {
     var thisUrl = window.location.href;
@@ -405,4 +379,15 @@ function showQueryError(query){
 function hideLoader(){
     //hide loader
     $('#gl-circle-loader-wrapper').fadeOut('slow');
+}
+
+function loadDashboard() {
+    var profile = getGoogleProfile();
+    if(profile!==undefined){
+        //full
+        $('.full-username').text(profile.full_name);
+        $('.given-username').text(profile.given_name);
+        $('.user-email').text(profile.email);
+        $('.userimage').attr("src", profile.image);
+    }
 }

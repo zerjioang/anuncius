@@ -15,21 +15,6 @@ $("#btn-dashboard").on("click", function (event) {
     }
 });
 
-//subscribe button event
-$("#btn-suscribe-form").on("click", function (event) {
-    event.preventDefault();
-
-    var onSuccess = function (data, textStatus, jqXHR) {
-        showAutomaticApiResponseDialog(data);
-    };
-
-    var payload = {
-        'email': $("#subscription-form-email").val()
-    };
-
-    contactAPIviaPOST('/contact/subscribe/user', payload, onSuccess, onError);
-});
-
 //footer info a link event
 $("#modal-trigger").on("click", function (event) {
     event.preventDefault();
@@ -49,38 +34,6 @@ $("#modal-trigger").on("click", function (event) {
 $("#search-form").submit(function( event ) {
     event.preventDefault();
     validateQuery(query);
-});
-
-//search button event
-$("#btn-search-form").on("click", function (event) {
-    event.preventDefault();
-
-    var onSuccess = function (data, textStatus, jqXHR) {
-        alert('success');
-    };
-
-    var payload = {
-        'item': $("#search_box_item").val()
-    };
-
-    contactAPIviaGET('/search', payload, onSuccess, onError);
-});
-
-//PUBLISH FORM
-//publish button event
-$("#btn-publish-form").on("click", function (event) {
-    event.preventDefault();
-
-    var onSuccess = function (data, textStatus, jqXHR) {
-        var callback = function (){
-            alert('hi');
-        }
-        showAutomaticApiResponseDialog(data, callback);
-    };
-
-    var payload = getFormDataAsJson($('#publish-form')[0]);
-
-    contactAPIviaPOST('/ads/new', payload, onSuccess, onError);
 });
 
 //SEARCH FORM
@@ -149,11 +102,7 @@ $(document).ready(function(){
         $('#feed-them-all').show();
 
         //get usage stats
-        getStats();
-        //ahora se piden los anuncios destacados
-        getTopItems();
-        //ahora se piden los ultimos anuncios publicados
-        getLatestItems();
+        getLandingInfo();
         hideLoader();
     }
     else if(thisUrl.startsWith('/search/item/')){
@@ -181,7 +130,7 @@ $(document).ready(function(){
         hideLoader();
     }
     else if(thisUrl === "/new"){
-        if(getGoogleUserToken()===undefined){
+        if(!hasGoogleProfile()){
             //user is not registered. show notification
             showNotification(
                 "Inicia sesion",
@@ -218,6 +167,23 @@ $(document).ready(function(){
         var p = hasGoogleProfile();
         if(p){
             hideLoader();
+        }
+    }
+    else if(thisUrl === "/dashboard"){
+        if(hasGoogleProfile()){
+            loadDashboard();
+            hideLoader();
+        }
+        else{
+            //remove page content
+            $('body').html('');
+            swal({
+                title: "Acceso restringido",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Aceptar",
+                text: "Sólo se permite acceso a usuarios registrados",
+                type: "error"
+            });
         }
     }
     else if(thisUrl.indexOf("/item/")==0){
