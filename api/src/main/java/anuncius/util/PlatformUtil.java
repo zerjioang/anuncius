@@ -41,7 +41,7 @@ public class PlatformUtil {
                     );
         }
         else{
-            DEVELOPMENT_ENV = ENV_VARS.get("APPLICATION_ENV").equals("development");
+            //DEVELOPMENT_ENV = ENV_VARS.get("APPLICATION_ENV").equals("development");
         }
         return true;
     }

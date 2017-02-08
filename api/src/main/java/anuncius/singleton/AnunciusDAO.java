@@ -80,6 +80,16 @@ public class AnunciusDAO {
     }
     
     /*
+    Save one item
+    */
+    public Document save(Document d, String collection) {
+        if(d!=null && collection!=null){
+            return this.mongo.save(d, collection);
+        }
+        return null;
+    }
+    
+    /*
     Save many items
     */
     public boolean save(AbstractRequestList requestList) {
@@ -90,6 +100,16 @@ public class AnunciusDAO {
             return true;
         }
         return false;
+    }
+    
+    /*
+    Generic save based on Documemt
+    */
+    public Document read(Document d, String collectionName) {
+        if(collectionName!=null && d!=null){
+            return mongo.save(d, collectionName);
+        }
+        return null;
     }
     
     /*
@@ -122,6 +142,14 @@ public class AnunciusDAO {
         return false;
     }
     
+    public boolean delete(Document d, String collectionName) {
+        if(collectionName!=null && d!=null){
+            return mongo.delete(d, d, collectionName).getMatchedCount()>=0;
+        }
+        return false;
+    }
+    
+    
     public void createInitialSchema() {
         if(!mongo.isConnected()){
             mongo.connectToDatabase();
@@ -145,6 +173,10 @@ public class AnunciusDAO {
             list = NewItemRequest.parse(documentList);
         }*/
         return documentList;
+    }
+    
+    public List<Document> getList(String collection) {
+        return this.mongo.getList(collection, ASCENDING_ORDER, null);
     }
 
     public List<Document> getBestItems() {
@@ -217,5 +249,24 @@ public class AnunciusDAO {
                 );
         Collection data = collection.find(document).into(new ArrayList<>());
         return new ArrayList(data);
+    }
+
+    public long count(String collection) {
+        return this.mongo.getCollection(collection).count();
+    }
+
+    public boolean dropCollection(String collection) {
+        if(collection!=null){
+            return this.mongo.dropCollection(collection);
+        }
+        return false;
+    }
+
+    public boolean update(Document old, Document newDoc, String collection) {
+        return this.mongo.update(old, newDoc, collection)!=null;
+    }
+
+    public List<Document> find(Document doc, String collection) {
+        return this.mongo.getList(collection, ASCENDING_ORDER, doc);
     }
 }
