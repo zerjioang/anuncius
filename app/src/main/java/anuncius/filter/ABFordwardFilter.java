@@ -13,9 +13,11 @@ import javax.servlet.http.*;
 // Implements Filter class
 public class ABFordwardFilter implements Filter {
     
+    @Override
     public void init(FilterConfig config) throws ServletException {
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -46,7 +48,7 @@ public class ABFordwardFilter implements Filter {
                 //enable redirects for opensearch queries
                 return "/view/explore.jsp";
             }
-            else if(uriStr.startsWith("/explore/")){
+            else if(uriStr.equals("/explore") || uriStr.startsWith("/explore/")){
                 return "/view/explore.jsp";
             }
             else if(uriStr.equals("/new")){

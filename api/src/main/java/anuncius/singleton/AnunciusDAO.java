@@ -18,8 +18,7 @@ import org.bson.Document;
  */
 public class AnunciusDAO {
 
-    
-    private static AnunciusDAO instance;
+    private static final AnunciusDAO instance = new AnunciusDAO();
     
     public final static String APP_DATABASE = "anuncius";
     public final static String AUTH_COLLECTION_NAME = "auth";
@@ -43,9 +42,6 @@ public class AnunciusDAO {
     }
     
     public static AnunciusDAO getInstance() {
-        if(instance==null){
-            instance = new AnunciusDAO();
-        }
         return instance;
     }
     

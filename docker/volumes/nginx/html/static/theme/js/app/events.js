@@ -234,9 +234,11 @@ $(document).ready(function(){
             if(secureString(query)){
                 document.title = 'Resultados de '+query;
             }
+            showQueryResults(query);
         }
         else{
             //error in url specification. user error
+            showQueryError(query);
         }
     }
     else if(thisUrl === "/new"){
@@ -259,5 +261,15 @@ $(document).ready(function(){
         
         var time = localDate.getTime();
         $('#anuncio_id').text('#'+time);
+    }
+    else if(thisUrl === "/explore"){
+        //it automatically load the map of your area around
+    }
+    else if(thisUrl.indexOf("/explore/")!==-1){
+        //an explore url selected
+        //example: /explore/es, /explore/es/place/a-coruna/a-pallota
+        //force map to show selected city location.
+        var data = parseUrl(thisUrl);
+        codeAddress(data);
     }
 });
